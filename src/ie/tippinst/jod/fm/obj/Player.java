@@ -23,7 +23,7 @@ public class Player extends Person {
 	private int strikerAbility;
 	private Injury injury;
 	
-	public Player(String firstName, String lastName, Nation nationality,
+	public Player(int id, String firstName, String lastName, Nation nationality,
 			double wages, int reputation, Date dob, int currentAbility,
 			int potentialAbility, Date contractExpiry, Club currentClub,
 			double marketValue, double saleValue, int intCaps, int intGoals,
@@ -33,7 +33,7 @@ public class Player extends Person {
 			int centrebackAbility, int rightMidfieldAbility,
 			int leftMidfieldAbility, int centreMidfieldAbility,
 			int strikerAbility, Injury injury) {
-		super(firstName, lastName, nationality, wages, reputation, dob,
+		super(id, firstName, lastName, nationality, wages, reputation, dob,
 				currentAbility, potentialAbility, contractExpiry, currentClub);
 		this.marketValue = marketValue;
 		this.saleValue = saleValue;
@@ -53,6 +53,23 @@ public class Player extends Person {
 		this.centreMidfieldAbility = centreMidfieldAbility;
 		this.strikerAbility = strikerAbility;
 		this.injury = injury;
+	}
+
+	public String returnString() {
+		return toString() + "Player [centreMidfieldAbility=" + centreMidfieldAbility
+				+ ", centrebackAbility=" + centrebackAbility + ", fitness="
+				+ fitness + ", goalkeepingAbility=" + goalkeepingAbility
+				+ ", happinessAtClub=" + happinessAtClub + ", injury=" + injury
+				+ ", intCaps=" + intCaps + ", intGoals=" + intGoals
+				+ ", leftFootAbility=" + leftFootAbility
+				+ ", leftFullbackAbility=" + leftFullbackAbility
+				+ ", leftMidfieldAbility=" + leftMidfieldAbility
+				+ ", marketValue=" + marketValue + ", morale=" + morale
+				+ ", rightFootAbility=" + rightFootAbility
+				+ ", rightFullbackAbility=" + rightFullbackAbility
+				+ ", rightMidfieldAbility=" + rightMidfieldAbility
+				+ ", saleValue=" + saleValue + ", strikerAbility="
+				+ strikerAbility + "]";
 	}
 	
 	

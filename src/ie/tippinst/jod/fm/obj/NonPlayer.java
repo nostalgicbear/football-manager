@@ -11,12 +11,12 @@ public class NonPlayer extends Person {
 	private int physioRole;
 	private int scoutRole;
 	
-	public NonPlayer(String firstName, String lastName, Nation nationality,
+	public NonPlayer(int id, String firstName, String lastName, Nation nationality,
 			double wages, int reputation, Date dob, int currentAbility,
 			int potentialAbility, Date contractExpiry, Club currentClub,
 			int chairmanRole, int managerRole, int assistantManagerRole,
 			int coachRole, int physioRole, int scoutRole) {
-		super(firstName, lastName, nationality, wages, reputation, dob,
+		super(id, firstName, lastName, nationality, wages, reputation, dob,
 				currentAbility, potentialAbility, contractExpiry, currentClub);
 		this.chairmanRole = chairmanRole;
 		this.managerRole = managerRole;

@@ -2,7 +2,7 @@ package ie.tippinst.jod.fm.obj;
 
 import java.util.Date;
 
-abstract class Person {
+public abstract class Person {
 	
 	private int id;
 	private String firstName;
@@ -16,10 +16,11 @@ abstract class Person {
 	private Date contractExpiry;
 	private Club currentClub;
 	
-	protected Person(String firstName, String lastName, Nation nationality, double wages,
+	protected Person(int id, String firstName, String lastName, Nation nationality, double wages,
 			int reputation, Date dob, int currentAbility, int potentialAbility,
 			Date contractExpiry, Club currentClub) {
 		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.nationality = nationality;
@@ -30,6 +31,16 @@ abstract class Person {
 		this.potentialAbility = potentialAbility;
 		this.contractExpiry = contractExpiry;
 		this.currentClub = currentClub;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [contractExpiry=" + contractExpiry + ", currentAbility="
+				+ currentAbility + ", currentClub=" + currentClub + ", dob="
+				+ dob + ", firstName=" + firstName + ", id=" + id
+				+ ", lastName=" + lastName + ", nationality=" + nationality
+				+ ", potentialAbility=" + potentialAbility + ", reputation="
+				+ reputation + ", wages=" + wages + "]";
 	}
 
 }
