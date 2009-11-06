@@ -1,12 +1,12 @@
 package ie.tippinst.jod.fm.app;
 
-import ie.tippinst.jod.fm.obj.Club;
-import ie.tippinst.jod.fm.obj.Injury;
-import ie.tippinst.jod.fm.obj.Nation;
-import ie.tippinst.jod.fm.obj.NonPlayer;
-import ie.tippinst.jod.fm.obj.Person;
-import ie.tippinst.jod.fm.obj.Player;
-import ie.tippinst.jod.fm.obj.Stadium;
+import ie.tippinst.jod.fm.model.Club;
+import ie.tippinst.jod.fm.model.Injury;
+import ie.tippinst.jod.fm.model.Nation;
+import ie.tippinst.jod.fm.model.NonPlayer;
+import ie.tippinst.jod.fm.model.Person;
+import ie.tippinst.jod.fm.model.Player;
+import ie.tippinst.jod.fm.model.Stadium;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,11 +18,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-
-public class TestGame {
-
-	public static void main(String[] args) {
-		
+public class Game {
+	
+	public void loadDatabase(){
 		// Lists used to store all objects
 		List<Person> personList = new ArrayList<Person>();
 		List<Nation> nationList = new ArrayList<Nation>();
@@ -181,7 +179,13 @@ public class TestGame {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
+
+	/*public NonPlayer createNewUser() {
+		NonPlayer user = new NonPlayer("Joseph", "O'Donoghue", new Nation(), 5000, new Date(), 100, 200, 1, 20, 1, 1, 1, 1));
+		return null;
+		
+		
+	}*/
 
 }
