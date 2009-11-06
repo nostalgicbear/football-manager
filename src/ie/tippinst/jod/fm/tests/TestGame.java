@@ -1,6 +1,6 @@
 package ie.tippinst.jod.fm.tests;
 
-import ie.tippinst.jod.gui.MainScreen;
+import ie.tippinst.jod.fm.gui.MainScreen;
 
 public class TestGame {
 
