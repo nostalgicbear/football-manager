@@ -20,13 +20,29 @@ import java.util.List;
 
 public class Game {
 	
+	private List<Person> personList;
+	private List<Nation> nationList;
+	private List<Club> clubList;
+	private List<Stadium> stadiumList;
+	private List<Injury> injuryList;
+	private static Game game = null;
+	
+	private Game(){
+	}
+	
+	public static Game getInstance(){
+		if(game == null)
+			game = new Game();
+		return game;
+	}
+	
 	public void loadDatabase(){
 		// Lists used to store all objects
-		List<Person> personList = new ArrayList<Person>();
-		List<Nation> nationList = new ArrayList<Nation>();
-		List<Club> clubList = new ArrayList<Club>();
-		List<Stadium> stadiumList = new ArrayList<Stadium>();
-		List<Injury> injuryList = new ArrayList<Injury>();
+		personList = new ArrayList<Person>();
+		nationList = new ArrayList<Nation>();
+		clubList = new ArrayList<Club>();
+		stadiumList = new ArrayList<Stadium>();
+		injuryList = new ArrayList<Injury>();
 		
 		// Temporary variables to store references
 		Nation personNationality = null;
@@ -181,11 +197,60 @@ public class Game {
 		}
 	}
 
-	/*public NonPlayer createNewUser() {
-		NonPlayer user = new NonPlayer("Joseph", "O'Donoghue", new Nation(), 5000, new Date(), 100, 200, 1, 20, 1, 1, 1, 1));
-		return null;
-		
-		
-	}*/
+	public List<Person> getPersonList() {
+		return personList;
+	}
 
+	public List<Nation> getNationList() {
+		return this.nationList;
+	}
+
+	public List<Club> getClubList() {
+		return clubList;
+	}
+
+	public List<Stadium> getStadiumList() {
+		return stadiumList;
+	}
+
+	public List<Injury> getInjuryList() {
+		return injuryList;
+	}
+	
+	public List<String> getNationNames(){
+		List<String> listOfNames = new ArrayList<String>();
+		List<Nation> list = getNationList();
+		Iterator<Nation> i = list.iterator();
+		while(i.hasNext()){
+			listOfNames.add(i.next().getName());
+		}
+		return listOfNames;
+	}
+
+	public void createNewUser(String firstName, String surname, Date dob, String nationality, String club) {
+		List<Nation> nationList = getNationList();
+		Iterator<Nation> iNation = nationList.iterator();
+		Nation nation = null;
+		while(iNation.hasNext()){
+			nation = iNation.next();
+			if(nation.getName().equals(nationality)){
+				break;
+			}
+		}
+		List<Club> clubList = getClubList();
+		Iterator<Club> iClub = clubList.iterator();
+		Club userClub = null;
+		while(iClub.hasNext()){
+			userClub = iClub.next();
+			if(userClub.getName().equals(club)){
+				break;
+			}
+		}
+		NonPlayer user = new NonPlayer(firstName, surname, nation, 5000, new Date(), 100, 200, 1, 20, 1, 1, 1, 1, userClub);
+		getPersonList().add(user);
+		System.out.println(user);
+		
+	}
+
+	
 }

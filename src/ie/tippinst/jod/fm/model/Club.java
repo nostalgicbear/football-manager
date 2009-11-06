@@ -29,6 +29,18 @@ public class Club {
 		return id;
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return "Club [bankBalance=" + bankBalance + ", homeGround="
+				+ homeGround + ", id=" + id + ", name=" + name
+				+ ", nationality=" + nationality + ", reputation=" + reputation
+				+ "]";
+	}
+	
 	
 
 }

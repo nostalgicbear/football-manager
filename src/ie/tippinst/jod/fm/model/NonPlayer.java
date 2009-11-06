@@ -28,9 +28,9 @@ public class NonPlayer extends Person {
 
 	public NonPlayer(String firstName, String lastName, Nation nationality, int reputation,
 			Date dob, int currentAbility, int potentialAbility, int chairmanRole, int managerRole,
-			int assistantManagerRole, int coachRole, int physioRole, int scoutRole) {
+			int assistantManagerRole, int coachRole, int physioRole, int scoutRole, Club currentClub) {
 		super(firstName, lastName, nationality, reputation, dob,
-				currentAbility, potentialAbility);
+				currentAbility, potentialAbility, currentClub);
 		this.chairmanRole = chairmanRole;
 		this.managerRole = managerRole;
 		this.assistantManagerRole = assistantManagerRole;

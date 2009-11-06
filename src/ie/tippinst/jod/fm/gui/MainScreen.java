@@ -13,39 +13,58 @@ public class MainScreen extends JFrame {
 	
 	private static final long serialVersionUID = -3630689263806675808L;
 	private JButton newGame;
-	private JButton newUser;
+	private JButton loadGame;
+	private JButton quitGame;
 	private Game game;
 	
 	public MainScreen(){
 		super("Football Manager");
-		game = new Game();
+		game = game.getInstance();
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		newGame = new JButton("Start New Game");
-		newUser = new JButton("Create New User");
+		loadGame = new JButton("Load Game");
+		quitGame = new JButton("Quit Game");
 		this.setLayout(new FlowLayout());
 		this.getContentPane().add(newGame);
-		this.getContentPane().add(newUser);
-		this.setSize(300,300);
+		this.getContentPane().add(loadGame);
+		this.getContentPane().add(quitGame);
+		this.pack();
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		
 		newGame.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				game.loadDatabase();
-				System.out.println("Database loaded");
+				startNewGame(e);
 			}
 			
 		});
 		
-		/*newUser.addActionListener(new ActionListener() {
+		loadGame.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				game.createNewUser();
-				System.out.println("New User created");
+				//TODO: Load Game Behaviour
 			}
 			
-		});*/
+		});
+		
+		quitGame.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(getDefaultCloseOperation());
+			}
+			
+		});
+	}
+	
+	private void startNewGame(ActionEvent ae){
+		game.loadDatabase();
+		NewUserScreen ns = new NewUserScreen();
+		ns.setVisible(true);
+		this.setVisible(false);
 	}
 	
 	

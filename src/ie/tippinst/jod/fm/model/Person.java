@@ -34,7 +34,7 @@ public abstract class Person {
 	}
 
 	public Person(String firstName, String lastName, Nation nationality,
-			int reputation, Date dob, int currentAbility, int potentialAbility) {
+			int reputation, Date dob, int currentAbility, int potentialAbility, Club currentClub) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -43,6 +43,7 @@ public abstract class Person {
 		this.dob = dob;
 		this.currentAbility = currentAbility;
 		this.potentialAbility = potentialAbility;
+		this.currentClub = currentClub;
 	}
 
 

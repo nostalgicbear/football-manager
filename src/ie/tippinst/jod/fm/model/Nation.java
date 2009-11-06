@@ -10,6 +10,13 @@ public class Nation {
 	private List<Player> squad;
 	private List<NonPlayer> staff;
 	
+	
+	
+	public Nation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Nation(int id, String name, int worldRankingPoints,
 			List<Player> squad, List<NonPlayer> staff) {
 		super();
@@ -37,7 +44,9 @@ public class Nation {
 		return id;
 	}
 	
-	
+	public String getName(){
+		return name;
+	}
 	
 	
 }
