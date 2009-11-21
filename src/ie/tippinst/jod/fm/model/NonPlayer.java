@@ -1,8 +1,9 @@
 package ie.tippinst.jod.fm.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class NonPlayer extends Person {
+public class NonPlayer extends Person implements Serializable {
 	
 	private int chairmanRole;
 	private int managerRole;
@@ -10,6 +11,10 @@ public class NonPlayer extends Person {
 	private int coachRole;
 	private int physioRole;
 	private int scoutRole;
+	
+	public NonPlayer(){
+		super();
+	}
 	
 	public NonPlayer(int id, String firstName, String lastName, Nation nationality,
 			double wages, int reputation, Date dob, int currentAbility,

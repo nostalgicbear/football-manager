@@ -1,8 +1,9 @@
 package ie.tippinst.jod.fm.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Club {
+public class Club implements Serializable {
 	
 	private int id;
 	private String name;
@@ -13,6 +14,10 @@ public class Club {
 	private double bankBalance;
 	private Stadium homeGround;
 	private Nation nationality;
+	
+	public Club(){
+		super();
+	}
 	
 	public Club(int id, String name, int reputation, double bankBalance,
 			Stadium homeGround, Nation nationality) {
@@ -48,6 +53,63 @@ public class Club {
 	public List<NonPlayer> getStaff() {
 		return staff;
 	}
+
+	public List<Player> getSquad() {
+		return squad;
+	}
+
+	public void setSquad(List<Player> squad) {
+		this.squad = squad;
+	}
+
+	public int getReputation() {
+		return reputation;
+	}
+
+	public void setReputation(int reputation) {
+		this.reputation = reputation;
+	}
+
+	public List<Club> getRivals() {
+		return rivals;
+	}
+
+	public void setRivals(List<Club> rivals) {
+		this.rivals = rivals;
+	}
+
+	public double getBankBalance() {
+		return bankBalance;
+	}
+
+	public void setBankBalance(double bankBalance) {
+		this.bankBalance = bankBalance;
+	}
+
+	public Stadium getHomeGround() {
+		return homeGround;
+	}
+
+	public void setHomeGround(Stadium homeGround) {
+		this.homeGround = homeGround;
+	}
+
+	public Nation getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(Nation nationality) {
+		this.nationality = nationality;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 	
 

@@ -8,6 +8,11 @@ import ie.tippinst.jod.fm.model.Person;
 import ie.tippinst.jod.fm.model.Player;
 import ie.tippinst.jod.fm.model.Stadium;
 
+import java.beans.XMLDecoder;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -52,29 +57,138 @@ public class Game {
 		Injury playerInjury = null;
 		
 		// Iterator references used when processing each list of objects
-		Iterator<Stadium> iStadium;
-		Iterator<Club> iClub;
-		Iterator<Injury> iInjury;
-		Iterator<Nation> iNation;
+		XMLDecoder decoder = null;
 		
-		/*File file = new File("stadium.xml");
+		File file = new File("stadium.xml");
 		try {
 			FileInputStream fos = new FileInputStream(file);
 			BufferedInputStream bos = new BufferedInputStream(fos);
-			XMLDecoder decoder = new XMLDecoder(bos);
-			do{
-				stadiumList.add((Stadium)decoder.readObject());
-			}while(stadiumList.size() < 2);
+			decoder = new XMLDecoder(bos);
+			while(true)
+				try{
+					stadiumList.add((Stadium) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} finally{
+			decoder.close();
+		}
+		
+		file = new File("injury.xml");
+		try {
+			FileInputStream fos = new FileInputStream(file);
+			BufferedInputStream bos = new BufferedInputStream(fos);
+			decoder = new XMLDecoder(bos);
+			while(true)
+				try{
+					injuryList.add((Injury) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			decoder.close();
 		}
 		
 		Iterator<Stadium> iStadium = stadiumList.iterator();
 		while(iStadium.hasNext()){
 			System.out.println(iStadium.next());
+		}
+		
+		Iterator<Injury> iInjury = injuryList.iterator();
+		while(iInjury.hasNext()){
+			System.out.println(iInjury.next());
+		}
+		
+		file = new File("club.xml");
+		try {
+			FileInputStream fos = new FileInputStream(file);
+			BufferedInputStream bos = new BufferedInputStream(fos);
+			decoder = new XMLDecoder(bos);
+			while(true){
+				try{
+					clubList.add((Club) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			decoder.close();
+		}
+		
+		Iterator<Club> iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			System.out.println(iClub.next());
+		}
+		
+		file = new File("nation.xml");
+		try {
+			FileInputStream fos = new FileInputStream(file);
+			BufferedInputStream bos = new BufferedInputStream(fos);
+			decoder = new XMLDecoder(bos);
+			while(true)
+				try{
+					nationList.add((Nation) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			decoder.close();
+		}
+		
+		Iterator<Nation> iNation = nationList.iterator();
+		while(iNation.hasNext()){
+			System.out.println(iNation.next());
+		}
+		
+		file = new File("player.xml");
+		try {
+			FileInputStream fos = new FileInputStream(file);
+			BufferedInputStream bos = new BufferedInputStream(fos);
+			decoder = new XMLDecoder(bos);
+			while(true)
+				try{
+					personList.add((Person) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			decoder.close();
+		}
+		
+		file = new File("nonplayer.xml");
+		try {
+			FileInputStream fos = new FileInputStream(file);
+			BufferedInputStream bos = new BufferedInputStream(fos);
+			decoder = new XMLDecoder(bos);
+			while(true)
+				try{
+					personList.add((Person) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			decoder.close();
+		}
+		
+		//System.out.println(stadiumList.size());
+		/*Iterator<Stadium> iStadium = stadiumList.iterator();
+		while(iStadium.hasNext()){
+			System.out.println(iStadium.next());
 		}*/
 		
-		try {
+		/*try {
 			Class.forName("org.gjt.mm.mysql.Driver");
 			
 			//Create a statement
@@ -211,7 +325,7 @@ public class Game {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	public List<Person> getPersonList() {

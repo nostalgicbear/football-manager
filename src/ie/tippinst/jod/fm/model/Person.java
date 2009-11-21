@@ -1,8 +1,9 @@
 package ie.tippinst.jod.fm.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public abstract class Person {
+public abstract class Person implements Serializable {
 	
 	private int id;
 	private String firstName;
@@ -15,6 +16,10 @@ public abstract class Person {
 	private int potentialAbility;
 	private Date contractExpiry;
 	private Club currentClub;
+	
+	public Person(){
+		super();
+	}
 	
 	public Club getCurrentClub() {
 		return currentClub;
@@ -63,5 +68,87 @@ public abstract class Person {
 				+ ", potentialAbility=" + potentialAbility + ", reputation="
 				+ reputation + ", wages=" + wages + "]";
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Nation getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(Nation nationality) {
+		this.nationality = nationality;
+	}
+
+	public double getWages() {
+		return wages;
+	}
+
+	public void setWages(double wages) {
+		this.wages = wages;
+	}
+
+	public int getReputation() {
+		return reputation;
+	}
+
+	public void setReputation(int reputation) {
+		this.reputation = reputation;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public int getCurrentAbility() {
+		return currentAbility;
+	}
+
+	public void setCurrentAbility(int currentAbility) {
+		this.currentAbility = currentAbility;
+	}
+
+	public int getPotentialAbility() {
+		return potentialAbility;
+	}
+
+	public void setPotentialAbility(int potentialAbility) {
+		this.potentialAbility = potentialAbility;
+	}
+
+	public Date getContractExpiry() {
+		return contractExpiry;
+	}
+
+	public void setContractExpiry(Date contractExpiry) {
+		this.contractExpiry = contractExpiry;
+	}
+	
+	
 
 }
