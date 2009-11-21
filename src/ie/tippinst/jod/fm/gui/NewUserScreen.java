@@ -69,7 +69,7 @@ public class NewUserScreen extends JFrame {
 		this.getContentPane().add(clubLbl);
 		this.getContentPane().add(clubCbo);
 		this.getContentPane().add(addUser);
-		this.setSize(475,130);
+		this.setSize(475,170);
 		this.setLocationRelativeTo(null);
 		
 		addUser.addActionListener(new ActionListener() {
@@ -84,6 +84,9 @@ public class NewUserScreen extends JFrame {
 	
 	private void addNewUser(ActionEvent ae){
 		game.createNewUser(firstNameTxt.getText(), surnameTxt.getText(), new Date(), (String) nationalityCbo.getSelectedItem(), (String) clubCbo.getSelectedItem());
+		MainGame mg = new MainGame();
+		mg.setVisible(true);
+		this.setVisible(false);
 	}
 
 }

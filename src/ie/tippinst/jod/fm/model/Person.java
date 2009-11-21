@@ -16,6 +16,14 @@ public abstract class Person {
 	private Date contractExpiry;
 	private Club currentClub;
 	
+	public Club getCurrentClub() {
+		return currentClub;
+	}
+
+	public void setCurrentClub(Club currentClub) {
+		this.currentClub = currentClub;
+	}
+
 	protected Person(int id, String firstName, String lastName, Nation nationality, double wages,
 			int reputation, Date dob, int currentAbility, int potentialAbility,
 			Date contractExpiry, Club currentClub) {
@@ -46,14 +54,12 @@ public abstract class Person {
 		this.currentClub = currentClub;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Person [contractExpiry=" + contractExpiry + ", currentAbility="
-				+ currentAbility + ", currentClub=" + currentClub + ", dob="
+				+ currentAbility + ", currentClub=" + currentClub.getName() + ", dob="
 				+ dob + ", firstName=" + firstName + ", id=" + id
-				+ ", lastName=" + lastName + ", nationality=" + nationality
+				+ ", lastName=" + lastName/* + ", nationality=" + nationality.getName()*/
 				+ ", potentialAbility=" + potentialAbility + ", reputation="
 				+ reputation + ", wages=" + wages + "]";
 	}

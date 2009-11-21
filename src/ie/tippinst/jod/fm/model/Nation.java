@@ -17,26 +17,26 @@ public class Nation {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Nation(int id, String name, int worldRankingPoints,
+	public Nation(int id, String name, int reputation,
 			List<Player> squad, List<NonPlayer> staff) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.reputation = worldRankingPoints;
+		this.reputation = reputation;
 		this.squad = squad;
 		this.staff = staff;
 	}
 
-	public Nation(int id, String name, int worldRankingPoints) {
+	public Nation(int id, String name, int reputation) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.reputation = worldRankingPoints;
+		this.reputation = reputation;
 	}
 
 	@Override
 	public String toString() {
-		return "Nation [name=" + name + ", worldRankingPoints="
+		return "Nation [name=" + name + ", reputation="
 				+ reputation + "]";
 	}
 

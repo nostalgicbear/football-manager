@@ -38,6 +38,54 @@ public class NonPlayer extends Person {
 		this.physioRole = physioRole;
 		this.scoutRole = scoutRole;
 	}
+
+	public int getChairmanRole() {
+		return chairmanRole;
+	}
+
+	public void setChairmanRole(int chairmanRole) {
+		this.chairmanRole = chairmanRole;
+	}
+
+	public int getManagerRole() {
+		return managerRole;
+	}
+
+	public void setManagerRole(int managerRole) {
+		this.managerRole = managerRole;
+	}
+
+	public int getAssistantManagerRole() {
+		return assistantManagerRole;
+	}
+
+	public void setAssistantManagerRole(int assistantManagerRole) {
+		this.assistantManagerRole = assistantManagerRole;
+	}
+
+	public int getCoachRole() {
+		return coachRole;
+	}
+
+	public void setCoachRole(int coachRole) {
+		this.coachRole = coachRole;
+	}
+
+	public int getPhysioRole() {
+		return physioRole;
+	}
+
+	public void setPhysioRole(int physioRole) {
+		this.physioRole = physioRole;
+	}
+
+	public int getScoutRole() {
+		return scoutRole;
+	}
+
+	public void setScoutRole(int scoutRole) {
+		this.scoutRole = scoutRole;
+	}
 	
 	
 

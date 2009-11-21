@@ -40,6 +40,14 @@ public class Club {
 				+ ", nationality=" + nationality + ", reputation=" + reputation
 				+ "]";
 	}
+
+	public void setStaff(List<NonPlayer> staff) {
+		this.staff = staff;
+	}
+
+	public List<NonPlayer> getStaff() {
+		return staff;
+	}
 	
 	
 

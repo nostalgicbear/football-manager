@@ -57,6 +57,23 @@ public class Game {
 		Iterator<Injury> iInjury;
 		Iterator<Nation> iNation;
 		
+		/*File file = new File("stadium.xml");
+		try {
+			FileInputStream fos = new FileInputStream(file);
+			BufferedInputStream bos = new BufferedInputStream(fos);
+			XMLDecoder decoder = new XMLDecoder(bos);
+			do{
+				stadiumList.add((Stadium)decoder.readObject());
+			}while(stadiumList.size() < 2);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		Iterator<Stadium> iStadium = stadiumList.iterator();
+		while(iStadium.hasNext()){
+			System.out.println(iStadium.next());
+		}*/
+		
 		try {
 			Class.forName("org.gjt.mm.mysql.Driver");
 			
@@ -249,8 +266,22 @@ public class Game {
 		NonPlayer user = new NonPlayer(firstName, surname, nation, 5000, new Date(), 100, 200, 1, 20, 1, 1, 1, 1, userClub);
 		getPersonList().add(user);
 		System.out.println(user);
-		
-	}
-
-	
+		Iterator<Person> iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if((p instanceof NonPlayer)&&(p.getCurrentClub().getId() == userClub.getId())&&(((NonPlayer)p).getManagerRole() == 20)&&(iPerson.hasNext())){
+				System.out.println(p);
+				iClub = clubList.iterator();
+				Club c = null;
+				while(iClub.hasNext()){
+					c = iClub.next();
+					if(c.getName().equals("No Club"))
+					break;
+				}
+				p.setCurrentClub(c);
+				System.out.println(p);
+				break;
+			}
+		}
+	}	
 }
