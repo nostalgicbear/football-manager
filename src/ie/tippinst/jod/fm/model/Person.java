@@ -64,7 +64,7 @@ public abstract class Person implements Serializable {
 		return "Person [contractExpiry=" + contractExpiry + ", currentAbility="
 				+ currentAbility + ", currentClub=" + currentClub.getName() + ", dob="
 				+ dob + ", firstName=" + firstName + ", id=" + id
-				+ ", lastName=" + lastName/* + ", nationality=" + nationality.getName()*/
+				+ ", lastName=" + lastName + ", nationality=" + nationality.getName()
 				+ ", potentialAbility=" + potentialAbility + ", reputation="
 				+ reputation + ", wages=" + wages + "]";
 	}

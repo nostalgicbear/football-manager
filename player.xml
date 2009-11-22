@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_16" class="java.beans.XMLDecoder"> 
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>1</int> 
+  </void> 
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+     <void property="bankBalance"> 
+   <double>80000000</double> 
+  </void> 
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="capacity"> 
+     <int>76000</int> 
+    </void> 
+    <void property="id"> 
+     <int>1</int> 
+    </void> 
+    <void property="name"> 
+     <string>Old Trafford</string> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="id"> 
+   <int>1</int> 
+  </void> 
+  <void property="name"> 
+   <string>Manchester United</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>1</int> 
+    </void> 
+    <void property="name"> 
+     <string>England</string> 
+    </void> 
+    <void property="reputation"> 
+     <int>8000</int> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>9300</int> 
+  </void>
+  </object>
+  </void>
+  <void property="firstName"> 
+   <string>Wayne</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Rooney</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>1</int> 
+    </void> 
+    <void property="name"> 
+     <string>England</string> 
+    </void> 
+    <void property="reputation"> 
+     <int>8000</int> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>9300</int> 
+  </void>
+  <void property="currentAbility"> 
+   <int>179</int> 
+  </void> 
+  <void property="potentialAbility"> 
+   <int>189</int> 
+  </void>
+  <void property="intCaps"> 
+   <int>55</int> 
+  </void> 
+  <void property="intGoals"> 
+   <int>24</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>14</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>15</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>9</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>  
+ </object>
+</java> 

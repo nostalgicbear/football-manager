@@ -8,7 +8,7 @@
    <string>Old Trafford</string> 
   </void>
   <void property="capacity"> 
-   <int>75000</int> 
+   <int>76212</int> 
   </void>
  </object>
  <object class="ie.tippinst.jod.fm.model.Stadium"> 
@@ -19,7 +19,205 @@
    <string>Stamford Bridge</string> 
   </void>
   <void property="capacity"> 
-   <int>43000</int> 
+   <int>41761</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>3</int> 
+  </void> 
+  <void property="name"> 
+   <string>Anfield</string> 
+  </void>
+  <void property="capacity"> 
+   <int>45362</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>4</int> 
+  </void> 
+  <void property="name"> 
+   <string>Emirates Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>60361</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>5</int> 
+  </void> 
+  <void property="name"> 
+   <string>The City of Manchester Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>47405</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>6</int> 
+  </void> 
+  <void property="name"> 
+   <string>White Hart Lane</string> 
+  </void>
+  <void property="capacity"> 
+   <int>36310</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>7</int> 
+  </void> 
+  <void property="name"> 
+   <string>Goodison Park</string> 
+  </void>
+  <void property="capacity"> 
+   <int>40158</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>8</int> 
+  </void> 
+  <void property="name"> 
+   <string>Villa Park</string> 
+  </void>
+  <void property="capacity"> 
+   <int>42640</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>9</int> 
+  </void> 
+  <void property="name"> 
+   <string>Upton Park</string> 
+  </void>
+  <void property="capacity"> 
+   <int>34980</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>10</int> 
+  </void> 
+  <void property="name"> 
+   <string>Fratton Park</string> 
+  </void>
+  <void property="capacity"> 
+   <int>20600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>11</int> 
+  </void> 
+  <void property="name"> 
+   <string>Ewood Park</string> 
+  </void>
+  <void property="capacity"> 
+   <int>31367</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>12</int> 
+  </void> 
+  <void property="name"> 
+   <string>The Stadium of Light</string> 
+  </void>
+  <void property="capacity"> 
+   <int>48300</int> 
   </void>   
  </object> 
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>13</int> 
+  </void> 
+  <void property="name"> 
+   <string>Craven Cottage</string> 
+  </void>
+  <void property="capacity"> 
+   <int>25661</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>14</int> 
+  </void> 
+  <void property="name"> 
+   <string>Reebok Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>27723</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>15</int> 
+  </void> 
+  <void property="name"> 
+   <string>DW Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>25138</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>16</int> 
+  </void> 
+  <void property="name"> 
+   <string>St Andrews</string> 
+  </void>
+  <void property="capacity"> 
+   <int>29509</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>17</int> 
+  </void> 
+  <void property="name"> 
+   <string>Molineux</string> 
+  </void>
+  <void property="capacity"> 
+   <int>29303</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>18</int> 
+  </void> 
+  <void property="name"> 
+   <string>Britannia Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>27500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>19</int> 
+  </void> 
+  <void property="name"> 
+   <string>KC Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>25404</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>20</int> 
+  </void> 
+  <void property="name"> 
+   <string>Turf Moor</string> 
+  </void>
+  <void property="capacity"> 
+   <int>22516</int> 
+  </void>   
+ </object>
 </java> 
