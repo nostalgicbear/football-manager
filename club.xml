@@ -2,20 +2,14 @@
 <java version="1.6.0_16" class="java.beans.XMLDecoder"> 
  <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>80000000</double> 
+   <double>90000000</double> 
   </void> 
   <void property="homeGround"> 
    <object class="ie.tippinst.jod.fm.model.Stadium"> 
-    <void property="capacity"> 
-     <int>76000</int> 
-    </void> 
     <void property="id"> 
      <int>1</int> 
-    </void> 
-    <void property="name"> 
-     <string>Old Trafford</string> 
-    </void> 
-   </object> 
+    </void>
+   </object>	
   </void> 
   <void property="id"> 
    <int>1</int> 
@@ -26,36 +20,24 @@
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
-     <int>1</int> 
-    </void> 
-    <void property="name"> 
-     <string>England</string> 
-    </void> 
-    <void property="reputation"> 
-     <int>8000</int> 
-    </void> 
-   </object> 
-  </void> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
   <void property="reputation"> 
-   <int>9300</int> 
-  </void> 
+   <int>9350</int> 
+  </void>   
  </object>
-  <object class="ie.tippinst.jod.fm.model.Club"> 
+ <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>80000000</double> 
+   <double>70000000</double> 
   </void> 
   <void property="homeGround"> 
    <object class="ie.tippinst.jod.fm.model.Stadium"> 
-    <void property="capacity"> 
-     <int>43000</int> 
-    </void> 
     <void property="id"> 
      <int>2</int> 
-    </void> 
-    <void property="name"> 
-     <string>Stamford Bridge</string> 
-    </void> 
-   </object> 
+    </void>
+   </object>	
   </void> 
   <void property="id"> 
    <int>2</int> 
@@ -66,18 +48,96 @@
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
-     <int>1</int> 
-    </void> 
-    <void property="name"> 
-     <string>England</string> 
-    </void> 
-    <void property="reputation"> 
-     <int>8000</int> 
-    </void> 
-   </object> 
-  </void> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
   <void property="reputation"> 
    <int>9100</int> 
+  </void>  
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>20000000</double> 
   </void> 
- </object>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>3</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>3</int> 
+  </void> 
+  <void property="name"> 
+   <string>Liverpool</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>8950</int> 
+  </void>  
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>70000000</double> 
+  </void> 
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>4</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>4</int> 
+  </void> 
+  <void property="name"> 
+   <string>Arsenal</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>8600</int> 
+  </void>  
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>175000000</double> 
+  </void> 
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>5</int> 
+  </void> 
+  <void property="name"> 
+   <string>Manchester City</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>7850</int> 
+  </void>  
+ </object>
 </java> 

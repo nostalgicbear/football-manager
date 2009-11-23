@@ -5,10 +5,10 @@
    <int>1</int> 
   </void> 
   <void property="name"> 
-   <string>England</string> 
+   <string>Brazil</string> 
   </void>
   <void property="reputation"> 
-   <int>8000</int> 
+   <int>9550</int> 
   </void>
  </object>
  <object class="ie.tippinst.jod.fm.model.Nation"> 
@@ -16,10 +16,2408 @@
    <int>2</int> 
   </void> 
   <void property="name"> 
+   <string>Italy</string> 
+  </void>
+  <void property="reputation"> 
+   <int>9250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>3</int> 
+  </void> 
+  <void property="name"> 
+   <string>Argentina</string> 
+  </void>
+  <void property="reputation"> 
+   <int>9000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>4</int> 
+  </void> 
+  <void property="name"> 
+   <string>France</string> 
+  </void>
+  <void property="reputation"> 
+   <int>8750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>5</int> 
+  </void> 
+  <void property="name"> 
+   <string>Germany</string> 
+  </void>
+  <void property="reputation"> 
+   <int>8500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>6</int> 
+  </void> 
+  <void property="name"> 
+   <string>Spain</string> 
+  </void>
+  <void property="reputation"> 
+   <int>8250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>7</int> 
+  </void> 
+  <void property="name"> 
+   <string>Holland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>8250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>8</int> 
+  </void> 
+  <void property="name"> 
+   <string>Portugal</string> 
+  </void>
+  <void property="reputation"> 
+   <int>8000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>9</int> 
+  </void> 
+  <void property="name"> 
+   <string>England</string> 
+  </void>
+  <void property="reputation"> 
+   <int>7750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>10</int> 
+  </void> 
+  <void property="name"> 
+   <string>Croatia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>7500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>11</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mexico</string> 
+  </void>
+  <void property="reputation"> 
+   <int>7150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>12</int> 
+  </void> 
+  <void property="name"> 
+   <string>Turkey</string> 
+  </void>
+  <void property="reputation"> 
+   <int>7000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>13</int> 
+  </void> 
+  <void property="name"> 
+   <string>Sweden</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>14</int> 
+  </void> 
+  <void property="name"> 
+   <string>Czech Republic</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>15</int> 
+  </void> 
+  <void property="name"> 
+   <string>Russia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>16</int> 
+  </void> 
+  <void property="name"> 
+   <string>Greece</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>17</int> 
+  </void> 
+  <void property="name"> 
+   <string>Denmark</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>18</int> 
+  </void> 
+  <void property="name"> 
+   <string>Switzerland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>19</int> 
+  </void> 
+  <void property="name"> 
+   <string>Poland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>20</int> 
+  </void> 
+  <void property="name"> 
+   <string>United States</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>21</int> 
+  </void> 
+  <void property="name"> 
+   <string>Serbia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>22</int> 
+  </void> 
+  <void property="name"> 
+   <string>Scotland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>23</int> 
+  </void> 
+  <void property="name"> 
+   <string>Romania</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>24</int> 
+  </void> 
+  <void property="name"> 
+   <string>South Korea</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6050</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>25</int> 
+  </void> 
+  <void property="name"> 
+   <string>Paraguay</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>26</int> 
+  </void> 
+  <void property="name"> 
+   <string>Ukraine</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>27</int> 
+  </void> 
+  <void property="name"> 
+   <string>Ivory Coast</string> 
+  </void>
+  <void property="reputation"> 
+   <int>6000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>28</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bulgaria</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5800</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>29</int> 
+  </void> 
+  <void property="name"> 
+   <string>Chile</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>30</int> 
+  </void> 
+  <void property="name"> 
+   <string>Australia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>31</int> 
+  </void> 
+  <void property="name"> 
+   <string>Israel</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>32</int> 
+  </void> 
+  <void property="name"> 
+   <string>Belgium</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>33</int> 
+  </void> 
+  <void property="name"> 
+   <string>Japan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>34</int> 
+  </void> 
+  <void property="name"> 
    <string>Republic of Ireland</string> 
   </void>
   <void property="reputation"> 
    <int>5700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>35</int> 
+  </void> 
+  <void property="name"> 
+   <string>Norway</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>36</int> 
+  </void> 
+  <void property="name"> 
+   <string>Ghana</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>37</int> 
+  </void> 
+  <void property="name"> 
+   <string>Uruguay</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>38</int> 
+  </void> 
+  <void property="name"> 
+   <string>Ecuador</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>39</int> 
+  </void> 
+  <void property="name"> 
+   <string>Slovakia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>40</int> 
+  </void> 
+  <void property="name"> 
+   <string>Saudi Arabia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>41</int> 
+  </void> 
+  <void property="name"> 
+   <string>Nigeria</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>42</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cameroon</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>43</int> 
+  </void> 
+  <void property="name"> 
+   <string>Peru</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>44</int> 
+  </void> 
+  <void property="name"> 
+   <string>Slovenia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>45</int> 
+  </void> 
+  <void property="name"> 
+   <string>Northern Ireland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5350</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>46</int> 
+  </void> 
+  <void property="name"> 
+   <string>Finland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>47</int> 
+  </void> 
+  <void property="name"> 
+   <string>Egypt</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>48</int> 
+  </void> 
+  <void property="name"> 
+   <string>Colombia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>49</int> 
+  </void> 
+  <void property="name"> 
+   <string>Austria</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>50</int> 
+  </void> 
+  <void property="name"> 
+   <string>South Africa</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>51</int> 
+  </void> 
+  <void property="name"> 
+   <string>Iran</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>52</int> 
+  </void> 
+  <void property="name"> 
+   <string>Tunisia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>53</int> 
+  </void> 
+  <void property="name"> 
+   <string>Wales</string> 
+  </void>
+  <void property="reputation"> 
+   <int>5000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>54</int> 
+  </void> 
+  <void property="name"> 
+   <string>Morocco</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4900</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>55</int> 
+  </void> 
+  <void property="name"> 
+   <string>Iceland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>56</int> 
+  </void> 
+  <void property="name"> 
+   <string>Hungary</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>57</int> 
+  </void> 
+  <void property="name"> 
+   <string>Angola</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>58</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bosnia and Herzegovina</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>59</int> 
+  </void> 
+  <void property="name"> 
+   <string>Senegal</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>60</int> 
+  </void> 
+  <void property="name"> 
+   <string>Albania</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4550</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>61</int> 
+  </void> 
+  <void property="name"> 
+   <string>Costa Rica</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4550</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>62</int> 
+  </void> 
+  <void property="name"> 
+   <string>FYR of Macedonia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>63</int> 
+  </void> 
+  <void property="name"> 
+   <string>Lithuania</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>64</int> 
+  </void> 
+  <void property="name"> 
+   <string>Latvia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>65</int> 
+  </void> 
+  <void property="name"> 
+   <string>Georgia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>66</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mali</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>67</int> 
+  </void> 
+  <void property="name"> 
+   <string>Estonia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>68</int> 
+  </void> 
+  <void property="name"> 
+   <string>Belarus</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>69</int> 
+  </void> 
+  <void property="name"> 
+   <string>Zambia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>70</int> 
+  </void> 
+  <void property="name"> 
+   <string>Guinea</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>71</int> 
+  </void> 
+  <void property="name"> 
+   <string>Montenegro</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>72</int> 
+  </void> 
+  <void property="name"> 
+   <string>Iraq</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>73</int> 
+  </void> 
+  <void property="name"> 
+   <string>Jamaica</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>74</int> 
+  </void> 
+  <void property="name"> 
+   <string>North Korea</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>75</int> 
+  </void> 
+  <void property="name"> 
+   <string>Trinidad and Tobago</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4050</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>76</int> 
+  </void> 
+  <void property="name"> 
+   <string>Venezuela</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>77</int> 
+  </void> 
+  <void property="name"> 
+   <string>Guatemala</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>78</int> 
+  </void> 
+  <void property="name"> 
+   <string>China PR</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>79</int> 
+  </void> 
+  <void property="name"> 
+   <string>Togo</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>80</int> 
+  </void> 
+  <void property="name"> 
+   <string>Algeria</string> 
+  </void>
+  <void property="reputation"> 
+   <int>4000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>81</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bahrain</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3950</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>82</int> 
+  </void> 
+  <void property="name"> 
+   <string>Kuwait</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3900</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>83</int> 
+  </void> 
+  <void property="name"> 
+   <string>Oman</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3850</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>84</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bolivia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>85</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cyprus</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>86</int> 
+  </void> 
+  <void property="name"> 
+   <string>United Arab Emirates</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3750</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>87</int> 
+  </void> 
+  <void property="name"> 
+   <string>Democratic Republic of Congo</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>88</int> 
+  </void> 
+  <void property="name"> 
+   <string>Uganda</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>89</int> 
+  </void> 
+  <void property="name"> 
+   <string>Sudan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>90</int> 
+  </void> 
+  <void property="name"> 
+   <string>Uzbekistan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>91</int> 
+  </void> 
+  <void property="name"> 
+   <string>Honduras</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>92</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cuba</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>93</int> 
+  </void> 
+  <void property="name"> 
+   <string>Qatar</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>94</int> 
+  </void> 
+  <void property="name"> 
+   <string>Panama</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>95</int> 
+  </void> 
+  <void property="name"> 
+   <string>Gabon</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>96</int> 
+  </void> 
+  <void property="name"> 
+   <string>Syria</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>97</int> 
+  </void> 
+  <void property="name"> 
+   <string>Jordan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>98</int> 
+  </void> 
+  <void property="name"> 
+   <string>Moldova</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>99</int> 
+  </void> 
+  <void property="name"> 
+   <string>Kazakhstan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>100</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mozambique</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>101</int> 
+  </void> 
+  <void property="name"> 
+   <string>Libya</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>102</int> 
+  </void> 
+  <void property="name"> 
+   <string>The Gambia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>103</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cape Verde Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>104</int> 
+  </void> 
+  <void property="name"> 
+   <string>Burkina Faso</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>105</int> 
+  </void> 
+  <void property="name"> 
+   <string>El Salvador</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3200</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>106</int> 
+  </void> 
+  <void property="name"> 
+   <string>New Zealand</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>107</int> 
+  </void> 
+  <void property="name"> 
+   <string>Canada</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>108</int> 
+  </void> 
+  <void property="name"> 
+   <string>Malta</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>109</int> 
+  </void> 
+  <void property="name"> 
+   <string>Liechtenstein</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>110</int> 
+  </void> 
+  <void property="name"> 
+   <string>Faroe Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>111</int> 
+  </void> 
+  <void property="name"> 
+   <string>Azerbaijan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>112</int> 
+  </void> 
+  <void property="name"> 
+   <string>Haiti</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>113</int> 
+  </void> 
+  <void property="name"> 
+   <string>Thailand</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>114</int> 
+  </void> 
+  <void property="name"> 
+   <string>Zimbabwe</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>115</int> 
+  </void> 
+  <void property="name"> 
+   <string>The Congo</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>116</int> 
+  </void> 
+  <void property="name"> 
+   <string>Tanzania</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>117</int> 
+  </void> 
+  <void property="name"> 
+   <string>Botswana</string> 
+  </void>
+  <void property="reputation"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>118</int> 
+  </void> 
+  <void property="name"> 
+   <string>Armenia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2900</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>119</int> 
+  </void> 
+  <void property="name"> 
+   <string>Rwanda</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2900</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>120</int> 
+  </void> 
+  <void property="name"> 
+   <string>Namibia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>121</int> 
+  </void> 
+  <void property="name"> 
+   <string>Kenya</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>122</int> 
+  </void> 
+  <void property="name"> 
+   <string>Burundi</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>123</int> 
+  </void> 
+  <void property="name"> 
+   <string>Benin</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>124</int> 
+  </void> 
+  <void property="name"> 
+   <string>Vietnam</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2650</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>125</int> 
+  </void> 
+  <void property="name"> 
+   <string>Guadeloupe</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>126</int> 
+  </void> 
+  <void property="name"> 
+   <string>Tajikistan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>127</int> 
+  </void> 
+  <void property="name"> 
+   <string>Andorra</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2550</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>128</int> 
+  </void> 
+  <void property="name"> 
+   <string>Turkmenistan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2550</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>129</int> 
+  </void> 
+  <void property="name"> 
+   <string>Luxembourg</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>130</int> 
+  </void> 
+  <void property="name"> 
+   <string>Ethiopia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>131</int> 
+  </void> 
+  <void property="name"> 
+   <string>Barbados</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2450</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>132</int> 
+  </void> 
+  <void property="name"> 
+   <string>Saint Vincent and the Grenadines</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>133</int> 
+  </void> 
+  <void property="name"> 
+   <string>Guyana</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>134</int> 
+  </void> 
+  <void property="name"> 
+   <string>Singapore</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2350</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>135</int> 
+  </void> 
+  <void property="name"> 
+   <string>Martinique</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>136</int> 
+  </void> 
+  <void property="name"> 
+   <string>Lebanon</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>137</int> 
+  </void> 
+  <void property="name"> 
+   <string>Surinam</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>138</int> 
+  </void> 
+  <void property="name"> 
+   <string>Liberia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>139</int> 
+  </void> 
+  <void property="name"> 
+   <string>Indonesia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>140</int> 
+  </void> 
+  <void property="name"> 
+   <string>Yemen</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>141</int> 
+  </void> 
+  <void property="name"> 
+   <string>San Marino</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2050</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>142</int> 
+  </void> 
+  <void property="name"> 
+   <string>Zanzibar</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>143</int> 
+  </void> 
+  <void property="name"> 
+   <string>Saint Kitts and Nevis</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>144</int> 
+  </void> 
+  <void property="name"> 
+   <string>Saint Lucia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>145</int> 
+  </void> 
+  <void property="name"> 
+   <string>Sierra Leone</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>146</int> 
+  </void> 
+  <void property="name"> 
+   <string>Niger</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>147</int> 
+  </void> 
+  <void property="name"> 
+   <string>Malawi</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>148</int> 
+  </void> 
+  <void property="name"> 
+   <string>Equatorial Guinea</string> 
+  </void>
+  <void property="reputation"> 
+   <int>2000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>149</int> 
+  </void> 
+  <void property="name"> 
+   <string>Malaysia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1900</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>150</int> 
+  </void> 
+  <void property="name"> 
+   <string>Grenada</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1850</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>151</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bermuda</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1850</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>152</int> 
+  </void> 
+  <void property="name"> 
+   <string>India</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1850</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>153</int> 
+  </void> 
+  <void property="name"> 
+   <string>Hong Kong</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1850</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>154</int> 
+  </void> 
+  <void property="name"> 
+   <string>Solomon Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>155</int> 
+  </void> 
+  <void property="name"> 
+   <string>Netherlands Antilles</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>156</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mauritania</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>157</int> 
+  </void> 
+  <void property="name"> 
+   <string>Madagascar</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>158</int> 
+  </void> 
+  <void property="name"> 
+   <string>Lesotho</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>159</int> 
+  </void> 
+  <void property="name"> 
+   <string>Chad</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>160</int> 
+  </void> 
+  <void property="name"> 
+   <string>French Guiana</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>161</int> 
+  </void> 
+  <void property="name"> 
+   <string>Myanmar</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>162</int> 
+  </void> 
+  <void property="name"> 
+   <string>Palestine</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1550</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>163</int> 
+  </void> 
+  <void property="name"> 
+   <string>Fiji</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>164</int> 
+  </void> 
+  <void property="name"> 
+   <string>Antigua and Barbuda</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>165</int> 
+  </void> 
+  <void property="name"> 
+   <string>Seychelles</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>166</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mauritius</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>167</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cayman Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>168</int> 
+  </void> 
+  <void property="name"> 
+   <string>Maldives</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>169</int> 
+  </void> 
+  <void property="name"> 
+   <string>Vanuatu</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>170</int> 
+  </void> 
+  <void property="name"> 
+   <string>Tahiti</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>171</int> 
+  </void> 
+  <void property="name"> 
+   <string>Puerto Rico</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1250</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>172</int> 
+  </void> 
+  <void property="name"> 
+   <string>Nicaragua</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>173</int> 
+  </void> 
+  <void property="name"> 
+   <string>Guinea-Bissau</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>174</int> 
+  </void> 
+  <void property="name"> 
+   <string>Krgyzstan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1200</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>175</int> 
+  </void> 
+  <void property="name"> 
+   <string>Central African Republic</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1200</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>176</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bangladesh</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>177</int> 
+  </void> 
+  <void property="name"> 
+   <string>Dominican Republic</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>178</int> 
+  </void> 
+  <void property="name"> 
+   <string>New Caledonia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>179</int> 
+  </void> 
+  <void property="name"> 
+   <string>Sri Lanka</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>180</int> 
+  </void> 
+  <void property="name"> 
+   <string>Swaziland</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>181</int> 
+  </void> 
+  <void property="name"> 
+   <string>Chinese Taipei</string> 
+  </void>
+  <void property="reputation"> 
+   <int>1000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>182</int> 
+  </void> 
+  <void property="name"> 
+   <string>Sint Maarten</string> 
+  </void>
+  <void property="reputation"> 
+   <int>900</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>183</int> 
+  </void> 
+  <void property="name"> 
+   <string>Pakistan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>850</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>184</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bahamas</string> 
+  </void>
+  <void property="reputation"> 
+   <int>750</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>185</int> 
+  </void> 
+  <void property="name"> 
+   <string>Saint Martin</string> 
+  </void>
+  <void property="reputation"> 
+   <int>700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>186</int> 
+  </void> 
+  <void property="name"> 
+   <string>Dominica</string> 
+  </void>
+  <void property="reputation"> 
+   <int>700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>187</int> 
+  </void> 
+  <void property="name"> 
+   <string>Nepal</string> 
+  </void>
+  <void property="reputation"> 
+   <int>700</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>188</int> 
+  </void> 
+  <void property="name"> 
+   <string>Papua New Guinea</string> 
+  </void>
+  <void property="reputation"> 
+   <int>650</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>189</int> 
+  </void> 
+  <void property="name"> 
+   <string>The Philippines</string> 
+  </void>
+  <void property="reputation"> 
+   <int>600</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>190</int> 
+  </void> 
+  <void property="name"> 
+   <string>Comoros</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>191</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mayotte</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>192</int> 
+  </void> 
+  <void property="name"> 
+   <string>Reunion</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>193</int> 
+  </void> 
+  <void property="name"> 
+   <string>Eritrea</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>194</int> 
+  </void> 
+  <void property="name"> 
+   <string>Belize</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>195</int> 
+  </void> 
+  <void property="name"> 
+   <string>Somalia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>196</int> 
+  </void> 
+  <void property="name"> 
+   <string>Sao Tome and Principe</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>197</int> 
+  </void> 
+  <void property="name"> 
+   <string>Djibouti</string> 
+  </void>
+  <void property="reputation"> 
+   <int>500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>198</int> 
+  </void> 
+  <void property="name"> 
+   <string>Turks and Caicos Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>450</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>199</int> 
+  </void> 
+  <void property="name"> 
+   <string>British Virgin Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>450</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>200</int> 
+  </void> 
+  <void property="name"> 
+   <string>Laos</string> 
+  </void>
+  <void property="reputation"> 
+   <int>450</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>201</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cambodia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>450</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>202</int> 
+  </void> 
+  <void property="name"> 
+   <string>Brunei Darussalam</string> 
+  </void>
+  <void property="reputation"> 
+   <int>400</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>203</int> 
+  </void> 
+  <void property="name"> 
+   <string>Saint Pierre and Miquelon</string> 
+  </void>
+  <void property="reputation"> 
+   <int>350</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>204</int> 
+  </void> 
+  <void property="name"> 
+   <string>Macau</string> 
+  </void>
+  <void property="reputation"> 
+   <int>300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>205</int> 
+  </void> 
+  <void property="name"> 
+   <string>Anguilla</string> 
+  </void>
+  <void property="reputation"> 
+   <int>250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>206</int> 
+  </void> 
+  <void property="name"> 
+   <string>Mongolia</string> 
+  </void>
+  <void property="reputation"> 
+   <int>250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>207</int> 
+  </void> 
+  <void property="name"> 
+   <string>Samoa</string> 
+  </void>
+  <void property="reputation"> 
+   <int>250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>208</int> 
+  </void> 
+  <void property="name"> 
+   <string>Aruba</string> 
+  </void>
+  <void property="reputation"> 
+   <int>250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>209</int> 
+  </void> 
+  <void property="name"> 
+   <string>Afghanistan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>250</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>210</int> 
+  </void> 
+  <void property="name"> 
+   <string>US Virgin Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>200</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>211</int> 
+  </void> 
+  <void property="name"> 
+   <string>Guam</string> 
+  </void>
+  <void property="reputation"> 
+   <int>200</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>212</int> 
+  </void> 
+  <void property="name"> 
+   <string>Tonga</string> 
+  </void>
+  <void property="reputation"> 
+   <int>200</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>213</int> 
+  </void> 
+  <void property="name"> 
+   <string>East Timor</string> 
+  </void>
+  <void property="reputation"> 
+   <int>150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>214</int> 
+  </void> 
+  <void property="name"> 
+   <string>Bhutan</string> 
+  </void>
+  <void property="reputation"> 
+   <int>150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>215</int> 
+  </void> 
+  <void property="name"> 
+   <string>Cook Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>216</int> 
+  </void> 
+  <void property="name"> 
+   <string>Tuvalu</string> 
+  </void>
+  <void property="reputation"> 
+   <int>100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>217</int> 
+  </void> 
+  <void property="name"> 
+   <string>Montserrat</string> 
+  </void>
+  <void property="reputation"> 
+   <int>100</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>218</int> 
+  </void> 
+  <void property="name"> 
+   <string>Northern Mariana Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>50</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>219</int> 
+  </void> 
+  <void property="name"> 
+   <string>Wallis and Futuna Islands</string> 
+  </void>
+  <void property="reputation"> 
+   <int>50</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Nation"> 
+  <void property="id"> 
+   <int>220</int> 
+  </void> 
+  <void property="name"> 
+   <string>American Samoa</string> 
+  </void>
+  <void property="reputation"> 
+   <int>50</int> 
   </void>   
  </object> 
 </java> 

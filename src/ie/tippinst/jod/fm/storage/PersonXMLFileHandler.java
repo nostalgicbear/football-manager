@@ -1,9 +1,9 @@
 package ie.tippinst.jod.fm.storage;
 
 import ie.tippinst.jod.fm.model.Club;
+import ie.tippinst.jod.fm.model.Person;
 import ie.tippinst.jod.fm.model.Stadium;
 
-import java.beans.DefaultPersistenceDelegate;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.BufferedInputStream;
@@ -18,13 +18,13 @@ import java.util.List;
 
 public class PersonXMLFileHandler {
 
-	public void create(Club c) {
+	public void create(Person c) {
 		// Workaround to appending to XML file
 		// Read in the contents of the file to a List
 
-		File file = new File("club.xml");// File reference
+		File file = new File("test.xml");// File reference
 
-		List<Club> list = new ArrayList<Club>();// List for file contents
+		List<Person> list = new ArrayList<Person>();// List for file contents
 
 		// Reading in from the file via XMLDecoder
 		//XMLDecoder decoder = null;
@@ -62,7 +62,7 @@ public class PersonXMLFileHandler {
 
 		// Write out the List to the file
 
-		Iterator<Club> i = list.iterator();
+		Iterator<Person> i = list.iterator();
 
 		FileOutputStream fos = null;
 		BufferedOutputStream bos = null;

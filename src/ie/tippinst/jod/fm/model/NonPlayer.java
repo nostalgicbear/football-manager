@@ -1,6 +1,7 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
 public class NonPlayer extends Person implements Serializable {
@@ -17,7 +18,7 @@ public class NonPlayer extends Person implements Serializable {
 	}
 	
 	public NonPlayer(int id, String firstName, String lastName, Nation nationality,
-			double wages, int reputation, Date dob, int currentAbility,
+			double wages, int reputation, Calendar dob, int currentAbility,
 			int potentialAbility, Date contractExpiry, Club currentClub,
 			int chairmanRole, int managerRole, int assistantManagerRole,
 			int coachRole, int physioRole, int scoutRole) {
@@ -32,7 +33,7 @@ public class NonPlayer extends Person implements Serializable {
 	}
 
 	public NonPlayer(String firstName, String lastName, Nation nationality, int reputation,
-			Date dob, int currentAbility, int potentialAbility, int chairmanRole, int managerRole,
+			Calendar dob, int currentAbility, int potentialAbility, int chairmanRole, int managerRole,
 			int assistantManagerRole, int coachRole, int physioRole, int scoutRole, Club currentClub) {
 		super(firstName, lastName, nationality, reputation, dob,
 				currentAbility, potentialAbility, currentClub);

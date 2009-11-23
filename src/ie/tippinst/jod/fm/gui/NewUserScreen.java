@@ -5,7 +5,8 @@ import ie.tippinst.jod.fm.app.Game;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -83,8 +84,10 @@ public class NewUserScreen extends JFrame {
 	}
 	
 	private void addNewUser(ActionEvent ae){
-		game.createNewUser(firstNameTxt.getText(), surnameTxt.getText(), new Date(), (String) nationalityCbo.getSelectedItem(), (String) clubCbo.getSelectedItem());
-		MainGame mg = new MainGame();
+		Calendar c = new GregorianCalendar();
+		c.set((2009 - dobYearCbo.getSelectedIndex()), dobMonthCbo.getSelectedIndex(), (dobDayCbo.getSelectedIndex()+1));
+		game.createNewUser(firstNameTxt.getText(), surnameTxt.getText(), c, (String) nationalityCbo.getSelectedItem(), (String) clubCbo.getSelectedItem());
+		MainGame2 mg = new MainGame2((String)clubCbo.getSelectedItem());
 		mg.setVisible(true);
 		this.setVisible(false);
 	}

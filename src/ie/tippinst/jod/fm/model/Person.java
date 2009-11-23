@@ -1,9 +1,10 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 
-public abstract class Person implements Serializable {
+public class Person implements Serializable {
 	
 	private int id;
 	private String firstName;
@@ -11,7 +12,7 @@ public abstract class Person implements Serializable {
 	private Nation nationality;
 	private double wages;
 	private int reputation;
-	private Date dob;
+	private Calendar dob;
 	private int currentAbility;
 	private int potentialAbility;
 	private Date contractExpiry;
@@ -19,6 +20,10 @@ public abstract class Person implements Serializable {
 	
 	public Person(){
 		super();
+	}
+	
+	public Person(Calendar dob){
+		this.dob=dob;
 	}
 	
 	public Club getCurrentClub() {
@@ -30,7 +35,7 @@ public abstract class Person implements Serializable {
 	}
 
 	protected Person(int id, String firstName, String lastName, Nation nationality, double wages,
-			int reputation, Date dob, int currentAbility, int potentialAbility,
+			int reputation, Calendar dob, int currentAbility, int potentialAbility,
 			Date contractExpiry, Club currentClub) {
 		super();
 		this.id = id;
@@ -47,7 +52,7 @@ public abstract class Person implements Serializable {
 	}
 
 	public Person(String firstName, String lastName, Nation nationality,
-			int reputation, Date dob, int currentAbility, int potentialAbility, Club currentClub) {
+			int reputation, Calendar dob, int currentAbility, int potentialAbility, Club currentClub) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -62,8 +67,9 @@ public abstract class Person implements Serializable {
 	@Override
 	public String toString() {
 		return "Person [contractExpiry=" + contractExpiry + ", currentAbility="
-				+ currentAbility + ", currentClub=" + currentClub.getName() + ", dob="
-				+ dob + ", firstName=" + firstName + ", id=" + id
+				+ currentAbility + ", currentClub=" + ((currentClub == null)?"No club":currentClub.getName())
+				+ ", dob=" + dob.get(Calendar.DAY_OF_MONTH) + "/" + (dob.get(Calendar.MONTH)+1)
+				+ "/" + dob.get(Calendar.YEAR) + ", firstName=" + firstName + ", id=" + id
 				+ ", lastName=" + lastName + ", nationality=" + nationality.getName()
 				+ ", potentialAbility=" + potentialAbility + ", reputation="
 				+ reputation + ", wages=" + wages + "]";
@@ -117,11 +123,11 @@ public abstract class Person implements Serializable {
 		this.reputation = reputation;
 	}
 
-	public Date getDob() {
+	public Calendar getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(Calendar dob) {
 		this.dob = dob;
 	}
 

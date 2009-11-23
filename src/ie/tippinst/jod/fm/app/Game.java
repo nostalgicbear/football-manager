@@ -5,6 +5,7 @@ import ie.tippinst.jod.fm.model.Injury;
 import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
+import ie.tippinst.jod.fm.model.Player;
 import ie.tippinst.jod.fm.model.Stadium;
 
 import java.beans.XMLDecoder;
@@ -13,7 +14,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -128,6 +130,20 @@ public class Game {
 		} finally{
 			decoder.close();
 		}
+
+		iClub = clubList.iterator();
+		iPerson = personList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			List<Player> list = new ArrayList<Player>();
+			while(iPerson.hasNext()){
+				Person p = iPerson.next();
+				if(p.getCurrentClub().getId()==c.getId() && p instanceof Player){
+					list.add((Player) p);
+				}
+			}
+			c.setSquad(list);
+		}	
 		
 		// Load all players from xml file into person objects
 		try {
@@ -192,6 +208,44 @@ public class Game {
 		} finally{
 			decoder.close();
 		}
+		
+		iClub = clubList.iterator();
+		iPerson = personList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			List<Player> list = new ArrayList<Player>();
+			while(iPerson.hasNext()){
+				Person p = iPerson.next();
+				if(p.getCurrentClub().getId()==c.getId() && p instanceof Player){
+					list.add((Player) p);
+				}
+			}
+			c.setSquad(list);
+		}
+		
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			if(c.getName().equals("Manchester United")){
+				List<Player> list = c.getSquad();
+				Iterator<Player> i = list.iterator();
+				while(i.hasNext()){
+					System.out.println(i.next());
+				}
+			}
+		}
+	}
+	
+	public List<Player> getSquad(String club){
+		List<Player> squad = null;
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			if(c.getName().equals(club)){
+				squad = c.getSquad();
+			}
+		}
+		return squad;
 	}
 
 	public List<Person> getPersonList() {
@@ -221,10 +275,11 @@ public class Game {
 		while(iNation.hasNext()){
 			listOfNames.add(iNation.next().getName());
 		}
+		Collections.sort(listOfNames);
 		return listOfNames;
 	}
 
-	public void createNewUser(String firstName, String surname, Date dob, String nationality, String club) {
+	public void createNewUser(String firstName, String surname, Calendar dob, String nationality, String club) {
 		iNation = nationList.iterator();
 		Nation nation = null;
 		
@@ -247,9 +302,9 @@ public class Game {
 		}
 		
 		// Create the user as a new nonplayer object and add them to the list of person objects in the game
-		NonPlayer user = new NonPlayer(firstName, surname, nation, 5000, new Date(), 100, 200, 1, 20, 1, 1, 1, 1, userClub);
+		NonPlayer user = new NonPlayer(firstName, surname, nation, 5000, dob, 100, 200, 1, 20, 1, 1, 1, 1, userClub);
 		getPersonList().add(user);
-		
+		System.out.println(user);
 		iPerson = personList.iterator();
 		
 		// If the user's club already has a manager remove them and assign them to no club
@@ -258,11 +313,11 @@ public class Game {
 			if((p instanceof NonPlayer)&&(p.getCurrentClub().getId() == userClub.getId())&&(((NonPlayer)p).getManagerRole() == 20)&&(iPerson.hasNext())){
 				iClub = clubList.iterator();
 				Club c = null;
-				while(iClub.hasNext()){
+				/*while(iClub.hasNext()){
 					c = iClub.next();
 					if(c.getName().equals("No Club"))
 					break;
-				}
+				}*/
 				p.setCurrentClub(c);
 				break;
 			}
