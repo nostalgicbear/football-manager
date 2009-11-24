@@ -12,6 +12,7 @@ public class NonPlayer extends Person implements Serializable {
 	private int coachRole;
 	private int physioRole;
 	private int scoutRole;
+	private String role;
 	
 	public NonPlayer(){
 		super();
@@ -91,6 +92,32 @@ public class NonPlayer extends Person implements Serializable {
 
 	public void setScoutRole(int scoutRole) {
 		this.scoutRole = scoutRole;
+	}
+
+	public void setRole() {
+		this.role = "";
+		if(this.getChairmanRole() == 20){
+			this.role = "Chairman";
+		}
+		else if(this.getManagerRole() == 20){
+			this.role = "Manager";
+		}
+		else if(this.getAssistantManagerRole() == 20){
+			this.role = "Assistant Manager";
+		}
+		else if(this.getCoachRole() == 20){
+			this.role = "Coach";
+		}
+		else if(this.getPhysioRole() == 20){
+			this.role = "Physio";
+		}
+		else if(this.getScoutRole() == 20){
+			this.role = "Scout";
+		}
+	}
+
+	public String getRole() {
+		return role;
 	}
 	
 	

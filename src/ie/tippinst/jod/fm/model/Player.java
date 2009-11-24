@@ -1,8 +1,10 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class Player extends Person implements Serializable {
 	
@@ -24,6 +26,7 @@ public class Player extends Person implements Serializable {
 	private int centreMidfieldAbility;
 	private int strikerAbility;
 	private Injury injury;
+	private String position;
 	
 	public Player(){
 		super();
@@ -205,6 +208,39 @@ public class Player extends Person implements Serializable {
 		this.injury = injury;
 	}
 
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition() {
+		this.position="";
+		if(this.goalkeepingAbility >= 15)
+			this.position = this.position + "GK/";
+		if((this.rightFullbackAbility >= 15)||(this.leftFullbackAbility >= 15)||(this.centrebackAbility >= 15)){
+			this.position = this.position + "D";
+			if(this.rightFullbackAbility >= 15)
+				this.position = this.position + "R";
+			if(this.leftFullbackAbility >= 15)
+				this.position = this.position + "L";
+			if(this.centrebackAbility >= 15)
+				this.position = this.position + "C";
+			this.position = this.position + "/";
+		}
+		if((this.rightMidfieldAbility >= 15)||(this.leftMidfieldAbility >= 15)||(this.centreMidfieldAbility >= 15)){
+			this.position = this.position + "M";
+			if(this.rightMidfieldAbility >= 15)
+				this.position = this.position + "R";
+			if(this.leftMidfieldAbility >= 15)
+				this.position = this.position + "L";
+			if(this.centreMidfieldAbility >= 15)
+				this.position = this.position + "C";
+			this.position = this.position + "/";
+		}
+		if(this.strikerAbility >= 15)
+			this.position = this.position + "S/";
+		this.position = this.position.substring(0, (this.position.length() - 1));
+	}
+
 	public String returnString() {
 		return toString() + "Player [centreMidfieldAbility=" + centreMidfieldAbility
 				+ ", centrebackAbility=" + centrebackAbility + ", fitness="
@@ -222,6 +258,15 @@ public class Player extends Person implements Serializable {
 				+ strikerAbility + "]";
 	}
 	
-	
+	public List<String> getPlayerProfileInfo(){
+		List<String> list = new ArrayList<String>();
+		list.add(this.getFirstName() + " " + this.getLastName());
+		list.add(this.getDob() + "");
+		list.add(this.getNationality().getName());
+		list.add(this.getPosition());
+		list.add(this.getCurrentClub().getName());
+		list.add("€" + this.getWages());
+		return list;
+	}
 
 }

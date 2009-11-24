@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?> 
+﻿<?xml version="1.0" encoding="UTF-8"?> 
 <java version="1.6.0_16" class="java.beans.XMLDecoder"> 
  <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
   <void property="id"> 
@@ -6,44 +6,9 @@
   </void> 
   <void property="currentClub"> 
    <object class="ie.tippinst.jod.fm.model.Club"> 
-     <void property="bankBalance"> 
-   <double>80000000</double> 
-  </void> 
-  <void property="homeGround"> 
-   <object class="ie.tippinst.jod.fm.model.Stadium"> 
-    <void property="capacity"> 
-     <int>76000</int> 
-    </void> 
-    <void property="id"> 
-     <int>1</int> 
-    </void> 
-    <void property="name"> 
-     <string>Old Trafford</string> 
-    </void> 
-   </object> 
-  </void> 
   <void property="id"> 
    <int>1</int> 
   </void> 
-  <void property="name"> 
-   <string>Manchester United</string> 
-  </void> 
-  <void property="nationality"> 
-   <object class="ie.tippinst.jod.fm.model.Nation"> 
-    <void property="id"> 
-     <int>1</int> 
-    </void> 
-    <void property="name"> 
-     <string>England</string> 
-    </void> 
-    <void property="reputation"> 
-     <int>8000</int> 
-    </void> 
-   </object> 
-  </void> 
-  <void property="reputation"> 
-   <int>9300</int> 
-  </void>
   </object>
   </void>
   <void property="firstName"> 
@@ -56,12 +21,6 @@
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
      <int>1</int> 
-    </void> 
-    <void property="name"> 
-     <string>England</string> 
-    </void> 
-    <void property="reputation"> 
-     <int>8000</int> 
     </void> 
    </object> 
   </void> 
@@ -82,6 +41,110 @@
   </void>
   <void property="assistantManagerRole"> 
    <int>1</int> 
+  </void>
+  <void property="coachRole"> 
+   <int>1</int> 
+  </void> 
+  <void property="physioRole"> 
+   <int>1</int> 
+  </void>
+  <void property="scoutRole"> 
+   <int>1</int> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
+  <void property="id"> 
+   <int>4</int> 
+  </void> 
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="id"> 
+   <int>1</int> 
+  </void> 
+  </object>
+  </void>
+  <void property="firstName"> 
+   <string>David</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Gill</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>5600</int> 
+  </void>
+  <void property="currentAbility"> 
+   <int>160</int> 
+  </void> 
+  <void property="potentialAbility"> 
+   <int>170</int> 
+  </void>
+  <void property="chairmanRole"> 
+   <int>20</int> 
+  </void> 
+  <void property="managerRole"> 
+   <int>1</int> 
+  </void>
+  <void property="assistantManagerRole"> 
+   <int>1</int> 
+  </void>
+  <void property="coachRole"> 
+   <int>1</int> 
+  </void> 
+  <void property="physioRole"> 
+   <int>1</int> 
+  </void>
+  <void property="scoutRole"> 
+   <int>1</int> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
+  <void property="id"> 
+   <int>5</int> 
+  </void> 
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="id"> 
+   <int>1</int> 
+  </void> 
+  </object>
+  </void>
+  <void property="firstName"> 
+   <string>Mike</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Phelan</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>6600</int> 
+  </void>
+  <void property="currentAbility"> 
+   <int>169</int> 
+  </void> 
+  <void property="potentialAbility"> 
+   <int>179</int> 
+  </void>
+  <void property="chairmanRole"> 
+   <int>1</int> 
+  </void> 
+  <void property="managerRole"> 
+   <int>1</int> 
+  </void>
+  <void property="assistantManagerRole"> 
+   <int>20</int> 
   </void>
   <void property="coachRole"> 
    <int>1</int> 

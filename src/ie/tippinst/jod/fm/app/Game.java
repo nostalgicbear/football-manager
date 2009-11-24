@@ -16,6 +16,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,9 +33,16 @@ public class Game {
 	private Iterator<Club> iClub;
 	private Iterator<Stadium> iStadium;
 	private Iterator<Injury> iInjury;
+	private Calendar date;
 	
+	public Calendar getDate() {
+		return date;
+	}
+
 	private Game(){
 		super();
+		date = new GregorianCalendar();
+		date.set(2009, 6, 2);
 	}
 	
 	public static Game getInstance(){
@@ -167,6 +175,7 @@ public class Game {
 							break;
 						}
 					}
+					((Player) p).setPosition();
 					personList.add(p);
 				} catch (ArrayIndexOutOfBoundsException e){
 					break;
@@ -199,6 +208,7 @@ public class Game {
 							break;
 						}
 					}
+					((NonPlayer) p).setRole();
 					personList.add(p);
 				} catch (ArrayIndexOutOfBoundsException e){
 					break;
@@ -213,26 +223,19 @@ public class Game {
 		iPerson = personList.iterator();
 		while(iClub.hasNext()){
 			Club c = iClub.next();
-			List<Player> list = new ArrayList<Player>();
+			List<Player> playerList = new ArrayList<Player>();
+			List<NonPlayer> staffList = new ArrayList<NonPlayer>();
 			while(iPerson.hasNext()){
 				Person p = iPerson.next();
 				if(p.getCurrentClub().getId()==c.getId() && p instanceof Player){
-					list.add((Player) p);
+					playerList.add((Player) p);
+				}
+				else if(p.getCurrentClub().getId()==c.getId() && p instanceof NonPlayer){
+					staffList.add((NonPlayer) p);
 				}
 			}
-			c.setSquad(list);
-		}
-		
-		iClub = clubList.iterator();
-		while(iClub.hasNext()){
-			Club c = iClub.next();
-			if(c.getName().equals("Manchester United")){
-				List<Player> list = c.getSquad();
-				Iterator<Player> i = list.iterator();
-				while(i.hasNext()){
-					System.out.println(i.next());
-				}
-			}
+			c.setSquad(playerList);
+			c.setStaff(staffList);
 		}
 	}
 	
@@ -246,6 +249,42 @@ public class Game {
 			}
 		}
 		return squad;
+	}
+	
+	public List<String> getPlayerProfileInfo(String name){
+		List<String> playerProfileInfo = null;
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if((p.getFirstName() + " " + p.getLastName()).equals(name)){
+				playerProfileInfo = ((Player) p).getPlayerProfileInfo();
+			}
+		}
+		return playerProfileInfo;
+	}
+	
+	public List<String> getClubInformation(String club){
+		List<String> clubInformation = null;
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			if(c.getName().equals(club)){
+				clubInformation = c.getClubInformation();
+			}
+		}
+		return clubInformation;
+	}
+	
+	public List<NonPlayer> getStaff(String club){
+		List<NonPlayer> staff = null;
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			if(c.getName().equals(club)){
+				staff = c.getStaff();
+			}
+		}
+		return staff;
 	}
 
 	public List<Person> getPersonList() {
@@ -303,9 +342,12 @@ public class Game {
 		
 		// Create the user as a new nonplayer object and add them to the list of person objects in the game
 		NonPlayer user = new NonPlayer(firstName, surname, nation, 5000, dob, 100, 200, 1, 20, 1, 1, 1, 1, userClub);
+		user.setRole();
 		getPersonList().add(user);
-		System.out.println(user);
 		iPerson = personList.iterator();
+		List<NonPlayer> staff = user.getCurrentClub().getStaff();
+		staff.add(user);
+		user.getCurrentClub().setStaff(staff);
 		
 		// If the user's club already has a manager remove them and assign them to no club
 		while(iPerson.hasNext()){
@@ -319,6 +361,8 @@ public class Game {
 					break;
 				}*/
 				p.setCurrentClub(c);
+				staff.remove(p);
+				user.getCurrentClub().setStaff(staff);
 				break;
 			}
 		}

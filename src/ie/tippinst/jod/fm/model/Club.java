@@ -1,6 +1,7 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Club implements Serializable {
@@ -110,7 +111,46 @@ public class Club implements Serializable {
 		this.name = name;
 	}
 	
-	
-	
-
+	public List<String> getClubInformation(){
+		List<String> list = new ArrayList<String>();
+		list.add(this.getNationality().getName());
+		int reputation = this.getReputation();
+		if(reputation >= 9500){
+			list.add("Worldwide");
+		}
+		else if(reputation >= 7500){
+			list.add("Continental");
+		}
+		else if(reputation >= 4500){
+			list.add("National");
+		}
+		else if(reputation >= 1500){
+			list.add("Regional");
+		}
+		else {
+			list.add("Local");
+		}
+		double finances = this.getBankBalance();
+		if(finances >= 80000000){
+			list.add("Very Rich");
+		}
+		else if(finances >= 40000000){
+			list.add("Rich");
+		}
+		else if(finances >= 20000000){
+			list.add("Secure");
+		}
+		else if(finances >= -5000000){
+			list.add("Okay");
+		}
+		else if(finances >= -20000000){
+			list.add("Insecure");
+		}
+		else {
+			list.add("In Debt");
+		}
+		list.add(this.getHomeGround().getName());
+		list.add(this.getHomeGround().getCapacity()+"");
+		return list;
+	}
 }

@@ -12,12 +12,61 @@
 package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
+import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
+import ie.tippinst.jod.fm.gui.panels.SquadPanel;
+import ie.tippinst.jod.fm.gui.panels.StaffPanel;
+import ie.tippinst.jod.fm.model.NonPlayer;
+import ie.tippinst.jod.fm.model.Player;
 
-/**
- *
- * @author Joseph
- */
-public class MainGame extends javax.swing.JFrame {
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.LayoutStyle;
+import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
+public class MainGame extends JFrame {
+	
+    private JButton backButton;
+    private JButton forwardButton;
+    private JButton continueButton;
+    private JMenu jMenu1;
+    private JMenu jMenu2;
+    private JMenu jMenu3;
+    private JMenu jMenu4;
+    private JMenuBar jMenuBar1;
+    private JMenuItem newMenuItem;
+    private JMenuItem jMenuItem2;
+    private JMenuItem jMenuItem3;
+    private JMenuItem jMenuItem4;
+    private JMenuItem exitMenuItem;
+    private JMenuItem squadMenuItem;
+    private JMenuItem informationMenuItem;
+    private JMenuItem staffMenuItem;
+    private JPanel jPanel1;
+    private JScrollPane jScrollPane1;
+    private JTable jTable1;
+    private JTableHeader jTable1Header;
+    private Game game;
+    private String userClub;
+    private JLabel [] clubInfoLabels;
+    private JLabel [] clubInfoTextLabels;
+    private JLabel date;
 
     /** Creates new form MainGame */
     public MainGame(String userClub) {
@@ -25,8 +74,98 @@ public class MainGame extends javax.swing.JFrame {
     	game = game.getInstance();
     	this.userClub = userClub;
         initComponents();
+        newMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				newGame(e);
+			}
+			
+		});
+        exitMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+			
+		});
+        squadMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserSquad(e);
+			}
+			
+		});
+        informationMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserSquadInformation(e);
+			}
+			
+		});
+        staffMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserStaff(e);
+			}
+			
+		});
         this.setLocationRelativeTo(null);
     }
+    
+    private void newGame(ActionEvent ae){
+    	game.loadDatabase();
+		NewUserScreen ns = new NewUserScreen();
+		ns.setVisible(true);
+		this.setVisible(false);
+    }
+    
+    private void displaySquad(String club){
+    	jPanel1.removeAll();
+    	addPanel(new SquadPanel(club));
+    	this.validate();
+    }
+    
+    private void displayUserSquad(ActionEvent ae){
+    	displaySquad(userClub);
+	}
+    
+    private void displayClubInformation(String club){
+    	jPanel1.removeAll();
+    	addPanel(new ClubInformationPanel(club));
+    	this.validate();
+    }
+    
+    private void displayUserSquadInformation(ActionEvent ae){
+    	displayClubInformation(userClub);
+	}
+    
+    private void displayStaff(String club){
+    	jPanel1.removeAll();
+    	addPanel(new StaffPanel(club));
+    	this.validate();
+    }
+    
+    private void addPanel(JPanel jpanel){
+    	GroupLayout layout = new GroupLayout(jPanel1);
+    	jPanel1.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jpanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jpanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+    }
+    
+    private void displayUserStaff(ActionEvent ae){
+    	displayStaff(userClub);
+	}
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -35,59 +174,56 @@ public class MainGame extends javax.swing.JFrame {
      */
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        backButton = new JButton();
+        forwardButton = new JButton();
+        continueButton = new JButton();
+        jPanel1 = new JPanel();
+        jScrollPane1 = new JScrollPane();
+        jTable1 = new JTable();
+        jMenuBar1 = new JMenuBar();
+        jMenu1 = new JMenu();
+        newMenuItem = new JMenuItem();
+        jMenuItem2 = new JMenuItem();
+        jMenuItem3 = new JMenuItem();
+        jMenuItem4 = new JMenuItem();
+        exitMenuItem = new JMenuItem();
+        squadMenuItem = new JMenuItem();
+        informationMenuItem = new JMenuItem();
+        staffMenuItem = new JMenuItem();
+        jMenu2 = new JMenu();
+        jMenu3 = new JMenu();
+        jMenu4 = new JMenu();
+        clubInfoLabels = new JLabel[5];
+        clubInfoTextLabels = new JLabel[5];
+        date = new JLabel();
+        for(int i = 0;i < clubInfoLabels.length;i++){
+        	clubInfoLabels[i] = new JLabel();
+        	clubInfoTextLabels[i] = new JLabel();
+        }
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("Back");
-
-        jButton2.setText("Continue");
-
-        jButton3.setText("Forward");
-
-        /*jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });*/
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        jList1.setListData(game.getSquad(userClub).toArray());
-        jScrollPane1.setViewportView(jList1);
+        clubInfoLabels[0].setText("Nationality");
+        clubInfoLabels[1].setText("Reputation");
+        clubInfoLabels[2].setText("Finances");
+        clubInfoLabels[3].setText("Stadium");
+        clubInfoLabels[4].setText("Stadium Capacity");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        backButton.setText("Back");
+
+        forwardButton.setText("Continue");
+
+        continueButton.setText("Forward");
+        
+        displaySquad(userClub);
+        
+        Calendar c = game.getDate();        
+        date.setText(c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR));
 
         jMenu1.setText("File");
 
-        jMenuItem1.setText("New");
-        jMenu1.add(jMenuItem1);
+        newMenuItem.setText("New");
+        jMenu1.add(newMenuItem);
 
         jMenuItem2.setText("Load");
         jMenu1.add(jMenuItem2);
@@ -98,59 +234,58 @@ public class MainGame extends javax.swing.JFrame {
         jMenuItem4.setText("Save As...");
         jMenu1.add(jMenuItem4);
 
-        jMenuItem5.setText("Exit");
-        jMenu1.add(jMenuItem5);
+        exitMenuItem.setText("Exit");
+        jMenu1.add(exitMenuItem);
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Manager");
         jMenuBar1.add(jMenu2);
+        
+        jMenu3.setText(userClub);
+        
+        squadMenuItem.setText("Squad");
+        jMenu3.add(squadMenuItem);
+        
+        informationMenuItem.setText("Information");
+        jMenu3.add(informationMenuItem);
+        
+        staffMenuItem.setText("Staff");
+        jMenu3.add(staffMenuItem);
+        
+        jMenuBar1.add(jMenu3);
+        
+        jMenu4.setText("League");
+        jMenuBar1.add(jMenu4);
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(backButton, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(continueButton, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(date)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(forwardButton, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(forwardButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(continueButton, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(date)))
         );
 
         pack();
-    }// </editor-fold>
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JList jList1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private Game game;
-    private String userClub;
-    // End of variables declaration
-
+    }
 }
