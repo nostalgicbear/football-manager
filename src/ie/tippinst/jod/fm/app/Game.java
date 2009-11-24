@@ -1,7 +1,9 @@
 package ie.tippinst.jod.fm.app;
 
 import ie.tippinst.jod.fm.model.Club;
+import ie.tippinst.jod.fm.model.Competition;
 import ie.tippinst.jod.fm.model.Injury;
+import ie.tippinst.jod.fm.model.League;
 import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
@@ -27,12 +29,14 @@ public class Game {
 	private List<Club> clubList;
 	private List<Stadium> stadiumList;
 	private List<Injury> injuryList;
+	private List<Competition> competitionList;
 	private static Game game = null;
 	private Iterator<Person> iPerson;
 	private Iterator<Nation> iNation;
 	private Iterator<Club> iClub;
 	private Iterator<Stadium> iStadium;
 	private Iterator<Injury> iInjury;
+	private Iterator<Competition> iCompetition;
 	private Calendar date;
 	
 	public Calendar getDate() {
@@ -59,6 +63,7 @@ public class Game {
 		clubList = new ArrayList<Club>();
 		stadiumList = new ArrayList<Stadium>();
 		injuryList = new ArrayList<Injury>();
+		competitionList = new ArrayList<Competition>();
 				
 		XMLDecoder decoder = null;
 		
@@ -106,6 +111,21 @@ public class Game {
 			decoder.close();
 		}
 		
+		// Load all leagues from xml file into competition objects
+		try {
+			decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(new File("league.xml"))));
+			while(true)
+				try{
+					competitionList.add((Competition) decoder.readObject());
+				} catch (ArrayIndexOutOfBoundsException e){
+					break;
+				}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			decoder.close();
+		}
+		
 		// Load all clubs from xml file into club objects
 		try {
 			decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(new File("club.xml"))));
@@ -114,6 +134,7 @@ public class Game {
 					Club c = (Club) decoder.readObject();
 					iNation = nationList.iterator();
 					iStadium = stadiumList.iterator();
+					iCompetition = competitionList.iterator();
 					while(iStadium.hasNext()){
 						Stadium s = iStadium.next();
 						if(c.getHomeGround().getId() == s.getId()){
@@ -125,6 +146,13 @@ public class Game {
 						Nation n = iNation.next();
 						if(c.getNationality().getId() == n.getId()){
 							c.setNationality(n);
+							break;
+						}
+					}
+					while(iCompetition.hasNext()){
+						Competition competition = iCompetition.next();
+						if(c.getLeague().getId() == competition.getId()){
+							c.setLeague((League) competition);
 							break;
 						}
 					}
@@ -237,6 +265,32 @@ public class Game {
 			c.setSquad(playerList);
 			c.setStaff(staffList);
 		}
+		
+		iCompetition = competitionList.iterator();
+		iClub = clubList.iterator();
+		while(iCompetition.hasNext()){
+			Competition c = iCompetition.next();
+			List<Club> clubList = new ArrayList<Club>();
+			while(iClub.hasNext()){
+				Club club = iClub.next();
+				if(club.getLeague().getId() == c.getId() && c instanceof League){
+					clubList.add((Club) club);
+				}
+			}
+			((League) c).setTeams(clubList);
+		}
+	}
+	
+	public List<Club> getTeams(String competition){
+		List<Club> teams = null;
+		iCompetition = competitionList.iterator();
+		while(iCompetition.hasNext()){
+			Competition c = iCompetition.next();
+			if(c.getName().equals(competition)){
+				teams = ((League) c).getTeams();
+			}
+		}
+		return teams;
 	}
 	
 	public List<Player> getSquad(String club){

@@ -16,8 +16,9 @@ public class ClubInformationPanel extends JPanel {
     	jLabel2.setText(list.get(0));
     	jLabel3.setText(list.get(1));
     	jLabel4.setText(list.get(2));
-    	jLabel5.setText(list.get(3));
-    	jLabel6.setText(list.get(4));
+    	jLabel5.setText(list.get(4));
+    	jLabel6.setText(list.get(5));
+    	jLabel12.setText(list.get(3));
     }
 
     /** This method is called from within the constructor to
@@ -39,26 +40,33 @@ public class ClubInformationPanel extends JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        
+        
+        jLabel11.setText("Division:");
+        
+        jLabel1.setText("Nationality:");
 
+        jLabel8.setText("Stadium Capacity:");
 
-        jLabel1.setText("Nationality");
+        jLabel7.setText("Stadium:");
 
-        jLabel8.setText("Stadium Capacity");
+        jLabel10.setText("Reputation:");
 
-        jLabel7.setText("Stadium");
-
-        jLabel10.setText("Reputation");
-
-        jLabel9.setText("Finances");
+        jLabel9.setText("Finances:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -83,7 +91,6 @@ public class ClubInformationPanel extends JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -105,7 +112,11 @@ public class ClubInformationPanel extends JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel6))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>
 
@@ -121,6 +132,8 @@ public class ClubInformationPanel extends JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private String club;
     private Game game;
     // End of variables declaration

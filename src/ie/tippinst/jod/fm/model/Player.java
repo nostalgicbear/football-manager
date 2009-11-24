@@ -261,7 +261,7 @@ public class Player extends Person implements Serializable {
 	public List<String> getPlayerProfileInfo(){
 		List<String> list = new ArrayList<String>();
 		list.add(this.getFirstName() + " " + this.getLastName());
-		list.add(this.getDob() + "");
+		list.add(this.getDob().get(Calendar.DATE) + "/" + (this.getDob().get(Calendar.MONTH) + 1) + "/" + this.getDob().get(Calendar.YEAR));
 		list.add(this.getNationality().getName());
 		list.add(this.getPosition());
 		list.add(this.getCurrentClub().getName());

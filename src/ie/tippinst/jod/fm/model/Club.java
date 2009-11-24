@@ -15,13 +15,14 @@ public class Club implements Serializable {
 	private double bankBalance;
 	private Stadium homeGround;
 	private Nation nationality;
+	private League league;
 	
 	public Club(){
 		super();
 	}
 	
 	public Club(int id, String name, int reputation, double bankBalance,
-			Stadium homeGround, Nation nationality) {
+			Stadium homeGround, Nation nationality, League league) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -29,6 +30,7 @@ public class Club implements Serializable {
 		this.bankBalance = bankBalance;
 		this.homeGround = homeGround;
 		this.nationality = nationality;
+		this.setLeague(league);
 	}
 
 	public int getId() {
@@ -149,8 +151,17 @@ public class Club implements Serializable {
 		else {
 			list.add("In Debt");
 		}
+		list.add(this.getLeague().getName());
 		list.add(this.getHomeGround().getName());
 		list.add(this.getHomeGround().getCapacity()+"");
 		return list;
+	}
+
+	public void setLeague(League league) {
+		this.league = league;
+	}
+
+	public League getLeague() {
+		return league;
 	}
 }
