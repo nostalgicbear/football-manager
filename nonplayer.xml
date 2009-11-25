@@ -3,7 +3,19 @@
  <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
   <void property="id"> 
    <int>2</int> 
-  </void> 
+  </void>
+  <void property="wages"> 
+   <double>90000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>499035088741</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>  
   <void property="currentClub"> 
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="id"> 
@@ -55,7 +67,19 @@
  <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
   <void property="id"> 
    <int>4</int> 
-  </void> 
+  </void>
+  <void property="wages"> 
+   <double>90000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>499035088741</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>   
   <void property="currentClub"> 
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="id"> 
@@ -107,7 +131,19 @@
  <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
   <void property="id"> 
    <int>5</int> 
-  </void> 
+  </void>
+  <void property="wages"> 
+   <double>90000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>499035088741</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>   
   <void property="currentClub"> 
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="id"> 

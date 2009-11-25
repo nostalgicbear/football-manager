@@ -71,4 +71,12 @@ public class StaffPanel extends JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }
+
+	public JTable getjTable1() {
+		return jTable1;
+	}
+
+	public void setjTable1(JTable jTable1) {
+		this.jTable1 = jTable1;
+	}
 }

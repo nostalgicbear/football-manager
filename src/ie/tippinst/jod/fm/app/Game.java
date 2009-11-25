@@ -317,6 +317,18 @@ public class Game {
 		return playerProfileInfo;
 	}
 	
+	public List<String> getStaffProfileInfo(String name){
+		List<String> staffProfileInfo = null;
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if((p.getFirstName() + " " + p.getLastName()).equals(name)){
+				staffProfileInfo = ((NonPlayer) p).getStaffProfileInfo();
+			}
+		}
+		return staffProfileInfo;
+	}
+	
 	public List<String> getClubInformation(String club){
 		List<String> clubInformation = null;
 		iClub = clubList.iterator();

@@ -6,6 +6,7 @@ import ie.tippinst.jod.fm.gui.panels.LeagueTablePanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerProfilePanel;
 import ie.tippinst.jod.fm.gui.panels.SquadPanel;
 import ie.tippinst.jod.fm.gui.panels.StaffPanel;
+import ie.tippinst.jod.fm.gui.panels.StaffProfilePanel;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -46,6 +47,7 @@ public class MainGame extends JFrame {
     private JMenuItem inboxMenuItem;
     private JMenuItem shortlistMenuItem;
     private JMenuItem playerSearchMenuItem;
+    private JMenuItem staffSearchMenuItem;
     private JMenuItem jobsMenuItem;
     private JMenuItem resignMenuItem;
     private JMenuItem squadMenuItem;
@@ -65,6 +67,7 @@ public class MainGame extends JFrame {
     private ClubInformationPanel clubInformationPanel;
     private StaffPanel staffPanel;
     private PlayerProfilePanel playerPanel;
+    private StaffProfilePanel staffProfilePanel;
     private JPanel leagueTableSidebar;
     private JPanel squadSidebar;
     private JButton viewSelectedClubButton;
@@ -72,6 +75,7 @@ public class MainGame extends JFrame {
     private JButton viewStaff;
     private JButton viewInformation;
     private JButton viewSelectedPlayerButton;
+    private JButton viewStaffProfileButton;
     
     private Game game;
     private String userClub;
@@ -196,6 +200,15 @@ public class MainGame extends JFrame {
 			
 		});
         
+        viewStaffProfileButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayStaffProfile(e);
+			}
+			
+		});
+        
         this.setLocationRelativeTo(null);
     }
     
@@ -216,6 +229,18 @@ public class MainGame extends JFrame {
     private void displayPlayer(ActionEvent ae){
 		player = (String) (squadPanel.getjTable1().getValueAt(squadPanel.getjTable1().getSelectedRow(), 0));
     	displayPlayer(player);
+	}
+    
+    private void displayStaffProfile(String staffMember){
+    	staffProfilePanel = new StaffProfilePanel(staffMember);
+    	mainPanel.add(staffProfilePanel, "Staff Profile");
+    	((CardLayout) mainPanel.getLayout()).next(mainPanel);
+    	sidebar.add(squadSidebar, "Squad Sidebar");
+    	((CardLayout) sidebar.getLayout()).next(sidebar);
+    }
+    
+    private void displayStaffProfile(ActionEvent ae){
+		displayStaffProfile((String) (staffPanel.getjTable1().getValueAt(staffPanel.getjTable1().getSelectedRow(), 0)));
 	}
     
     private void newGame(ActionEvent ae){
@@ -313,11 +338,13 @@ public class MainGame extends JFrame {
         viewStaff = new JButton();
         viewInformation = new JButton();
         viewSelectedPlayerButton = new JButton();
+        viewStaffProfileButton = new JButton();
         optionsMenuItem = new JMenuItem();
         userProfileMenuItem = new JMenuItem();
         inboxMenuItem = new JMenuItem();
         shortlistMenuItem = new JMenuItem();
         playerSearchMenuItem = new JMenuItem();
+        staffSearchMenuItem = new JMenuItem();
         jobsMenuItem = new JMenuItem();
         resignMenuItem = new JMenuItem();
         tacticsMenuItem = new JMenuItem();
@@ -333,6 +360,7 @@ public class MainGame extends JFrame {
         viewStaff.setText("Staff");
         viewInformation.setText("Information");
         viewSelectedPlayerButton.setText("View Player");
+        viewStaffProfileButton.setText("View Staff Member");
 
         forwardButton.setText("Forward");
         forwardButton.setEnabled(false);
@@ -380,6 +408,9 @@ public class MainGame extends JFrame {
         
         playerSearchMenuItem.setText("Player Search");
         managerMenu.add(playerSearchMenuItem);
+        
+        staffSearchMenuItem.setText("Staff Search");
+        managerMenu.add(staffSearchMenuItem);
         
         jobsMenuItem.setText("Jobs");
         managerMenu.add(jobsMenuItem);
@@ -430,6 +461,7 @@ public class MainGame extends JFrame {
             .addGroup(squadSidebarLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(squadSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                	.addComponent(viewStaffProfileButton)
                 	.addComponent(viewSelectedPlayerButton)
                 	.addComponent(viewInformation)
                     .addComponent(viewStaff)
@@ -447,6 +479,8 @@ public class MainGame extends JFrame {
                 .addComponent(viewInformation)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewSelectedPlayerButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(viewStaffProfileButton)
                 .addContainerGap(190, Short.MAX_VALUE))
         );
         

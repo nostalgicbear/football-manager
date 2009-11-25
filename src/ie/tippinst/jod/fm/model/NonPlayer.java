@@ -1,8 +1,10 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class NonPlayer extends Person implements Serializable {
 	
@@ -120,6 +122,15 @@ public class NonPlayer extends Person implements Serializable {
 		return role;
 	}
 	
-	
+	public List<String> getStaffProfileInfo(){
+		List<String> list = new ArrayList<String>();
+		list.add(this.getFirstName() + " " + this.getLastName());
+		list.add(this.getDob().get(Calendar.DATE) + "/" + (this.getDob().get(Calendar.MONTH) + 1) + "/" + this.getDob().get(Calendar.YEAR));
+		list.add(this.getNationality().getName());
+		list.add(this.getRole());
+		list.add(this.getCurrentClub().getName());
+		list.add("€" + this.getWages());
+		return list;
+	}
 
 }
