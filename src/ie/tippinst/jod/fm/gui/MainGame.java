@@ -40,10 +40,21 @@ public class MainGame extends JFrame {
     private JMenuItem loadMenuItem;
     private JMenuItem saveMenuItem;
     private JMenuItem saveAsMenuItem;
+    private JMenuItem optionsMenuItem;
     private JMenuItem exitMenuItem;
+    private JMenuItem userProfileMenuItem;
+    private JMenuItem inboxMenuItem;
+    private JMenuItem shortlistMenuItem;
+    private JMenuItem playerSearchMenuItem;
+    private JMenuItem jobsMenuItem;
+    private JMenuItem resignMenuItem;
     private JMenuItem squadMenuItem;
+    private JMenuItem tacticsMenuItem;
+    private JMenuItem fixturesMenuItem;
+    private JMenuItem financesMenuItem;
     private JMenuItem informationMenuItem;
     private JMenuItem staffMenuItem;
+    private JMenuItem confidenceMenuItem;
     private JMenuItem leagueTableMenuItem;
     private JPanel mainPanel;
     private JLabel date;
@@ -190,7 +201,7 @@ public class MainGame extends JFrame {
     
     private void goBack(ActionEvent ae){
     	((CardLayout) mainPanel.getLayout()).previous(mainPanel);
-    	forwardButton.setEnabled(true);
+    	//forwardButton.setEnabled(true);
     }
     
     private void goForward(ActionEvent ae){
@@ -220,7 +231,7 @@ public class MainGame extends JFrame {
     	((CardLayout) mainPanel.getLayout()).next(mainPanel);
     	sidebar.add(leagueTableSidebar, "League Table Sidebar");
     	((CardLayout) sidebar.getLayout()).next(sidebar);
-    	backButton.setEnabled(true);
+    	//backButton.setEnabled(true);
 	}
     
     private void displayPlayer(String player){
@@ -229,7 +240,7 @@ public class MainGame extends JFrame {
     	((CardLayout) mainPanel.getLayout()).next(mainPanel);
     	sidebar.add(squadSidebar, "Squad Sidebar");
     	((CardLayout) sidebar.getLayout()).next(sidebar);
-    	backButton.setEnabled(true);
+    	//backButton.setEnabled(true);
     }
     
     private void displaySquad(String club){
@@ -238,7 +249,7 @@ public class MainGame extends JFrame {
     	((CardLayout) mainPanel.getLayout()).next(mainPanel);
     	sidebar.add(squadSidebar, "Squad Sidebar");
     	((CardLayout) sidebar.getLayout()).next(sidebar);
-    	backButton.setEnabled(true);
+    	//backButton.setEnabled(true);
     }
     
     private void displayUserSquad(ActionEvent ae){
@@ -250,7 +261,7 @@ public class MainGame extends JFrame {
     	clubInformationPanel = new ClubInformationPanel(club);
     	mainPanel.add(clubInformationPanel, "Club Information");
     	((CardLayout) mainPanel.getLayout()).next(mainPanel);
-    	backButton.setEnabled(true);
+    	//backButton.setEnabled(true);
     }
     
     private void displayUserSquadInformation(ActionEvent ae){
@@ -261,7 +272,7 @@ public class MainGame extends JFrame {
     	staffPanel = new StaffPanel(club);
     	mainPanel.add(staffPanel, "Staff");
     	((CardLayout) mainPanel.getLayout()).next(mainPanel);
-    	backButton.setEnabled(true);
+    	//backButton.setEnabled(true);
     }
     
     private void displayUserStaff(ActionEvent ae){
@@ -302,6 +313,17 @@ public class MainGame extends JFrame {
         viewStaff = new JButton();
         viewInformation = new JButton();
         viewSelectedPlayerButton = new JButton();
+        optionsMenuItem = new JMenuItem();
+        userProfileMenuItem = new JMenuItem();
+        inboxMenuItem = new JMenuItem();
+        shortlistMenuItem = new JMenuItem();
+        playerSearchMenuItem = new JMenuItem();
+        jobsMenuItem = new JMenuItem();
+        resignMenuItem = new JMenuItem();
+        tacticsMenuItem = new JMenuItem();
+        fixturesMenuItem = new JMenuItem();
+        financesMenuItem = new JMenuItem();
+        confidenceMenuItem = new JMenuItem();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -336,6 +358,9 @@ public class MainGame extends JFrame {
 
         saveAsMenuItem.setText("Save As...");
         fileMenu.add(saveAsMenuItem);
+        
+        optionsMenuItem.setText("Options");
+        fileMenu.add(optionsMenuItem);
 
         exitMenuItem.setText("Exit");
         fileMenu.add(exitMenuItem);
@@ -343,6 +368,25 @@ public class MainGame extends JFrame {
         menuBar.add(fileMenu);
 
         managerMenu.setText("Manager");
+        
+        userProfileMenuItem.setText("Profile");
+        managerMenu.add(userProfileMenuItem);
+        
+        inboxMenuItem.setText("Inbox");
+        managerMenu.add(inboxMenuItem);
+        
+        shortlistMenuItem.setText("Shortlist");
+        managerMenu.add(shortlistMenuItem);
+        
+        playerSearchMenuItem.setText("Player Search");
+        managerMenu.add(playerSearchMenuItem);
+        
+        jobsMenuItem.setText("Jobs");
+        managerMenu.add(jobsMenuItem);
+        
+        resignMenuItem.setText("Resign");
+        managerMenu.add(resignMenuItem);
+        
         menuBar.add(managerMenu);
         
         clubMenu.setText(userClub);
@@ -350,11 +394,23 @@ public class MainGame extends JFrame {
         squadMenuItem.setText("Squad");
         clubMenu.add(squadMenuItem);
         
+        tacticsMenuItem.setText("Tactics");
+        clubMenu.add(tacticsMenuItem);
+        
+        fixturesMenuItem.setText("Fixtures");
+        clubMenu.add(fixturesMenuItem);
+        
+        financesMenuItem.setText("Finances");
+        clubMenu.add(financesMenuItem);
+        
         informationMenuItem.setText("Information");
         clubMenu.add(informationMenuItem);
         
         staffMenuItem.setText("Staff");
         clubMenu.add(staffMenuItem);
+        
+        confidenceMenuItem.setText("Confidence");
+        clubMenu.add(confidenceMenuItem);
         
         menuBar.add(clubMenu);
         

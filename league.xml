@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_16" class="java.beans.XMLDecoder"> 
+ <object class="ie.tippinst.jod.fm.model.League"> 
+  <void property="id"> 
+   <int>1</int> 
+  </void> 
+  <void property="name"> 
+   <string>Premier League</string> 
+  </void>   
+  <void property="reputation"> 
+   <int>19</int> 
+  </void>
+  <void property="numberOfTeams"> 
+   <int>20</int> 
+  </void>
+ </object>
+</java> 
