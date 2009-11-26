@@ -21,6 +21,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 
@@ -29,6 +30,7 @@ public class MainGame extends JFrame {
 	private static final long serialVersionUID = -4239639104320867731L;
 	
 	// Main Screen
+	private JTabbedPane clubPanel;
 	private JButton backButton;
     private JButton forwardButton;
     private JButton continueButton;
@@ -139,24 +141,6 @@ public class MainGame extends JFrame {
 			
 		});
         
-        backButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				goBack(e);
-			}
-			
-		});
-        
-        forwardButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				goForward(e);
-			}
-			
-		});
-        
         viewSquad.addActionListener(new ActionListener() {
 
 			@Override
@@ -227,15 +211,6 @@ public class MainGame extends JFrame {
     	displayStaffProfile(user);
     }
     
-    private void goBack(ActionEvent ae){
-    	((CardLayout) mainPanel.getLayout()).previous(mainPanel);
-    	//forwardButton.setEnabled(true);
-    }
-    
-    private void goForward(ActionEvent ae){
-    	((CardLayout) mainPanel.getLayout()).next(mainPanel);
-    }
-    
     private void displaySquad(ActionEvent ae){
 		club = (String) (leagueTablePanel.getjTable1().getValueAt(leagueTablePanel.getjTable1().getSelectedRow(), 0));
     	displaySquad(club);
@@ -285,10 +260,19 @@ public class MainGame extends JFrame {
     
     private void displaySquad(String club){
     	squadPanel = new SquadPanel(club);
-    	mainPanel.add(squadPanel, "Squad");
-    	((CardLayout) mainPanel.getLayout()).next(mainPanel);
-    	sidebar.add(squadSidebar, "Squad Sidebar");
-    	((CardLayout) sidebar.getLayout()).next(sidebar);
+    	staffPanel = new StaffPanel(club);
+    	clubInformationPanel = new ClubInformationPanel(club);
+    	//mainPanel.add(squadPanel, "Squad");
+    	//((CardLayout) mainPanel.getLayout()).next(mainPanel);
+    	clubPanel.removeAll();
+    	clubPanel.addTab("Squad", squadPanel);
+        clubPanel.addTab("Staff", staffPanel);
+        clubPanel.addTab("Information", clubInformationPanel);
+        clubPanel.setSelectedIndex(0);
+        mainPanel.add(clubPanel, "Club");
+        ((CardLayout) mainPanel.getLayout()).next(mainPanel);
+        sidebar.add(squadSidebar, "Squad Sidebar");
+    	((CardLayout) sidebar.getLayout()).next(sidebar); 
     	//backButton.setEnabled(true);
     }
     
@@ -298,9 +282,20 @@ public class MainGame extends JFrame {
 	}
     
     private void displayClubInformation(String club){
+    	squadPanel = new SquadPanel(club);
+    	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
-    	mainPanel.add(clubInformationPanel, "Club Information");
-    	((CardLayout) mainPanel.getLayout()).next(mainPanel);
+    	//mainPanel.add(squadPanel, "Squad");
+    	//((CardLayout) mainPanel.getLayout()).next(mainPanel);
+    	clubPanel.removeAll();
+    	clubPanel.addTab("Squad", squadPanel);
+        clubPanel.addTab("Staff", staffPanel);
+        clubPanel.addTab("Information", clubInformationPanel);
+        clubPanel.setSelectedIndex(2);
+        mainPanel.add(clubPanel, "Club");
+        ((CardLayout) mainPanel.getLayout()).next(mainPanel);
+        sidebar.add(squadSidebar, "Squad Sidebar");
+    	((CardLayout) sidebar.getLayout()).next(sidebar);
     	//backButton.setEnabled(true);
     }
     
@@ -309,10 +304,20 @@ public class MainGame extends JFrame {
 	}
     
     private void displayStaff(String club){
+    	squadPanel = new SquadPanel(club);
     	staffPanel = new StaffPanel(club);
-    	mainPanel.add(staffPanel, "Staff");
-    	((CardLayout) mainPanel.getLayout()).next(mainPanel);
-    	//backButton.setEnabled(true);
+    	clubInformationPanel = new ClubInformationPanel(club);
+    	//mainPanel.add(squadPanel, "Squad");
+    	//((CardLayout) mainPanel.getLayout()).next(mainPanel);
+    	clubPanel.removeAll();
+    	clubPanel.addTab("Squad", squadPanel);
+        clubPanel.addTab("Staff", staffPanel);
+        clubPanel.addTab("Information", clubInformationPanel);
+        clubPanel.setSelectedIndex(1);
+        mainPanel.add(clubPanel, "Club");
+        ((CardLayout) mainPanel.getLayout()).next(mainPanel);
+        sidebar.add(squadSidebar, "Squad Sidebar");
+    	((CardLayout) sidebar.getLayout()).next(sidebar);
     }
     
     private void displayUserStaff(ActionEvent ae){
@@ -366,16 +371,18 @@ public class MainGame extends JFrame {
         fixturesMenuItem = new JMenuItem();
         financesMenuItem = new JMenuItem();
         confidenceMenuItem = new JMenuItem();
+        clubPanel = new JTabbedPane();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         backButton.setText("Back");
+        clubPanel.setBorder(null);
         viewSelectedClubButton.setText("View Club");
         viewSquad.setText("Squad");
         viewStaff.setText("Staff");
         viewInformation.setText("Information");
         viewSelectedPlayerButton.setText("View Player");
-        viewStaffProfileButton.setText("View Staff Member");
+        viewStaffProfileButton.setText("View NonPlayer");
 
         forwardButton.setText("Forward");
         forwardButton.setEnabled(false);
@@ -383,6 +390,7 @@ public class MainGame extends JFrame {
         continueButton.setText("Continue");
         
         displaySquad(userClub);
+        
         backButton.setEnabled(false);
         
         Calendar c = game.getDate();        
@@ -477,22 +485,22 @@ public class MainGame extends JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(squadSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 	.addComponent(viewStaffProfileButton)
-                	.addComponent(viewSelectedPlayerButton)
-                	.addComponent(viewInformation)
-                    .addComponent(viewStaff)
-                    .addComponent(viewSquad))
+                	.addComponent(viewSelectedPlayerButton))
+                	//.addComponent(viewInformation)
+                    //.addComponent(viewStaff)
+                    //.addComponent(viewSquad))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         squadSidebarLayout.setVerticalGroup(
             squadSidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(squadSidebarLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(viewSquad)
+                /*.addComponent(viewSquad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewStaff)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewInformation)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)*/
                 .addComponent(viewSelectedPlayerButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewStaffProfileButton)
