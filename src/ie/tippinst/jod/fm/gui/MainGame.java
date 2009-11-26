@@ -81,12 +81,14 @@ public class MainGame extends JFrame {
     private String userClub;
     private String club;
     private String player;
+    private String user;
 
     /** Creates new form MainGame */
-    public MainGame(String userClub) {
+    public MainGame(String userClub, String user) {
     	super("Football Manager");
     	game = Game.getInstance();
     	this.userClub = this.club = userClub;
+    	this.user = user;
         initComponents();
         newMenuItem.addActionListener(new ActionListener() {
 
@@ -209,7 +211,20 @@ public class MainGame extends JFrame {
 			
 		});
         
+        userProfileMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserProfile(e);
+			}
+			
+		});
+        
         this.setLocationRelativeTo(null);
+    }
+    
+    private void displayUserProfile(ActionEvent ae){
+    	displayStaffProfile(user);
     }
     
     private void goBack(ActionEvent ae){
