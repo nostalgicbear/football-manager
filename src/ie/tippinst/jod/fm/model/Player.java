@@ -1,6 +1,7 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -15,6 +16,7 @@ public class Player extends Person implements Serializable {
 	private int leftFootAbility;
 	private int rightFootAbility;
 	private int fitness;
+	private int fatigue;
 	private int happinessAtClub;
 	private int morale;
 	private int goalkeepingAbility;
@@ -27,6 +29,8 @@ public class Player extends Person implements Serializable {
 	private int strikerAbility;
 	private Injury injury;
 	private String position;
+	enum SquadStatus {Indispensable, Important, Squad, TopYoungster, DecentYoungster, UnNeeded};
+	private SquadStatus status;
 	
 	public Player(){
 		super();
@@ -34,7 +38,7 @@ public class Player extends Person implements Serializable {
 	
 	public Player(int id, String firstName, String lastName, Nation nationality,
 			double wages, int reputation, Calendar dob, int currentAbility,
-			int potentialAbility, Date contractExpiry, Club currentClub,
+			int potentialAbility, Calendar contractExpiry, Club currentClub,
 			double marketValue, double saleValue, int intCaps, int intGoals,
 			int leftFootAbility, int rightFootAbility, int fitness,
 			int happinessAtClub, int morale, int goalkeepingAbility,
@@ -67,17 +71,75 @@ public class Player extends Person implements Serializable {
 	public double getMarketValue() {
 		return marketValue;
 	}
+	
+	private int getMonthsRemainingOnContract(Calendar date){
+		return (int) ((this.getContractExpiry().getTimeInMillis() - date.getTimeInMillis()) / 86400000L);
+	}
 
-	public void setMarketValue(double marketValue) {
-		this.marketValue = marketValue;
+	public void setMarketValue(Calendar date) {
+		double positionValue = 1;
+		int currentAbility = this.getCurrentAbility();
+		double constant = 10000;
+		
+		if(currentAbility >= 150){
+			constant = 100000;
+		}
+		else if(currentAbility >= 100){
+			constant = 50000;
+		}
+		else if(currentAbility >= 50){
+			constant = 20000;
+		}
+		
+		if(this.getStrikerAbility() > 15){
+			positionValue = 3;
+		}
+		else if(this.getRightMidfieldAbility() > 15 || this.getLeftMidfieldAbility() > 15 || this.getCentreMidfieldAbility() > 15){
+			positionValue = 2.5;
+		}
+		else if(this.getRightFullbackAbility() > 15 || this.getLeftFullbackAbility() > 15 || this.getCentrebackAbility() > 15){
+			positionValue = 1.5;
+		}
+		
+		this.marketValue = this.getCurrentAbility() * constant * (getMonthsRemainingOnContract(date)/1826.0) * positionValue;
+		DecimalFormat myFormatter = new DecimalFormat("000,000");
+		String output = myFormatter.format(this.marketValue);
+		//System.out.println((this.getCurrentAbility() / 200.0));
+		//System.out.println((getMonthsRemainingOnContract(date)/1826.0));
+		//System.out.println(positionValue);
+		System.out.println(this.getFirstName() + " " + this.getLastName() + " €" + output);
 	}
 
 	public double getSaleValue() {
 		return saleValue;
 	}
 
-	public void setSaleValue(double saleValue) {
-		this.saleValue = saleValue;
+	public void setSaleValue() {
+		SquadStatus status = this.getStatus();
+		switch(status){
+		case Indispensable:
+			this.saleValue = this.getMarketValue() * 4;
+			break;
+		case Important:
+			this.saleValue = this.getMarketValue() * 3;
+			break;
+		case Squad:
+			this.saleValue = this.getMarketValue() * 1.5;
+			break;
+		case TopYoungster:
+			this.saleValue = this.getMarketValue() * 3;
+			break;
+		case DecentYoungster:
+			this.saleValue = this.getMarketValue() * 1.5;
+			break;
+		case UnNeeded:
+			this.saleValue = this.getMarketValue() * 0.5;
+			break;
+		default: System.out.println("Error");
+		}
+		DecimalFormat myFormatter = new DecimalFormat("000,000");
+		String output = myFormatter.format(this.saleValue);
+		System.out.println("€" + output);
 	}
 
 	public int getIntCaps() {
@@ -267,6 +329,22 @@ public class Player extends Person implements Serializable {
 		list.add(this.getCurrentClub().getName());
 		list.add("€" + this.getWages());
 		return list;
+	}
+
+	public void setStatus() {
+		this.status = SquadStatus.Indispensable;
+	}
+
+	public SquadStatus getStatus() {
+		return status;
+	}
+
+	public void setFatigue(int fatigue) {
+		this.fatigue = fatigue;
+	}
+
+	public int getFatigue() {
+		return fatigue;
 	}
 
 }

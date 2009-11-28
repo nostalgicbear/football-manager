@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-public abstract class Person implements Serializable {
+public class Person implements Serializable {
 	
 	private int id;
 	private String firstName;
@@ -15,7 +15,7 @@ public abstract class Person implements Serializable {
 	private Calendar dob;
 	private int currentAbility;
 	private int potentialAbility;
-	private Date contractExpiry;
+	private Calendar contractExpiry;
 	private Club currentClub;
 	
 	public Person(){
@@ -36,7 +36,7 @@ public abstract class Person implements Serializable {
 
 	protected Person(int id, String firstName, String lastName, Nation nationality, double wages,
 			int reputation, Calendar dob, int currentAbility, int potentialAbility,
-			Date contractExpiry, Club currentClub) {
+			Calendar contractExpiry, Club currentClub) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -147,11 +147,11 @@ public abstract class Person implements Serializable {
 		this.potentialAbility = potentialAbility;
 	}
 
-	public Date getContractExpiry() {
+	public Calendar getContractExpiry() {
 		return contractExpiry;
 	}
 
-	public void setContractExpiry(Date contractExpiry) {
+	public void setContractExpiry(Calendar contractExpiry) {
 		this.contractExpiry = contractExpiry;
 	}
 	

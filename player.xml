@@ -15,7 +15,16 @@
      </object> 
     </void> 
    </object> 
-  </void>  
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>1404327521139</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>   
   <void property="currentClub"> 
    <object class="ie.tippinst.jod.fm.model.Club"> 
     <void property="id"> 
@@ -97,6 +106,15 @@
      </object> 
     </void> 
    </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1278097029830</long>	  
+     </object> 
+    </void> 
+   </object> 
   </void>  
   <void property="currentClub"> 
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -122,7 +140,7 @@
    <int>8500</int> 
   </void>
   <void property="currentAbility"> 
-   <int>179</int> 
+   <int>169</int> 
   </void> 
   <void property="potentialAbility"> 
    <int>189</int> 

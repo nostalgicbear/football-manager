@@ -205,6 +205,14 @@ public class Game {
 						}
 					}
 					((Player) p).setPosition();
+					((Player) p).setMarketValue(this.getDate());
+					((Player) p).setStatus();
+					System.out.println(((Player) p).getStatus());
+					((Player) p).setSaleValue();
+					((Player) p).setMorale(8000);
+					((Player) p).setFitness(2000);
+					((Player) p).setHappinessAtClub(7500);
+					((Player) p).setFatigue(0);
 					personList.add(p);
 				} catch (ArrayIndexOutOfBoundsException e){
 					break;

@@ -22,7 +22,7 @@ public class NonPlayer extends Person implements Serializable {
 	
 	public NonPlayer(int id, String firstName, String lastName, Nation nationality,
 			double wages, int reputation, Calendar dob, int currentAbility,
-			int potentialAbility, Date contractExpiry, Club currentClub,
+			int potentialAbility, Calendar contractExpiry, Club currentClub,
 			int chairmanRole, int managerRole, int assistantManagerRole,
 			int coachRole, int physioRole, int scoutRole) {
 		super(id, firstName, lastName, nationality, wages, reputation, dob,
