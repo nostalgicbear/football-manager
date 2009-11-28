@@ -1,7 +1,6 @@
 package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
-import ie.tippinst.jod.fm.model.Club;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Player;
 
@@ -13,50 +12,45 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableColumn;
 
-public class LeagueTablePanel extends JPanel {
+public class PlayerSearchPanel extends JPanel {
 	
 	private JScrollPane jScrollPane1;
-    private JTable leagueTable;
+    private JTable jTable1;
     private JTableHeader jTable1Header;
     private Game game;
-    private TableColumn column;
+    private JButton playerInfoButton;
     
-    public LeagueTablePanel() {
-    	game = Game.getInstance();
+    public PlayerSearchPanel() {
+    	game = game.getInstance();
     	initComponents();
     }
     
     private void initComponents(){
     	jScrollPane1 = new JScrollPane();
-        leagueTable = new JTable();
-        jTable1Header = leagueTable.getTableHeader();
+        jTable1 = new JTable();
+        jTable1Header = jTable1.getTableHeader();
+        playerInfoButton = new JButton();
         
-    	String [][] data = game.getLeagueTable("Premier League");    	
+        List<Player> list = game.getPlayers();
+    	int numberOfPlayers = list.size();
+    	String [][] data = new String [numberOfPlayers][2];
+    	for (int i = 0; i < numberOfPlayers; i++){
+    		data[i][0] = list.get(i).getFirstName() + " " + list.get(i).getLastName();
+    		data[i][1] = list.get(i).getPosition();
+    	}    	
 
-        leagueTable.setModel(new DefaultTableModel(data,
+        jTable1.setModel(new DefaultTableModel(data,
             new String [] {
-                "P", "Name", "Pld", "W", "D", "L", "GF", "GA", "GD", "Pts"
+                "Name", "Position"
             }
         ));
-        
-        for (int i = 0; i < 10; i++) {
-            column = leagueTable.getColumnModel().getColumn(i);
-            if (i == 1) {
-                column.setPreferredWidth(100); //third column is bigger
-            } else {
-                column.setPreferredWidth(10);
-            }
-        }
-        
-        leagueTable.setGridColor(new Color(255, 255, 255));
+        jTable1.setGridColor(new Color(255, 255, 255));
         jTable1Header.setForeground(new Color(0).white);
         jTable1Header.setBackground(new Color(0).red);
-        jScrollPane1.setViewportView(leagueTable);
+        jScrollPane1.setViewportView(jTable1);
         
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -80,11 +74,11 @@ public class LeagueTablePanel extends JPanel {
         );
     }
 
-	public JTable getLeagueTable() {
-		return leagueTable;
+	public JTable getjTable1() {
+		return jTable1;
 	}
 
-	public void setLeagueTable(JTable leagueTable) {
-		this.leagueTable = leagueTable;
+	public void setjTable1(JTable jTable1) {
+		this.jTable1 = jTable1;
 	}
 }

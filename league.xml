@@ -11,7 +11,7 @@
    <int>19</int> 
   </void>
   <void property="numberOfTeams"> 
-   <int>20</int> 
+   <int>5</int> 
   </void>
  </object>
 </java> 

@@ -87,7 +87,7 @@ public class NewUserScreen extends JFrame {
 		Calendar c = new GregorianCalendar();
 		c.set((2009 - dobYearCbo.getSelectedIndex()), dobMonthCbo.getSelectedIndex(), (dobDayCbo.getSelectedIndex()+1));
 		game.createNewUser(firstNameTxt.getText(), surnameTxt.getText(), c, (String) nationalityCbo.getSelectedItem(), (String) clubCbo.getSelectedItem());
-		MainGame mg = new MainGame((String)clubCbo.getSelectedItem(), firstNameTxt.getText() + " " + surnameTxt.getText());
+		MainGameScreen mg = new MainGameScreen((String)clubCbo.getSelectedItem(), firstNameTxt.getText() + " " + surnameTxt.getText());
 		mg.setVisible(true);
 		this.setVisible(false);
 	}

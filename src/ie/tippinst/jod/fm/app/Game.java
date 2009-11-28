@@ -35,26 +35,26 @@ public class Game {
 	private Iterator<Nation> iNation;
 	private Iterator<Club> iClub;
 	private Iterator<Stadium> iStadium;
+	@SuppressWarnings("unused")
 	private Iterator<Injury> iInjury;
 	private Iterator<Competition> iCompetition;
 	private Calendar date;
-	
-	public Calendar getDate() {
-		return date;
-	}
 
+	/* This constructs a new game object with the initial date set at 2 July 2009*/
 	private Game(){
 		super();
 		date = new GregorianCalendar();
 		date.set(2009, 6, 2);
 	}
 	
+	/* As this is class is a singleton a new game object is returned only if no previous one has been instantiated*/
 	public static Game getInstance(){
 		if(game == null)
 			game = new Game();
 		return game;
 	}
 	
+	/* This method loads all xml data into the game*/
 	public void loadDatabase(){
 		
 		// Lists used to store all objects
@@ -82,6 +82,7 @@ public class Game {
 			decoder.close();
 		}
 		
+		// Load all injuries from xml file into injury objects
 		try {
 			decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(new File("injury.xml"))));
 			while(true)
@@ -247,6 +248,7 @@ public class Game {
 			decoder.close();
 		}
 		
+		// Set the squads and staff for all clubs in the game
 		iClub = clubList.iterator();
 		iPerson = personList.iterator();
 		while(iClub.hasNext()){
@@ -266,6 +268,7 @@ public class Game {
 			c.setStaff(staffList);
 		}
 		
+		// Assign all leagues with a list of their clubs
 		iCompetition = competitionList.iterator();
 		iClub = clubList.iterator();
 		while(iCompetition.hasNext()){
@@ -279,8 +282,24 @@ public class Game {
 			}
 			((League) c).setTeams(clubList);
 		}
+		
+		// Assign the initial table for all leagues in the game
+		iCompetition = competitionList.iterator();
+		while(iCompetition.hasNext()){
+			Competition c = iCompetition.next();
+			int[][] table = null;
+			if(c instanceof League){
+				table = new int [((League) c).getNumberOfTeams()][10];
+				for(int i = 0; i < ((League) c).getNumberOfTeams(); i++){
+					table[i][0] = i + 1;
+					table[i][1] = ((League) c).getTeams().get(i).getId();
+				}
+			}
+			((League) c).setTable(table);
+		}
 	}
 	
+	/*This returns all clubs from a particular competition*/
 	public List<Club> getTeams(String competition){
 		List<Club> teams = null;
 		iCompetition = competitionList.iterator();
@@ -293,6 +312,7 @@ public class Game {
 		return teams;
 	}
 	
+	/*This returns the squad of a particular club*/
 	public List<Player> getSquad(String club){
 		List<Player> squad = null;
 		iClub = clubList.iterator();
@@ -305,6 +325,65 @@ public class Game {
 		return squad;
 	}
 	
+	/*This returns all players in the game*/
+	public List<Player> getPlayers(){
+		List<Player> players = new ArrayList<Player>();
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if(p instanceof Player){
+				players.add((Player) p);
+			}
+		}
+		return players;
+	}
+	
+	//This returns all staff in the game that the user can employ*/
+	public List<NonPlayer> getAllStaff(){
+		List<NonPlayer> staff = new ArrayList<NonPlayer>();
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if(p instanceof NonPlayer && p.getId() != 0 && ((NonPlayer) p).getChairmanRole() != 20){
+				staff.add((NonPlayer) p);
+			}
+		}
+		return staff;
+	}
+	
+	/*Gets the league table as a String array*/
+	public String[][] getLeagueTable(String league){
+		int[][] table;
+		Competition c = null;
+		iCompetition = competitionList.iterator();
+		while(iCompetition.hasNext()){
+			c = iCompetition.next();
+			if(c.getName().equals(league)){
+				break;
+			}
+		}
+		table = ((League) c).getTable();
+		String[][] tableToReturn = new String[table.length][table[0].length];
+		List<Club> teams = ((League) c).getTeams();
+		List<String> teamNames = new ArrayList<String>();
+		iClub = teams.iterator();
+		while(iClub.hasNext()){
+			teamNames.add(iClub.next().getName());
+		}
+		Collections.sort(teamNames);
+		for(int i = 0; i < table.length; i++){
+			for(int j = 0; j < table[0].length; j++){
+				if(j == 1){
+					tableToReturn[i][j] = teamNames.get(i);
+				}else{
+					tableToReturn[i][j] = table[i][j] + "";
+				}
+			}
+		}
+		return tableToReturn;
+	}
+	
+	/*Gets information for a player profile*/
 	public List<String> getPlayerProfileInfo(String name){
 		List<String> playerProfileInfo = null;
 		iPerson = personList.iterator();
@@ -317,6 +396,7 @@ public class Game {
 		return playerProfileInfo;
 	}
 	
+	/*Gets information for a nonplayer's profile*/
 	public List<String> getStaffProfileInfo(String name){
 		List<String> staffProfileInfo = null;
 		iPerson = personList.iterator();
@@ -329,6 +409,7 @@ public class Game {
 		return staffProfileInfo;
 	}
 	
+	/*Gets a particular club's information*/
 	public List<String> getClubInformation(String club){
 		List<String> clubInformation = null;
 		iClub = clubList.iterator();
@@ -341,6 +422,7 @@ public class Game {
 		return clubInformation;
 	}
 	
+	/*Get the staff of a particular club*/
 	public List<NonPlayer> getStaff(String club){
 		List<NonPlayer> staff = null;
 		iClub = clubList.iterator();
@@ -352,28 +434,8 @@ public class Game {
 		}
 		return staff;
 	}
-
-	public List<Person> getPersonList() {
-		return personList;
-	}
-
-	public List<Nation> getNationList() {
-		return this.nationList;
-	}
-
-	public List<Club> getClubList() {
-		return clubList;
-	}
-
-	public List<Stadium> getStadiumList() {
-		return stadiumList;
-	}
-
-	public List<Injury> getInjuryList() {
-		return injuryList;
-	}
 	
-	// Returns a sorted list of names of nations in the game
+	/*Returns a sorted list of names of nations in the game*/
 	public List<String> getNationNames(){
 		List<String> listOfNames = new ArrayList<String>();
 		iNation = nationList.iterator();
@@ -383,7 +445,8 @@ public class Game {
 		Collections.sort(listOfNames);
 		return listOfNames;
 	}
-
+	
+	/*Creates the user in the game*/
 	public void createNewUser(String firstName, String surname, Calendar dob, String nationality, String club) {
 		iNation = nationList.iterator();
 		Nation nation = null;
@@ -421,16 +484,36 @@ public class Game {
 			if((p instanceof NonPlayer)&&(p.getCurrentClub().getId() == userClub.getId())&&(((NonPlayer)p).getManagerRole() == 20)&&(iPerson.hasNext())){
 				iClub = clubList.iterator();
 				Club c = null;
-				/*while(iClub.hasNext()){
-					c = iClub.next();
-					if(c.getName().equals("No Club"))
-					break;
-				}*/
 				p.setCurrentClub(c);
 				staff.remove(p);
 				user.getCurrentClub().setStaff(staff);
 				break;
 			}
 		}
-	}	
+	}
+	
+	/* This method returns the current ingame date */
+	public Calendar getDate() {
+		return date;
+	}
+	
+	public List<Person> getPersonList() {
+		return personList;
+	}
+
+	public List<Nation> getNationList() {
+		return this.nationList;
+	}
+
+	public List<Club> getClubList() {
+		return clubList;
+	}
+
+	public List<Stadium> getStadiumList() {
+		return stadiumList;
+	}
+
+	public List<Injury> getInjuryList() {
+		return injuryList;
+	}
 }
