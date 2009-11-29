@@ -3,6 +3,8 @@ package ie.tippinst.jod.fm.gui;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
 import ie.tippinst.jod.fm.gui.panels.LeagueTablePanel;
+import ie.tippinst.jod.fm.gui.panels.PlayerAttributesPanel;
+import ie.tippinst.jod.fm.gui.panels.PlayerContractPanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerProfilePanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerSearchPanel;
 import ie.tippinst.jod.fm.gui.panels.SquadPanel;
@@ -59,6 +61,7 @@ public class MainGameScreen extends JFrame {
     private JMenu leagueMenu;
     private JMenuItem leagueTableMenuItem;    
 	private JTabbedPane clubPanel;
+	private JTabbedPane playerPanel;
     private JButton continueButton;    
     private JPanel mainPanel;
     private JPanel sidePanel;
@@ -69,7 +72,9 @@ public class MainGameScreen extends JFrame {
     private SquadPanel squadPanel;
     private ClubInformationPanel clubInformationPanel;
     private StaffPanel staffPanel;
-    private PlayerProfilePanel playerPanel;
+    private PlayerProfilePanel playerProfilePanel;
+    private PlayerAttributesPanel playerAttributesPanel;
+    private PlayerContractPanel playerContractPanel;
     private StaffProfilePanel staffProfilePanel;
     private PlayerSearchPanel playerSearchPanel;
     private StaffSearchPanel staffSearchPanel;
@@ -257,6 +262,7 @@ public class MainGameScreen extends JFrame {
         viewSelectedPlayerButton = new JButton("View Player");
         viewStaffProfileButton = new JButton("View NonPlayer");
         clubPanel = new JTabbedPane();
+        playerPanel = new JTabbedPane();
         continueButton = new JButton("Continue");
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -433,7 +439,14 @@ public class MainGameScreen extends JFrame {
     
     /*Display player profile*/
     private void displayPlayer(String player){
-    	playerPanel = new PlayerProfilePanel(player);
+    	playerProfilePanel = new PlayerProfilePanel(player);
+    	playerAttributesPanel = new PlayerAttributesPanel(player);
+    	playerContractPanel = new PlayerContractPanel(player);
+    	playerPanel.removeAll();
+    	playerPanel.add("Profile", playerProfilePanel);
+    	playerPanel.add("Attributes", playerAttributesPanel);
+    	playerPanel.add("Contract", playerContractPanel);
+    	playerPanel.setSelectedIndex(0);;
     	mainPanel.add(playerPanel, "Player");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "Player");
     	sidePanel.add(squadSidePanel, "Squad Sidebar");

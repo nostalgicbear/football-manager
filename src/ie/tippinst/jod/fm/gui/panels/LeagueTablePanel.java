@@ -47,7 +47,7 @@ public class LeagueTablePanel extends JPanel {
         for (int i = 0; i < 10; i++) {
             column = leagueTable.getColumnModel().getColumn(i);
             if (i == 1) {
-                column.setPreferredWidth(100); //third column is bigger
+                column.setPreferredWidth(100);
             } else {
                 column.setPreferredWidth(10);
             }

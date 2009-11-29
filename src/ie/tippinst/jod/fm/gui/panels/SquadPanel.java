@@ -5,6 +5,8 @@ import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Player;
 
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -14,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableColumn;
 
 public class SquadPanel extends JPanel {
 	
@@ -23,6 +26,7 @@ public class SquadPanel extends JPanel {
     private Game game;
     private String club;
     private JButton playerInfoButton;
+    private TableColumn column;
     
     public SquadPanel(String club) {
     	game = game.getInstance();
@@ -38,17 +42,41 @@ public class SquadPanel extends JPanel {
         
         List<Player> list = game.getSquad(club);
     	int squadSize = list.size();
-    	String [][] data = new String [squadSize][2];
+    	String [][] data = new String [squadSize][4];
     	for (int i = 0; i < squadSize; i++){
     		data[i][0] = list.get(i).getFirstName() + " " + list.get(i).getLastName();
     		data[i][1] = list.get(i).getPosition();
+    		if(list.get(i).getMorale() >= 8000){
+    			data[i][2] = "Very High";
+    		}
+    		else if(list.get(i).getMorale() >= 6000){
+    			data[i][2] = "High";
+    		}
+    		else if(list.get(i).getMorale() >= 4000){
+    			data[i][2] = "Ok";
+    		}
+    		else if(list.get(i).getMorale() >= 2000){
+    			data[i][2] = "Low";
+    		}
+    		else{
+    			data[i][2] = "Very Low";
+    		}
+    		data[i][3] = list.get(i).getMatchCondition() + "%";
     	}    	
 
         jTable1.setModel(new DefaultTableModel(data,
             new String [] {
-                "Name", "Position"
+                "Name", "Position", "Morale", "Condition"
             }
         ));
+        for (int i = 0; i < 4; i++) {
+            column = jTable1.getColumnModel().getColumn(i);
+            if (i == 0) {
+                column.setPreferredWidth(100);
+            } else {
+                column.setPreferredWidth(30);
+            }
+        }
         jTable1.setGridColor(new Color(255, 255, 255));
         jTable1Header.setForeground(new Color(0).white);
         jTable1Header.setBackground(new Color(0).red);

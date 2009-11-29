@@ -205,10 +205,12 @@ public class Game {
 						}
 					}
 					((Player) p).setPosition();
+					((Player) p).setCurrentAbility();
 					((Player) p).setMarketValue(this.getDate());
 					((Player) p).setStatus();
-					System.out.println(((Player) p).getStatus());
+					//System.out.println(((Player) p).getStatus());
 					((Player) p).setSaleValue();
+					((Player) p).setMatchCondition(70);
 					((Player) p).setMorale(8000);
 					((Player) p).setFitness(2000);
 					((Player) p).setHappinessAtClub(7500);
@@ -398,7 +400,7 @@ public class Game {
 		while(iPerson.hasNext()){
 			Person p = iPerson.next();
 			if((p.getFirstName() + " " + p.getLastName()).equals(name)){
-				playerProfileInfo = ((Player) p).getPlayerProfileInfo();
+				playerProfileInfo = ((Player) p).getPlayerProfileInfo(date);
 			}
 		}
 		return playerProfileInfo;

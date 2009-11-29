@@ -17,6 +17,7 @@ public class Person implements Serializable {
 	private int potentialAbility;
 	private Calendar contractExpiry;
 	private Club currentClub;
+	private int age = 25;
 	
 	public Person(){
 		super();
@@ -153,6 +154,14 @@ public class Person implements Serializable {
 
 	public void setContractExpiry(Calendar contractExpiry) {
 		this.contractExpiry = contractExpiry;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getAge() {
+		return age;
 	}
 	
 	
