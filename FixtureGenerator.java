@@ -3,7 +3,7 @@
  * http://www.barrychessclub.org.uk/berger2001.htm
  */
 
-/*import java.util.Arrays;
+import java.util.Arrays;
 import java.util.*;
 
 public class FixtureGenerator {
@@ -19,7 +19,7 @@ public class FixtureGenerator {
             System.exit(0);
         }*/
 
-/*        List<String> teamList = new ArrayList<String>();
+        List<String> teamList = new ArrayList<String>();
         teamList.add("Arsenal");
         teamList.add("Aston Villa");
         teamList.add("Birmingham City");
@@ -223,7 +223,7 @@ public class FixtureGenerator {
         String[] components = match.split(" v ");
         return components[1] + " v " + components[0];
     }
-}*/
+}
 
 /*
  * This code owes an enormous debt to

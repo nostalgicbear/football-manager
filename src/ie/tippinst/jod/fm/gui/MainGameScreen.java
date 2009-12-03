@@ -3,6 +3,7 @@ package ie.tippinst.jod.fm.gui;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
 import ie.tippinst.jod.fm.gui.panels.FixturesPanel;
+import ie.tippinst.jod.fm.gui.panels.LeagueFixturesPanel;
 import ie.tippinst.jod.fm.gui.panels.LeagueTablePanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerAttributesPanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerContractPanel;
@@ -14,8 +15,11 @@ import ie.tippinst.jod.fm.gui.panels.StaffProfilePanel;
 import ie.tippinst.jod.fm.gui.panels.StaffSearchPanel;
 
 import java.awt.CardLayout;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.swing.GroupLayout;
@@ -71,8 +75,9 @@ public class MainGameScreen extends JFrame {
     
     // Other panels for main panel
     private LeagueTablePanel leagueTablePanel;
-    private FixturesPanel leagueFixturesPanel;
+    private LeagueFixturesPanel leagueFixturesPanel;
     private SquadPanel squadPanel;
+    private FixturesPanel fixturesPanel;
     private ClubInformationPanel clubInformationPanel;
     private StaffPanel staffPanel;
     private PlayerProfilePanel playerProfilePanel;
@@ -94,6 +99,7 @@ public class MainGameScreen extends JFrame {
     private String club;
     private String player;
     private String user;
+    private boolean processFixtures;
 
     /*Creates new MainGameScreen */
     public MainGameScreen(String userClub, String user) {
@@ -223,6 +229,16 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for view continue button
+        continueButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				continueGame(e);
+			}
+			
+		});
+        
         // Centre window on screen
         this.setLocationRelativeTo(null);
     }
@@ -268,8 +284,10 @@ public class MainGameScreen extends JFrame {
         playerPanel = new JTabbedPane();
         leaguePanel = new JTabbedPane();
         continueButton = new JButton("Continue");
+        processFixtures = false;
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
         
         //Display the users squad as the initial screen
         displayClub(userClub);
@@ -372,7 +390,25 @@ public class MainGameScreen extends JFrame {
                     .addComponent(date)))
         );
 
-        pack();
+        //pack();
+    }
+    
+    /*Display Player Search Screen*/
+    private void continueGame(ActionEvent ae){
+    	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
+		String date;
+    	if(game.continueGame(processFixtures)){
+    		date = format.format(game.getDate().getTime()).toUpperCase();
+    		displayLeagueFixtures(date);
+    		processFixtures = true;
+    	}
+    	else if(processFixtures){
+    		date = format.format(game.getDate().getTime()).toUpperCase();
+    		displayLeagueFixtures(date);
+    		processFixtures = false;
+    	}
+    	
+		this.date.setText((game.getDate().get(Calendar.DATE) + "/" + (game.getDate().get(Calendar.MONTH) + 1) + "/" + game.getDate().get(Calendar.YEAR)));
     }
     
     /*Display Player Search Screen*/
@@ -435,11 +471,27 @@ public class MainGameScreen extends JFrame {
     /*Display the league table*/
     private void displayLeagueTable(ActionEvent ae){
     	leagueTablePanel = new LeagueTablePanel();
-    	leagueFixturesPanel = new FixturesPanel();
+    	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
+		String date = format.format(game.getDate().getTime()).toUpperCase();
+    	leagueFixturesPanel = new LeagueFixturesPanel(date);
     	leaguePanel.removeAll();
     	leaguePanel.add("Table", leagueTablePanel);
     	leaguePanel.add("Fixtures", leagueFixturesPanel);
     	leaguePanel.setSelectedIndex(0);
+    	mainPanel.add(leaguePanel, "League");
+    	((CardLayout) mainPanel.getLayout()).show(mainPanel, "League");
+    	sidePanel.add(leagueTableSidePanel, "League Table Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "League Table Sidebar");
+	}
+    
+    /*Display the league table*/
+    private void displayLeagueFixtures(String date){
+    	leagueTablePanel = new LeagueTablePanel();
+    	leagueFixturesPanel = new LeagueFixturesPanel(date);
+    	leaguePanel.removeAll();
+    	leaguePanel.add("Table", leagueTablePanel);
+    	leaguePanel.add("Fixtures", leagueFixturesPanel);
+    	leaguePanel.setSelectedIndex(1);
     	mainPanel.add(leaguePanel, "League");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "League");
     	sidePanel.add(leagueTableSidePanel, "League Table Sidebar");
@@ -465,10 +517,12 @@ public class MainGameScreen extends JFrame {
     /*Display particular club*/
     private void displayClub(String club){
     	squadPanel = new SquadPanel(club);
+    	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
     	clubPanel.removeAll();
     	clubPanel.addTab("Squad", squadPanel);
+    	clubPanel.addTab("Fixtures", fixturesPanel);
         clubPanel.addTab("Staff", staffPanel);
         clubPanel.addTab("Information", clubInformationPanel);
         clubPanel.setSelectedIndex(0);

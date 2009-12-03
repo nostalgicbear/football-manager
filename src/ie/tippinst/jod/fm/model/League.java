@@ -1,7 +1,6 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -50,8 +49,15 @@ public class League extends Competition implements Serializable {
 		return table;
 	}
 
-	public void setTable(int[][] table) {
+	public void setTable() {
+		int[][] table = null;
+		table = new int [this.getNumberOfTeams()][10];
+		for(int i = 0; i < this.getNumberOfTeams(); i++){
+			table[i][0] = i + 1;
+			table[i][1] = this.getTeams().get(i).getId();
+		}
 		this.table = table;
+		//sortTable(this.table);
 	}
 
 	public void setFixtures(Match[][] fixtures) {
@@ -65,6 +71,82 @@ public class League extends Competition implements Serializable {
 
 	public Match[][] getFixtures() {
 		return fixtures;
+	}
+	
+	public void updateTable(Match match){
+		for(int i = 0; i < this.getTable().length; i++){
+			if(this.table[i][1] == match.getHomeTeam().getId()){
+				//System.out.println(this.table[i][1]);
+				//System.out.println(match.getHomeTeam().getId());
+				this.table[i][2]++;
+				if(match.getHomeScore() > match.getAwayScore()){
+					this.table[i][3]++;
+				}
+				else if(match.getHomeScore() == match.getAwayScore()){
+					this.table[i][4]++;
+				}
+				else if(match.getHomeScore() < match.getAwayScore()){
+					this.table[i][5]++;
+				}
+				this.table[i][6] = this.table[i][6] + match.getHomeScore();
+				this.table[i][7] = this.table[i][7] + match.getAwayScore();
+				this.table[i][8] = this.table[i][6] - this.table[i][7];
+				this.table[i][9] = (this.table[i][3] * 3) + this.table[i][4];
+			}
+			else if(this.table[i][1] == match.getAwayTeam().getId()){
+				this.table[i][2]++;
+				if(match.getAwayScore() > match.getHomeScore()){
+					this.table[i][3]++;
+				}
+				else if(match.getAwayScore() == match.getHomeScore()){
+					this.table[i][4]++;
+				}
+				else if(match.getAwayScore() < match.getHomeScore()){
+					this.table[i][5]++;
+				}
+				this.table[i][6] = this.table[i][6] + match.getAwayScore();
+				this.table[i][7] = this.table[i][7] + match.getHomeScore();
+				this.table[i][8] = this.table[i][6] - this.table[i][7];
+				this.table[i][9] = (this.table[i][3] * 3) + this.table[i][4];
+			}
+		}
+		//sortTable(table);
+	}
+	
+	public void sortTable(String[][] table){
+		for(int i = 0; i < table.length; i++){
+			for(int j = 0; j < table.length - i - 1; j++){
+				if(Integer.parseInt(table[j][9]) < Integer.parseInt(table[j+1][9])){
+					String [] temp = table[j];
+					table[j] = table[j+1];
+					table[j+1] = temp;
+				}
+				else if(Integer.parseInt(table[j][9]) == Integer.parseInt(table[j+1][9])){
+					if(Integer.parseInt(table[j][8]) < Integer.parseInt(table[j+1][8])){
+						String [] temp = table[j];
+						table[j] = table[j+1];
+						table[j+1] = temp;
+					}
+					else if(Integer.parseInt(table[j][8]) == Integer.parseInt(table[j+1][8])){
+						if(Integer.parseInt(table[j][6]) < Integer.parseInt(table[j+1][6])){
+							String [] temp = table[j];
+							table[j] = table[j+1];
+							table[j+1] = temp;
+						}
+						else if(Integer.parseInt(table[j][6]) == Integer.parseInt(table[j+1][6])){
+							if(table[j][1].compareTo(table[j+1][1]) > 0){
+								String [] temp = table[j];
+								table[j] = table[j+1];
+								table[j+1] = temp;
+							}
+						}
+					}
+				}
+			}			
+		}
+		for(int i = 0; i < table.length; i++){
+			table[i][0] = i + 1 + "";
+		}
 	}
 	
 	public Match[][] generateFixtures(){

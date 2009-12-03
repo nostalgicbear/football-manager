@@ -17,6 +17,7 @@ public class Club implements Serializable {
 	private Stadium homeGround;
 	private Nation nationality;
 	private League league;
+	private List<Match> fixtures;
 	
 	public Club(){
 		super();
@@ -164,5 +165,13 @@ public class Club implements Serializable {
 
 	public League getLeague() {
 		return league;
+	}
+
+	public void setFixtures(List<Match> fixtures) {
+		this.fixtures = fixtures;
+	}
+
+	public List<Match> getFixtures() {
+		return fixtures;
 	}
 }

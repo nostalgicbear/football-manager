@@ -85,5 +85,21 @@ public class Match {
 	@Override
 	public String toString() {
 		return homeTeam.getName() + " " + (homeScore == -1 ? "" : homeScore) + "-" + (awayScore == -1 ? "" : awayScore) + " " + awayTeam.getName();
-	}	
+	}
+	
+	public void generateResult(){
+		if(this.getHomeTeam().getReputation() > this.awayTeam.getReputation()){
+			this.setHomeScore(2);
+			this.setAwayScore(0);
+		}
+		else if(this.getHomeTeam().getReputation() < this.awayTeam.getReputation()){
+			this.setHomeScore(0);
+			this.setAwayScore(1);
+		}
+		else{
+			this.setHomeScore(1);
+			this.setAwayScore(1);
+		}
+		((League) this.getCompetition()).updateTable(this);
+	}
 }

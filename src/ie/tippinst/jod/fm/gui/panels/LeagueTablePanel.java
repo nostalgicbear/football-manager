@@ -3,6 +3,7 @@ package ie.tippinst.jod.fm.gui.panels;
 import ie.tippinst.jod.fm.app.Game;
 
 import java.awt.Color;
+import java.awt.Component;
 
 import javax.swing.GroupLayout;
 import javax.swing.JPanel;
@@ -10,6 +11,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 public class LeagueTablePanel extends JPanel {
@@ -31,18 +33,16 @@ public class LeagueTablePanel extends JPanel {
         leagueTable = new JTable();
         leagueTableHeader = leagueTable.getTableHeader();
         
-    	String [][] data = game.getLeagueTable("Premier League");    	
+    	String [][] data = game.getLeagueTable("Premier League");
+    	String headings [] = {"P", "Name", "Pld", "W", "D", "L", "GF", "GA", "GD", "Pts"};
 
-        leagueTable.setModel(new DefaultTableModel(data,
-            new String [] {
-                "P", "Name", "Pld", "W", "D", "L", "GF", "GA", "GD", "Pts"
-            }
-        ));
+        leagueTable.setModel(new DefaultTableModel(data, headings));
+        leagueTableColumn = leagueTable.getColumnModel().getColumn(2);
         
         for (int i = 0; i < 10; i++) {
             leagueTableColumn = leagueTable.getColumnModel().getColumn(i);
             if (i == 1) {
-                leagueTableColumn.setPreferredWidth(100);
+                leagueTableColumn.setPreferredWidth(150);
             } else {
                 leagueTableColumn.setPreferredWidth(10);
             }
@@ -61,7 +61,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -70,7 +70,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

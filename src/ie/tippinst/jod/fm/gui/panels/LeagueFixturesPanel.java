@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
 
-public class FixturesPanel extends JPanel {
+public class LeagueFixturesPanel extends JPanel {
 	
 	private static final long serialVersionUID = -4770635436027700840L;
 	private JLabel match1Label;
@@ -30,9 +30,11 @@ public class FixturesPanel extends JPanel {
     private JLabel match9Label;
     private JComboBox dateComboBox;
     private Game game;
+    private String date;
 
-    public FixturesPanel() {
+    public LeagueFixturesPanel(String date) {
     	game = Game.getInstance();
+    	this.date = date;
         initComponents();
         displayFixtures((String) dateComboBox.getSelectedItem());
         
@@ -97,23 +99,25 @@ public class FixturesPanel extends JPanel {
         					"06-MAR-10", "13-MAR-10", "20-MAR-10", "27-MAR-10",
         					"03-APR-10", "10-APR-10", "17-APR-10", "24-APR-10",
         					"01-MAY-10", "09-MAY-10" }));
-
+        
+        dateComboBox.setSelectedItem(date);
+        
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(match1Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match2Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match3Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match4Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match5Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match6Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match7Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match8Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match9Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match10Label, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(match1Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match2Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match3Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match4Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match5Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match6Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match7Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match8Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match9Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(match10Label, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             	.addContainerGap(305, Short.MAX_VALUE)

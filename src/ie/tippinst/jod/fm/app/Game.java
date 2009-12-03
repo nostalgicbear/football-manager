@@ -303,16 +303,30 @@ public class Game {
 		iCompetition = competitionList.iterator();
 		while(iCompetition.hasNext()){
 			Competition c = iCompetition.next();
-			int[][] table = null;
-			if(c instanceof League){
-				table = new int [((League) c).getNumberOfTeams()][10];
-				for(int i = 0; i < ((League) c).getNumberOfTeams(); i++){
-					table[i][0] = i + 1;
-					table[i][1] = ((League) c).getTeams().get(i).getId();
+			((League) c).setTable();
+			((League) c).setFixtures(((League) c).generateFixtures());
+		}
+		
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			Match[][] fixtures = null;
+			List<Match> clubFixtures = new ArrayList<Match>();
+			iCompetition = competitionList.iterator();
+			while(iCompetition.hasNext()){
+				Competition comp = iCompetition.next();
+				if(((League)comp).getTeams().contains(c)){
+					fixtures = ((League) comp).getFixtures();
+					for(int i = 0; i < fixtures.length; i++){
+						for(int j = 0; j < fixtures[i].length; j++){
+							if((fixtures[i][j].getHomeTeam().getId() == c.getId()) || (fixtures[i][j].getAwayTeam().getId() == c.getId())){
+								clubFixtures.add(fixtures[i][j]);
+							}
+						}
+					}
 				}
 			}
-			((League) c).setTable(table);
-			((League) c).setFixtures(((League) c).generateFixtures());
+			c.setFixtures(clubFixtures);
 		}
 	}
 	
@@ -340,6 +354,20 @@ public class Game {
 			}
 		}
 		return squad;
+	}
+	
+	/*This returns the fixtures of a particular club*/
+	public List<Match> getFixtures(String club){
+		List<Match> fixtures = null;
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			if(c.getName().equals(club)){
+				fixtures = c.getFixtures();
+			}
+		}
+		//System.out.println(club);
+		return fixtures;
 	}
 	
 	/*This returns all players in the game*/
@@ -387,13 +415,22 @@ public class Game {
 		while(iClub.hasNext()){
 			teamNames.add(iClub.next().getName());
 		}
-		Collections.sort(teamNames);
+		//Collections.sort(teamNames);
 		for(int i = 0; i < table.length; i++){
 			for(int j = 0; j < table[0].length; j++){
 				if(j == 1){
 					tableToReturn[i][j] = teamNames.get(i);
-				}else{
+				}
+				else{
 					tableToReturn[i][j] = table[i][j] + "";
+				}
+			}
+		}
+		((League) c).sortTable(tableToReturn);
+		for(int i = 0; i < table.length; i++){
+			for(int j = 0; j < table[0].length; j++){
+				if((j == 8) && (Integer.parseInt(tableToReturn[i][j]) > 0)){
+					tableToReturn[i][j] = "+" + tableToReturn[i][j];
 				}
 			}
 		}
@@ -535,6 +572,29 @@ public class Game {
 				break;
 			}
 		}
+	}
+	
+	public boolean continueGame(boolean processFixtures){
+		if(!(processFixtures)){
+			this.date.add(Calendar.DATE, 1);
+		}
+		Match[][] leagueFixtures = null;
+		iCompetition = competitionList.iterator();
+		while(iCompetition.hasNext()){
+			Competition c = iCompetition.next();
+			leagueFixtures = ((League) c).getFixtures();
+			for(int i = 0; i < leagueFixtures.length; i++){
+				for(int j = 0; j < leagueFixtures[i].length; j++){
+					if((leagueFixtures[i][j].getDate().get(Calendar.DAY_OF_MONTH) == this.getDate().get(Calendar.DAY_OF_MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.MONTH) == this.getDate().get(Calendar.MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.YEAR) == this.getDate().get(Calendar.YEAR))){
+						if(!(processFixtures)){
+							return true;
+						}
+						leagueFixtures[i][j].generateResult();
+					}
+				}
+			}
+		}
+		return false;
 	}
 	
 	/* This method returns the current ingame date */
