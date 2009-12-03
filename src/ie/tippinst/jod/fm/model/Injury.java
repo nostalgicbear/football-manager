@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Injury implements Serializable {
 	
+	private static final long serialVersionUID = -6699885390439073024L;
 	private int id;
 	private String name;
 	private int daysOut;

@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Club implements Serializable {
 	
+	private static final long serialVersionUID = 8870087600952858149L;
 	private int id;
 	private String name;
 	private List<Player> squad;

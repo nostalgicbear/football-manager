@@ -2,6 +2,7 @@ package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
+import ie.tippinst.jod.fm.gui.panels.FixturesPanel;
 import ie.tippinst.jod.fm.gui.panels.LeagueTablePanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerAttributesPanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerContractPanel;
@@ -62,6 +63,7 @@ public class MainGameScreen extends JFrame {
     private JMenuItem leagueTableMenuItem;    
 	private JTabbedPane clubPanel;
 	private JTabbedPane playerPanel;
+	private JTabbedPane leaguePanel;
     private JButton continueButton;    
     private JPanel mainPanel;
     private JPanel sidePanel;
@@ -69,6 +71,7 @@ public class MainGameScreen extends JFrame {
     
     // Other panels for main panel
     private LeagueTablePanel leagueTablePanel;
+    private FixturesPanel leagueFixturesPanel;
     private SquadPanel squadPanel;
     private ClubInformationPanel clubInformationPanel;
     private StaffPanel staffPanel;
@@ -263,6 +266,7 @@ public class MainGameScreen extends JFrame {
         viewStaffProfileButton = new JButton("View NonPlayer");
         clubPanel = new JTabbedPane();
         playerPanel = new JTabbedPane();
+        leaguePanel = new JTabbedPane();
         continueButton = new JButton("Continue");
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -402,7 +406,7 @@ public class MainGameScreen extends JFrame {
     
     /*Get Player to Display*/
     private void displayPlayer(ActionEvent ae){
-		player = (String) (squadPanel.getjTable1().getValueAt(squadPanel.getjTable1().getSelectedRow(), 0));
+		player = (String) (squadPanel.getSquadTable().getValueAt(squadPanel.getSquadTable().getSelectedRow(), 0));
     	displayPlayer(player);
 	}
     
@@ -417,7 +421,7 @@ public class MainGameScreen extends JFrame {
     
     /*Get staff profile to display*/
     private void displayStaffProfile(ActionEvent ae){
-		displayStaffProfile((String) (staffPanel.getjTable1().getValueAt(staffPanel.getjTable1().getSelectedRow(), 0)));
+		displayStaffProfile((String) (staffPanel.getStaffTable().getValueAt(staffPanel.getStaffTable().getSelectedRow(), 0)));
 	}
     
     /*Creates a new game*/
@@ -431,8 +435,13 @@ public class MainGameScreen extends JFrame {
     /*Display the league table*/
     private void displayLeagueTable(ActionEvent ae){
     	leagueTablePanel = new LeagueTablePanel();
-    	mainPanel.add(leagueTablePanel, "League Table");
-    	((CardLayout) mainPanel.getLayout()).show(mainPanel, "League Table");
+    	leagueFixturesPanel = new FixturesPanel();
+    	leaguePanel.removeAll();
+    	leaguePanel.add("Table", leagueTablePanel);
+    	leaguePanel.add("Fixtures", leagueFixturesPanel);
+    	leaguePanel.setSelectedIndex(0);
+    	mainPanel.add(leaguePanel, "League");
+    	((CardLayout) mainPanel.getLayout()).show(mainPanel, "League");
     	sidePanel.add(leagueTableSidePanel, "League Table Sidebar");
     	((CardLayout) sidePanel.getLayout()).show(sidePanel, "League Table Sidebar");
 	}

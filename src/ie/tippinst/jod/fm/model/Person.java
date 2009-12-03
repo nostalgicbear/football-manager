@@ -2,10 +2,10 @@ package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Person implements Serializable {
 	
+	private static final long serialVersionUID = -4798728817236898432L;
 	private int id;
 	private String firstName;
 	private String lastName;

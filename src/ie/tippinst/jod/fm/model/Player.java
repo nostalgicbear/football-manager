@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Player extends Person implements Serializable {
 	
+	private static final long serialVersionUID = -2483513857459943753L;
 	private double marketValue;
 	private double saleValue;
 	private int intCaps;
@@ -122,6 +123,7 @@ public class Player extends Person implements Serializable {
 		
 		this.marketValue = this.getCurrentAbility() * constant * (getMonthsRemainingOnContract(date)/1826.0) * positionValue;
 		DecimalFormat myFormatter = new DecimalFormat("000,000");
+		@SuppressWarnings("unused")
 		String output = myFormatter.format(this.marketValue);
 		//System.out.println((this.getCurrentAbility() / 200.0));
 		//System.out.println((getMonthsRemainingOnContract(date)/1826.0));

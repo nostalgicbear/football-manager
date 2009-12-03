@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Stadium implements Serializable {
 	
+	private static final long serialVersionUID = -6411318498229928266L;
 	private int id;
 	private String name;
 	private int capacity;

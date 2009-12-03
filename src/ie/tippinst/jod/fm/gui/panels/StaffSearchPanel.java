@@ -2,7 +2,6 @@ package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.NonPlayer;
-import ie.tippinst.jod.fm.model.Player;
 
 import java.awt.Color;
 import java.util.List;
@@ -16,23 +15,23 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 public class StaffSearchPanel extends JPanel {
-	
-	private JScrollPane jScrollPane1;
-    private JTable jTable1;
-    private JTableHeader jTable1Header;
+
+	private static final long serialVersionUID = 2839000647528695746L;
+	private JScrollPane staffSearchTableScrollPane;
+    private JTable staffSearchTable;
+    private JTableHeader staffSearchTableHeader;
     private Game game;
-    private JButton playerInfoButton;
     
     public StaffSearchPanel() {
-    	game = game.getInstance();
+    	game = Game.getInstance();
     	initComponents();
     }
     
     private void initComponents(){
-    	jScrollPane1 = new JScrollPane();
-        jTable1 = new JTable();
-        jTable1Header = jTable1.getTableHeader();
-        playerInfoButton = new JButton();
+    	staffSearchTableScrollPane = new JScrollPane();
+        staffSearchTable = new JTable();
+        staffSearchTableHeader = staffSearchTable.getTableHeader();
+        new JButton();
         
         List<NonPlayer> list = game.getAllStaff();
     	int numberOfStaff = list.size();
@@ -42,15 +41,15 @@ public class StaffSearchPanel extends JPanel {
     		data[i][1] = list.get(i).getRole();
     	}    	
 
-        jTable1.setModel(new DefaultTableModel(data,
+        staffSearchTable.setModel(new DefaultTableModel(data,
             new String [] {
                 "Name", "Role"
             }
         ));
-        jTable1.setGridColor(new Color(255, 255, 255));
-        jTable1Header.setForeground(new Color(0).white);
-        jTable1Header.setBackground(new Color(0).red);
-        jScrollPane1.setViewportView(jTable1);
+        staffSearchTable.setGridColor(new Color(255, 255, 255));
+        staffSearchTableHeader.setForeground(Color.white);
+        staffSearchTableHeader.setBackground(Color.red);
+        staffSearchTableScrollPane.setViewportView(staffSearchTable);
         
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -60,7 +59,7 @@ public class StaffSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -69,16 +68,16 @@ public class StaffSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }
 
-	public JTable getjTable1() {
-		return jTable1;
+	public JTable getStaffSearchTable() {
+		return staffSearchTable;
 	}
 
-	public void setjTable1(JTable jTable1) {
-		this.jTable1 = jTable1;
+	public void setStaffSearchTable(JTable staffSearchTable) {
+		this.staffSearchTable = staffSearchTable;
 	}
 }

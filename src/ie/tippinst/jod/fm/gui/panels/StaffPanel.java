@@ -15,22 +15,23 @@ import javax.swing.table.JTableHeader;
 
 public class StaffPanel extends JPanel {
 	
-	private JScrollPane jScrollPane1;
-    private JTable jTable1;
-    private JTableHeader jTable1Header;
+	private static final long serialVersionUID = 8447045691610505898L;
+	private JScrollPane staffTableScrollPane;
+    private JTable staffTable;
+    private JTableHeader staffTableHeader;
     private Game game;
     private String club;
     
     public StaffPanel(String club) {
-    	game = game.getInstance();
+    	game = Game.getInstance();
     	this.club = club;
     	initComponents();
     }
     
     private void initComponents(){
-    	jScrollPane1 = new JScrollPane();
-        jTable1 = new JTable();
-        jTable1Header = jTable1.getTableHeader();
+    	staffTableScrollPane = new JScrollPane();
+        staffTable = new JTable();
+        staffTableHeader = staffTable.getTableHeader();
         
         List<NonPlayer> list = game.getStaff(club);
     	int staffMembers = list.size();
@@ -40,15 +41,15 @@ public class StaffPanel extends JPanel {
     		data[i][1] = list.get(i).getRole();
     	}    	
 
-        jTable1.setModel(new DefaultTableModel(data,
+        staffTable.setModel(new DefaultTableModel(data,
             new String [] {
                 "Name", "Role"
             }
         ));
-        jTable1.setGridColor(new Color(255, 255, 255));
-        jTable1Header.setForeground(new Color(0).white);
-        jTable1Header.setBackground(new Color(0).red);
-        jScrollPane1.setViewportView(jTable1);
+        staffTable.setGridColor(new Color(255, 255, 255));
+        staffTableHeader.setForeground(Color.white);
+        staffTableHeader.setBackground(Color.red);
+        staffTableScrollPane.setViewportView(staffTable);
         
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -58,7 +59,7 @@ public class StaffPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffTableScrollPane, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -67,16 +68,16 @@ public class StaffPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffTableScrollPane, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }
 
-	public JTable getjTable1() {
-		return jTable1;
+	public JTable getStaffTable() {
+		return staffTable;
 	}
 
-	public void setjTable1(JTable jTable1) {
-		this.jTable1 = jTable1;
+	public void setStaffTable(JTable staffTable) {
+		this.staffTable = staffTable;
 	}
 }

@@ -4,6 +4,7 @@ import ie.tippinst.jod.fm.model.Club;
 import ie.tippinst.jod.fm.model.Competition;
 import ie.tippinst.jod.fm.model.Injury;
 import ie.tippinst.jod.fm.model.League;
+import ie.tippinst.jod.fm.model.Match;
 import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
@@ -15,9 +16,13 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
@@ -117,7 +122,8 @@ public class Game {
 			decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(new File("league.xml"))));
 			while(true)
 				try{
-					competitionList.add((Competition) decoder.readObject());
+					Competition c = (Competition) decoder.readObject();
+					competitionList.add(c);					
 				} catch (ArrayIndexOutOfBoundsException e){
 					break;
 				}
@@ -306,6 +312,7 @@ public class Game {
 				}
 			}
 			((League) c).setTable(table);
+			((League) c).setFixtures(((League) c).generateFixtures());
 		}
 	}
 	
@@ -391,6 +398,34 @@ public class Game {
 			}
 		}
 		return tableToReturn;
+	}
+	
+	/*Gets league fixtures*/
+	public List<String> getLeagueFixtures(String name, String date){
+		DateFormat format = new SimpleDateFormat("dd-MMM-yy");
+		Calendar cal = new GregorianCalendar();
+		try {
+			cal.setTime((Date) format.parse(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Match[][] leagueFixtures = null;
+		List<String> matches = new ArrayList<String>();
+		iCompetition = competitionList.iterator();
+		while(iCompetition.hasNext()){
+			Competition c = iCompetition.next();
+			if(c.getName().equals(name)){
+				leagueFixtures = ((League) c).getFixtures();
+			}
+		}
+		for(int i = 0; i < leagueFixtures.length; i++){
+			for(int j = 0; j < leagueFixtures[i].length; j++){
+				if((leagueFixtures[i][j].getDate().get(Calendar.DAY_OF_MONTH) == cal.get(Calendar.DAY_OF_MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.MONTH) == cal.get(Calendar.MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.YEAR) == cal.get(Calendar.YEAR))){
+					matches.add(leagueFixtures[i][j].toString());
+				}
+			}
+		}
+		return matches;
 	}
 	
 	/*Gets information for a player profile*/

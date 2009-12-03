@@ -3,11 +3,11 @@ package ie.tippinst.jod.fm.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class NonPlayer extends Person implements Serializable {
 	
+	private static final long serialVersionUID = -3776885507558100224L;
 	private int chairmanRole;
 	private int managerRole;
 	private int assistantManagerRole;

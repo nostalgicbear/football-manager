@@ -1,7 +1,6 @@
 package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
-import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Player;
 
 import java.awt.Color;
@@ -17,22 +16,22 @@ import javax.swing.table.JTableHeader;
 
 public class PlayerSearchPanel extends JPanel {
 	
-	private JScrollPane jScrollPane1;
-    private JTable jTable1;
-    private JTableHeader jTable1Header;
-    private Game game;
-    private JButton playerInfoButton;
+	private static final long serialVersionUID = 259089926578413368L;
+	private JScrollPane playerSearchTableScrollPane;
+    private JTable playerSearchTable;
+    private JTableHeader playerSearchTableHeader;
     
+    private Game game;
     public PlayerSearchPanel() {
-    	game = game.getInstance();
+    	game = Game.getInstance();
     	initComponents();
     }
     
     private void initComponents(){
-    	jScrollPane1 = new JScrollPane();
-        jTable1 = new JTable();
-        jTable1Header = jTable1.getTableHeader();
-        playerInfoButton = new JButton();
+    	playerSearchTableScrollPane = new JScrollPane();
+        playerSearchTable = new JTable();
+        playerSearchTableHeader = playerSearchTable.getTableHeader();
+        new JButton();
         
         List<Player> list = game.getPlayers();
     	int numberOfPlayers = list.size();
@@ -42,15 +41,15 @@ public class PlayerSearchPanel extends JPanel {
     		data[i][1] = list.get(i).getPosition();
     	}    	
 
-        jTable1.setModel(new DefaultTableModel(data,
+        playerSearchTable.setModel(new DefaultTableModel(data,
             new String [] {
                 "Name", "Position"
             }
         ));
-        jTable1.setGridColor(new Color(255, 255, 255));
-        jTable1Header.setForeground(new Color(0).white);
-        jTable1Header.setBackground(new Color(0).red);
-        jScrollPane1.setViewportView(jTable1);
+        playerSearchTable.setGridColor(new Color(255, 255, 255));
+        playerSearchTableHeader.setForeground(Color.white);
+        playerSearchTableHeader.setBackground(Color.red);
+        playerSearchTableScrollPane.setViewportView(playerSearchTable);
         
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -60,7 +59,7 @@ public class PlayerSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playerSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -69,16 +68,16 @@ public class PlayerSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playerSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }
 
-	public JTable getjTable1() {
-		return jTable1;
+	public JTable getPlayerSearchTable() {
+		return playerSearchTable;
 	}
 
-	public void setjTable1(JTable jTable1) {
-		this.jTable1 = jTable1;
+	public void setPlayerSearchTable(JTable playerSearchTable) {
+		this.playerSearchTable = playerSearchTable;
 	}
 }

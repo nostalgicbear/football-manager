@@ -1,30 +1,25 @@
 package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
-import ie.tippinst.jod.fm.model.Club;
-import ie.tippinst.jod.fm.model.NonPlayer;
-import ie.tippinst.jod.fm.model.Player;
 
 import java.awt.Color;
-import java.util.List;
 
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
 public class LeagueTablePanel extends JPanel {
 	
-	private JScrollPane jScrollPane1;
+	private static final long serialVersionUID = 5551537575295544128L;
+	private JScrollPane leagueTableScrollPane;
     private JTable leagueTable;
-    private JTableHeader jTable1Header;
+    private JTableHeader leagueTableHeader;
     private Game game;
-    private TableColumn column;
+    private TableColumn leagueTableColumn;
     
     public LeagueTablePanel() {
     	game = Game.getInstance();
@@ -32,9 +27,9 @@ public class LeagueTablePanel extends JPanel {
     }
     
     private void initComponents(){
-    	jScrollPane1 = new JScrollPane();
+    	leagueTableScrollPane = new JScrollPane();
         leagueTable = new JTable();
-        jTable1Header = leagueTable.getTableHeader();
+        leagueTableHeader = leagueTable.getTableHeader();
         
     	String [][] data = game.getLeagueTable("Premier League");    	
 
@@ -45,18 +40,18 @@ public class LeagueTablePanel extends JPanel {
         ));
         
         for (int i = 0; i < 10; i++) {
-            column = leagueTable.getColumnModel().getColumn(i);
+            leagueTableColumn = leagueTable.getColumnModel().getColumn(i);
             if (i == 1) {
-                column.setPreferredWidth(100);
+                leagueTableColumn.setPreferredWidth(100);
             } else {
-                column.setPreferredWidth(10);
+                leagueTableColumn.setPreferredWidth(10);
             }
         }
         
         leagueTable.setGridColor(new Color(255, 255, 255));
-        jTable1Header.setForeground(new Color(0).white);
-        jTable1Header.setBackground(new Color(0).red);
-        jScrollPane1.setViewportView(leagueTable);
+		leagueTableHeader.setForeground(Color.white);
+        leagueTableHeader.setBackground(Color.red);
+        leagueTableScrollPane.setViewportView(leagueTable);
         
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
@@ -66,7 +61,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -75,7 +70,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 275, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

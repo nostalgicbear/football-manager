@@ -41,7 +41,7 @@ public class NewUserScreen extends JFrame {
 	
 	public NewUserScreen(){
 		super("Football Manager");
-		game = game.getInstance();
+		game = Game.getInstance();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		firstNameLbl = new JLabel("First Name:");
 		surnameLbl = new JLabel("Surname:");

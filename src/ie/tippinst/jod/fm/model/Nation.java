@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Nation implements Serializable {
 	
+	private static final long serialVersionUID = 8837798644807597940L;
 	private int id;
 	private String name;
 	private int reputation;

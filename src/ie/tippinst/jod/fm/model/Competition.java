@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public abstract class Competition implements Serializable {
 	
+	private static final long serialVersionUID = -4266130857896762280L;
 	private int id;
 	private String name;
 	private int reputation;
