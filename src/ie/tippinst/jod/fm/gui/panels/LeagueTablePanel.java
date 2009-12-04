@@ -42,13 +42,13 @@ public class LeagueTablePanel extends JPanel {
         for (int i = 0; i < 10; i++) {
             leagueTableColumn = leagueTable.getColumnModel().getColumn(i);
             if (i == 1) {
-                leagueTableColumn.setPreferredWidth(150);
+                leagueTableColumn.setPreferredWidth(450);
             } else {
-                leagueTableColumn.setPreferredWidth(10);
+                leagueTableColumn.setPreferredWidth(30);
             }
         }
         
-        leagueTable.setGridColor(new Color(255, 255, 255));
+        //leagueTable.setGridColor(new Color(255, 255, 255));
 		leagueTableHeader.setForeground(Color.white);
         leagueTableHeader.setBackground(Color.red);
         leagueTableScrollPane.setViewportView(leagueTable);

@@ -88,11 +88,13 @@ public class Match {
 	}
 	
 	public void generateResult(){
-		if(this.getHomeTeam().getReputation() > this.awayTeam.getReputation()){
+		int homeTeam = ((int)(Math.random() * 6666) + 1);
+		int awayTeam = ((int)(Math.random() * 6666) + 1);
+		if(this.getHomeTeam().getReputation() + homeTeam > this.awayTeam.getReputation() + awayTeam){
 			this.setHomeScore(2);
 			this.setAwayScore(0);
 		}
-		else if(this.getHomeTeam().getReputation() < this.awayTeam.getReputation()){
+		else if(this.getHomeTeam().getReputation() + homeTeam < this.awayTeam.getReputation()  + awayTeam){
 			this.setHomeScore(0);
 			this.setAwayScore(1);
 		}

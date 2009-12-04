@@ -64,7 +64,8 @@ public class MainGameScreen extends JFrame {
     private JMenuItem staffMenuItem;
     private JMenuItem confidenceMenuItem;
     private JMenu leagueMenu;
-    private JMenuItem leagueTableMenuItem;    
+    private JMenuItem leagueTableMenuItem; 
+    private JMenuItem leagueFixturesMenuItem;
 	private JTabbedPane clubPanel;
 	private JTabbedPane playerPanel;
 	private JTabbedPane leaguePanel;
@@ -169,6 +170,16 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for Team -> Fixtures Menu Item
+        fixturesMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserSquadFixtures(e);
+			}
+			
+		});
+        
         // Event listener for Team -> Information Menu Item
         informationMenuItem.addActionListener(new ActionListener() {
 
@@ -195,6 +206,16 @@ public class MainGameScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				displayLeagueTable(e);
+			}
+			
+		});
+        
+        // Event listener for League -> Fixtures Menu Item
+        leagueFixturesMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeagueFixtures(e);
 			}
 			
 		});
@@ -272,6 +293,7 @@ public class MainGameScreen extends JFrame {
         confidenceMenuItem = new JMenuItem("Confidence");
         leagueMenu = new JMenu("League");
         leagueTableMenuItem = new JMenuItem("Table");
+        leagueFixturesMenuItem = new JMenuItem("Results/Fixtures");
         date = new JLabel();
         mainPanel = new JPanel(new CardLayout());
         sidePanel = new JPanel(new CardLayout());
@@ -320,7 +342,8 @@ public class MainGameScreen extends JFrame {
         clubMenu.add(staffMenuItem);        
         clubMenu.add(confidenceMenuItem);        
         menuBar.add(clubMenu);        
-        leagueMenu.add(leagueTableMenuItem);        
+        leagueMenu.add(leagueTableMenuItem); 
+        leagueMenu.add(leagueFixturesMenuItem);
         menuBar.add(leagueMenu);
         setJMenuBar(menuBar);
         
@@ -484,7 +507,12 @@ public class MainGameScreen extends JFrame {
     	((CardLayout) sidePanel.getLayout()).show(sidePanel, "League Table Sidebar");
 	}
     
-    /*Display the league table*/
+    private void displayLeagueFixtures(ActionEvent ae){
+    	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
+    	displayLeagueFixtures(format.format(game.getDate().getTime()).toUpperCase());
+    }
+    
+    /*Display the league fixtures*/
     private void displayLeagueFixtures(String date){
     	leagueTablePanel = new LeagueTablePanel();
     	leagueFixturesPanel = new LeagueFixturesPanel(date);
@@ -539,19 +567,19 @@ public class MainGameScreen extends JFrame {
     
     private void displayClubInformation(String club){
     	squadPanel = new SquadPanel(club);
+    	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
-    	//mainPanel.add(squadPanel, "Squad");
-    	//((CardLayout) mainPanel.getLayout()).next(mainPanel);
     	clubPanel.removeAll();
     	clubPanel.addTab("Squad", squadPanel);
+    	clubPanel.addTab("Fixtures", fixturesPanel);
         clubPanel.addTab("Staff", staffPanel);
         clubPanel.addTab("Information", clubInformationPanel);
-        clubPanel.setSelectedIndex(2);
+        clubPanel.setSelectedIndex(3);
         mainPanel.add(clubPanel, "Club");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
         sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
     }
     
     private void displayUserSquadInformation(ActionEvent ae){
@@ -560,17 +588,40 @@ public class MainGameScreen extends JFrame {
     
     private void displayStaff(String club){
     	squadPanel = new SquadPanel(club);
+    	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
     	clubPanel.removeAll();
     	clubPanel.addTab("Squad", squadPanel);
+    	clubPanel.addTab("Fixtures", fixturesPanel);
+        clubPanel.addTab("Staff", staffPanel);
+        clubPanel.addTab("Information", clubInformationPanel);
+        clubPanel.setSelectedIndex(2);
+        mainPanel.add(clubPanel, "Club");
+        ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
+        sidePanel.add(squadSidePanel, "Squad Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
+    }
+    
+    private void displayUserSquadFixtures(ActionEvent ae){
+    	displayFixtures(userClub);
+	}
+    
+    private void displayFixtures(String club){
+    	squadPanel = new SquadPanel(club);
+    	fixturesPanel = new FixturesPanel(club);
+    	staffPanel = new StaffPanel(club);
+    	clubInformationPanel = new ClubInformationPanel(club);
+    	clubPanel.removeAll();
+    	clubPanel.addTab("Squad", squadPanel);
+    	clubPanel.addTab("Fixtures", fixturesPanel);
         clubPanel.addTab("Staff", staffPanel);
         clubPanel.addTab("Information", clubInformationPanel);
         clubPanel.setSelectedIndex(1);
         mainPanel.add(clubPanel, "Club");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
         sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
     }
     
     private void displayUserStaff(ActionEvent ae){
