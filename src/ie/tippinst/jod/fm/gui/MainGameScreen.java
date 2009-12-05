@@ -3,6 +3,7 @@ package ie.tippinst.jod.fm.gui;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
 import ie.tippinst.jod.fm.gui.panels.FixturesPanel;
+import ie.tippinst.jod.fm.gui.panels.InboxPanel;
 import ie.tippinst.jod.fm.gui.panels.LeagueFixturesPanel;
 import ie.tippinst.jod.fm.gui.panels.LeagueTablePanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerAttributesPanel;
@@ -15,7 +16,6 @@ import ie.tippinst.jod.fm.gui.panels.StaffProfilePanel;
 import ie.tippinst.jod.fm.gui.panels.StaffSearchPanel;
 
 import java.awt.CardLayout;
-import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -87,6 +87,7 @@ public class MainGameScreen extends JFrame {
     private StaffProfilePanel staffProfilePanel;
     private PlayerSearchPanel playerSearchPanel;
     private StaffSearchPanel staffSearchPanel;
+    private InboxPanel inboxPanel;
     
     //Other panels for side panel and their buttons
     private JPanel leagueTableSidePanel;
@@ -136,6 +137,16 @@ public class MainGameScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				displayUserProfile(e);
+			}
+			
+		});
+        
+        // Event listener for Manager -> Inbox Menu Item
+        inboxMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayInbox(e);
 			}
 			
 		});
@@ -432,6 +443,15 @@ public class MainGameScreen extends JFrame {
     	}
     	
 		this.date.setText((game.getDate().get(Calendar.DATE) + "/" + (game.getDate().get(Calendar.MONTH) + 1) + "/" + game.getDate().get(Calendar.YEAR)));
+    }
+    
+    /*Display Player Search Screen*/
+    private void displayInbox(ActionEvent ae){
+    	inboxPanel = new InboxPanel();
+        mainPanel.add(inboxPanel, "Inbox");
+        ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Inbox");
+        sidePanel.add(squadSidePanel, "Squad Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
     }
     
     /*Display Player Search Screen*/

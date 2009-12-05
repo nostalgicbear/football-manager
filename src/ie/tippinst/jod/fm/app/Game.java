@@ -5,6 +5,7 @@ import ie.tippinst.jod.fm.model.Competition;
 import ie.tippinst.jod.fm.model.Injury;
 import ie.tippinst.jod.fm.model.League;
 import ie.tippinst.jod.fm.model.Match;
+import ie.tippinst.jod.fm.model.Message;
 import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
@@ -44,6 +45,7 @@ public class Game {
 	private Iterator<Injury> iInjury;
 	private Iterator<Competition> iCompetition;
 	private Calendar date;
+	private List<Message> messages;
 
 	/* This constructs a new game object with the initial date set at 2 July 2009*/
 	private Game(){
@@ -69,6 +71,7 @@ public class Game {
 		stadiumList = new ArrayList<Stadium>();
 		injuryList = new ArrayList<Injury>();
 		competitionList = new ArrayList<Competition>();
+		messages = new ArrayList<Message>();
 				
 		XMLDecoder decoder = null;
 		
@@ -559,7 +562,17 @@ public class Game {
 		List<NonPlayer> staff = user.getCurrentClub().getStaff();
 		staff.add(user);
 		user.getCurrentClub().setStaff(staff);
+		Iterator<NonPlayer> i = staff.iterator();
+		NonPlayer chairman = null;
+		while(i.hasNext()){
+			chairman = i.next();
+			if(chairman.getChairmanRole() == 20){
+				break;
+			}
+		}
+		messages.add(new Message("Welcome to " + userClub.getName(), "The chairman of " + userClub.getName() + ", " + chairman.getFirstName() + " " + chairman.getLastName() + ", would like to welcome you to the club!"));
 		
+		iPerson = personList.iterator();
 		// If the user's club already has a manager remove them and assign them to no club
 		while(iPerson.hasNext()){
 			Person p = iPerson.next();
@@ -597,6 +610,19 @@ public class Game {
 		return false;
 	}
 	
+	public String getMessageBody(String header){
+		String message = null;
+		Iterator<Message> i = messages.iterator();
+		while(i.hasNext()){
+			Message m = i.next();
+			if(m.getHeading().equals(header)){
+				message = m.getBody();
+				break;
+			}
+		}
+		return message;
+	}
+	
 	/* This method returns the current ingame date */
 	public Calendar getDate() {
 		return date;
@@ -620,5 +646,9 @@ public class Game {
 
 	public List<Injury> getInjuryList() {
 		return injuryList;
+	}
+	
+	public List<Message> getMessages() {
+		return messages;
 	}
 }
