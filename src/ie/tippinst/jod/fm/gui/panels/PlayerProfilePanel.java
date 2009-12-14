@@ -214,4 +214,8 @@ public class PlayerProfilePanel extends JPanel {
                  .addContainerGap(110, Short.MAX_VALUE))
          );
      }
+
+	public JLabel getNameValueLabel() {
+		return nameValueLabel;
+	}
 }

@@ -1,6 +1,7 @@
 package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
+import ie.tippinst.jod.fm.gui.dialogs.TransferOffer;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
 import ie.tippinst.jod.fm.gui.panels.FixturesPanel;
 import ie.tippinst.jod.fm.gui.panels.InboxPanel;
@@ -97,6 +98,11 @@ public class MainGameScreen extends JFrame {
     private JButton viewStaffProfileButton;
     private JPanel playerSidePanel;
     private JButton makeOfferForPlayerButton;
+    private JButton addToShortlistButton;
+    private JButton scoutPlayerButton;
+    private JPanel userPlayerSidePanel;
+    private JButton setTransferStatusButton;
+    private JButton offerNewContractButton;
     
     private Game game;
     private String userClub;
@@ -263,7 +269,7 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
-        // Event listener for view continue button
+        // Event listener for continue button
         continueButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -273,8 +279,23 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for make offer button
+        makeOfferForPlayerButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				makeOffer(e);
+			}
+			
+		});
+        
         // Centre window on screen
         this.setLocationRelativeTo(null);
+    }
+    
+    private void makeOffer(ActionEvent ae){
+    	TransferOffer t = new TransferOffer(this, playerProfilePanel.getNameValueLabel().getText());
+    	t.setVisible(true);
     }
     
     /*Initialise all GUI components*/
@@ -317,6 +338,11 @@ public class MainGameScreen extends JFrame {
         viewStaffProfileButton = new JButton("View NonPlayer");
         playerSidePanel = new JPanel();
         makeOfferForPlayerButton = new JButton("Make Offer");
+        addToShortlistButton = new JButton("Add to Shortlist");
+        scoutPlayerButton = new JButton("Get Scout Report");
+        userPlayerSidePanel = new JPanel();
+        setTransferStatusButton = new JButton("Set Transfer Status");
+        offerNewContractButton = new JButton("Offer New Contract");
         clubPanel = new JTabbedPane();
         playerPanel = new JTabbedPane();
         leaguePanel = new JTabbedPane();
@@ -409,7 +435,10 @@ public class MainGameScreen extends JFrame {
             playerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(playerSidePaneLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(makeOfferForPlayerButton)
+                .addGroup(playerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(scoutPlayerButton)
+                	.addComponent(addToShortlistButton)
+                	.addComponent(makeOfferForPlayerButton))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         playerSidePaneLayout.setVerticalGroup(
@@ -417,6 +446,32 @@ public class MainGameScreen extends JFrame {
             .addGroup(playerSidePaneLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(makeOfferForPlayerButton)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addToShortlistButton)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scoutPlayerButton)
+                .addContainerGap(224, Short.MAX_VALUE))
+        );
+        
+     // Layout user's player side panel
+        GroupLayout userPlayerSidePaneLayout = new GroupLayout(userPlayerSidePanel);
+        userPlayerSidePanel.setLayout(userPlayerSidePaneLayout);
+        userPlayerSidePaneLayout.setHorizontalGroup(
+        		userPlayerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(userPlayerSidePaneLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(userPlayerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(offerNewContractButton)
+                	.addComponent(setTransferStatusButton))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        userPlayerSidePaneLayout.setVerticalGroup(
+        		userPlayerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(userPlayerSidePaneLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(setTransferStatusButton)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(offerNewContractButton)
                 .addContainerGap(224, Short.MAX_VALUE))
         );
         
@@ -579,8 +634,14 @@ public class MainGameScreen extends JFrame {
     	playerPanel.setSelectedIndex(0);;
     	mainPanel.add(playerPanel, "Player");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "Player");
-    	sidePanel.add(playerSidePanel, "Player Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Player Sidebar");
+    	if(playerContractPanel.getClubValueLabel().getText().equals(userClub)){
+    		sidePanel.add(userPlayerSidePanel, "User Player Sidebar");
+    		((CardLayout) sidePanel.getLayout()).show(sidePanel, "User Player Sidebar");
+    	}
+    	else{
+    		sidePanel.add(playerSidePanel, "Player Sidebar");
+    		((CardLayout) sidePanel.getLayout()).show(sidePanel, "Player Sidebar");
+    	}
     }
     
     /*Display particular club*/

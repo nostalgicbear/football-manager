@@ -46,6 +46,7 @@ public class Game {
 	private Iterator<Competition> iCompetition;
 	private Calendar date;
 	private List<Message> messages;
+	private Club userClub;
 
 	/* This constructs a new game object with the initial date set at 2 July 2009*/
 	private Game(){
@@ -571,7 +572,7 @@ public class Game {
 				break;
 			}
 		}
-		messages.add(new Message("Welcome to " + userClub.getName(), "The chairman of " + userClub.getName() + ", " + chairman.getFirstName() + " " + chairman.getLastName() + ", would like to welcome you to the club!"));
+		messages.add(new Message(this.getDate(), "Welcome to " + userClub.getName(), "The chairman of " + userClub.getName() + ", " + chairman.getFirstName() + " " + chairman.getLastName() + ", would like to welcome you to the club!"));
 		
 		iPerson = personList.iterator();
 		// If the user's club already has a manager remove them and assign them to no club
@@ -586,6 +587,7 @@ public class Game {
 				break;
 			}
 		}
+		this.userClub = userClub;
 	}
 	
 	public boolean continueGame(boolean processFixtures){
@@ -629,6 +631,25 @@ public class Game {
 		return message;
 	}
 	
+	public void makeOfferForPlayer(String player, int value){
+		iPerson = personList.iterator();
+		Person p = null;
+		while(iPerson.hasNext()){
+			p = iPerson.next();
+			if((p instanceof Player) && ((p.getFirstName() + " " + p.getLastName()).equals(player))){
+				break;
+			}
+		}
+		Calendar c = new GregorianCalendar(this.getDate().get(Calendar.YEAR), this.getDate().get(Calendar.MONTH), this.getDate().get(Calendar.DATE));
+		c.add(Calendar.DATE, 3);
+		if(userClub.makeOffer((Player) p, value)){
+			messages.add(new Message(c, "Offer for " + player + " Accepted", p.getCurrentClub().getName() + " have accepted your €" + value + " offer for " + player + "!  You now have permission to offer him a contract!"));
+		}
+		else{
+			messages.add(new Message(c, "Offer for " + player + " Rejected", p.getCurrentClub().getName() + " have rejected your €" + value + " offer for " + player + "!"));
+		}
+	}
+	
 	/* This method returns the current ingame date */
 	public Calendar getDate() {
 		return date;
@@ -655,6 +676,15 @@ public class Game {
 	}
 	
 	public List<Message> getMessages() {
-		return messages;
+		Iterator<Message> iMessage = messages.iterator();
+		List<Message> list = new ArrayList<Message>();
+		while(iMessage.hasNext()){
+			Message m = iMessage.next();
+			if(this.getDate().getTimeInMillis() >= m.getDate().getTimeInMillis()){
+				list.add(m);
+			}
+		}
+		Collections.sort(list);
+		return list;
 	}
 }

@@ -120,4 +120,8 @@ public class PlayerContractPanel extends JPanel {
                  .addContainerGap(127, Short.MAX_VALUE))
          );
      }
+
+	public JLabel getClubValueLabel() {
+		return clubValueLabel;
+	}
 }

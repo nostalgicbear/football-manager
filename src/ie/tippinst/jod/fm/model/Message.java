@@ -1,15 +1,19 @@
 package ie.tippinst.jod.fm.model;
 
-public class Message {
+import java.util.Calendar;
+
+public class Message implements Comparable<Message>{
 	
+	private Calendar date;
 	private String heading;
 	private String body;
 	
 	public Message() {
 		super();
 	}
-	public Message(String heading, String body) {
+	public Message(Calendar date, String heading, String body) {
 		super();
+		this.setDate(date);
 		this.setHeading(heading);
 		this.setBody(body);
 	}
@@ -25,7 +29,15 @@ public class Message {
 	public String getBody() {
 		return body;
 	}
-	
-	
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
+	public Calendar getDate() {
+		return date;
+	}
 
+	@Override
+	public int compareTo(Message o) {
+	    return this.getDate().getTime().compareTo(o.getDate().getTime());
+	}
 }

@@ -174,4 +174,11 @@ public class Club implements Serializable {
 	public List<Match> getFixtures() {
 		return fixtures;
 	}
+	
+	public boolean makeOffer(Player p, int value){
+		if(p.getSaleValue() > value){
+			return false;
+		}
+		return true;
+	}
 }

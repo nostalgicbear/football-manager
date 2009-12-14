@@ -4,10 +4,13 @@ import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Message;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JList;
 import javax.swing.JPanel;
@@ -35,6 +38,8 @@ public class InboxPanel extends JPanel {
 	private JList messageList;
 	private JTextPane messageTextPane;
 	private JScrollPane messageListScrollPane;
+	private JButton offerContractButton;
+	private JButton withdrawOfferButton;
 	private Game game;
 	
 	public InboxPanel() {
@@ -50,13 +55,30 @@ public class InboxPanel extends JPanel {
 			}
 			
 		});
+		
+		withdrawOfferButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				messageTextPane.remove(offerContractButton);
+				messageTextPane.remove(withdrawOfferButton);
+				messageTextPane.setText(messageTextPane.getText() + "Your offer has been withdrawn!");
+			}
+			
+		});
 	}
 	
 	private void displayMessage(ListSelectionEvent ae){
-		messageTextPane.setText((String) messageList.getSelectedValue() + "\n\n" + game.getMessageBody((String) messageList.getSelectedValue()));
+		messageTextPane.setText((String) messageList.getSelectedValue() + "\n\n" + game.getMessageBody((String) messageList.getSelectedValue()) + "\n\n");
+		if(messageTextPane.getText().contains("You now have permission to offer him a contract!")){
+			messageTextPane.insertComponent(offerContractButton);
+			messageTextPane.insertComponent(withdrawOfferButton);
+		}
 	}
 	
 	private void initGUI() {
+		offerContractButton = new JButton("Offer Contract");
+		withdrawOfferButton = new JButton("Withdraw Offer");
 		try {
 			GroupLayout thisLayout = new GroupLayout((JComponent)this);
 			this.setLayout(thisLayout);
@@ -77,6 +99,7 @@ public class InboxPanel extends JPanel {
 				messageTextPane = new JTextPane();
 				messageTextPane.setText("No message selected");
 				messageTextPane.setPreferredSize(new java.awt.Dimension(397, 198));
+				messageTextPane.setEditable(false);
 			}
 			
 			messageListScrollPane.setViewportView(messageList);
