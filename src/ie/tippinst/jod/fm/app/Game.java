@@ -224,6 +224,7 @@ public class Game {
 					((Player) p).setFitness(2000);
 					((Player) p).setHappinessAtClub(7500);
 					((Player) p).setFatigue(0);
+					p.setAge(this.date);
 					personList.add(p);
 				} catch (ArrayIndexOutOfBoundsException e){
 					break;
@@ -606,6 +607,11 @@ public class Game {
 					}
 				}
 			}
+		}
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			p.setAge(this.date);
 		}
 		return false;
 	}

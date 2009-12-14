@@ -95,6 +95,8 @@ public class MainGameScreen extends JFrame {
     private JPanel squadSidePanel;
     private JButton viewSelectedPlayerButton;
     private JButton viewStaffProfileButton;
+    private JPanel playerSidePanel;
+    private JButton makeOfferForPlayerButton;
     
     private Game game;
     private String userClub;
@@ -313,6 +315,8 @@ public class MainGameScreen extends JFrame {
         squadSidePanel = new JPanel();
         viewSelectedPlayerButton = new JButton("View Player");
         viewStaffProfileButton = new JButton("View NonPlayer");
+        playerSidePanel = new JPanel();
+        makeOfferForPlayerButton = new JButton("Make Offer");
         clubPanel = new JTabbedPane();
         playerPanel = new JTabbedPane();
         leaguePanel = new JTabbedPane();
@@ -398,6 +402,24 @@ public class MainGameScreen extends JFrame {
                 .addContainerGap(224, Short.MAX_VALUE))
         );
         
+     // Layout player side panel
+        GroupLayout playerSidePaneLayout = new GroupLayout(playerSidePanel);
+        playerSidePanel.setLayout(playerSidePaneLayout);
+        playerSidePaneLayout.setHorizontalGroup(
+            playerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(playerSidePaneLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(makeOfferForPlayerButton)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        playerSidePaneLayout.setVerticalGroup(
+            playerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(playerSidePaneLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(makeOfferForPlayerButton)
+                .addContainerGap(224, Short.MAX_VALUE))
+        );
+        
         // Layout window
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -427,7 +449,6 @@ public class MainGameScreen extends JFrame {
         //pack();
     }
     
-    /*Display Player Search Screen*/
     private void continueGame(ActionEvent ae){
     	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
 		String date;
@@ -445,7 +466,7 @@ public class MainGameScreen extends JFrame {
 		this.date.setText((game.getDate().get(Calendar.DATE) + "/" + (game.getDate().get(Calendar.MONTH) + 1) + "/" + game.getDate().get(Calendar.YEAR)));
     }
     
-    /*Display Player Search Screen*/
+    /*Display Inbox Screen*/
     private void displayInbox(ActionEvent ae){
     	inboxPanel = new InboxPanel();
         mainPanel.add(inboxPanel, "Inbox");
@@ -558,8 +579,8 @@ public class MainGameScreen extends JFrame {
     	playerPanel.setSelectedIndex(0);;
     	mainPanel.add(playerPanel, "Player");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "Player");
-    	sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
+    	sidePanel.add(playerSidePanel, "Player Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Player Sidebar");
     }
     
     /*Display particular club*/

@@ -90,11 +90,11 @@ public class Match {
 	public void generateResult(){
 		int homeTeam = ((int)(Math.random() * 6666) + 1);
 		int awayTeam = ((int)(Math.random() * 6666) + 1);
-		if(this.getHomeTeam().getReputation() + homeTeam > this.awayTeam.getReputation() + awayTeam){
+		if(((this.getHomeTeam().getReputation() + homeTeam) - (this.getAwayTeam().getReputation() + awayTeam)) >= 500){
 			this.setHomeScore(2);
 			this.setAwayScore(0);
 		}
-		else if(this.getHomeTeam().getReputation() + homeTeam < this.awayTeam.getReputation()  + awayTeam){
+		else if(((this.getAwayTeam().getReputation() + awayTeam) - (this.getHomeTeam().getReputation() + homeTeam)) >= 750){
 			this.setHomeScore(0);
 			this.setAwayScore(1);
 		}

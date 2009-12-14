@@ -17,7 +17,7 @@ public class Person implements Serializable {
 	private int potentialAbility;
 	private Calendar contractExpiry;
 	private Club currentClub;
-	private int age = 25;
+	private int age;
 	
 	public Person(){
 		super();
@@ -156,7 +156,10 @@ public class Person implements Serializable {
 		this.contractExpiry = contractExpiry;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Calendar c) {
+		int age = c.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+	    if((dob.get(Calendar.MONTH) > c.get(Calendar.MONTH)) || (dob.get(Calendar.MONTH) == c.get(Calendar.MONTH)&& dob.get(Calendar.DAY_OF_MONTH) > c.get(Calendar.DAY_OF_MONTH)))
+	       age--;
 		this.age = age;
 	}
 

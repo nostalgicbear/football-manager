@@ -1,13 +1,11 @@
 package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -15,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class NewUserScreen extends JFrame {
-	
 	private static final long serialVersionUID = -4736216712349129748L;
 	private JLabel firstNameLbl;
 	private JLabel surnameLbl;
@@ -36,8 +33,7 @@ public class NewUserScreen extends JFrame {
 	private String [] years = {"2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996",
 			"1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980"};
 	private String [] clubs = {"Arsenal", "Aston Villa", "Birmingham City", "Blackburn Rovers", "Bolton Wanderers", "Burnley", "Chelsea", "Everton", "Fulham", "Hull City",
-			"Liverpool", "Manchester City", "Manchester United", "Portsmouth", "Stoke City", "Sunderland", "Tottenham Hotspur", "West Ham United",
-			"Wigan Athletic", "Wolverhampton Wanderers"};
+			"Liverpool", "Manchester City", "Manchester United", "Portsmouth", "Stoke City", "Sunderland", "Tottenham Hotspur", "West Ham United", "Wigan Athletic", "Wolverhampton Wanderers"};
 	
 	public NewUserScreen(){
 		super("Football Manager");
@@ -56,6 +52,7 @@ public class NewUserScreen extends JFrame {
 		clubLbl = new JLabel("Select Club to Manage:");
 		clubCbo = new JComboBox(clubs);
 		addUser = new JButton("Add New User");
+		
 		this.setLayout(new FlowLayout());
 		this.getContentPane().add(firstNameLbl);
 		this.getContentPane().add(firstNameTxt);
@@ -74,14 +71,13 @@ public class NewUserScreen extends JFrame {
 		this.setLocationRelativeTo(null);
 		
 		addUser.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				addNewUser(e);
-			}
-			
-		});
-	}
+				}
+			});
+		}
 	
 	private void addNewUser(ActionEvent ae){
 		Calendar c = new GregorianCalendar();
@@ -90,6 +86,5 @@ public class NewUserScreen extends JFrame {
 		MainGameScreen mg = new MainGameScreen((String)clubCbo.getSelectedItem(), firstNameTxt.getText() + " " + surnameTxt.getText());
 		mg.setVisible(true);
 		this.setVisible(false);
-	}
-
-}
+		}
+	} 
