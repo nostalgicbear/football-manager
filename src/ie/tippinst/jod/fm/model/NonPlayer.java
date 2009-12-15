@@ -15,6 +15,7 @@ public class NonPlayer extends Person implements Serializable {
 	private int physioRole;
 	private int scoutRole;
 	private String role;
+	private List<Player> shortlist = new ArrayList<Player>();
 	
 	public NonPlayer(){
 		super();
@@ -131,6 +132,14 @@ public class NonPlayer extends Person implements Serializable {
 		list.add(this.getCurrentClub().getName());
 		list.add("€" + this.getWages());
 		return list;
+	}
+
+	public void setShortlist(List<Player> shortlist) {
+		this.shortlist = shortlist;
+	}
+
+	public List<Player> getShortlist() {
+		return shortlist;
 	}
 
 }

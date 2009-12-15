@@ -67,12 +67,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>9100</int> 
+   <int>9150</int> 
   </void>  
  </object>
  <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>20000000</double> 
+   <double>10000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -102,12 +102,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>8950</int> 
+   <int>8850</int> 
   </void>  
  </object>
  <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>70000000</double> 
+   <double>50000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -137,12 +137,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>8600</int> 
+   <int>8700</int> 
   </void>  
  </object>
  <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>175000000</double> 
+   <double>250000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -177,7 +177,7 @@
  </object>
   <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>75000000</double> 
+   <double>25000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -207,7 +207,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>7150</int> 
+   <int>7250</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -242,7 +242,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>7050</int> 
+   <int>7100</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -277,12 +277,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>6950</int> 
+   <int>7050</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>15000000</double> 
+   <double>5000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -312,12 +312,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>6450</int> 
+   <int>6600</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>-15000000</double> 
+   <double>0</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -347,7 +347,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>6150</int> 
+   <int>6300</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -382,12 +382,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>6050</int> 
+   <int>6400</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>5000000</double> 
+   <double>25000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -417,12 +417,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>6000</int> 
+   <int>6400</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>55000000</double> 
+   <double>15000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -452,12 +452,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5950</int> 
+   <int>6350</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>25000000</double> 
+   <double>5000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -487,12 +487,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5850</int> 
+   <int>6300</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>12000000</double> 
+   <double>6000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -522,7 +522,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5650</int> 
+   <int>6100</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -557,7 +557,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5450</int> 
+   <int>6050</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -592,7 +592,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5250</int> 
+   <int>5700</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -627,7 +627,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5250</int> 
+   <int>5800</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
@@ -662,12 +662,12 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>5150</int> 
+   <int>5500</int> 
   </void>  
  </object>
    <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
-   <double>7000000</double> 
+   <double>4000000</double> 
   </void>
   <void property="league"> 
    <object class="ie.tippinst.jod.fm.model.League"> 
@@ -697,7 +697,7 @@
    </object>
   </void>
   <void property="reputation"> 
-   <int>4950</int> 
+   <int>5400</int> 
   </void>  
  </object>
 </java> 

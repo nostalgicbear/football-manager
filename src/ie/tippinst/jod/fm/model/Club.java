@@ -2,6 +2,7 @@ package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Club implements Serializable {
@@ -179,6 +180,11 @@ public class Club implements Serializable {
 		if(p.getSaleValue() > value){
 			return false;
 		}
+		return true;
+	}
+	
+	public boolean offerContract(Player p, int wages, Calendar c, int status){
+		//TODO: Check if player is happy with terms and if yes return true else return false
 		return true;
 	}
 }

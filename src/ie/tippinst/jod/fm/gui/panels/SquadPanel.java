@@ -72,7 +72,7 @@ public class SquadPanel extends JPanel {
                 squadTableColumn.setPreferredWidth(30);
             }
         }
-        squadTable.setGridColor(new Color(255, 255, 255));
+        //squadTable.setGridColor(new Color(255, 255, 255));
         squadTableHeader.setForeground(Color.white);
         squadTableHeader.setBackground(Color.red);
         squadTableScrollPane.setViewportView(squadTable);

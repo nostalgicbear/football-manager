@@ -344,16 +344,16 @@ public class Player extends Person implements Serializable {
 		list.add(this.getAge() + "");
 		list.add(this.getDob().get(Calendar.DATE) + "/" + (this.getDob().get(Calendar.MONTH) + 1) + "/" + this.getDob().get(Calendar.YEAR));
 		list.add(this.getNationality().getName());
-		if(this.getReputation() >= 9500){
+		if(this.getReputation() * 50 >= 9500){
 			list.add("Worldwide");
 		}
-		else if(this.getReputation() >= 7500){
+		else if(this.getReputation() * 50 >= 7500){
 			list.add("Continental");
 		}
-		else if(this.getReputation() >= 4500){
+		else if(this.getReputation() * 50 >= 4500){
 			list.add("National");
 		}
-		else if(this.getReputation() >= 1500){
+		else if(this.getReputation() * 50 >= 1500){
 			list.add("Regional");
 		}
 		else {
@@ -454,8 +454,30 @@ public class Player extends Person implements Serializable {
 		return list;
 	}
 
-	public void setStatus() {
-		this.status = SquadStatus.INDISPENSABLE;
+	public void setStatus(int index) {
+		switch (index){
+		case 0:
+			this.status = SquadStatus.INDISPENSABLE;
+			break;
+		case 1:
+			this.status = SquadStatus.IMPORTANT;
+			break;
+		case 2:
+			this.status = SquadStatus.SQUAD;
+			break;
+		case 3:
+			this.status = SquadStatus.TOPYOUNGSTER;
+			break;
+		case 4:
+			this.status = SquadStatus.DECENTYOUNGSTER;
+			break;
+		case 5:
+			this.status = SquadStatus.NOTNEEDED;
+			break;
+		default:
+			System.out.println("Error");
+			break;
+		}
 	}
 
 	public SquadStatus getStatus() {
@@ -632,7 +654,7 @@ public class Player extends Person implements Serializable {
 		double strikercurrentAbility = 0;
 		int positions = 0;
 		
-		this.setHandling(16);
+		/*this.setHandling(16);
 		this.setReflexes(15);
 		this.setDecisions(18);
 		this.setCommandOfArea(17);
@@ -648,7 +670,7 @@ public class Player extends Person implements Serializable {
 		this.setMarking(18);
 		this.setTackling(18);
 		this.setPenaltyTaking(18);
-		this.setInfluence(18);
+		this.setInfluence(18);*/
 		
 		if(this.goalkeepingAbility >= 15){
 			goalkeepercurrentAbility = (this.getHandling() + this.getReflexes() + this.getDecisions() + this.getCommandOfArea()) * 2.5;
@@ -685,5 +707,20 @@ public class Player extends Person implements Serializable {
 
 	public int getMatchCondition() {
 		return matchCondition;
+	}
+	
+	public void transferPlayer(int value, Club club, double wages, Calendar contractExpiry, int status){
+		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() + value);
+		List<Player> squad = this.getCurrentClub().getSquad();
+		squad.remove(this);
+		this.getCurrentClub().setSquad(squad);
+		this.setCurrentClub(club);
+		this.setWages(wages);
+		this.setContractExpiry(contractExpiry);
+		this.setStatus(status);
+		squad = this.getCurrentClub().getSquad();
+		squad.add(this);
+		this.getCurrentClub().setSquad(squad);
+		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() - value);
 	}
 }

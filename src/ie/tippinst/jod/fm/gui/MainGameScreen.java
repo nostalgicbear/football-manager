@@ -1,6 +1,7 @@
 package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
+import ie.tippinst.jod.fm.gui.dialogs.ContractOffer;
 import ie.tippinst.jod.fm.gui.dialogs.TransferOffer;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
 import ie.tippinst.jod.fm.gui.panels.FixturesPanel;
@@ -11,6 +12,7 @@ import ie.tippinst.jod.fm.gui.panels.PlayerAttributesPanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerContractPanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerProfilePanel;
 import ie.tippinst.jod.fm.gui.panels.PlayerSearchPanel;
+import ie.tippinst.jod.fm.gui.panels.ShortlistPanel;
 import ie.tippinst.jod.fm.gui.panels.SquadPanel;
 import ie.tippinst.jod.fm.gui.panels.StaffPanel;
 import ie.tippinst.jod.fm.gui.panels.StaffProfilePanel;
@@ -89,6 +91,7 @@ public class MainGameScreen extends JFrame {
     private PlayerSearchPanel playerSearchPanel;
     private StaffSearchPanel staffSearchPanel;
     private InboxPanel inboxPanel;
+    private ShortlistPanel shortlistPanel;
     
     //Other panels for side panel and their buttons
     private JPanel leagueTableSidePanel;
@@ -103,6 +106,8 @@ public class MainGameScreen extends JFrame {
     private JPanel userPlayerSidePanel;
     private JButton setTransferStatusButton;
     private JButton offerNewContractButton;
+    private JPanel playerSearchSidePanel;
+    private JButton viewSelectedPlayerForPlayerSearchButton;
     
     private Game game;
     private String userClub;
@@ -155,6 +160,16 @@ public class MainGameScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				displayInbox(e);
+			}
+			
+		});
+        
+        // Event listener for Manager -> Player Search Menu Item
+        shortlistMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayShortlist(e);
 			}
 			
 		});
@@ -259,6 +274,16 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for view player button
+        viewSelectedPlayerForPlayerSearchButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayPlayerFromPlayerSearch(e);
+			}
+			
+		});
+        
         // Event listener for view staff member button
         viewStaffProfileButton.addActionListener(new ActionListener() {
 
@@ -289,8 +314,45 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for make offer button
+        offerNewContractButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				offerContract(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        addToShortlistButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addToShortlist(e);
+			}
+			
+		});
+        
         // Centre window on screen
         this.setLocationRelativeTo(null);
+    }
+    
+    private void addToShortlist(ActionEvent ae){
+    	if(addToShortlistButton.getText().equals("Add to Shortlist")){
+        	game.addPlayerToShortlist(playerProfilePanel.getNameValueLabel().getText(), user);
+        	addToShortlistButton.setText("Remove from Shortlist");
+    	}
+    	else{
+    		game.removePlayerFromShortlist(playerProfilePanel.getNameValueLabel().getText(), user);
+    		addToShortlistButton.setText("Add to Shortlist");
+    	}
+    	this.validate();
+    }
+    
+    private void offerContract(ActionEvent ae){
+    	ContractOffer c = new ContractOffer(playerProfilePanel.getNameValueLabel().getText(), 0);
+    	c.setVisible(true);
     }
     
     private void makeOffer(ActionEvent ae){
@@ -347,6 +409,8 @@ public class MainGameScreen extends JFrame {
         playerPanel = new JTabbedPane();
         leaguePanel = new JTabbedPane();
         continueButton = new JButton("Continue");
+        playerSearchSidePanel = new JPanel();
+        viewSelectedPlayerForPlayerSearchButton = new JButton("View Player");
         processFixtures = false;
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -407,6 +471,26 @@ public class MainGameScreen extends JFrame {
                 .addComponent(viewSelectedPlayerButton)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(viewStaffProfileButton)
+                .addContainerGap(190, Short.MAX_VALUE))
+        );
+        
+        // Layout player search side pane        
+        GroupLayout playerSearchSidePanelLayout = new GroupLayout(playerSearchSidePanel);
+        playerSearchSidePanel.setLayout(playerSearchSidePanelLayout);
+        playerSearchSidePanelLayout.setHorizontalGroup(
+            playerSearchSidePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(playerSearchSidePanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(playerSearchSidePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                	.addComponent(viewSelectedPlayerForPlayerSearchButton))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        playerSearchSidePanelLayout.setVerticalGroup(
+            playerSearchSidePanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(playerSearchSidePanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(viewSelectedPlayerForPlayerSearchButton)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addContainerGap(190, Short.MAX_VALUE))
         );
         
@@ -530,13 +614,22 @@ public class MainGameScreen extends JFrame {
     	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
     }
     
+    /*Display Shortlist Screen*/
+    private void displayShortlist(ActionEvent ae){
+    	shortlistPanel = new ShortlistPanel(user);
+        mainPanel.add(shortlistPanel, "Shortlist");
+        ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Shortlist");
+        sidePanel.add(squadSidePanel, "Squad Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
+    }
+    
     /*Display Player Search Screen*/
     private void displayPlayers(ActionEvent ae){
     	playerSearchPanel = new PlayerSearchPanel();
         mainPanel.add(playerSearchPanel, "Player Search");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Player Search");
-        sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
+        sidePanel.add(playerSearchSidePanel, "Player Search Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Player Search Sidebar"); 
     }
     
     /*Display Staff Search Screen*/
@@ -557,6 +650,12 @@ public class MainGameScreen extends JFrame {
     private void displayClub(ActionEvent ae){
 		club = (String) (leagueTablePanel.getLeagueTable().getValueAt(leagueTablePanel.getLeagueTable().getSelectedRow(), 1));
     	displayClub(club);
+	}
+    
+    /*Get Player to Display*/
+    private void displayPlayerFromPlayerSearch(ActionEvent ae){
+		player = (String) (playerSearchPanel.getPlayerSearchTable().getValueAt(playerSearchPanel.getPlayerSearchTable().getSelectedRow(), 0));
+    	displayPlayer(player);
 	}
     
     /*Get Player to Display*/
@@ -639,6 +738,12 @@ public class MainGameScreen extends JFrame {
     		((CardLayout) sidePanel.getLayout()).show(sidePanel, "User Player Sidebar");
     	}
     	else{
+    		if(game.checkShortlistForPlayer(player, user)){
+    			addToShortlistButton.setText("Remove from Shortlist");
+    		}
+    		else{
+    			addToShortlistButton.setText("Add to Shortlist");
+    		}
     		sidePanel.add(playerSidePanel, "Player Sidebar");
     		((CardLayout) sidePanel.getLayout()).show(sidePanel, "Player Sidebar");
     	}

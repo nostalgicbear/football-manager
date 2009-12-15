@@ -1,6 +1,7 @@
 package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
+import ie.tippinst.jod.fm.gui.dialogs.ContractOffer;
 import ie.tippinst.jod.fm.model.Message;
 
 import java.awt.Dimension;
@@ -12,6 +13,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -66,6 +68,29 @@ public class InboxPanel extends JPanel {
 			}
 			
 		});
+		
+		offerContractButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				messageTextPane.remove(offerContractButton);
+				messageTextPane.remove(withdrawOfferButton);
+				messageTextPane.setText(messageTextPane.getText() + "You have offered a contract!");
+				offerContract(e);
+			}
+			
+		});
+	}
+	
+	private void offerContract(ActionEvent ae){
+		String temp = ((String) messageList.getSelectedValue()).replace(" Accepted", "");
+		int firstIndex = messageTextPane.getText().indexOf("€");
+		int secondIndex = messageTextPane.getText().indexOf("offer");
+		int value = Integer.parseInt(messageTextPane.getText().substring((firstIndex+1), (secondIndex - 1)));
+		String player = temp.substring(10);
+		//System.out.println(player);
+		ContractOffer contract = new ContractOffer(player, value);
+		contract.setVisible(true);
 	}
 	
 	private void displayMessage(ListSelectionEvent ae){

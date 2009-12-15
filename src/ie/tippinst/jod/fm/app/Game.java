@@ -217,7 +217,7 @@ public class Game {
 					((Player) p).setPosition();
 					((Player) p).setCurrentAbility();
 					((Player) p).setMarketValue(this.getDate());
-					((Player) p).setStatus();
+					((Player) p).setStatus(0);
 					//System.out.println(((Player) p).getStatus());
 					((Player) p).setSaleValue();
 					((Player) p).setMatchCondition(70);
@@ -631,6 +631,28 @@ public class Game {
 		return message;
 	}
 	
+	public void offerContractToPlayer(int value, String player, int wages, int lengthOfContract, int status){
+		iPerson = personList.iterator();
+		Person p = null;
+		while(iPerson.hasNext()){
+			p = iPerson.next();
+			if((p instanceof Player) && ((p.getFirstName() + " " + p.getLastName()).equals(player))){
+				break;
+			}
+		}
+		Calendar c = new GregorianCalendar(this.getDate().get(Calendar.YEAR), 5, 30);
+		c.add(Calendar.YEAR, lengthOfContract);
+		Calendar cal = new GregorianCalendar(this.getDate().get(Calendar.YEAR), this.getDate().get(Calendar.MONTH), this.getDate().get(Calendar.DATE));
+		cal.add(Calendar.DATE, 3);
+		if(userClub.offerContract((Player) p, wages, c, status)){
+			((Player) p).transferPlayer(value, userClub, (double) wages, c, status);			
+			messages.add(new Message(cal, player + " Accepts Contract", player + " has accepted your contract offer!"));
+		}
+		else{
+			messages.add(new Message(cal, player + " Rejects Contract", player + " has rejected your contract offer!"));
+		}
+	}
+	
 	public void makeOfferForPlayer(String player, int value){
 		iPerson = personList.iterator();
 		Person p = null;
@@ -686,5 +708,85 @@ public class Game {
 		}
 		Collections.sort(list);
 		return list;
+	}
+	
+	public List<Player> getShortlist(String manager){
+		iPerson = personList.iterator();
+		Person p = null;
+		while(iPerson.hasNext()){
+			p = iPerson.next();
+			if((p instanceof NonPlayer) && ((p.getFirstName() + " " + p.getLastName()).equals(manager))){
+				break;
+			}
+		}		
+		return ((NonPlayer) p).getShortlist();
+	}
+	
+	public boolean checkShortlistForPlayer(String playerName, String managerName){
+		iPerson = personList.iterator();
+		Person manager = null;
+		Person player = null;
+		while(iPerson.hasNext()){
+			manager = iPerson.next();
+			if((manager instanceof NonPlayer) && ((manager.getFirstName() + " " + manager.getLastName()).equals(managerName))){
+				break;
+			}
+		}
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			player = iPerson.next();
+			if((player instanceof Player) && ((player.getFirstName() + " " + player.getLastName()).equals(playerName))){
+				break;
+			}
+		}
+		
+		if(((NonPlayer) manager).getShortlist().contains(player)){
+			return true;
+		}
+		return false;
+	}
+	
+	public void addPlayerToShortlist(String playerName, String managerName){
+		iPerson = personList.iterator();
+		Person manager = null;
+		Person player = null;
+		while(iPerson.hasNext()){
+			manager = iPerson.next();
+			if((manager instanceof NonPlayer) && ((manager.getFirstName() + " " + manager.getLastName()).equals(managerName))){
+				break;
+			}
+		}
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			player = iPerson.next();
+			if((player instanceof Player) && ((player.getFirstName() + " " + player.getLastName()).equals(playerName))){
+				break;
+			}
+		}		
+		List<Player> shortlist = ((NonPlayer) manager).getShortlist();
+		shortlist.add((Player) player);
+		((NonPlayer) manager).setShortlist(shortlist);
+	}
+	
+	public void removePlayerFromShortlist(String playerName, String managerName){
+		iPerson = personList.iterator();
+		Person manager = null;
+		Person player = null;
+		while(iPerson.hasNext()){
+			manager = iPerson.next();
+			if((manager instanceof NonPlayer) && ((manager.getFirstName() + " " + manager.getLastName()).equals(managerName))){
+				break;
+			}
+		}
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			player = iPerson.next();
+			if((player instanceof Player) && ((player.getFirstName() + " " + player.getLastName()).equals(playerName))){
+				break;
+			}
+		}		
+		List<Player> shortlist = ((NonPlayer) manager).getShortlist();
+		shortlist.remove((Player) player);
+		((NonPlayer) manager).setShortlist(shortlist);
 	}
 }
