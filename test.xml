@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_17" class="java.beans.XMLDecoder"> 
+ <object class="ie.tippinst.jod.fm.model.Person"> 
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>659578508646</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+ </object> 
+</java> 

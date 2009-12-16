@@ -11,7 +11,7 @@ public class TestGame {
 	public static void main(String[] args) {
 		PersonXMLFileHandler p = new PersonXMLFileHandler();
 		Calendar c = new GregorianCalendar();
-		c.set(2014, 06, 02);
+		c.set(1990, 10, 26);
 		p.create(new Person(c));
 		//System.out.println(p.read());
 	}

@@ -654,24 +654,6 @@ public class Player extends Person implements Serializable {
 		double strikercurrentAbility = 0;
 		int positions = 0;
 		
-		/*this.setHandling(16);
-		this.setReflexes(15);
-		this.setDecisions(18);
-		this.setCommandOfArea(17);
-		this.setCrossing(15);
-		this.setDribbling(18);
-		this.setPace(17);
-		this.setStamina(19);
-		this.setStrength(18);
-		this.setPassing(18);
-		this.setFinishing(18);
-		this.setHeading(15);
-		this.setLongShots(18);
-		this.setMarking(18);
-		this.setTackling(18);
-		this.setPenaltyTaking(18);
-		this.setInfluence(18);*/
-		
 		if(this.goalkeepingAbility >= 15){
 			goalkeepercurrentAbility = (this.getHandling() + this.getReflexes() + this.getDecisions() + this.getCommandOfArea()) * 2.5;
 			positions++;

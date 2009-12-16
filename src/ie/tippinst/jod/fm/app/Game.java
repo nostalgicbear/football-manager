@@ -287,6 +287,7 @@ public class Game {
 			}
 			c.setSquad(playerList);
 			c.setStaff(staffList);
+			c.setStatusOfPlayers();
 		}
 		
 		// Assign all leagues with a list of their clubs
