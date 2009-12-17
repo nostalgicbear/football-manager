@@ -20,6 +20,7 @@ public class Club implements Serializable {
 	private Nation nationality;
 	private League league;
 	private List<Match> fixtures;
+	private List<Player> selectedTeam;
 	
 	public Club(){
 		super();
@@ -216,5 +217,13 @@ public class Club implements Serializable {
 				p.setStatus(5);
 			}
 		}
+	}
+
+	public void setSelectedTeam(List<Player> selectedTeam) {
+		this.selectedTeam = selectedTeam;
+	}
+
+	public List<Player> getSelectedTeam() {
+		return selectedTeam;
 	}
 }

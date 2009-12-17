@@ -291,6 +291,13 @@ public class Player extends Person implements Serializable {
 	public void setInjury(Injury injury) {
 		this.injury = injury;
 	}
+	
+	public boolean isInjured(){
+		if(this.getInjury() == null){
+			return false;
+		}
+		return true;
+	}
 
 	public String getPosition() {
 		return position;
@@ -434,9 +441,9 @@ public class Player extends Person implements Serializable {
 		list.add(this.getPace() + "");
 		list.add(this.getStrength() + "");
 		list.add(this.getStamina() + "");
-		list.add(this.getCurrentClub().getName());
+		list.add((this.getCurrentClub() == null) ? "None" : this.getCurrentClub().getName());
 		list.add(this.getContractExpiry().get(Calendar.DATE) + "/" + (this.getContractExpiry().get(Calendar.MONTH) + 1) + "/" + this.getContractExpiry().get(Calendar.YEAR));
-		list.add(this.getStatus().toString());
+		list.add((this.getStatus() == null) ? "None" : this.getStatus().toString());
 		DecimalFormat myFormatter = new DecimalFormat("000,000");
 		list.add("€" + myFormatter.format(this.marketValue));
 		list.add("€" + this.getWages());

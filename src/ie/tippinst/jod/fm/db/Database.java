@@ -126,8 +126,8 @@ public class Database {
 	private void setSquadAndStaff(){
 		// Set the squads and staff for all clubs in the game
 		iClub = clubList.iterator();
-		iPerson = personList.iterator();
 		while(iClub.hasNext()){
+			iPerson = personList.iterator();
 			Club c = iClub.next();
 			List<Player> playerList = new ArrayList<Player>();
 			List<NonPlayer> staffList = new ArrayList<NonPlayer>();
@@ -367,6 +367,44 @@ public class Database {
 			} catch (ArrayIndexOutOfBoundsException e){
 				break;
 			}
+		}
+	}
+	
+	public void updateAllPersonAttributes(){
+		iPerson = this.getPersonList().iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			p.setAge(this.getDate());
+			if(p instanceof Player){
+				Player player = (Player) p;
+				/*int peakAge = 33;
+				if(player.getRightFullbackAbility() == 20 || player.getLeftFullbackAbility() == 20 || player.getCentrebackAbility() == 20)
+					peakAge-=2;
+				else if(player.getRightMidfieldAbility() == 20 || player.getLeftMidfieldAbility() == 20 || player.getCentreMidfieldAbility() == 20)
+					peakAge-=4;
+				else if(player.getStrikerAbility() == 20)
+					peakAge-=6;
+				if(player.getAge() > peakAge){
+					//reduce current ability
+				}
+				else if(player.getCurrentAbility() < player.getPotentialAbility()){
+					//increase current ability
+				}*/
+				player.setMarketValue(this.getDate());
+				player.setSaleValue();
+				if(player.isInjured()){
+					player.setFitness(player.getFitness() - 200);
+					player.setFatigue(player.getFatigue() - 200);
+				}
+				else{
+					player.setFitness(player.getFitness() - 100);
+					player.setFatigue(player.getFatigue() - 100);
+				}
+				if(player.getMatchCondition() < 100){
+					player.setMatchCondition(player.getMatchCondition() + 2);
+				}
+			}
+			//TODO: update happiness
 		}
 	}
 	

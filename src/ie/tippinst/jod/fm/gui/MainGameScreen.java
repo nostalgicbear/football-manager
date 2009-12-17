@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -34,8 +35,10 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
+import javax.swing.table.DefaultTableModel;
 
 public class MainGameScreen extends JFrame {
 	
@@ -339,8 +342,8 @@ public class MainGameScreen extends JFrame {
         // Centre window on screen
         this.setLocationRelativeTo(null);
     }
-    
-    private void addToShortlist(ActionEvent ae){
+
+	private void addToShortlist(ActionEvent ae){
     	if(addToShortlistButton.getText().equals("Add to Shortlist")){
         	game.addPlayerToShortlist(playerProfilePanel.getNameValueLabel().getText(), user);
         	addToShortlistButton.setText("Remove from Shortlist");
@@ -593,7 +596,9 @@ public class MainGameScreen extends JFrame {
     private void continueGame(ActionEvent ae){
     	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
 		String date;
-    	if(game.continueGame(processFixtures)){
+		squadPanel = new SquadPanel(this.userClub, squadPanel, this.userClub);
+		List<String> players = squadPanel.getSelectedPlayers();
+    	if(game.continueGame(processFixtures, players)){
     		date = format.format(game.getDate().getTime()).toUpperCase();
     		displayLeagueFixtures(date);
     		processFixtures = true;
@@ -662,7 +667,7 @@ public class MainGameScreen extends JFrame {
     
     /*Get Player to Display*/
     private void displayPlayer(ActionEvent ae){
-		player = (String) (squadPanel.getSquadTable().getValueAt(squadPanel.getSquadTable().getSelectedRow(), 0));
+		player = (String) (squadPanel.getSquadTable().getValueAt(squadPanel.getSquadTable().getSelectedRow(), 1));
     	displayPlayer(player);
 	}
     
@@ -752,7 +757,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display particular club*/
     private void displayClub(String club){
-    	squadPanel = new SquadPanel(club);
+    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
     	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
@@ -774,7 +779,7 @@ public class MainGameScreen extends JFrame {
 	}
     
     private void displayClubInformation(String club){
-    	squadPanel = new SquadPanel(club);
+    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
     	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
@@ -795,7 +800,7 @@ public class MainGameScreen extends JFrame {
 	}
     
     private void displayStaff(String club){
-    	squadPanel = new SquadPanel(club);
+    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
     	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
@@ -816,7 +821,7 @@ public class MainGameScreen extends JFrame {
 	}
     
     private void displayFixtures(String club){
-    	squadPanel = new SquadPanel(club);
+    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
     	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);

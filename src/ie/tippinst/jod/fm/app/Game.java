@@ -205,7 +205,8 @@ public class Game {
 		}
 	}
 	
-	public boolean continueGame(boolean processFixtures){
+	public boolean continueGame(boolean processFixtures, List<String> players){
+		boolean fixtures = false;
 		if(!(processFixtures)){
 			db.getDate().add(Calendar.DATE, 1);
 		}
@@ -218,19 +219,28 @@ public class Game {
 				for(int j = 0; j < leagueFixtures[i].length; j++){
 					if((leagueFixtures[i][j].getDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))){
 						if(!(processFixtures)){
-							return true;
+							if(leagueFixtures[i][j].getHomeTeam().getId() == this.userClub.getId() || leagueFixtures[i][j].getAwayTeam().getId() == this.userClub.getId()){
+								List<Player> selectedTeam = new ArrayList<Player>();
+								Iterator<String> iteratorPlayers = players.iterator();
+								while(iteratorPlayers.hasNext()){
+									selectedTeam.add((Player) db.findPerson(iteratorPlayers.next()));
+								}
+								this.userClub.setSelectedTeam(selectedTeam);
+								Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
+								while(temp.hasNext()){
+									System.out.println(temp.next().getLastName());
+								}
+							}
+							fixtures = true;
 						}
-						leagueFixtures[i][j].generateResult();
+						if(!fixtures)
+							leagueFixtures[i][j].generateResult();
 					}
 				}
 			}
 		}
-		Iterator<Person> i = db.getPersonList().iterator();
-		while(i.hasNext()){
-			Person p = i.next();
-			p.setAge(db.getDate());
-		}
-		return false;
+		db.updateAllPersonAttributes();
+		return fixtures;
 	}
 	
 	public String getMessageBody(int index){

@@ -20,7 +20,6 @@ public class MainScreen extends JFrame {
 	
 	public MainScreen(){
 		super("Football Manager");
-		game = Game.getInstance();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		newGame = new JButton("Start New Game");
 		loadGame = new JButton("Load Game");
@@ -62,6 +61,7 @@ public class MainScreen extends JFrame {
 	}
 	
 	private void startNewGame(ActionEvent ae){
+		game = Game.getInstance();
 		NewUserScreen ns = new NewUserScreen();
 		ns.setVisible(true);
 		this.setVisible(false);
