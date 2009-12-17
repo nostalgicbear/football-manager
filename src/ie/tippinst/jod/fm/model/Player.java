@@ -157,7 +157,11 @@ public class Player extends Person implements Serializable {
 			this.saleValue = this.getMarketValue() * 0.5;
 			break;
 		default: System.out.println("Error");
+				 break;
 		}
+		/*DecimalFormat format = new DecimalFormat("000,000");
+		String output = format.format(this.getSaleValue());
+		System.out.println(output);*/
 	}
 
 	public int getIntCaps() {

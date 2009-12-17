@@ -1,5 +1,6 @@
 package ie.tippinst.jod.fm.gui.dialogs;
 import ie.tippinst.jod.fm.app.Game;
+import ie.tippinst.jod.fm.gui.MainGameScreen;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +11,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.WindowConstants;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -42,13 +44,18 @@ public class ContractOffer extends javax.swing.JDialog {
 	private String player;
 	private int value;
 	private Game game;
+	private MainGameScreen mg;
 
 	public ContractOffer(String player, int value) {
 		super();
+		mg = MainGameScreen.getInstance();
+		mg.setEnabled(false);
 		this.player = player;
 		this.value = value;
 		game = Game.getInstance();
+		
 		initGUI();
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
 		offerContractButton.addActionListener(new ActionListener(){
@@ -71,11 +78,13 @@ public class ContractOffer extends javax.swing.JDialog {
 	}
 	
 	private void cancelAction(ActionEvent ae){
+		mg.setEnabled(true);
 		this.dispose();
 	}
 	
 	private void offerContract(ActionEvent ae){
 		game.offerContractToPlayer(value, player, Integer.parseInt(wagesTextField.getText()), (lengthOfContractComboBox.getSelectedIndex() + 1), statusComboBox.getSelectedIndex());
+		mg.setEnabled(true);
 		this.dispose();
 	}
 	

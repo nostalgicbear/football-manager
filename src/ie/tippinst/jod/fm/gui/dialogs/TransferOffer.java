@@ -1,7 +1,6 @@
 package ie.tippinst.jod.fm.gui.dialogs;
 import ie.tippinst.jod.fm.app.Game;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
-import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
+
+import ie.tippinst.jod.fm.gui.MainGameScreen;
 
 
 /**
@@ -36,11 +37,15 @@ public class TransferOffer extends javax.swing.JDialog {
 	private JLabel euroSymbolLabel;
 	private Game game = Game.getInstance();
 	private String player;
+	private String user;
 	
-	public TransferOffer(JFrame frame, String player) {
+	public TransferOffer(JFrame frame, String user, String player) {
 		super(frame);
 		this.player = player;
+		this.user = user;
+		frame.setEnabled(false);
 		initGUI();
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
 		cancelButton.addActionListener(new ActionListener() {
 
@@ -64,11 +69,15 @@ public class TransferOffer extends javax.swing.JDialog {
 	}
 	
 	private void makeOfferAction(ActionEvent ae){
-		game.makeOfferForPlayer(player, Integer.parseInt(feeTextField.getText()));
+		game.makeOfferForPlayer(user, player, Integer.parseInt(feeTextField.getText()));
+		this.getParent().setEnabled(true);
+		((MainGameScreen) this.getParent()).getAddToShortlistButton().setText("Remove from Shortlist");
+		this.getParent().validate();
 		this.dispose();
 	}
 	
 	private void cancelAction(ActionEvent ae){
+		this.getParent().setEnabled(true);
 		this.dispose();
 	}
 	

@@ -40,6 +40,7 @@ import javax.swing.WindowConstants;
 public class MainGameScreen extends JFrame {
 	
 	private static final long serialVersionUID = -4239639104320867731L;
+	private static MainGameScreen mg = null;
 	
 	// Main Screen Components
 	private JMenuBar menuBar;	
@@ -123,6 +124,7 @@ public class MainGameScreen extends JFrame {
     	this.userClub = this.club = userClub;
     	this.user = user;
         initComponents();
+        mg = this;
         
         // Event listener for File -> New Menu Item
         newMenuItem.addActionListener(new ActionListener() {
@@ -356,7 +358,7 @@ public class MainGameScreen extends JFrame {
     }
     
     private void makeOffer(ActionEvent ae){
-    	TransferOffer t = new TransferOffer(this, playerProfilePanel.getNameValueLabel().getText());
+    	TransferOffer t = new TransferOffer(this, user, playerProfilePanel.getNameValueLabel().getText());
     	t.setVisible(true);
     }
     
@@ -680,7 +682,6 @@ public class MainGameScreen extends JFrame {
     
     /*Creates a new game*/
     private void newGame(ActionEvent ae){
-    	game.loadDatabase();
 		NewUserScreen ns = new NewUserScreen();
 		ns.setVisible(true);
 		this.dispose();
@@ -833,5 +834,13 @@ public class MainGameScreen extends JFrame {
     
     private void displayUserStaff(ActionEvent ae){
     	displayStaff(userClub);
+	}
+    
+    public static MainGameScreen getInstance(){
+    	return mg;
+    }
+
+	public JButton getAddToShortlistButton() {
+		return addToShortlistButton;
 	}
 }

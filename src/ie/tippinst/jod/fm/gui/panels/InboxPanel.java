@@ -7,6 +7,7 @@ import ie.tippinst.jod.fm.model.Message;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -88,13 +89,12 @@ public class InboxPanel extends JPanel {
 		int secondIndex = messageTextPane.getText().indexOf("offer");
 		int value = Integer.parseInt(messageTextPane.getText().substring((firstIndex+1), (secondIndex - 1)));
 		String player = temp.substring(10);
-		//System.out.println(player);
 		ContractOffer contract = new ContractOffer(player, value);
 		contract.setVisible(true);
 	}
 	
 	private void displayMessage(ListSelectionEvent ae){
-		messageTextPane.setText((String) messageList.getSelectedValue() + "\n\n" + game.getMessageBody((String) messageList.getSelectedValue()) + "\n\n");
+		messageTextPane.setText((String) messageList.getSelectedValue() + "\n\n" + game.getMessageBody(messageList.getSelectedIndex()) + "\n\n");
 		if(messageTextPane.getText().contains("You now have permission to offer him a contract!")){
 			messageTextPane.insertComponent(offerContractButton);
 			messageTextPane.insertComponent(withdrawOfferButton);
@@ -114,6 +114,10 @@ public class InboxPanel extends JPanel {
 				for(int i = 0; i < data.length; i++){
 					data[i] = list.get(i).getHeading();
 				}
+				/*Iterator<Message> i = list.iterator();
+				while(i.hasNext()){
+					System.out.println(i.next().getBody());
+				}*/
 				messageListScrollPane = new JScrollPane();
 				ListModel messageListModel = new DefaultComboBoxModel(data);
 				messageList = new JList();

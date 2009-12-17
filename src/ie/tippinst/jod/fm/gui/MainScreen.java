@@ -62,7 +62,6 @@ public class MainScreen extends JFrame {
 	}
 	
 	private void startNewGame(ActionEvent ae){
-		game.loadDatabase();
 		NewUserScreen ns = new NewUserScreen();
 		ns.setVisible(true);
 		this.setVisible(false);
