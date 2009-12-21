@@ -11,7 +11,7 @@ public class Club implements Serializable {
 	private static final long serialVersionUID = 8870087600952858149L;
 	private int id;
 	private String name;
-	private List<Player> squad;
+	private List<Player> squad = new ArrayList<Player>();
 	private List<NonPlayer> staff;
 	private int reputation;
 	private List<Club> rivals;
@@ -20,7 +20,7 @@ public class Club implements Serializable {
 	private Nation nationality;
 	private League league;
 	private List<Match> fixtures;
-	private List<Player> selectedTeam;
+	private List<Player> selectedTeam = new ArrayList<Player>();
 	
 	public Club(){
 		super();
@@ -225,5 +225,136 @@ public class Club implements Serializable {
 
 	public List<Player> getSelectedTeam() {
 		return selectedTeam;
+	}
+	
+	public List<Player> pickTeam(){
+		List<Player> team = new ArrayList<Player>();
+		Iterator<Player> i = this.getSquad().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getGoalkeepingAbility() == 20){
+				if(team.size() <= 0){
+					team.add(p);
+				}
+				else if(team.get(0).getCurrentAbility() < p.getCurrentAbility()){
+					team.add(0, p);
+				}
+			}
+		}
+		i = this.getSquad().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getRightFullbackAbility() == 20){
+				if(team.size() <= 1){
+					team.add(p);
+				}
+				else if((team.get(1).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(1, p);
+				}
+			}
+		}
+		i = this.getSquad().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getLeftFullbackAbility() == 20){
+				if(team.size() <= 2){
+					team.add(p);
+				}
+				else if((team.get(2).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(2, p);
+				}
+			}
+		}
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getCentrebackAbility() == 20){
+				if(team.size() <= 3){
+					team.add(p);
+				}
+				else if((team.get(3).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(3, p);
+				}
+			}
+		}
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getCentrebackAbility() == 20){
+				if(team.size() <= 4){
+					team.add(p);
+				}
+				else if((team.get(4).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(4, p);
+				}
+			}
+		}
+		i = this.getSquad().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getRightMidfieldAbility() == 20){
+				if(team.size() <= 5){
+					team.add(p);
+				}
+				else if((team.get(5).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(5, p);
+				}
+			}
+		}
+		i = this.getSquad().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getLeftMidfieldAbility() == 20){
+				if(team.size() <= 6){
+					team.add(p);
+				}
+				else if((team.get(6).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(6, p);
+				}
+			}
+		}
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getCentreMidfieldAbility() == 20){
+				if(team.size() <= 7){
+					team.add(p);
+				}
+				else if((team.get(7).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(7, p);
+				}
+			}
+		}
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getCentreMidfieldAbility() == 20){
+				if(team.size() <= 8){
+					team.add(p);
+				}
+				else if((team.get(8).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(8, p);
+				}
+			}
+		}
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getStrikerAbility() == 20){
+				if(team.size() <= 9){
+					team.add(p);
+				}
+				else if((team.get(9).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(9, p);
+				}
+			}
+		}
+		while(i.hasNext()){
+			Player p = i.next();
+			if(p.getStrikerAbility() == 20){
+				if(team.size() <= 10){
+					team.add(p);
+				}
+				else if((team.get(10).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.add(10, p);
+				}
+			}
+		}
+		return team;
 	}
 }

@@ -226,15 +226,29 @@ public class Game {
 									selectedTeam.add((Player) db.findPerson(iteratorPlayers.next()));
 								}
 								this.userClub.setSelectedTeam(selectedTeam);
-								Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
+								/*Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
 								while(temp.hasNext()){
 									System.out.println(temp.next().getLastName());
-								}
+								}*/
 							}
 							fixtures = true;
 						}
-						if(!fixtures)
+						if(!fixtures){
+							if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
+								leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().pickTeam());
+							Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
+							while(it.hasNext()){
+								System.out.println(it.next().getLastName());
+							}
+							System.out.println();
+							if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
+								leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().pickTeam());
+							it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
+							while(it.hasNext()){
+								System.out.println(it.next().getLastName());
+							}
 							leagueFixtures[i][j].generateResult();
+						}
 					}
 				}
 			}

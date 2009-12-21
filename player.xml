@@ -4491,21 +4491,21 @@
      <int>4</int> 
     </void>  
    </object> 
-  </void> 
+  </void>
   <void property="reputation"> 
-   <int>165</int> 
+   <int>160</int> 
   </void>
   <void property="leftFootAbility"> 
-   <int>15</int> 
+   <int>20</int> 
   </void>
   <void property="rightFootAbility"> 
-   <int>20</int> 
+   <int>10</int> 
   </void> 
   <void property="goalkeepingAbility"> 
    <int>1</int> 
   </void>
   <void property="leftFullbackAbility"> 
-   <int>1</int> 
+   <int>20</int> 
   </void> 
   <void property="rightFullbackAbility"> 
    <int>1</int> 
@@ -4517,73 +4517,73 @@
    <int>1</int> 
   </void> 
   <void property="leftMidfieldAbility"> 
-   <int>1</int> 
+   <int>10</int> 
   </void>
   <void property="centreMidfieldAbility"> 
    <int>1</int> 
   </void> 
   <void property="strikerAbility"> 
-   <int>20</int> 
+   <int>1</int> 
   </void>
   <void property="handling"> 
-   <int>2</int> 
+   <int>4</int> 
   </void>
   <void property="reflexes"> 
-   <int>3</int> 
+   <int>5</int> 
   </void>
   <void property="decisions"> 
-   <int>18</int> 
+   <int>14</int> 
   </void>
   <void property="commandOfArea"> 
    <int>4</int> 
   </void>
   <void property="crossing"> 
-   <int>12</int> 
+   <int>15</int> 
   </void>
   <void property="dribbling"> 
    <int>17</int> 
   </void>
   <void property="pace"> 
-   <int>16</int> 
+   <int>18</int> 
   </void>
   <void property="stamina"> 
-   <int>15</int> 
+   <int>18</int> 
   </void>
   <void property="strength"> 
-   <int>18</int> 
+   <int>14</int> 
   </void>
   <void property="passing"> 
-   <int>19</int> 
+   <int>14</int> 
   </void>
   <void property="finishing"> 
-   <int>19</int> 
+   <int>7</int> 
   </void>
   <void property="heading"> 
-   <int>16</int> 
+   <int>8</int> 
   </void>
   <void property="longShots"> 
-   <int>13</int> 
+   <int>5</int> 
   </void>
   <void property="marking"> 
-   <int>2</int> 
-  </void>
-  <void property="tackling"> 
-   <int>6</int> 
-  </void>
-  <void property="penaltyTaking"> 
    <int>15</int> 
   </void>
+  <void property="tackling"> 
+   <int>16</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>5</int> 
+  </void>
   <void property="influence"> 
-   <int>12</int> 
+   <int>9</int> 
   </void>
   <void property="loyalty"> 
-   <int>10</int> 
+   <int>17</int> 
   </void>
   <void property="ambition"> 
-   <int>18</int> 
+   <int>17</int> 
   </void>
   <void property="potentialAbility"> 
-   <int>174</int> 
+   <int>169</int> 
   </void>   
  </object>
  <object class="ie.tippinst.jod.fm.model.Player"> 
@@ -4632,10 +4632,10 @@
    </object> 
   </void> 
   <void property="reputation"> 
-   <int>155</int> 
+   <int>150</int> 
   </void>
   <void property="leftFootAbility"> 
-   <int>11</int> 
+   <int>15</int> 
   </void>
   <void property="rightFootAbility"> 
    <int>20</int> 
@@ -4647,19 +4647,19 @@
    <int>1</int> 
   </void> 
   <void property="rightFullbackAbility"> 
-   <int>18</int> 
+   <int>1</int> 
   </void>
   <void property="centrebackAbility"> 
-   <int>20</int> 
+   <int>1</int> 
   </void>
   <void property="rightMidfieldAbility"> 
-   <int>1</int> 
+   <int>10</int> 
   </void> 
   <void property="leftMidfieldAbility"> 
-   <int>1</int> 
+   <int>10</int> 
   </void>
   <void property="centreMidfieldAbility"> 
-   <int>1</int> 
+   <int>20</int> 
   </void> 
   <void property="strikerAbility"> 
    <int>1</int> 
@@ -4677,10 +4677,10 @@
    <int>3</int> 
   </void>
   <void property="crossing"> 
-   <int>14</int> 
+   <int>11</int> 
   </void>
   <void property="dribbling"> 
-   <int>10</int> 
+   <int>15</int> 
   </void>
   <void property="pace"> 
    <int>16</int> 
@@ -4689,40 +4689,40 @@
    <int>17</int> 
   </void>
   <void property="strength"> 
-   <int>16</int> 
+   <int>15</int> 
   </void>
   <void property="passing"> 
-   <int>14</int> 
+   <int>17</int> 
   </void>
   <void property="finishing"> 
-   <int>5</int> 
-  </void>
-  <void property="heading"> 
-   <int>18</int> 
-  </void>
-  <void property="longShots"> 
-   <int>9</int> 
-  </void>
-  <void property="marking"> 
-   <int>20</int> 
-  </void>
-  <void property="tackling"> 
-   <int>18</int> 
-  </void>
-  <void property="penaltyTaking"> 
-   <int>4</int> 
-  </void>
-  <void property="influence"> 
    <int>11</int> 
   </void>
+  <void property="heading"> 
+   <int>8</int> 
+  </void>
+  <void property="longShots"> 
+   <int>18</int> 
+  </void>
+  <void property="marking"> 
+   <int>9</int> 
+  </void>
+  <void property="tackling"> 
+   <int>11</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>13</int> 
+  </void>
   <void property="loyalty"> 
-   <int>17</int> 
+   <int>16</int> 
   </void>
   <void property="ambition"> 
-   <int>17</int> 
+   <int>18</int> 
   </void>
   <void property="potentialAbility"> 
-   <int>168</int> 
+   <int>172</int> 
   </void>   
  </object>
  <object class="ie.tippinst.jod.fm.model.Player"> 
@@ -4770,10 +4770,10 @@
     </void>  
    </object> </void> 
   <void property="reputation"> 
-   <int>165</int> 
+   <int>140</int> 
   </void>
   <void property="leftFootAbility"> 
-   <int>15</int> 
+   <int>14</int> 
   </void>
   <void property="rightFootAbility"> 
    <int>20</int> 
@@ -4788,13 +4788,13 @@
    <int>1</int> 
   </void>
   <void property="centrebackAbility"> 
-   <int>12</int> 
+   <int>1</int> 
   </void>
   <void property="rightMidfieldAbility"> 
-   <int>1</int> 
+   <int>6</int> 
   </void> 
   <void property="leftMidfieldAbility"> 
-   <int>1</int> 
+   <int>14</int> 
   </void>
   <void property="centreMidfieldAbility"> 
    <int>20</int> 
@@ -4809,7 +4809,7 @@
    <int>4</int> 
   </void>
   <void property="decisions"> 
-   <int>17</int> 
+   <int>13</int> 
   </void>
   <void property="commandOfArea"> 
    <int>9</int> 
@@ -4821,34 +4821,34 @@
    <int>12</int> 
   </void>
   <void property="pace"> 
-   <int>14</int> 
+   <int>17</int> 
   </void>
   <void property="stamina"> 
-   <int>18</int> 
+   <int>17</int> 
   </void>
   <void property="strength"> 
-   <int>15</int> 
+   <int>16</int> 
   </void>
   <void property="passing"> 
-   <int>20</int> 
+   <int>15</int> 
   </void>
   <void property="finishing"> 
-   <int>13</int> 
+   <int>15</int> 
   </void>
   <void property="heading"> 
-   <int>8</int> 
+   <int>12</int> 
   </void>
   <void property="longShots"> 
-   <int>18</int> 
+   <int>15</int> 
   </void>
   <void property="marking"> 
-   <int>12</int> 
+   <int>13</int> 
   </void>
   <void property="tackling"> 
    <int>13</int> 
   </void>
   <void property="penaltyTaking"> 
-   <int>15</int> 
+   <int>11</int> 
   </void>
   <void property="influence"> 
    <int>14</int> 
@@ -4857,7 +4857,7 @@
    <int>13</int> 
   </void>
   <void property="ambition"> 
-   <int>16</int> 
+   <int>12</int> 
   </void>
   <void property="potentialAbility"> 
    <int>170</int> 
@@ -4909,10 +4909,10 @@
    </object> 
   </void> 
   <void property="reputation"> 
-   <int>145</int> 
+   <int>150</int> 
   </void>
   <void property="leftFootAbility"> 
-   <int>14</int> 
+   <int>10</int> 
   </void>
   <void property="rightFootAbility"> 
    <int>20</int> 
@@ -4921,22 +4921,22 @@
    <int>1</int> 
   </void>
   <void property="leftFullbackAbility"> 
-   <int>14</int> 
+   <int>1</int> 
   </void> 
   <void property="rightFullbackAbility"> 
-   <int>11</int> 
-  </void>
-  <void property="centrebackAbility"> 
    <int>20</int> 
   </void>
-  <void property="rightMidfieldAbility"> 
-   <int>1</int> 
-  </void> 
-  <void property="leftMidfieldAbility"> 
+  <void property="centrebackAbility"> 
    <int>1</int> 
   </void>
+  <void property="rightMidfieldAbility"> 
+   <int>18</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>10</int> 
+  </void>
   <void property="centreMidfieldAbility"> 
-   <int>1</int> 
+   <int>12</int> 
   </void> 
   <void property="strikerAbility"> 
    <int>1</int> 
@@ -4948,46 +4948,46 @@
    <int>4</int> 
   </void>
   <void property="decisions"> 
-   <int>15</int> 
+   <int>13</int> 
   </void>
   <void property="commandOfArea"> 
    <int>6</int> 
   </void>
   <void property="crossing"> 
-   <int>13</int> 
+   <int>14</int> 
   </void>
   <void property="dribbling"> 
-   <int>12</int> 
+   <int>14</int> 
   </void>
   <void property="pace"> 
-   <int>16</int> 
+   <int>15</int> 
   </void>
   <void property="stamina"> 
-   <int>17</int> 
+   <int>18</int> 
   </void>
   <void property="strength"> 
    <int>16</int> 
   </void>
   <void property="passing"> 
-   <int>15</int> 
+   <int>14</int> 
   </void>
   <void property="finishing"> 
-   <int>6</int> 
+   <int>8</int> 
   </void>
   <void property="heading"> 
-   <int>16</int> 
+   <int>13</int> 
   </void>
   <void property="longShots"> 
-   <int>9</int> 
+   <int>12</int> 
   </void>
   <void property="marking"> 
-   <int>17</int> 
+   <int>16</int> 
   </void>
   <void property="tackling"> 
-   <int>17</int> 
+   <int>16</int> 
   </void>
   <void property="penaltyTaking"> 
-   <int>14</int> 
+   <int>13</int> 
   </void>
   <void property="influence"> 
    <int>12</int> 
@@ -4999,9 +4999,10 @@
    <int>13</int> 
   </void>
   <void property="potentialAbility"> 
-   <int>172</int> 
+   <int>165</int> 
   </void>   
  </object>
+ <!--Continue here-->
  <object class="ie.tippinst.jod.fm.model.Player"> 
   <void property="id"> 
    <int>37</int> 
