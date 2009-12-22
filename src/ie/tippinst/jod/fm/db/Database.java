@@ -46,7 +46,7 @@ public class Database {
 	public Database(){
 		super();
 		date = new GregorianCalendar();
-		date.set(2009, 6, 2);
+		date.set(2009, 7, 14);
 		
 		// Lists used to store all objects
 		personList = new ArrayList<Person>();

@@ -194,7 +194,7 @@ public class Club implements Serializable {
 		Iterator<Player> i = this.getSquad().iterator();
 		double[] abilityThresholds = new double[3];
 		abilityThresholds[0] = ((195 / 20) * this.getLeague().getReputation()) - ((10000 - this.getReputation()) / 100.0);
-		abilityThresholds[1] = ((180 / 20) * this.getLeague().getReputation()) - ((10000 - this.getReputation()) / 100.0);
+		abilityThresholds[1] = ((178 / 20) * this.getLeague().getReputation()) - ((10000 - this.getReputation()) / 100.0);
 		abilityThresholds[2] = ((155 / 20) * this.getLeague().getReputation()) - ((10000 - this.getReputation()) / 100.0);		
 		while(i.hasNext()){
 			Player p = i.next();
@@ -234,9 +234,11 @@ public class Club implements Serializable {
 			Player p = i.next();
 			if(p.getGoalkeepingAbility() == 20){
 				if(team.size() <= 0){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if(team.get(0).getCurrentAbility() < p.getCurrentAbility()){
+					team.remove(0);
 					team.add(0, p);
 				}
 			}
@@ -246,10 +248,14 @@ public class Club implements Serializable {
 			Player p = i.next();
 			if(p.getRightFullbackAbility() == 20){
 				if(team.size() <= 1){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
+					//System.out.println("1: " + p.getFirstName() + " " + p.getLastName());
 				}
 				else if((team.get(1).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(1);
 					team.add(1, p);
+					//System.out.println("2: " + p.getFirstName() + " " + p.getLastName());
 				}
 			}
 		}
@@ -258,31 +264,43 @@ public class Club implements Serializable {
 			Player p = i.next();
 			if(p.getLeftFullbackAbility() == 20){
 				if(team.size() <= 2){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
+					//System.out.println("1: " + p.getFirstName() + " " + p.getLastName());
 				}
 				else if((team.get(2).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(2);
 					team.add(2, p);
+					//System.out.println("2: " + p.getFirstName() + " " + p.getLastName());
 				}
 			}
 		}
+		i = this.getSquad().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
 			if(p.getCentrebackAbility() == 20){
 				if(team.size() <= 3){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
+					//System.out.println("1: " + p.getFirstName() + " " + p.getLastName());
 				}
 				else if((team.get(3).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(3);
 					team.add(3, p);
+					//System.out.println("2: " + p.getFirstName() + " " + p.getLastName());
 				}
 			}
 		}
+		i = this.getSquad().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
 			if(p.getCentrebackAbility() == 20){
 				if(team.size() <= 4){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(4).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(4);
 					team.add(4, p);
 				}
 			}
@@ -292,9 +310,11 @@ public class Club implements Serializable {
 			Player p = i.next();
 			if(p.getRightMidfieldAbility() == 20){
 				if(team.size() <= 5){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(5).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(5);
 					team.add(5, p);
 				}
 			}
@@ -304,53 +324,67 @@ public class Club implements Serializable {
 			Player p = i.next();
 			if(p.getLeftMidfieldAbility() == 20){
 				if(team.size() <= 6){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(6).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(6);
 					team.add(6, p);
 				}
 			}
 		}
+		i = this.getSquad().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
 			if(p.getCentreMidfieldAbility() == 20){
 				if(team.size() <= 7){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(7).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(7);
 					team.add(7, p);
 				}
 			}
 		}
+		i = this.getSquad().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
 			if(p.getCentreMidfieldAbility() == 20){
 				if(team.size() <= 8){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(8).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(8);
 					team.add(8, p);
 				}
 			}
 		}
+		i = this.getSquad().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
 			if(p.getStrikerAbility() == 20){
 				if(team.size() <= 9){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(9).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(9);
 					team.add(9, p);
 				}
 			}
 		}
+		i = this.getSquad().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
 			if(p.getStrikerAbility() == 20){
 				if(team.size() <= 10){
-					team.add(p);
+					if(!(team.contains(p)))
+						team.add(p);
 				}
 				else if((team.get(10).getCurrentAbility() < p.getCurrentAbility()) && (!(team.contains(p)))){
+					team.remove(10);
 					team.add(10, p);
 				}
 			}

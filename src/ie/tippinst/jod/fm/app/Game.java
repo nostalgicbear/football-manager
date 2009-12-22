@@ -236,17 +236,19 @@ public class Game {
 						if(!fixtures){
 							if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
 								leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().pickTeam());
-							Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
+							/*Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
 							while(it.hasNext()){
-								System.out.println(it.next().getLastName());
+								Player p = it.next();
+								System.out.println(p.getFirstName() + " " + p.getLastName());
 							}
-							System.out.println();
+							System.out.println();*/
 							if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
 								leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().pickTeam());
-							it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
+							/*it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
 							while(it.hasNext()){
-								System.out.println(it.next().getLastName());
-							}
+								Player p = it.next();
+								System.out.println(p.getFirstName() + " " + p.getLastName());
+							}*/
 							leagueFixtures[i][j].generateResult();
 						}
 					}

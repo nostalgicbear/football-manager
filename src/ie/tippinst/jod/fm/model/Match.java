@@ -114,16 +114,16 @@ public class Match {
 		teamMorale = teamMorale * 0.008;
 		teamCondition = teamCondition * 0.6;
 		if(home)
-			teamGround = 220;
-		teamLuck = ((int)(Math.random() * 440)) + 1;
+			teamGround = 60;
+		teamLuck = ((int)(Math.random() * 600)) + 1;
 		
 		// This is for testing only
 		if(teamAbility == 0){
 			//if(home){
 				//teamAbility = (this.getHomeTeam().getReputation() / 10000) * 3740;
-				teamAbility = 1800;
-				teamMorale = 600;
-				teamCondition = 650;
+				teamAbility = 1200;
+				teamMorale = 300;
+				teamCondition = 350;
 			//}
 		}
 		//
