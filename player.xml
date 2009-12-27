@@ -19872,4 +19872,4034 @@
    <int>170</int> 
   </void>   
  </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>144</int> 
+  </void>
+  <void property="wages"> 
+   <double>150000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>393119489812</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>1372549401061</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>   
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Emmanuel</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Adebayor</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>79</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>164</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>4</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>3</int> 
+  </void>
+  <void property="decisions"> 
+   <int>15</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>7</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>17</int> 
+  </void>
+  <void property="pace"> 
+   <int>18</int> 
+  </void>
+  <void property="stamina"> 
+   <int>17</int> 
+  </void>
+  <void property="strength"> 
+   <int>19</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>17</int> 
+  </void>
+  <void property="heading"> 
+   <int>18</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>7</int> 
+  </void>
+  <void property="tackling"> 
+   <int>6</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>18</int> 
+  </void>
+  <void property="influence"> 
+   <int>10</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>9</int> 
+  </void>
+  <void property="ambition"> 
+   <int>17</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>172</int> 
+  </void>  
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>145</int> 
+  </void>
+  <void property="wages"> 
+   <double>80000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>290220739171</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341013285892</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Gareth</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Barry</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>162</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>11</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>14</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>16</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>2</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>19</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>18</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>16</int> 
+  </void>
+  <void property="pace"> 
+   <int>13</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>17</int> 
+  </void>
+  <void property="passing"> 
+   <int>19</int> 
+  </void>
+  <void property="finishing"> 
+   <int>14</int> 
+  </void>
+  <void property="heading"> 
+   <int>17</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>16</int> 
+  </void>
+  <void property="tackling"> 
+   <int>17</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>19</int> 
+  </void>
+  <void property="influence"> 
+   <int>18</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>16</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>166</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>146</int> 
+  </void>
+  <void property="wages"> 
+   <double>80000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>212543594039</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1277854611604</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Craig</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Bellamy</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>53</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>150</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>9</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>16</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>13</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>16</int> 
+  </void>
+  <void property="pace"> 
+   <int>19</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>15</int> 
+  </void>
+  <void property="passing"> 
+   <int>14</int> 
+  </void>
+  <void property="finishing"> 
+   <int>17</int> 
+  </void>
+  <void property="heading"> 
+   <int>13</int> 
+  </void>
+  <void property="longShots"> 
+   <int>15</int> 
+  </void>
+  <void property="marking"> 
+   <int>9</int> 
+  </void>
+  <void property="tackling"> 
+   <int>10</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>17</int> 
+  </void>
+  <void property="influence"> 
+   <int>10</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>9</int> 
+  </void>
+  <void property="ambition"> 
+   <int>19</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>162</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>147</int> 
+  </void>
+  <void property="wages"> 
+   <double>80000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>398994848464</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1309390725706</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Wayne</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Bridge</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void>
+  <void property="reputation"> 
+   <int>151</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>8</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>5</int> 
+  </void>
+  <void property="crossing"> 
+   <int>20</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>13</int> 
+  </void>
+  <void property="pace"> 
+   <int>17</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>15</int> 
+  </void>
+  <void property="passing"> 
+   <int>14</int> 
+  </void>
+  <void property="finishing"> 
+   <int>12</int> 
+  </void>
+  <void property="heading"> 
+   <int>14</int> 
+  </void>
+  <void property="longShots"> 
+   <int>12</int> 
+  </void>
+  <void property="marking"> 
+   <int>16</int> 
+  </void>
+  <void property="tackling"> 
+   <int>15</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>10</int> 
+  </void>
+  <void property="influence"> 
+   <int>13</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>17</int> 
+  </void>
+  <void property="ambition"> 
+   <int>13</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>156</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>148</int> 
+  </void>
+  <void property="wages"> 
+   <double>70000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>264297296638</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341013285892</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Nigel</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>de Jong</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>7</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>156</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>13</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>14</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>15</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>7</int> 
+  </void>
+  <void property="crossing"> 
+   <int>12</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>13</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>17</int> 
+  </void>
+  <void property="passing"> 
+   <int>17</int> 
+  </void>
+  <void property="finishing"> 
+   <int>9</int> 
+  </void>
+  <void property="heading"> 
+   <int>17</int> 
+  </void>
+  <void property="longShots"> 
+   <int>11</int> 
+  </void>
+  <void property="marking"> 
+   <int>18</int> 
+  </void>
+  <void property="tackling"> 
+   <int>19</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>15</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>13</int> 
+  </void>
+  <void property="ambition"> 
+   <int>15</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>170</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>149</int> 
+  </void>
+  <void property="wages"> 
+   <double>55000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>390700542894</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1309451544451</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Shay</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Given</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>34</int> 
+    </void>  
+   </object> </void> 
+  <void property="reputation"> 
+   <int>160</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>18</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>20</int> 
+  </void>
+  <void property="decisions"> 
+   <int>17</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>14</int> 
+  </void>
+  <void property="crossing"> 
+   <int>4</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>6</int> 
+  </void>
+  <void property="pace"> 
+   <int>10</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>13</int> 
+  </void>
+  <void property="passing"> 
+   <int>6</int> 
+  </void>
+  <void property="finishing"> 
+   <int>2</int> 
+  </void>
+  <void property="heading"> 
+   <int>5</int> 
+  </void>
+  <void property="longShots"> 
+   <int>1</int> 
+  </void>
+  <void property="marking"> 
+   <int>1</int> 
+  </void>
+  <void property="tackling"> 
+   <int>5</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>3</int> 
+  </void>
+  <void property="influence"> 
+   <int>16</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>17</int> 
+  </void>
+  <void property="ambition"> 
+   <int>18</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>172</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>150</int> 
+  </void>
+  <void property="wages"> 
+   <double>85000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>346121794991</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Stephen</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Ireland</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>34</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>150</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>12</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>6</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>16</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>3</int> 
+  </void>
+  <void property="crossing"> 
+   <int>13</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>15</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>19</int> 
+  </void>
+  <void property="strength"> 
+   <int>15</int> 
+  </void>
+  <void property="passing"> 
+   <int>18</int> 
+  </void>
+  <void property="finishing"> 
+   <int>16</int> 
+  </void>
+  <void property="heading"> 
+   <int>7</int> 
+  </void>
+  <void property="longShots"> 
+   <int>15</int> 
+  </void>
+  <void property="marking"> 
+   <int>10</int> 
+  </void>
+  <void property="tackling"> 
+   <int>16</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>9</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>18</int> 
+  </void>
+  <void property="ambition"> 
+   <int>13</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>170</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>151</int> 
+  </void>
+  <void property="wages"> 
+   <double>25000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>374029033373</long>
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341074070522</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Michael</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Johnson</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>128</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>4</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>3</int> 
+  </void>
+  <void property="crossing"> 
+   <int>14</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>14</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>14</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>14</int> 
+  </void>
+  <void property="heading"> 
+   <int>8</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>11</int> 
+  </void>
+  <void property="tackling"> 
+   <int>14</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>13</int> 
+  </void>
+  <void property="influence"> 
+   <int>12</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>17</int> 
+  </void>
+  <void property="ambition"> 
+   <int>13</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>164</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>152</int> 
+  </void>
+  <void property="wages"> 
+   <double>60000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>241487873218</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1277854611604</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Vincent</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Kompany</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>32</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>163</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>11</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>13</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>14</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>13</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>5</int> 
+  </void>
+  <void property="crossing"> 
+   <int>9</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>14</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>17</int> 
+  </void>
+  <void property="strength"> 
+   <int>18</int> 
+  </void>
+  <void property="passing"> 
+   <int>14</int> 
+  </void>
+  <void property="finishing"> 
+   <int>9</int> 
+  </void>
+  <void property="heading"> 
+   <int>13</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>16</int> 
+  </void>
+  <void property="tackling"> 
+   <int>18</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>11</int> 
+  </void>
+  <void property="influence"> 
+   <int>11</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>12</int> 
+  </void>
+  <void property="ambition"> 
+   <int>13</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>163</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>153</int> 
+  </void>
+  <void property="wages"> 
+   <double>94000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>258425953267</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341013285892</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Joleon</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Lescott</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>153</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>13</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>17</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>6</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>16</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>6</int> 
+  </void>
+  <void property="crossing"> 
+   <int>13</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>13</int> 
+  </void>
+  <void property="pace"> 
+   <int>18</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>19</int> 
+  </void>
+  <void property="passing"> 
+   <int>14</int> 
+  </void>
+  <void property="finishing"> 
+   <int>5</int> 
+  </void>
+  <void property="heading"> 
+   <int>19</int> 
+  </void>
+  <void property="longShots"> 
+   <int>4</int> 
+  </void>
+  <void property="marking"> 
+   <int>17</int> 
+  </void>
+  <void property="tackling"> 
+   <int>17</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>3</int> 
+  </void>
+  <void property="influence"> 
+   <int>11</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>15</int> 
+  </void>
+  <void property="ambition"> 
+   <int>18</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>168</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>154</int> 
+  </void>
+  <void property="wages"> 
+   <double>35000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>407725196769</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Nedum</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Onuoha</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>130</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>7</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>18</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>5</int> 
+  </void>
+  <void property="decisions"> 
+   <int>12</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>9</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>10</int> 
+  </void>
+  <void property="pace"> 
+   <int>20</int> 
+  </void>
+  <void property="stamina"> 
+   <int>19</int> 
+  </void>
+  <void property="strength"> 
+   <int>17</int> 
+  </void>
+  <void property="passing"> 
+   <int>10</int> 
+  </void>
+  <void property="finishing"> 
+   <int>5</int> 
+  </void>
+  <void property="heading"> 
+   <int>17</int> 
+  </void>
+  <void property="longShots"> 
+   <int>6</int> 
+  </void>
+  <void property="marking"> 
+   <int>15</int> 
+  </void>
+  <void property="tackling"> 
+   <int>17</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>7</int> 
+  </void>
+  <void property="influence"> 
+   <int>15</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>15</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>155</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>155</int> 
+  </void>
+  <void property="wages"> 
+   <double>35000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>285469228975</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341013285892</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Martin</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Petrov</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>28</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>146</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>11</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>8</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>8</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>13</int> 
+  </void>
+  <void property="handling"> 
+   <int>5</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>3</int> 
+  </void>
+  <void property="decisions"> 
+   <int>10</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>3</int> 
+  </void>
+  <void property="crossing"> 
+   <int>18</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>14</int> 
+  </void>
+  <void property="pace"> 
+   <int>18</int> 
+  </void>
+  <void property="stamina"> 
+   <int>17</int> 
+  </void>
+  <void property="strength"> 
+   <int>14</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>15</int> 
+  </void>
+  <void property="heading"> 
+   <int>8</int> 
+  </void>
+  <void property="longShots"> 
+   <int>17</int> 
+  </void>
+  <void property="marking"> 
+   <int>4</int> 
+  </void>
+  <void property="tackling"> 
+   <int>4</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>17</int> 
+  </void>
+  <void property="influence"> 
+   <int>10</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>13</int> 
+  </void>
+  <void property="ambition"> 
+   <int>16</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>160</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>156</int> 
+  </void>
+  <void property="wages"> 
+   <double>35000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>183081688490</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>1309390725706</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>   
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Micah</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Richards</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>138</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>8</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>5</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>18</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>4</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>13</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>11</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>11</int> 
+  </void>
+  <void property="pace"> 
+   <int>18</int> 
+  </void>
+  <void property="stamina"> 
+   <int>17</int> 
+  </void>
+  <void property="strength"> 
+   <int>20</int> 
+  </void>
+  <void property="passing"> 
+   <int>11</int> 
+  </void>
+  <void property="finishing"> 
+   <int>8</int> 
+  </void>
+  <void property="heading"> 
+   <int>16</int> 
+  </void>
+  <void property="longShots"> 
+   <int>5</int> 
+  </void>
+  <void property="marking"> 
+   <int>16</int> 
+  </void>
+  <void property="tackling"> 
+   <int>16</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>7</int> 
+  </void>
+  <void property="influence"> 
+   <int>12</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>19</int> 
+  </void>
+  <void property="ambition"> 
+   <int>17</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>163</int> 
+  </void>  
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>157</int> 
+  </void>
+  <void property="wages"> 
+   <double>160000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>451440120826</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1309390725706</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Robinho</string> 
+  </void> 
+  <void property="lastName"> 
+   <string></string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>1</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>175</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>14</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>12</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>18</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>13</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>5</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>15</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>6</int> 
+  </void>
+  <void property="crossing"> 
+   <int>17</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>20</int> 
+  </void>
+  <void property="pace"> 
+   <int>19</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>11</int> 
+  </void>
+  <void property="passing"> 
+   <int>18</int> 
+  </void>
+  <void property="finishing"> 
+   <int>17</int> 
+  </void>
+  <void property="heading"> 
+   <int>11</int> 
+  </void>
+  <void property="longShots"> 
+   <int>16</int> 
+  </void>
+  <void property="marking"> 
+   <int>6</int> 
+  </void>
+  <void property="tackling"> 
+   <int>9</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>15</int> 
+  </void>
+  <void property="influence"> 
+   <int>11</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>6</int> 
+  </void>
+  <void property="ambition"> 
+   <int>20</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>180</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>158</int> 
+  </void>
+  <void property="wages"> 
+   <double>61000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>204077019186</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1277854611604</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Roque</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Santa Cruz</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>25</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>160</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>14</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>9</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>4</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>3</int> 
+  </void>
+  <void property="decisions"> 
+   <int>15</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>11</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>15</int> 
+  </void>
+  <void property="pace"> 
+   <int>16</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>18</int> 
+  </void>
+  <void property="passing"> 
+   <int>16</int> 
+  </void>
+  <void property="finishing"> 
+   <int>17</int> 
+  </void>
+  <void property="heading"> 
+   <int>18</int> 
+  </void>
+  <void property="longShots"> 
+   <int>12</int> 
+  </void>
+  <void property="marking"> 
+   <int>8</int> 
+  </void>
+  <void property="tackling"> 
+   <int>6</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>13</int> 
+  </void>
+  <void property="influence"> 
+   <int>14</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>15</int> 
+  </void>
+  <void property="ambition"> 
+   <int>18</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>165</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>159</int> 
+  </void>
+  <void property="wages"> 
+   <double>30000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>492048279634</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341013285892</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Sylvinho</string> 
+  </void> 
+  <void property="lastName"> 
+   <string></string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>1</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>137</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>13</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>6</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>3</int> 
+  </void>
+  <void property="crossing"> 
+   <int>17</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>14</int> 
+  </void>
+  <void property="pace"> 
+   <int>17</int> 
+  </void>
+  <void property="stamina"> 
+   <int>15</int> 
+  </void>
+  <void property="strength"> 
+   <int>13</int> 
+  </void>
+  <void property="passing"> 
+   <int>14</int> 
+  </void>
+  <void property="finishing"> 
+   <int>11</int> 
+  </void>
+  <void property="heading"> 
+   <int>10</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>15</int> 
+  </void>
+  <void property="tackling"> 
+   <int>16</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>11</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>17</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>161</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>160</int> 
+  </void>
+  <void property="wages"> 
+   <double>4000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>267149140600</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Stuart</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Taylor</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>110</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>15</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>15</int> 
+  </void>
+  <void property="decisions"> 
+   <int>13</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>12</int> 
+  </void>
+  <void property="crossing"> 
+   <int>1</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>4</int> 
+  </void>
+  <void property="pace"> 
+   <int>9</int> 
+  </void>
+  <void property="stamina"> 
+   <int>14</int> 
+  </void>
+  <void property="strength"> 
+   <int>13</int> 
+  </void>
+  <void property="passing"> 
+   <int>8</int> 
+  </void>
+  <void property="finishing"> 
+   <int>1</int> 
+  </void>
+  <void property="heading"> 
+   <int>6</int> 
+  </void>
+  <void property="longShots"> 
+   <int>1</int> 
+  </void>
+  <void property="marking"> 
+   <int>2</int> 
+  </void>
+  <void property="tackling"> 
+   <int>5</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>1</int> 
+  </void>
+  <void property="influence"> 
+   <int>12</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>19</int> 
+  </void>
+  <void property="ambition"> 
+   <int>11</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>138</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>161</int> 
+  </void>
+  <void property="wages"> 
+   <double>140000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>329702801939</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Carlos</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Tevez</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>3</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>170</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>15</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>6</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>8</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>12</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>4</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>15</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>5</int> 
+  </void>
+  <void property="crossing"> 
+   <int>16</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>18</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>20</int> 
+  </void>
+  <void property="strength"> 
+   <int>17</int> 
+  </void>
+  <void property="passing"> 
+   <int>16</int> 
+  </void>
+  <void property="finishing"> 
+   <int>16</int> 
+  </void>
+  <void property="heading"> 
+   <int>13</int> 
+  </void>
+  <void property="longShots"> 
+   <int>16</int> 
+  </void>
+  <void property="marking"> 
+   <int>8</int> 
+  </void>
+  <void property="tackling"> 
+   <int>13</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>18</int> 
+  </void>
+  <void property="influence"> 
+   <int>13</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>11</int> 
+  </void>
+  <void property="ambition"> 
+   <int>19</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>178</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>162</int> 
+  </void>
+  <void property="wages"> 
+   <double>120000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>586397259464</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Kolo</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Toure</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>27</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>155</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>15</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>2</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>16</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>13</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>13</int> 
+  </void>
+  <void property="pace"> 
+   <int>18</int> 
+  </void>
+  <void property="stamina"> 
+   <int>17</int> 
+  </void>
+  <void property="strength"> 
+   <int>17</int> 
+  </void>
+  <void property="passing"> 
+   <int>14</int> 
+  </void>
+  <void property="finishing"> 
+   <int>10</int> 
+  </void>
+  <void property="heading"> 
+   <int>17</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>17</int> 
+  </void>
+  <void property="tackling"> 
+   <int>18</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>11</int> 
+  </void>
+  <void property="influence"> 
+   <int>16</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>16</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>166</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>163</int> 
+  </void>
+  <void property="wages"> 
+   <double>80000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>546048514828</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1404085533161</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Shaun</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Wright-Phillips</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>152</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>8</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>8</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>12</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>4</int> 
+  </void>
+  <void property="crossing"> 
+   <int>12</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>18</int> 
+  </void>
+  <void property="pace"> 
+   <int>19</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>12</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>14</int> 
+  </void>
+  <void property="heading"> 
+   <int>10</int> 
+  </void>
+  <void property="longShots"> 
+   <int>17</int> 
+  </void>
+  <void property="marking"> 
+   <int>12</int> 
+  </void>
+  <void property="tackling"> 
+   <int>12</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>14</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>14</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>162</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>164</int> 
+  </void>
+  <void property="wages"> 
+   <double>55000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>620611753703</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Pablo</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Zabaleta</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>3</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>145</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>18</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>18</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>5</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>16</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>14</int> 
+  </void>
+  <void property="pace"> 
+   <int>16</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>15</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>12</int> 
+  </void>
+  <void property="heading"> 
+   <int>13</int> 
+  </void>
+  <void property="longShots"> 
+   <int>14</int> 
+  </void>
+  <void property="marking"> 
+   <int>17</int> 
+  </void>
+  <void property="tackling"> 
+   <int>16</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>13</int> 
+  </void>
+  <void property="influence"> 
+   <int>12</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>17</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>165</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>165</int> 
+  </void>
+  <void property="wages"> 
+   <double>21000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>344999384589</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1404085533161</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Benjani</string> 
+  </void> 
+  <void property="lastName"> 
+   <string></string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>114</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>127</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>10</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>4</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>3</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>12</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>12</int> 
+  </void>
+  <void property="pace"> 
+   <int>14</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>19</int> 
+  </void>
+  <void property="passing"> 
+   <int>12</int> 
+  </void>
+  <void property="finishing"> 
+   <int>12</int> 
+  </void>
+  <void property="heading"> 
+   <int>15</int> 
+  </void>
+  <void property="longShots"> 
+   <int>13</int> 
+  </void>
+  <void property="marking"> 
+   <int>8</int> 
+  </void>
+  <void property="tackling"> 
+   <int>11</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>16</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>13</int> 
+  </void>
+  <void property="ambition"> 
+   <int>15</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>152</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>166</int> 
+  </void>
+  <void property="wages"> 
+   <double>18000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>473649020155</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Valeri</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Bojinov</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>28</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>128</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>13</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>12</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>6</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>2</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>12</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>15</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>15</int> 
+  </void>
+  <void property="pace"> 
+   <int>16</int> 
+  </void>
+  <void property="stamina"> 
+   <int>14</int> 
+  </void>
+  <void property="strength"> 
+   <int>15</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>17</int> 
+  </void>
+  <void property="heading"> 
+   <int>12</int> 
+  </void>
+  <void property="longShots"> 
+   <int>15</int> 
+  </void>
+  <void property="marking"> 
+   <int>6</int> 
+  </void>
+  <void property="tackling"> 
+   <int>8</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>14</int> 
+  </void>
+  <void property="influence"> 
+   <int>12</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>14</int> 
+  </void>
+  <void property="ambition"> 
+   <int>19</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>163</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>167</int> 
+  </void>
+  <void property="wages"> 
+   <double>16000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>430186253577</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1341013285892</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Felipe</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Caicedo</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>38</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>125</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>8</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>4</int> 
+  </void>
+  <void property="decisions"> 
+   <int>11</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>9</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>14</int> 
+  </void>
+  <void property="pace"> 
+   <int>13</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>19</int> 
+  </void>
+  <void property="passing"> 
+   <int>10</int> 
+  </void>
+  <void property="finishing"> 
+   <int>14</int> 
+  </void>
+  <void property="heading"> 
+   <int>13</int> 
+  </void>
+  <void property="longShots"> 
+   <int>12</int> 
+  </void>
+  <void property="marking"> 
+   <int>8</int> 
+  </void>
+  <void property="tackling"> 
+   <int>9</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>16</int> 
+  </void>
+  <void property="influence"> 
+   <int>10</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>11</int> 
+  </void>
+  <void property="ambition"> 
+   <int>18</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>155</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>168</int> 
+  </void>
+  <void property="wages"> 
+   <double>8000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>568602697368</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Kelvin</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Etuhu</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>41</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>112</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>7</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>15</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>7</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>1</int> 
+  </void>
+  <void property="decisions"> 
+   <int>9</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>11</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>13</int> 
+  </void>
+  <void property="pace"> 
+   <int>14</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>16</int> 
+  </void>
+  <void property="passing"> 
+   <int>10</int> 
+  </void>
+  <void property="finishing"> 
+   <int>13</int> 
+  </void>
+  <void property="heading"> 
+   <int>10</int> 
+  </void>
+  <void property="longShots"> 
+   <int>12</int> 
+  </void>
+  <void property="marking"> 
+   <int>6</int> 
+  </void>
+  <void property="tackling"> 
+   <int>9</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>8</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>17</int> 
+  </void>
+  <void property="ambition"> 
+   <int>15</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>150</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>169</int> 
+  </void>
+  <void property="wages"> 
+   <double>25000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>568602697368</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Javier</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Garrido</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>6</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>125</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>12</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>9</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>12</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>1</int> 
+  </void>
+  <void property="decisions"> 
+   <int>10</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>16</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>13</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>18</int> 
+  </void>
+  <void property="strength"> 
+   <int>16</int> 
+  </void>
+  <void property="passing"> 
+   <int>11</int> 
+  </void>
+  <void property="finishing"> 
+   <int>12</int> 
+  </void>
+  <void property="heading"> 
+   <int>14</int> 
+  </void>
+  <void property="longShots"> 
+   <int>13</int> 
+  </void>
+  <void property="marking"> 
+   <int>16</int> 
+  </void>
+  <void property="tackling"> 
+   <int>15</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>6</int> 
+  </void>
+  <void property="influence"> 
+   <int>10</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>12</int> 
+  </void>
+  <void property="ambition"> 
+   <int>13</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>148</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>170</int> 
+  </void>
+  <void property="wages"> 
+   <double>20000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>568602697368</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Joe</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Hart</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>135</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>16</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>17</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>13</int> 
+  </void>
+  <void property="crossing"> 
+   <int>2</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>5</int> 
+  </void>
+  <void property="pace"> 
+   <int>8</int> 
+  </void>
+  <void property="stamina"> 
+   <int>16</int> 
+  </void>
+  <void property="strength"> 
+   <int>13</int> 
+  </void>
+  <void property="passing"> 
+   <int>5</int> 
+  </void>
+  <void property="finishing"> 
+   <int>1</int> 
+  </void>
+  <void property="heading"> 
+   <int>6</int> 
+  </void>
+  <void property="longShots"> 
+   <int>1</int> 
+  </void>
+  <void property="marking"> 
+   <int>2</int> 
+  </void>
+  <void property="tackling"> 
+   <int>9</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>1</int> 
+  </void>
+  <void property="influence"> 
+   <int>9</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>13</int> 
+  </void>
+  <void property="ambition"> 
+   <int>15</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>160</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>171</int> 
+  </void>
+  <void property="wages"> 
+   <double>50000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>568602697368</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Jo</string> 
+  </void> 
+  <void property="lastName"> 
+   <string></string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>1</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>140</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>13</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>9</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>20</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>2</int> 
+  </void>
+  <void property="decisions"> 
+   <int>14</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>11</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>16</int> 
+  </void>
+  <void property="pace"> 
+   <int>16</int> 
+  </void>
+  <void property="stamina"> 
+   <int>15</int> 
+  </void>
+  <void property="strength"> 
+   <int>14</int> 
+  </void>
+  <void property="passing"> 
+   <int>15</int> 
+  </void>
+  <void property="finishing"> 
+   <int>16</int> 
+  </void>
+  <void property="heading"> 
+   <int>16</int> 
+  </void>
+  <void property="longShots"> 
+   <int>13</int> 
+  </void>
+  <void property="marking"> 
+   <int>9</int> 
+  </void>
+  <void property="tackling"> 
+   <int>8</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>18</int> 
+  </void>
+  <void property="influence"> 
+   <int>2</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>13</int> 
+  </void>
+  <void property="ambition"> 
+   <int>17</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>163</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Player"> 
+  <void property="id"> 
+   <int>172</int> 
+  </void>
+  <void property="wages"> 
+   <double>5000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>568602697368</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>
+  <void property="contractExpiry"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+	  <long>1372549401061</long>	  
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+    <void property="id"> 
+     <int>5</int> 
+    </void> 
+   </object>
+  </void>
+  <void property="firstName"> 
+   <string>Vladimir</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Weiss</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>39</int> 
+    </void>  
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>108</int> 
+  </void>
+  <void property="leftFootAbility"> 
+   <int>10</int> 
+  </void>
+  <void property="rightFootAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="goalkeepingAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="leftFullbackAbility"> 
+   <int>1</int> 
+  </void> 
+  <void property="rightFullbackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centrebackAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="rightMidfieldAbility"> 
+   <int>20</int> 
+  </void> 
+  <void property="leftMidfieldAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="centreMidfieldAbility"> 
+   <int>15</int> 
+  </void> 
+  <void property="strikerAbility"> 
+   <int>1</int> 
+  </void>
+  <void property="handling"> 
+   <int>3</int> 
+  </void>
+  <void property="reflexes"> 
+   <int>1</int> 
+  </void>
+  <void property="decisions"> 
+   <int>9</int> 
+  </void>
+  <void property="commandOfArea"> 
+   <int>2</int> 
+  </void>
+  <void property="crossing"> 
+   <int>15</int> 
+  </void>
+  <void property="dribbling"> 
+   <int>16</int> 
+  </void>
+  <void property="pace"> 
+   <int>15</int> 
+  </void>
+  <void property="stamina"> 
+   <int>15</int> 
+  </void>
+  <void property="strength"> 
+   <int>12</int> 
+  </void>
+  <void property="passing"> 
+   <int>13</int> 
+  </void>
+  <void property="finishing"> 
+   <int>13</int> 
+  </void>
+  <void property="heading"> 
+   <int>6</int> 
+  </void>
+  <void property="longShots"> 
+   <int>12</int> 
+  </void>
+  <void property="marking"> 
+   <int>5</int> 
+  </void>
+  <void property="tackling"> 
+   <int>8</int> 
+  </void>
+  <void property="penaltyTaking"> 
+   <int>12</int> 
+  </void>
+  <void property="influence"> 
+   <int>6</int> 
+  </void>
+  <void property="loyalty"> 
+   <int>16</int> 
+  </void>
+  <void property="ambition"> 
+   <int>16</int> 
+  </void>
+  <void property="potentialAbility"> 
+   <int>172</int> 
+  </void>   
+ </object>
 </java> 

@@ -156,7 +156,7 @@ public class Match {
 		double awayTeamRating = getTeamRating(false);
 		double difference = homeTeamRating - awayTeamRating;
 		
-		if(difference < 250 && difference > -250){
+		if(difference < 100 && difference > -100){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 95){
 				this.setHomeScore(4);
@@ -175,7 +175,7 @@ public class Match {
 			}
 			this.setAwayScore(this.getHomeScore());
 		}
-		else if(difference < 500 && difference > -500){
+		else if(difference < 300 && difference > -300){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 90){
 				if(difference > 0)
@@ -206,7 +206,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 1);
 		}
-		else if(difference < 750 && difference > -750){
+		else if(difference < 500 && difference > -500){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 95){
 				if(difference > 0)
@@ -237,7 +237,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 2);
 		}
-		else if(difference < 1000 && difference > -1000){
+		else if(difference < 700 && difference > -700){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 95){
 				if(difference > 0)
@@ -268,7 +268,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 3);
 		}
-		else if(difference < 1250 && difference > -1250){
+		else if(difference < 900 && difference > -900){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 90){
 				if(difference > 0)
@@ -293,7 +293,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 4);
 		}
-		else if(difference < 1500 && difference > -1500){
+		else if(difference < 1100 && difference > -1100){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 70){
 				if(difference > 0)
@@ -312,7 +312,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 5);
 		}
-		else if(difference < 1750 && difference > -1750){
+		else if(difference < 1300 && difference > -1300){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 80){
 				if(difference > 0)
@@ -331,7 +331,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 6);
 		}
-		else if(difference < 2000 && difference > -2000){
+		else if(difference < 1500 && difference > -1500){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 90){
 				if(difference > 0)
@@ -350,7 +350,7 @@ public class Match {
 			else
 				this.setHomeScore(this.getAwayScore() - 7);
 		}
-		else if(difference < 2250 && difference > -2250){
+		else if(difference < 1700 && difference > -1700){
 			int randomNum = ((int)(Math.random() * 100)) + 1;
 			if(randomNum > 95){
 				if(difference > 0)
