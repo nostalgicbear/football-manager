@@ -4,6 +4,7 @@ import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Player;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -35,20 +36,27 @@ public class PlayerSearchPanel extends JPanel {
         
         List<Player> list = game.getPlayers();
     	int numberOfPlayers = list.size();
-    	String [][] data = new String [numberOfPlayers][2];
+    	String [][] data = new String [numberOfPlayers][6];
     	for (int i = 0; i < numberOfPlayers; i++){
     		data[i][0] = list.get(i).getFirstName() + " " + list.get(i).getLastName();
     		data[i][1] = list.get(i).getPosition();
+    		data[i][2] = list.get(i).getCurrentClub().getName();
+    		data[i][3] = list.get(i).getAge() + "";
+    		data[i][4] = list.get(i).getNationality().getName();
+    		DecimalFormat format = new DecimalFormat("000,000");
+    		String value = format.format(list.get(i).getMarketValue());
+    		data[i][5] = "€" + value;
     	}    	
 
         playerSearchTable.setModel(new DefaultTableModel(data,
             new String [] {
-                "Name", "Position"
+                "Name", "Position", "Club", "Age", "Nationality", "Value"
             }
         ));
         playerSearchTable.setGridColor(new Color(255, 255, 255));
         playerSearchTableHeader.setForeground(Color.white);
         playerSearchTableHeader.setBackground(Color.red);
+        playerSearchTable.setAutoCreateRowSorter(true);
         playerSearchTableScrollPane.setViewportView(playerSearchTable);
         
         GroupLayout layout = new GroupLayout(this);

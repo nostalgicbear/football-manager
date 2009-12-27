@@ -7,7 +7,9 @@ public class Injury implements Serializable {
 	private static final long serialVersionUID = -6699885390439073024L;
 	private int id;
 	private String name;
-	private int daysOut;
+	private String sentenceName;
+	private int minDaysOut;
+	private int extraDaysOut;
 	
 	public Injury() {
 		super();
@@ -21,12 +23,12 @@ public class Injury implements Serializable {
 		this.name = name;
 	}
 
-	public int getDaysOut() {
-		return daysOut;
+	public int getMinDaysOut() {
+		return minDaysOut;
 	}
 
-	public void setDaysOut(int daysOut) {
-		this.daysOut = daysOut;
+	public void setMinDaysOut(int minDaysOut) {
+		this.minDaysOut = minDaysOut;
 	}
 
 	public void setId(int id) {
@@ -37,7 +39,7 @@ public class Injury implements Serializable {
 		super();
 		this.id = id;
 		this.name = name;
-		this.daysOut = daysOut;
+		this.minDaysOut = daysOut;
 	}
 
 	public int getId() {
@@ -46,8 +48,24 @@ public class Injury implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Injury [daysOut=" + daysOut + ", id=" + id + ", name=" + name
+		return "Injury [daysOut=" + minDaysOut + ", id=" + id + ", name=" + name
 				+ "]";
+	}
+
+	public void setExtraDaysOut(int extraDaysOut) {
+		this.extraDaysOut = extraDaysOut;
+	}
+
+	public int getExtraDaysOut() {
+		return extraDaysOut;
+	}
+
+	public void setSentenceName(String sentenceName) {
+		this.sentenceName = sentenceName;
+	}
+
+	public String getSentenceName() {
+		return sentenceName;
 	}
 	
 	

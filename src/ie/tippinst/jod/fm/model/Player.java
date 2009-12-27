@@ -16,7 +16,7 @@ public class Player extends Person implements Serializable {
 	private int leftFootAbility;
 	private int rightFootAbility;
 	private int fitness;
-	private int matchCondition;
+	private double matchCondition;
 	private int fatigue;
 	private int happinessAtClub;
 	private int morale;
@@ -29,6 +29,7 @@ public class Player extends Person implements Serializable {
 	private int centreMidfieldAbility;
 	private int strikerAbility;
 	private Injury injury;
+	private int daysUnavailable;
 	private String position;
 	private enum SquadStatus {INDISPENSABLE, IMPORTANT, SQUAD, TOPYOUNGSTER, DECENTYOUNGSTER, NOTNEEDED};
 	private SquadStatus status;
@@ -51,6 +52,8 @@ public class Player extends Person implements Serializable {
 	private int stamina;
 	private int loyalty;
 	private int ambition;
+	private int leagueAppearances = 0;
+	private int leagueGoals = 0;
 	
 	public Player(){
 		super();
@@ -201,7 +204,12 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setFitness(int fitness) {
-		this.fitness = fitness;
+		if(fitness <= 10000 && fitness >= 1)
+			this.fitness = fitness;
+		else if(fitness > 10000)
+			this.fitness = 10000;
+		else if(fitness < 1)
+			this.fitness = 1;	
 	}
 
 	public int getHappinessAtClub() {
@@ -217,6 +225,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setMorale(int morale) {
+		if(morale > 10000)
+			morale = 10000;
+		else if(morale < 1)
+			morale = 1;
 		this.morale = morale;
 	}
 
@@ -395,7 +407,17 @@ public class Player extends Person implements Serializable {
 		else{
 			list.add("Very Low");
 		}
-		list.add((this.getInjury() == null) ? "None" : this.getInjury().getName() + "(Out for" + this.getInjury().getDaysOut() + ")");
+		String timeOut;
+		if(this.getDaysUnavailable() < 14){
+			timeOut = this.getDaysUnavailable() + (this.getDaysUnavailable() == 1 ? " day" : " days");
+		}
+		else if(this.getDaysUnavailable() < 60){
+			timeOut = this.getDaysUnavailable() / 7 + " weeks";
+		}
+		else{
+			timeOut = this.getDaysUnavailable() / 30 + " months";
+		}
+		list.add((this.getInjury() == null) ? "None" : this.getInjury().getName() + " (Out for " + timeOut + ")");
 		list.add(this.getMatchCondition() + "%");
 		if(this.getFatigue() >= 9000){
 			list.add("Exhausted");
@@ -490,13 +512,22 @@ public class Player extends Person implements Serializable {
 			break;
 		}
 	}
+	
+	public String getStatusAsString() {
+		return status.toString();
+	}
 
 	public SquadStatus getStatus() {
 		return status;
 	}
 
 	public void setFatigue(int fatigue) {
-		this.fatigue = fatigue;
+		if(fatigue <= 10000 && fatigue >= 1)
+			this.fatigue = fatigue;
+		else if(fatigue > 10000)
+			this.fatigue = 10000;
+		else if(fatigue < 1)
+			this.fatigue = 1;
 	}
 
 	public int getFatigue() {
@@ -689,21 +720,30 @@ public class Player extends Person implements Serializable {
 			strikercurrentAbility = ((this.getFinishing() * 3) + ((this.getPace() + this.getStamina() + this.getStrength()) * 2) + (this.getHeading() * 2) + (this.getDribbling() * 2) + (this.getLongShots() * 2)) * (2.0 / 3);
 			positions++;
 		}
-		this.setCurrentAbility((int) ((goalkeepercurrentAbility + fullbackcurrentAbility + centrebackcurrentAbility + wingercurrentAbility + centremidfieldercurrentAbility + strikercurrentAbility) / positions));
+		int currentAbility = (int) ((goalkeepercurrentAbility + fullbackcurrentAbility + centrebackcurrentAbility + wingercurrentAbility + centremidfieldercurrentAbility + strikercurrentAbility) / positions);
+		this.setCurrentAbility(currentAbility);
+		System.out.println(this.getFirstName() + " " + this.getLastName() + " " + this.getCurrentAbility() + " " + this.getPotentialAbility());
 		//System.out.println(strikercurrentAbility);
 		//System.out.println(this.getCurrentAbility());
 	}
 
-	public void setMatchCondition(int matchCondition) {
+	public void setMatchCondition(double matchCondition) {
 		this.matchCondition = matchCondition;
+		if(this.getMatchCondition() > 100){
+			this.setMatchCondition(100);
+		}
+		else if(this.getMatchCondition() < 1){
+			this.setMatchCondition(1);
+		}
 	}
 
-	public int getMatchCondition() {
+	public double getMatchCondition() {
 		return matchCondition;
 	}
 	
 	public void transferPlayer(int value, Club club, double wages, Calendar contractExpiry, int status){
 		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() + value);
+		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() + value);
 		List<Player> squad = this.getCurrentClub().getSquad();
 		squad.remove(this);
 		this.getCurrentClub().setSquad(squad);
@@ -715,5 +755,30 @@ public class Player extends Person implements Serializable {
 		squad.add(this);
 		this.getCurrentClub().setSquad(squad);
 		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() - value);
+		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() - value);
+	}
+
+	public void setDaysUnavailable(int daysUnavailable) {
+		this.daysUnavailable = daysUnavailable;
+	}
+
+	public int getDaysUnavailable() {
+		return daysUnavailable;
+	}
+
+	public void setLeagueAppearances(int leagueAppearances) {
+		this.leagueAppearances = leagueAppearances;
+	}
+
+	public int getLeagueAppearances() {
+		return leagueAppearances;
+	}
+
+	public void setLeagueGoals(int leagueGoals) {
+		this.leagueGoals = leagueGoals;
+	}
+
+	public int getLeagueGoals() {
+		return leagueGoals;
 	}
 }

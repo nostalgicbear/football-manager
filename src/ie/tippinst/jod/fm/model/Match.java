@@ -1,5 +1,6 @@
 package ie.tippinst.jod.fm.model;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +11,11 @@ public class Match {
 	private Club awayTeam;
 	private int homeScore;
 	private int awayScore;
+	private List<Player> homeScorers;
+	private List<Player> awayScorers;
 	private Competition competition;
 	private Stadium stadium;
+	private int attendance;
 	
 	public Match() {
 		super();
@@ -24,6 +28,8 @@ public class Match {
 		this.awayTeam = awayTeam;
 		this.homeScore = homeScore;
 		this.awayScore = awayScore;
+		this.homeScorers = new ArrayList<Player>();
+		this.awayScorers = new ArrayList<Player>();
 		this.competition = competition;
 		this.stadium = stadium;
 	}
@@ -86,7 +92,20 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return homeTeam.getName() + " " + (homeScore == -1 ? "" : homeScore) + "-" + (awayScore == -1 ? "" : awayScore) + " " + awayTeam.getName();
+		String homeGoalscorers = "";
+		Iterator<Player> i = this.getHomeScorers().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			homeGoalscorers = homeGoalscorers + ", " + p.getFirstName() + " " + p.getLastName() + " " + (((int)(Math.random() * 90)) + 1) + "'"; 
+		}
+		String awayGoalscorers = "";
+		i = this.getHomeScorers().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			awayGoalscorers = awayGoalscorers + ", " + p.getFirstName() + " " + p.getLastName() + " " + (((int)(Math.random() * 90)) + 1) + "'"; 
+		}
+		return homeTeam.getName() + " " + (homeScore == -1 ? "" : homeScore) + "-" + (awayScore == -1 ? "" : awayScore) + " " + awayTeam.getName()
+		+ (homeScore >= 100 ? "\n" + homeTeam.getName() + " Goalscorers: " + homeGoalscorers : "") + (awayScore >= 100 ? "\n" + awayTeam.getName() + " Goalscorers: " + awayGoalscorers : "");
 	}
 	
 	public double getTeamRating(boolean home){
@@ -361,13 +380,140 @@ public class Match {
 			}
 			
 		}
+		int maxHomeAttendance = (this.getStadium().getCapacity() / 20) * 19;
+		int maxAwayAttendance = this.getStadium().getCapacity() / 20;
+		int avgHomeAttendance = this.getHomeTeam().getAverageAttendance();
+		int avgAwayAttendance = this.getAwayTeam().getAverageAttendance() / 20;
+		int homeAttendance = ((avgHomeAttendance > maxHomeAttendance) ? maxHomeAttendance : avgHomeAttendance);
+		int awayAttendance = ((avgAwayAttendance > maxAwayAttendance) ? maxAwayAttendance : avgAwayAttendance);
+		this.setAttendance(homeAttendance + awayAttendance);
 		
-		//TODO: update each player's current ability after match
-		//TODO: update each player's fitness, fatigue and condition after match
-		//TODO: update each player's morale after every match
-		//TODO: update each player's reputation after every match
-		//TODO: update each player's happiness after every match
-		//TODO: update each club's reputation after every match
+		if (this.getHomeTeam().getSelectedTeam().size() == 11) {
+			for (int i = 0; i < this.getHomeScore(); i++) {
+				int index = (int) (Math.random() * 1341);
+				if (index == 0)
+					index = 0;
+				else if (index <= 30)
+					index = 1;
+				else if (index <= 60)
+					index = 2;
+				else if (index <= 100)
+					index = 3;
+				else if (index <= 140)
+					index = 4;
+				else if (index <= 290)
+					index = 5;
+				else if (index <= 440)
+					index = 6;
+				else if (index <= 590)
+					index = 7;
+				else if (index <= 740)
+					index = 8;
+				else if (index <= 1040)
+					index = 9;
+				else if (index <= 1340)
+					index = 10;
+				this.getHomeScorers().add(
+						this.getHomeTeam().getSelectedTeam().get(index));
+				this.getHomeTeam().getSelectedTeam().get(index).setLeagueGoals(
+						this.getHomeTeam().getSelectedTeam().get(index)
+								.getLeagueGoals() + 1);
+			}
+		}
+		if (this.getAwayTeam().getSelectedTeam().size() == 11) {
+			for (int i = 0; i < this.getAwayScore(); i++) {
+				int index = (int) (Math.random() * 1341);
+				if (index == 0)
+					index = 0;
+				else if (index <= 30)
+					index = 1;
+				else if (index <= 60)
+					index = 2;
+				else if (index <= 100)
+					index = 3;
+				else if (index <= 140)
+					index = 4;
+				else if (index <= 290)
+					index = 5;
+				else if (index <= 440)
+					index = 6;
+				else if (index <= 590)
+					index = 7;
+				else if (index <= 740)
+					index = 8;
+				else if (index <= 1040)
+					index = 9;
+				else if (index <= 1340)
+					index = 10;
+				this.getAwayScorers().add(
+						this.getAwayTeam().getSelectedTeam().get(index));
+				this.getAwayTeam().getSelectedTeam().get(index).setLeagueGoals(
+						this.getAwayTeam().getSelectedTeam().get(index)
+								.getLeagueGoals() + 1);
+			}
+		}
+		Iterator<Player> i = this.getHomeTeam().getSelectedTeam().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			//TODO: update each player's current ability after match
+			//update each player's fitness, fatigue and condition after match
+			p.setFitness(p.getFitness() + 250);
+			p.setFatigue(p.getFatigue() + 250);
+			double decrease = (((10000.0 - p.getFitness()) + p.getFatigue()) / 450.0);
+			p.setMatchCondition(p.getMatchCondition() - decrease);
+			p.setLeagueAppearances(p.getLeagueAppearances() + 1);
+			p.setMorale(p.getMorale() + (200 * (this.getHomeScore() - this.getAwayScore())));
+			//TODO: update each player's morale after every match
+			//TODO: update each player's reputation after every match
+			//TODO: update each player's happiness after every match
+			//TODO: update each club's reputation after every match
+		}
+		
+		i = this.getAwayTeam().getSelectedTeam().iterator();
+		while(i.hasNext()){
+			Player p = i.next();
+			//TODO: update each player's current ability after match
+			//update each player's fitness, fatigue and condition after match
+			p.setFitness(p.getFitness() + 250);
+			p.setFatigue(p.getFatigue() + 250);
+			double decrease = (((10000.0 - p.getFitness()) + p.getFatigue()) / 450.0);
+			p.setMatchCondition(p.getMatchCondition() - decrease);
+			p.setLeagueAppearances(p.getLeagueAppearances() + 1);
+			//update each player's morale after every match
+			p.setMorale(p.getMorale() + (200 * (this.getAwayScore() - this.getHomeScore())));
+			//TODO: update each player's reputation after every match
+			//TODO: update each player's happiness after every match
+			//TODO: update each club's reputation after every match
+		}
+		int tickets = homeAttendance - this.getHomeTeam().getNumberOfSeasonTicketHolders();
+		if(tickets < 0)
+			tickets = 0;
+		this.getHomeTeam().setBankBalance(this.getHomeTeam().getBankBalance() + tickets * this.getHomeTeam().getTicketPrice());
+		this.getAwayTeam().setBankBalance(this.getAwayTeam().getBankBalance() + awayAttendance * this.getHomeTeam().getTicketPrice());
 		((League) this.getCompetition()).updateTable(this);
+	}
+
+	public void setAttendance(int attendance) {
+		this.attendance = attendance;
+	}
+
+	public int getAttendance() {
+		return attendance;
+	}
+
+	public void setHomeScorers(List<Player> homeScorers) {
+		this.homeScorers = homeScorers;
+	}
+
+	public List<Player> getHomeScorers() {
+		return homeScorers;
+	}
+
+	public void setAwayScorers(List<Player> awayScorers) {
+		this.awayScorers = awayScorers;
+	}
+
+	public List<Player> getAwayScorers() {
+		return awayScorers;
 	}
 }

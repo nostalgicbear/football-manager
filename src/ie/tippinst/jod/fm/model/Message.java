@@ -9,10 +9,11 @@ public class Message implements Comparable<Message>{
 	private String heading;
 	private String body;
 	private static int count = 0;
+	private boolean read;
 	
 	public Message() {
 		super();
-		this.id = count;
+		this.setId(count);
 		count++;
 	}
 	public Message(Calendar date, String heading, String body) {
@@ -20,7 +21,8 @@ public class Message implements Comparable<Message>{
 		this.setDate(date);
 		this.setHeading(heading);
 		this.setBody(body);
-		this.id = count;
+		this.setId(count);
+		this.read = false;
 		count++;
 	}
 	public void setHeading(String heading) {
@@ -43,13 +45,21 @@ public class Message implements Comparable<Message>{
 	}
 
 	@Override
-	public int compareTo(Message o) {
-	    return this.getDate().getTime().compareTo(o.getDate().getTime());
-	}
+    public int compareTo(Message m) {
+        int compare = this.getDate().compareTo(m.getDate());
+        return (compare == 0 ? this.getId() - m.getId() : compare);
+		//return this.getDate().compareTo(m.getDate());
+    }
 	public void setId(int id) {
 		this.id = id;
 	}
 	public int getId() {
 		return id;
+	}
+	public void setRead(boolean read) {
+		this.read = read;
+	}
+	public boolean isRead() {
+		return read;
 	}
 }

@@ -4,25 +4,36 @@ import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.gui.dialogs.ContractOffer;
 import ie.tippinst.jod.fm.model.Message;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
+import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 
 
 /**
@@ -65,26 +76,43 @@ public class InboxPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				messageTextPane.remove(offerContractButton);
 				messageTextPane.remove(withdrawOfferButton);
-				messageTextPane.setText(messageTextPane.getText() + "Your offer has been withdrawn!");
-			}
-			
+				Document d = messageTextPane.getDocument();
+				try {
+					d.insertString(d.getLength(), "Your offer has been withdrawn!", new SimpleAttributeSet());
+				} catch (BadLocationException e1) {
+					e1.printStackTrace();
+				}
+			}			
 		});
 		
 		offerContractButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				Document d = messageTextPane.getDocument();
+				try {
+					d.insertString(d.getLength(), "Your have offered a contract!", new SimpleAttributeSet());
+				} catch (BadLocationException e1) {
+					e1.printStackTrace();
+				}
 				messageTextPane.remove(offerContractButton);
 				messageTextPane.remove(withdrawOfferButton);
-				messageTextPane.setText(messageTextPane.getText() + "You have offered a contract!");
 				offerContract(e);
-			}
-			
+			}			
 		});
 	}
 	
 	private void offerContract(ActionEvent ae){
-		String temp = ((String) messageList.getSelectedValue()).replace(" Accepted", "");
+		String header = ((String) messageList.getSelectedValue());
+		int index;
+		for(index = 0; index < header.length(); index++){
+			if(header.charAt(index) == '('){
+				index--;
+				break;
+			}
+		}
+		header = header.substring(0, index);
+		String temp = header.replace(" Accepted", "");
 		int firstIndex = messageTextPane.getText().indexOf("€");
 		int secondIndex = messageTextPane.getText().indexOf("offer");
 		int value = Integer.parseInt(messageTextPane.getText().substring((firstIndex+1), (secondIndex - 1)));
@@ -93,12 +121,40 @@ public class InboxPanel extends JPanel {
 		contract.setVisible(true);
 	}
 	
-	private void displayMessage(ListSelectionEvent ae){
-		messageTextPane.setText((String) messageList.getSelectedValue() + "\n\n" + game.getMessageBody(messageList.getSelectedIndex()) + "\n\n");
-		if(messageTextPane.getText().contains("You now have permission to offer him a contract!")){
+	private void displayMessage(){
+		String header = ((String) messageList.getSelectedValue());
+		int index;
+		for(index = 0; index < header.length(); index++){
+			if(header.charAt(index) == '('){
+				index--;
+				break;
+			}
+		}
+		header = header.substring(0, index);
+		SimpleAttributeSet heading = new SimpleAttributeSet();
+		StyleConstants.setBold(heading, true);
+		StyleConstants.setFontSize(heading, 20);
+		Document d = messageTextPane.getDocument();
+		try {
+			d.remove(0, d.getLength());
+			d.insertString(d.getLength(), header + "\n\n", heading);
+			d.insertString(d.getLength(), game.getMessageBody(messageList.getSelectedIndex()) + "\n\n", new SimpleAttributeSet());
+		} catch (BadLocationException e) {
+			e.printStackTrace();
+		}
+		//messageTextPane.setText(header + "\n\n" + game.getMessageBody(messageList.getSelectedIndex()) + "\n\n");
+		if((messageTextPane.getText().contains("You now have permission to offer him a contract!")) 
+				&& (game.getDate().get(Calendar.DAY_OF_MONTH) == game.getMessageDate(messageList.getSelectedIndex()).get(Calendar.DAY_OF_MONTH))){
+			//game.getDate().compareTo(game.getMessageDate(messageList.getSelectedIndex())) == 0
+			System.out.println(game.getDate().getTime());
+			System.out.println(game.getMessageDate(messageList.getSelectedIndex()).getTime());
 			messageTextPane.insertComponent(offerContractButton);
 			messageTextPane.insertComponent(withdrawOfferButton);
 		}
+	}
+	
+	private void displayMessage(ListSelectionEvent ae){
+		displayMessage();
 	}
 	
 	private void initGUI() {
@@ -110,28 +166,30 @@ public class InboxPanel extends JPanel {
 			setPreferredSize(new Dimension(400, 300));
 			{
 				List<Message> list = game.getMessages();
-				String [] data = new String[list.size()];
+				String[] data = new String[list.size()];
 				for(int i = 0; i < data.length; i++){
-					data[i] = list.get(i).getHeading();
+					data[i] = list.get(i).getHeading() + " (" + list.get(i).getDate().get(Calendar.DAY_OF_MONTH) + "/"+ (list.get(i).getDate().get(Calendar.MONTH) + 1) + "/" + list.get(i).getDate().get(Calendar.YEAR) + ")";
 				}
 				/*Iterator<Message> i = list.iterator();
 				while(i.hasNext()){
 					System.out.println(i.next().getBody());
 				}*/
-				messageListScrollPane = new JScrollPane();
 				ListModel messageListModel = new DefaultComboBoxModel(data);
 				messageList = new JList();
 				messageList.setModel(messageListModel);
-				messageList.setPreferredSize(new java.awt.Dimension(396, 92));
+				messageListScrollPane = new JScrollPane(messageList);
+				//messageList.setPreferredSize(new java.awt.Dimension(396, 92));
 			}
 			{
 				messageTextPane = new JTextPane();
 				messageTextPane.setText("No message selected");
-				messageTextPane.setPreferredSize(new java.awt.Dimension(397, 198));
+				//messageTextPane.setPreferredSize(new java.awt.Dimension(397, 198));
 				messageTextPane.setEditable(false);
+				if(messageList.getModel().getSize() > 0){
+					messageList.setSelectedIndex(0);
+					displayMessage();
+				}
 			}
-			
-			messageListScrollPane.setViewportView(messageList);
 			
 				thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
 			.addContainerGap(2, 2)

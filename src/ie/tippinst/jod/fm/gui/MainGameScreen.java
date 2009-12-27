@@ -4,6 +4,7 @@ import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.gui.dialogs.ContractOffer;
 import ie.tippinst.jod.fm.gui.dialogs.TransferOffer;
 import ie.tippinst.jod.fm.gui.panels.ClubInformationPanel;
+import ie.tippinst.jod.fm.gui.panels.FinancesPanel;
 import ie.tippinst.jod.fm.gui.panels.FixturesPanel;
 import ie.tippinst.jod.fm.gui.panels.InboxPanel;
 import ie.tippinst.jod.fm.gui.panels.LeagueFixturesPanel;
@@ -88,6 +89,7 @@ public class MainGameScreen extends JFrame {
     private FixturesPanel fixturesPanel;
     private ClubInformationPanel clubInformationPanel;
     private StaffPanel staffPanel;
+    private FinancesPanel financesPanel;
     private PlayerProfilePanel playerProfilePanel;
     private PlayerAttributesPanel playerAttributesPanel;
     private PlayerContractPanel playerContractPanel;
@@ -229,6 +231,16 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for Team -> Finances Menu Item
+        financesMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayClubFinances(e);
+			}
+			
+		});
+        
      // Event listener for Team -> Staff Menu Item
         staffMenuItem.addActionListener(new ActionListener() {
 
@@ -343,6 +355,10 @@ public class MainGameScreen extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
+	protected void displayClubFinances(ActionEvent e) {
+		displayClub(userClub, 4);	
+	}
+
 	private void addToShortlist(ActionEvent ae){
     	if(addToShortlistButton.getText().equals("Add to Shortlist")){
         	game.addPlayerToShortlist(playerProfilePanel.getNameValueLabel().getText(), user);
@@ -361,7 +377,7 @@ public class MainGameScreen extends JFrame {
     }
     
     private void makeOffer(ActionEvent ae){
-    	TransferOffer t = new TransferOffer(this, user, playerProfilePanel.getNameValueLabel().getText());
+    	TransferOffer t = new TransferOffer(this, user, playerProfilePanel.getNameValueLabel().getText(), game.getTransferBudget(userClub));
     	t.setVisible(true);
     }
     
@@ -422,7 +438,7 @@ public class MainGameScreen extends JFrame {
         this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
         
         //Display the users squad as the initial screen
-        displayClub(userClub);
+        displayClub(userClub, 0);
         
         //Display the date
         Calendar c = game.getDate();        
@@ -608,17 +624,23 @@ public class MainGameScreen extends JFrame {
     		displayLeagueFixtures(date);
     		processFixtures = false;
     	}
-    	
+    	else{
+    		displayInbox();
+    	}
 		this.date.setText((game.getDate().get(Calendar.DATE) + "/" + (game.getDate().get(Calendar.MONTH) + 1) + "/" + game.getDate().get(Calendar.YEAR)));
     }
     
-    /*Display Inbox Screen*/
-    private void displayInbox(ActionEvent ae){
+    private void displayInbox(){
     	inboxPanel = new InboxPanel();
         mainPanel.add(inboxPanel, "Inbox");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Inbox");
         sidePanel.add(squadSidePanel, "Squad Sidebar");
     	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
+    }
+    
+    /*Display Inbox Screen*/
+    private void displayInbox(ActionEvent ae){
+    	displayInbox();
     }
     
     /*Display Shortlist Screen*/
@@ -656,7 +678,7 @@ public class MainGameScreen extends JFrame {
     /*Get Club to Display*/
     private void displayClub(ActionEvent ae){
 		club = (String) (leagueTablePanel.getLeagueTable().getValueAt(leagueTablePanel.getLeagueTable().getSelectedRow(), 1));
-    	displayClub(club);
+    	displayClub(club, 0);
 	}
     
     /*Get Player to Display*/
@@ -756,17 +778,21 @@ public class MainGameScreen extends JFrame {
     }
     
     /*Display particular club*/
-    private void displayClub(String club){
+    private void displayClub(String club, int defaultTab){
     	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
     	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);
     	clubInformationPanel = new ClubInformationPanel(club);
+    	if(club.equals(userClub))
+    		financesPanel = new FinancesPanel(userClub);
     	clubPanel.removeAll();
     	clubPanel.addTab("Squad", squadPanel);
     	clubPanel.addTab("Fixtures", fixturesPanel);
         clubPanel.addTab("Staff", staffPanel);
         clubPanel.addTab("Information", clubInformationPanel);
-        clubPanel.setSelectedIndex(0);
+        if(club.equals(userClub))
+        	clubPanel.addTab("Finances", financesPanel);
+        clubPanel.setSelectedIndex(defaultTab);
         mainPanel.add(clubPanel, "Club");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
         sidePanel.add(squadSidePanel, "Squad Sidebar");
@@ -774,25 +800,12 @@ public class MainGameScreen extends JFrame {
     }
     
     private void displayUserSquad(ActionEvent ae){
-    	displayClub(userClub);
+    	displayClub(userClub, 0);
     	this.club = userClub;
 	}
     
     private void displayClubInformation(String club){
-    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
-    	fixturesPanel = new FixturesPanel(club);
-    	staffPanel = new StaffPanel(club);
-    	clubInformationPanel = new ClubInformationPanel(club);
-    	clubPanel.removeAll();
-    	clubPanel.addTab("Squad", squadPanel);
-    	clubPanel.addTab("Fixtures", fixturesPanel);
-        clubPanel.addTab("Staff", staffPanel);
-        clubPanel.addTab("Information", clubInformationPanel);
-        clubPanel.setSelectedIndex(3);
-        mainPanel.add(clubPanel, "Club");
-        ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
-        sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
+    	displayClub(club, 3); 
     }
     
     private void displayUserSquadInformation(ActionEvent ae){
@@ -800,20 +813,7 @@ public class MainGameScreen extends JFrame {
 	}
     
     private void displayStaff(String club){
-    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
-    	fixturesPanel = new FixturesPanel(club);
-    	staffPanel = new StaffPanel(club);
-    	clubInformationPanel = new ClubInformationPanel(club);
-    	clubPanel.removeAll();
-    	clubPanel.addTab("Squad", squadPanel);
-    	clubPanel.addTab("Fixtures", fixturesPanel);
-        clubPanel.addTab("Staff", staffPanel);
-        clubPanel.addTab("Information", clubInformationPanel);
-        clubPanel.setSelectedIndex(2);
-        mainPanel.add(clubPanel, "Club");
-        ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
-        sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
+    	displayClub(club, 2); 
     }
     
     private void displayUserSquadFixtures(ActionEvent ae){
@@ -821,20 +821,7 @@ public class MainGameScreen extends JFrame {
 	}
     
     private void displayFixtures(String club){
-    	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
-    	fixturesPanel = new FixturesPanel(club);
-    	staffPanel = new StaffPanel(club);
-    	clubInformationPanel = new ClubInformationPanel(club);
-    	clubPanel.removeAll();
-    	clubPanel.addTab("Squad", squadPanel);
-    	clubPanel.addTab("Fixtures", fixturesPanel);
-        clubPanel.addTab("Staff", staffPanel);
-        clubPanel.addTab("Information", clubInformationPanel);
-        clubPanel.setSelectedIndex(1);
-        mainPanel.add(clubPanel, "Club");
-        ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Club");
-        sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar"); 
+    	displayClub(club, 1); 
     }
     
     private void displayUserStaff(ActionEvent ae){

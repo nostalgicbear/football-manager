@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
@@ -38,7 +39,7 @@ public class Database {
 	private Iterator<Injury> iInjury;
 	private Iterator<Competition> iCompetition;
 	private Calendar date;
-	private List<Message> messages;
+	private List<Message> messages = new ArrayList<Message>();;
 	private Club userClub;
 	private XMLDecoder decoder = null;
 
@@ -46,7 +47,7 @@ public class Database {
 	public Database(){
 		super();
 		date = new GregorianCalendar();
-		date.set(2009, 7, 14);
+		date.set(2009, 6, 2);
 		
 		// Lists used to store all objects
 		personList = new ArrayList<Person>();
@@ -55,7 +56,7 @@ public class Database {
 		stadiumList = new ArrayList<Stadium>();
 		injuryList = new ArrayList<Injury>();
 		competitionList = new ArrayList<Competition>();
-		messages = new ArrayList<Message>();
+		setMessages(new ArrayList<Message>());
 		
 		try {
 			loadStadia();
@@ -73,6 +74,18 @@ public class Database {
 		initialiseNonPlayers();
 		initialiseClubs();
 		initialiseLeagues();
+	}
+	
+	public Injury findInjury(int id){
+		Injury i = null;
+		iInjury = injuryList.iterator();
+		while(iInjury.hasNext()){
+			i = iInjury.next();
+			if(i.getId() == id){
+				break;
+			}
+		}
+		return i;
 	}
 	
 	public Competition findCompetition(String name){
@@ -100,6 +113,7 @@ public class Database {
 	}
 	
 	public Person findPerson(String name){
+		//System.out.println(name);
 		Person p = null;
 		iPerson = personList.iterator();
 		while(iPerson.hasNext()){
@@ -203,9 +217,10 @@ public class Database {
 				((Player) p).setCurrentAbility();
 				((Player) p).setMatchCondition(70);
 				((Player) p).setMorale(8000);
-				((Player) p).setFitness(2000);
+				((Player) p).setFitness(1500);
 				((Player) p).setHappinessAtClub(7500);
-				((Player) p).setFatigue(0);
+				((Player) p).setFatigue(1500);
+				//((Player) p).updateMatchCondition();
 				p.setAge(this.date);
 			}
 		}
@@ -263,6 +278,11 @@ public class Database {
 					break;
 				}
 			}
+			c.setTransferBudget(c.getBankBalance() * 0.9);
+			c.setAverageAttendance(c.getReputation() * 8);
+			c.setNumberOfSeasonTicketHolders((c.getAverageAttendance() / 5) * 3);
+			c.setSeasonTicketPrice(c.getReputation() / 12.0);
+			c.setTicketPrice(c.getReputation() / 250.0);
 		}
 		setSquadAndStaff();		
 	}
@@ -392,19 +412,62 @@ public class Database {
 				}*/
 				player.setMarketValue(this.getDate());
 				player.setSaleValue();
+				double increase = (((10000.0 - player.getFatigue()) + player.getFitness()) / 4000.0);
+				player.setMatchCondition(player.getMatchCondition() + increase);
 				if(player.isInjured()){
-					player.setFitness(player.getFitness() - 200);
-					player.setFatigue(player.getFatigue() - 200);
-				}
-				else{
-					player.setFitness(player.getFitness() - 100);
+					player.setFitness(player.getFitness() - 300);
 					player.setFatigue(player.getFatigue() - 100);
 				}
-				if(player.getMatchCondition() < 100){
-					player.setMatchCondition(player.getMatchCondition() + 2);
+				else{
+					player.setFitness(player.getFitness() - 150);
+					player.setFatigue(player.getFatigue() - 50);
+				}
+				if (player.isInjured()){
+					player.setDaysUnavailable(player.getDaysUnavailable() - 1);
+					if(player.getDaysUnavailable() == 0){
+						if(player.getCurrentClub().getId() == this.getUserClub().getId()){
+							this.getMessages().add(new Message((Calendar) this.getDate().clone(), player.getFirstName() + (player.getLastName().equals("") ? "" : " ") + player.getLastName() + " Returns From Injury", player.getFirstName() + (player.getLastName().equals("") ? "" : " ") + player.getLastName() + " has returned to training, after fully recovering from " + player.getInjury().getSentenceName() + "!"));
+						}
+						player.setInjury(null);
+					}
+				}
+				else{
+					//random number between 1 and 200 - condition
+					int injuryChance = (int) (Math.random() * 500);
+					if (injuryChance == 1) {
+						//injure player;
+						//System.out.println("Injury");
+						Injury injury = this.findInjury((int) (Math.random() * (this.getInjuryList().size())));
+						player.setInjury(injury);
+						player.setDaysUnavailable(injury.getMinDaysOut() + ((int)(Math.random() * injury.getExtraDaysOut())) + 1);
+						if(player.getCurrentClub().getId() == this.getUserClub().getId()){
+							String timeOut;
+							if(player.getDaysUnavailable() < 14){
+								timeOut = player.getDaysUnavailable() + (player.getDaysUnavailable() == 1 ? " day" : " days");
+							}
+							else if(player.getDaysUnavailable() < 60){
+								timeOut = player.getDaysUnavailable() / 7 + " weeks";
+							}
+							else{
+								timeOut = player.getDaysUnavailable() / 30 + " months";
+							}
+							this.getMessages().add(new Message((Calendar) this.getDate().clone(), player.getFirstName() + (player.getLastName().equals("") ? "" : " ") + player.getLastName() + " Injured", player.getFirstName() + (player.getLastName().equals("") ? "" : " ") + player.getLastName() + " has been ruled out for " + timeOut + ", after suffering from " + player.getInjury().getSentenceName() + "!"));
+						}
+					}
 				}
 			}
 			//TODO: update happiness
+		}
+	}
+	
+	public void updateAllClubAttributes(){
+		iClub = clubList.iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			c.updateFinances(this.getDate());
+			if(c.getId() != userClub.getId()){
+				c.setStatusOfPlayers();
+			}
 		}
 	}
 	
@@ -439,5 +502,23 @@ public class Database {
 	
 	public List<Competition> getCompetitionList() {
 		return competitionList;
+	}
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
+
+	public List<Message> getMessages() {
+		Collections.sort(this.messages);
+		Collections.reverse(this.messages);
+		return messages;
+	}
+
+	public Club getUserClub() {
+		return userClub;
+	}
+
+	public void setUserClub(Club userClub) {
+		this.userClub = userClub;
 	}
 }

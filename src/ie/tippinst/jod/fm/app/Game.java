@@ -12,6 +12,7 @@ import ie.tippinst.jod.fm.model.Person;
 import ie.tippinst.jod.fm.model.Player;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class Game {
 	
 	private static Game game = null;
 	private Database db;
-	private List<Message> messages = new ArrayList<Message>();
+	//private List<Message> messages = new ArrayList<Message>();
 	private Club userClub;
 
 	/* This constructs a new game object with the initial date set at 2 July 2009*/
@@ -158,6 +159,11 @@ public class Game {
 		return db.findClub(club).getStaff();
 	}
 	
+	/*Get the transfer budget of a particular club*/
+	public double getTransferBudget(String club){
+		return db.findClub(club).getTransferBudget();
+	}
+	
 	/*Returns a sorted list of names of nations in the game*/
 	public List<String> getNationNames(){
 		List<String> listOfNames = new ArrayList<String>();
@@ -174,6 +180,7 @@ public class Game {
 		
 		// Create the user as a new nonplayer object and add them to the list of person objects in the game
 		this.userClub = db.findClub(club);
+		db.setUserClub(userClub);
 		NonPlayer user = new NonPlayer(firstName, surname, db.findNation(nationality), 5000, dob, 100, 200, 1, 20, 1, 1, 1, 1, db.findClub(club));
 		user.setRole();
 		List<Person> list = db.getPersonList();
@@ -190,7 +197,7 @@ public class Game {
 				break;
 			}
 		}
-		messages.add(new Message(db.getDate(), "Welcome to " + this.userClub.getName(), "The chairman of " + this.userClub.getName() + ", " + chairman.getFirstName() + " " + chairman.getLastName() + ", would like to welcome you to the club!"));
+		db.getMessages().add(new Message((Calendar) db.getDate().clone(), "Welcome to " + this.userClub.getName(), "The chairman of " + this.userClub.getName() + ", " + chairman.getFirstName() + " " + chairman.getLastName() + ", would like to welcome you to the club!"));
 		
 		Iterator<Person> j = db.getPersonList().iterator();
 		// If the user's club already has a manager remove them and assign them to no club
@@ -235,7 +242,7 @@ public class Game {
 						}
 						if(!fixtures){
 							if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
-								leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().pickTeam());
+								leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
 							/*Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
 							while(it.hasNext()){
 								Player p = it.next();
@@ -243,7 +250,7 @@ public class Game {
 							}
 							System.out.println();*/
 							if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
-								leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().pickTeam());
+								leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().getBestTeam(leagueFixtures[i][j].getAwayTeam().getAvailablePlayers()));
 							/*it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
 							while(it.hasNext()){
 								Player p = it.next();
@@ -256,12 +263,13 @@ public class Game {
 			}
 		}
 		db.updateAllPersonAttributes();
+		db.updateAllClubAttributes();
 		return fixtures;
 	}
 	
 	public String getMessageBody(int index){
-		String message = null;
-		Iterator<Message> i = messages.iterator();
+		/*String message = null;
+		Iterator<Message> i = db.getMessages().iterator();
 		while(i.hasNext()){
 			Message m = i.next();
 			if(m.getId() == index){
@@ -269,7 +277,12 @@ public class Game {
 				break;
 			}
 		}
-		return message;
+		return message;*/
+		return getMessages().get(index).getBody();
+	}
+	
+	public Calendar getMessageDate(int index){
+		return getMessages().get(index).getDate();
 	}
 	
 	public void offerContractToPlayer(int value, String player, int wages, int lengthOfContract, int status){
@@ -279,29 +292,33 @@ public class Game {
 		cal.add(Calendar.DATE, 3);
 		if(userClub.offerContract((Player) db.findPerson(player), wages, c, status)){
 			((Player) db.findPerson(player)).transferPlayer(value, userClub, (double) wages, c, status);			
-			messages.add(new Message(cal, player + " Accepts Contract", player + " has accepted your contract offer!"));
+			db.getMessages().add(new Message(cal, player + " Accepts Contract", player + " has accepted your contract offer!"));
 		}
 		else{
-			messages.add(new Message(cal, player + " Rejects Contract", player + " has rejected your contract offer!"));
+			db.getMessages().add(new Message(cal, player + " Rejects Contract", player + " has rejected your contract offer!"));
 		}
 	}
 	
-	public void makeOfferForPlayer(String manager, String player, int value){
+	public boolean makeOfferForPlayer(String manager, String player, int value){
 		if(!(checkShortlistForPlayer(player, manager))){
 			addPlayerToShortlist(player, manager);
 		}
 		Calendar c = new GregorianCalendar(db.getDate().get(Calendar.YEAR), db.getDate().get(Calendar.MONTH), db.getDate().get(Calendar.DATE));
 		c.add(Calendar.DATE, 3);
+		if(userClub.getTransferBudget() - value < 0){
+			return false;
+		}
 		if(userClub.makeOffer((Player) db.findPerson(player), value)){
-			messages.add(new Message(c, "Offer for " + player + " Accepted", db.findPerson(player).getCurrentClub().getName() + " have accepted your €" + value + " offer for " + player + "!  You now have permission to offer him a contract!"));
+			db.getMessages().add(new Message(c, "Offer for " + player + " Accepted", db.findPerson(player).getCurrentClub().getName() + " have accepted your €" + value + " offer for " + player + "!  You now have permission to offer him a contract!"));
 		}
 		else{
-			messages.add(new Message(c, "Offer for " + player + " Rejected", db.findPerson(player).getCurrentClub().getName() + " have rejected your €" + value + " offer for " + player + "!"));
+			db.getMessages().add(new Message(c, "Offer for " + player + " Rejected", db.findPerson(player).getCurrentClub().getName() + " have rejected your €" + value + " offer for " + player + "!"));
 		}
+		return true;
 	}
 	
 	public List<Message> getMessages() {
-		Iterator<Message> iMessage = messages.iterator();
+		Iterator<Message> iMessage = db.getMessages().iterator();
 		List<Message> list = new ArrayList<Message>();
 		while(iMessage.hasNext()){
 			Message m = iMessage.next();
@@ -336,5 +353,14 @@ public class Game {
 	
 	public Calendar getDate(){
 		return db.getDate();
+	}
+	
+	public List<String> getClubFinances(String clubName){
+		List<String> list = new ArrayList<String>();
+		Club club = db.findClub(clubName);
+		DecimalFormat format = new DecimalFormat("000,000");
+		list.add("€" + format.format(club.getBankBalance()));
+		list.add("€" + format.format(club.getTransferBudget()));
+		return list;
 	}
 }

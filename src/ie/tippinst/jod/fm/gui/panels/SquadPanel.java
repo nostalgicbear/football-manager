@@ -4,6 +4,7 @@ import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Player;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class SquadPanel extends JPanel {
         
         List<Player> list = game.getSquad(club);
     	int squadSize = list.size();
-    	String[][] data = new String[squadSize][5];
+    	String[][] data = new String[squadSize][9];
     	for (int i = 0; i < squadSize; i++){
     		if(this.oldPanel == null)
     			data[i][0] = "";
@@ -79,22 +80,29 @@ public class SquadPanel extends JPanel {
     		else{
     			data[i][3] = "Very Low";
     		}
-    		data[i][4] = list.get(i).getMatchCondition() + "%";
+    		data[i][4] = Math.round(list.get(i).getMatchCondition()) + "%";
+    		data[i][5] = list.get(i).getStatusAsString();
+    		String timeOut;
+    		if(list.get(i).getDaysUnavailable() < 14){
+    			timeOut = list.get(i).getDaysUnavailable() + (list.get(i).getDaysUnavailable() == 1 ? " day" : " days");
+    		}
+    		else if(list.get(i).getDaysUnavailable() < 60){
+    			timeOut = list.get(i).getDaysUnavailable() / 7 + " weeks";
+    		}
+    		else{
+    			timeOut = list.get(i).getDaysUnavailable() / 30 + " months";
+    		}
+    		data[i][6] = (list.get(i).getInjury() == null ? "None" : (list.get(i).getInjury().getName()) + " (Out for " + timeOut + ")");
+    		data[i][7] = list.get(i).getLeagueAppearances() + "";
+    		data[i][8] = list.get(i).getLeagueGoals() + "";
     	}    	
 
         squadTable.setModel(new DefaultTableModel(data,
             new String [] {
-                "Selection", "Name", "Position", "Morale", "Condition"
+                "Selection", "Name", "Position", "Morale", "Condition", "Status", "Injury", "Appearances", "Goals"
             }
         ));
-        for (int i = 0; i < 4; i++) {
-            squadTableColumn = squadTable.getColumnModel().getColumn(i);
-            if (i == 1) {
-                squadTableColumn.setPreferredWidth(100);
-            } else {
-                squadTableColumn.setPreferredWidth(30);
-            }
-        }
+        
         TableColumn selectionColumn = squadTable.getColumnModel().getColumn(0);
         selectionComboBox = new JComboBox();
         selectionComboBox.addItem("");
@@ -114,6 +122,16 @@ public class SquadPanel extends JPanel {
         //squadTable.setGridColor(new Color(255, 255, 255));
         squadTableHeader.setForeground(Color.white);
         squadTableHeader.setBackground(Color.red);
+        
+        for (int i = 0; i < 7; i++) {
+            squadTableColumn = squadTable.getColumnModel().getColumn(i);
+            if (i == 1 || i == 6) {
+                squadTableColumn.setPreferredWidth(100);
+            } else {
+                squadTableColumn.setPreferredWidth(30);
+            }
+        }
+        
         squadTableScrollPane.setViewportView(squadTable);
         
         GroupLayout layout = new GroupLayout(this);

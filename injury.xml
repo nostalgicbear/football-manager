@@ -5,10 +5,16 @@
    <int>1</int> 
   </void> 
   <void property="name"> 
-   <string>broken leg</string> 
+   <string>arthritis</string> 
   </void>
-  <void property="daysOut"> 
-   <int>210</int> 
+  <void property="sentenceName"> 
+   <string>arthritis</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>14</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>90</int> 
   </void>
  </object>
  <object class="ie.tippinst.jod.fm.model.Injury"> 
@@ -16,10 +22,1257 @@
    <int>2</int> 
   </void> 
   <void property="name"> 
+   <string>back strain</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a back strain</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>21</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>3</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken ankle</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken ankle</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>60</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>150</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>4</int> 
+  </void> 
+  <void property="name"> 
    <string>broken arm</string> 
   </void>
-  <void property="daysOut"> 
+  <void property="sentenceName"> 
+   <string>a broken arm</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>30</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>30</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>5</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken cheekbone</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken cheekbone</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>60</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>6</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken collarbone</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken collarbone</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>37</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>45</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>7</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken finger</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken finger</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>35</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>8</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken foot</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken foot</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>90</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>30</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>9</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken hand</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken hand</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>10</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>10</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken jaw</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken jaw</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>60</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>11</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken leg</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken leg</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>120</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>240</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>12</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken nose</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken nose</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>13</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken pelvis</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken pelvis</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>90</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>150</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>14</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken ribs</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>broken ribs</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>40</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>15</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken shoulder</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken shoulder</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>45</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>16</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken toe</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken toe</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>45</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>15</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>17</int> 
+  </void> 
+  <void property="name"> 
+   <string>broken wrist</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a broken wrist</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>30</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>18</int> 
+  </void> 
+  <void property="name"> 
+   <string>bruised head</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a bruised head</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>19</int> 
+  </void> 
+  <void property="name"> 
+   <string>bruised jaw</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a bruised jaw</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>6</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>20</int> 
+  </void> 
+  <void property="name"> 
+   <string>bruised rib</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a bruised rib</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>3</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>8</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>21</int> 
+  </void> 
+  <void property="name"> 
+   <string>bruised shin</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a bruised shin</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>22</int> 
+  </void> 
+  <void property="name"> 
+   <string>bruised thigh</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a bruised thigh</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>3</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>23</int> 
+  </void> 
+  <void property="name"> 
+   <string>calf strain</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a calf strain</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>15</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>24</int> 
+  </void> 
+  <void property="name"> 
+   <string>chest injury</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a chest injury</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>25</int> 
+  </void> 
+  <void property="name"> 
+   <string>cold</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a cold</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>1</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>3</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>26</int> 
+  </void> 
+  <void property="name"> 
+   <string>concussion</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>concussion</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>6</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>27</int> 
+  </void> 
+  <void property="name"> 
+   <string>cut hand</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a cut hand</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>1</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>28</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged achilles tendon</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged achilles tendon</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>60</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>29</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged cruciate ligaments</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>damaged cruciate ligaments</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>180</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>180</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>30</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged elbow</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged elbow</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>8</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>31</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged foot</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged foot</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>10</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>15</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>32</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged heel</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged heel</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>33</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged knee cap</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged knee cap</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>40</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>34</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged knee cartilage</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>damaged knee cartilage</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>25</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>35</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>35</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged neck</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged neck</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>10</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>25</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>36</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged shoulder</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged shoulder</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>25</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>37</int> 
+  </void> 
+  <void property="name"> 
+   <string>damaged spine</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a damaged spine</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>45</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>290</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>38</int> 
+  </void> 
+  <void property="name"> 
+   <string>dead leg</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a dead leg</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>2</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>39</int> 
+  </void> 
+  <void property="name"> 
+   <string>dislocated jaw</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a dislocated jaw</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>40</int> 
+  </void> 
+  <void property="name"> 
+   <string>dislocated shoulder</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a dislocated shoulder</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>45</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>60</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>41</int> 
+  </void> 
+  <void property="name"> 
+   <string>facial injury</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a facial injury</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>3</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
    <int>42</int> 
-  </void>   
- </object> 
+  </void> 
+  <void property="name"> 
+   <string>flu</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>the flu</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>2</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>43</int> 
+  </void> 
+  <void property="name"> 
+   <string>food poisoning</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>food poisoning</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>4</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>3</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>44</int> 
+  </void> 
+  <void property="name"> 
+   <string>fractured arm</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a fractured arm</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>15</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>45</int> 
+  </void> 
+  <void property="name"> 
+   <string>fractured cheekbone</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a fractured cheekbone</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>46</int> 
+  </void> 
+  <void property="name"> 
+   <string>fractured jaw</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a fractured jaw</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>47</int> 
+  </void> 
+  <void property="name"> 
+   <string>fractured ribs</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>fractured ribs</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>20</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>40</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>48</int> 
+  </void> 
+  <void property="name"> 
+   <string>fractured skull</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a fractured skull</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>60</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>180</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>49</int> 
+  </void> 
+  <void property="name"> 
+   <string>fractured wrist</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a fractured wrist</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>35</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>15</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>50</int> 
+  </void> 
+  <void property="name"> 
+   <string>gashed arm</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a gashed arm</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>3</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>51</int> 
+  </void> 
+  <void property="name"> 
+   <string>gashed head</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a gashed head</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>3</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>52</int> 
+  </void> 
+  <void property="name"> 
+   <string>gashed leg</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a gashed leg</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>16</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>53</int> 
+  </void> 
+  <void property="name"> 
+   <string>groin strain</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a groin strain</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>14</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>54</int> 
+  </void> 
+  <void property="name"> 
+   <string>hip injury</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a hip injury</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>50</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>100</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>55</int> 
+  </void> 
+  <void property="name"> 
+   <string>pulled hamstring</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a pulled hamstring</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>15</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>15</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>56</int> 
+  </void> 
+  <void property="name"> 
+   <string>serious viral infection</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a serious viral infection</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>170</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>57</int> 
+  </void> 
+  <void property="name"> 
+   <string>shin splints</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>shin splints</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>25</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>100</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>58</int> 
+  </void> 
+  <void property="name"> 
+   <string>slipped disc</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a slipped disc</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>60</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>30</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>59</int> 
+  </void> 
+  <void property="name"> 
+   <string>sprained ankle</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a sprained ankle</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>25</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>60</int> 
+  </void> 
+  <void property="name"> 
+   <string>sprained wrist</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a sprained wrist</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>10</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>3</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>61</int> 
+  </void> 
+  <void property="name"> 
+   <string>strained ankle ligaments</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>strained ankle ligaments</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>15</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>30</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>62</int> 
+  </void> 
+  <void property="name"> 
+   <string>strained knee ligaments</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>strained knee ligaments</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>35</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>63</int> 
+  </void> 
+  <void property="name"> 
+   <string>strained neck</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a strained neck</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>10</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>64</int> 
+  </void> 
+  <void property="name"> 
+   <string>strained wrist</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a strained wrist</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>8</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>65</int> 
+  </void> 
+  <void property="name"> 
+   <string>stubbed finger</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a stubbed finger</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>1</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>66</int> 
+  </void> 
+  <void property="name"> 
+   <string>stubbed toe</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a stubbed toe</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>5</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>67</int> 
+  </void> 
+  <void property="name"> 
+   <string>thigh strain</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a thigh strain</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>5</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>20</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>68</int>
+  </void> 
+  <void property="name"> 
+   <string>torn ankle ligaments</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>torn ankle ligaments</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>30</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>150</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>69</int> 
+  </void> 
+  <void property="name"> 
+   <string>torn calf muscle</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a torn calf muscle</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>90</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>30</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>70</int> 
+  </void> 
+  <void property="name"> 
+   <string>torn groin muscle</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a torn groin muscle</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>25</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>45</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>71</int> 
+  </void> 
+  <void property="name"> 
+   <string>torn hamstring</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a torn hamstring</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>60</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>45</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>72</int> 
+  </void> 
+  <void property="name"> 
+   <string>torn knee ligaments</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>torn knee ligaments</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>50</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>60</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>73</int> 
+  </void> 
+  <void property="name"> 
+   <string>twisted ankle</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a twisted ankle</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>14</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>23</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>74</int> 
+  </void> 
+  <void property="name"> 
+   <string>twisted knee</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a twisted knee</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>10</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>15</int> 
+  </void>
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Injury"> 
+  <void property="id"> 
+   <int>75</int> 
+  </void> 
+  <void property="name"> 
+   <string>virus</string> 
+  </void>
+  <void property="sentenceName"> 
+   <string>a virus</string> 
+  </void>
+  <void property="minDaysOut"> 
+   <int>7</int> 
+  </void>
+  <void property="extraDaysOut"> 
+   <int>7</int> 
+  </void>
+ </object>
 </java> 
