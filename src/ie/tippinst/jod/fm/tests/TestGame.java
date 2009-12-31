@@ -9,10 +9,11 @@ import java.util.GregorianCalendar;
 public class TestGame {
 
 	public static void main(String[] args) {
-		PersonXMLFileHandler p = new PersonXMLFileHandler();
+		//PersonXMLFileHandler p = new PersonXMLFileHandler();
 		Calendar c = new GregorianCalendar();
-		c.set(1992, 5, 27);
-		p.create(new Person(c));
+		c.set(1980, 0, 22);
+		//p.create(new Person(c));
 		//System.out.println(p.read());
+		System.out.println(c.getTimeInMillis());
 	}
 }

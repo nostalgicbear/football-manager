@@ -34,6 +34,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -614,7 +615,8 @@ public class MainGameScreen extends JFrame {
 		String date;
 		squadPanel = new SquadPanel(this.userClub, squadPanel, this.userClub);
 		List<String> players = squadPanel.getSelectedPlayers();
-    	if(game.continueGame(processFixtures, players)){
+		int result = game.continueGame(processFixtures, players);
+    	if(result == 1){
     		date = format.format(game.getDate().getTime()).toUpperCase();
     		displayLeagueFixtures(date);
     		processFixtures = true;
@@ -623,6 +625,10 @@ public class MainGameScreen extends JFrame {
     		date = format.format(game.getDate().getTime()).toUpperCase();
     		displayLeagueFixtures(date);
     		processFixtures = false;
+    	}
+    	else if(result == 2){
+    		displayClub(userClub ,0);
+    		JOptionPane.showMessageDialog(this, "You have a match today and need to select 11 available players to continue to it!");
     	}
     	else{
     		displayInbox();

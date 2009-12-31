@@ -18,6 +18,8 @@ public class PlayerContractPanel extends JPanel {
     private JLabel happinessValueLabel;
     private JLabel contractExpiryLabel;
     private JLabel squadStatusLabel;
+    private JLabel interestedLabel;
+    private JLabel interestedValueLabel;
     private JLabel playerValueLabel;
     private JLabel wagesLabel;
     private JLabel happinessLabel;
@@ -36,6 +38,7 @@ public class PlayerContractPanel extends JPanel {
     	playerValueValueLabel.setText(list.get(32));
     	wagesValueLabel.setText(list.get(33));
     	happinessValueLabel.setText(list.get(34));
+    	interestedValueLabel.setText(list.get(35));
     }
 
     private void initComponents() {
@@ -45,6 +48,8 @@ public class PlayerContractPanel extends JPanel {
          squadStatusLabel = new JLabel();
          playerValueLabel = new JLabel();
          wagesLabel = new JLabel();
+         interestedLabel = new JLabel();
+         interestedValueLabel = new JLabel();
          happinessLabel = new JLabel();
          clubValueLabel = new JLabel();
          contractExpiryValueLabel = new JLabel();
@@ -64,6 +69,8 @@ public class PlayerContractPanel extends JPanel {
          wagesLabel.setText("Wages:");
 
          happinessLabel.setText("Happiness:");
+         
+         interestedLabel.setText("Interested: ");
 
          GroupLayout layout = new GroupLayout(this);
          this.setLayout(layout);
@@ -72,6 +79,7 @@ public class PlayerContractPanel extends JPanel {
              .addGroup(layout.createSequentialGroup()
                  .addGap(93, 93, 93)
                  .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                	 .addComponent(interestedLabel)
                      .addComponent(wagesLabel)
                      .addComponent(happinessLabel)
                      .addComponent(playerValueLabel)
@@ -80,6 +88,7 @@ public class PlayerContractPanel extends JPanel {
                      .addComponent(contractExpiryLabel))
                  .addGap(82, 82, 82)
                  .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                	 .addComponent(interestedValueLabel)
                      .addComponent(clubValueLabel)
                      .addComponent(playerValueValueLabel)
                      .addComponent(happinessValueLabel)
@@ -104,7 +113,9 @@ public class PlayerContractPanel extends JPanel {
                          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                          .addComponent(wagesLabel)
                          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                         .addComponent(happinessLabel))
+                         .addComponent(happinessLabel)
+                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                         .addComponent(interestedLabel))
                      .addGroup(layout.createSequentialGroup()
                          .addComponent(clubValueLabel)
                          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -116,7 +127,9 @@ public class PlayerContractPanel extends JPanel {
                          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                          .addComponent(wagesValueLabel)
                          .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                         .addComponent(happinessValueLabel)))
+                         .addComponent(happinessValueLabel)
+                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                         .addComponent(interestedValueLabel)))
                  .addContainerGap(127, Short.MAX_VALUE))
          );
      }

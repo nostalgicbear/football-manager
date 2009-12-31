@@ -212,8 +212,8 @@ public class Game {
 		}
 	}
 	
-	public boolean continueGame(boolean processFixtures, List<String> players){
-		boolean fixtures = false;
+	public int continueGame(boolean processFixtures, List<String> players){
+		int fixtures = 0;
 		if(!(processFixtures)){
 			db.getDate().add(Calendar.DATE, 1);
 		}
@@ -230,7 +230,13 @@ public class Game {
 								List<Player> selectedTeam = new ArrayList<Player>();
 								Iterator<String> iteratorPlayers = players.iterator();
 								while(iteratorPlayers.hasNext()){
-									selectedTeam.add((Player) db.findPerson(iteratorPlayers.next()));
+									Player p = (Player) db.findPerson(iteratorPlayers.next());
+									if(!(p.isInjured()))
+										selectedTeam.add(p);
+								}
+								if(selectedTeam.size() < 11){
+									db.getDate().add(Calendar.DATE, -1);
+									return 2;
 								}
 								this.userClub.setSelectedTeam(selectedTeam);
 								/*Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
@@ -238,9 +244,9 @@ public class Game {
 									System.out.println(temp.next().getLastName());
 								}*/
 							}
-							fixtures = true;
+							fixtures = 1;
 						}
-						if(!fixtures){
+						if(fixtures != 1){
 							if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
 								leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
 							/*Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
@@ -342,12 +348,14 @@ public class Game {
 	public void addPlayerToShortlist(String player, String manager){		
 		List<Player> shortlist = ((NonPlayer) db.findPerson(manager)).getShortlist();
 		shortlist.add((Player) db.findPerson(player));
+		((Player) db.findPerson(player)).getInterested().add(db.findPerson(manager).getCurrentClub());
 		((NonPlayer) db.findPerson(manager)).setShortlist(shortlist);
 	}
 	
 	public void removePlayerFromShortlist(String player, String manager){		
 		List<Player> shortlist = ((NonPlayer) db.findPerson(manager)).getShortlist();
 		shortlist.remove((Player) db.findPerson(player));
+		((Player) db.findPerson(player)).getInterested().remove(db.findPerson(manager).getCurrentClub());
 		((NonPlayer) db.findPerson(manager)).setShortlist(shortlist);
 	}
 	

@@ -2,7 +2,7 @@
 <java version="1.6.0_16" class="java.beans.XMLDecoder"> 
  <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
   <void property="id"> 
-   <int>2</int> 
+   <int>257</int> 
   </void>
   <void property="wages"> 
    <double>90000</double> 
@@ -181,6 +181,134 @@
   </void>
   <void property="assistantManagerRole"> 
    <int>20</int> 
+  </void>
+  <void property="coachRole"> 
+   <int>1</int> 
+  </void> 
+  <void property="physioRole"> 
+   <int>1</int> 
+  </void>
+  <void property="scoutRole"> 
+   <int>1</int> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
+  <void property="id"> 
+   <int>258</int> 
+  </void>
+  <void property="wages"> 
+   <double>20000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>499035088741</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="id"> 
+   <int>16</int> 
+  </void> 
+  </object>
+  </void>
+  <void property="firstName"> 
+   <string>Alec</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>McLeish</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>22</int> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>7400</int> 
+  </void>
+  <void property="currentAbility"> 
+   <int>150</int> 
+  </void> 
+  <void property="potentialAbility"> 
+   <int>159</int> 
+  </void>
+  <void property="chairmanRole"> 
+   <int>1</int> 
+  </void> 
+  <void property="managerRole"> 
+   <int>20</int> 
+  </void>
+  <void property="assistantManagerRole"> 
+   <int>1</int> 
+  </void>
+  <void property="coachRole"> 
+   <int>1</int> 
+  </void> 
+  <void property="physioRole"> 
+   <int>1</int> 
+  </void>
+  <void property="scoutRole"> 
+   <int>1</int> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.NonPlayer"> 
+  <void property="id"> 
+   <int>259</int> 
+  </void>
+  <void property="wages"> 
+   <double>50000</double> 
+  </void>
+  <void property="dob"> 
+   <object class="java.util.GregorianCalendar"> 
+    <void property="time"> 
+     <object class="java.util.Date"> 
+      <long>499035088741</long> 
+     </object> 
+    </void> 
+   </object> 
+  </void>  
+  <void property="currentClub"> 
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="id"> 
+   <int>16</int> 
+  </void> 
+  </object>
+  </void>
+  <void property="firstName"> 
+   <string>Carson</string> 
+  </void> 
+  <void property="lastName"> 
+   <string>Yeung</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>153</int> 
+    </void> 
+   </object> 
+  </void> 
+  <void property="reputation"> 
+   <int>5400</int> 
+  </void>
+  <void property="currentAbility"> 
+   <int>150</int> 
+  </void> 
+  <void property="potentialAbility"> 
+   <int>159</int> 
+  </void>
+  <void property="chairmanRole"> 
+   <int>20</int> 
+  </void> 
+  <void property="managerRole"> 
+   <int>1</int> 
+  </void>
+  <void property="assistantManagerRole"> 
+   <int>1</int> 
   </void>
   <void property="coachRole"> 
    <int>1</int> 

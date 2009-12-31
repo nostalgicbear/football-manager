@@ -74,6 +74,7 @@ public class Database {
 		initialiseNonPlayers();
 		initialiseClubs();
 		initialiseLeagues();
+		initialiseManagerShortlists();
 	}
 	
 	public Injury findInjury(int id){
@@ -154,10 +155,30 @@ public class Database {
 					staffList.add((NonPlayer) p);
 				}
 			}
+			List<Player> goalkeepers = new ArrayList<Player>();
+			Iterator<Player> i = playerList.iterator();
+			while(i.hasNext()){
+				Player p = i.next();
+				if(p.getGoalkeepingAbility() == 20)
+					goalkeepers.add(p);
+			}
+			while(goalkeepers.size() < 2){
+				//generate goalkeeper
+				Player player = generateGoalkeeper(c);
+				goalkeepers.add(player);
+				playerList.add(player);
+				personList.add(player);
+			}
+			while(playerList.size() < 16){
+				//generate new outfield player
+				Player player = generateOutfieldPlayer(c);
+				playerList.add(player);
+				personList.add(player);
+			}
 			c.setSquad(playerList);
 			c.setStaff(staffList);
 			c.setStatusOfPlayers();
-			Iterator<Player> i = playerList.iterator();
+			i = playerList.iterator();
 			while(i.hasNext()){
 				Player p = i.next();
 				p.setMarketValue(this.getDate());
@@ -520,5 +541,275 @@ public class Database {
 
 	public void setUserClub(Club userClub) {
 		this.userClub = userClub;
+	}
+	
+	public int getLastPersonIdUsed(){
+		int id = 0;
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if(p.getId() > id)
+				id = p.getId();
+		}
+		return id;
+	}
+	
+	public Player generateOutfieldPlayer(Club c){
+		Player p = new Player();
+		p.setId(getLastPersonIdUsed() + 1);
+		int year = ((int) (Math.random() * 6)) + 1978;
+		int month = (int) (Math.random() * 12);
+		int numberOfDays = 31;
+		if(month == 1){
+			numberOfDays = 28;
+		}
+		else if(month == 3 || month == 5 || month == 8 || month == 10){
+			numberOfDays = 30;
+		}
+		int date = ((int) (Math.random() * numberOfDays)) + 1;
+		p.setDob(new GregorianCalendar(year, month, date));
+		p.setCurrentClub(c);
+		p.setContractExpiry(new GregorianCalendar((((int) (Math.random() * 3)) + 2010), 5, 30));
+		p.setNationality(c.getNationality());
+		String[] firstNames = {"Aaron", "Adam", "Adrian", "Aiden", "Alan", "Alastair", "Albert", "Alexander", "Alfie", "Andrew", "Angus", "Anthony", "Arnold"};
+		p.setFirstName(firstNames[(int) (Math.random() * firstNames.length)]);
+		String[] surnames = {"Smith", "Jones", "Taylor", "Brown", "Williams", "Wilson", "Johnson", "Davies", "Robinson", "Wright", "Thompson", "Evans", "Walker", "White", "Roberts", "Green", "Hall", "Wood", "Jackson", "Clarke"};
+		p.setLastName(surnames[(int) (Math.random() * surnames.length)]);
+		p.setReputation(c.getReputation() / 50);
+		p.setWages(p.getReputation() * 50.0);
+		p.setPotentialAbility(p.getReputation() + 30);
+		p.setLeftFootAbility(((int) (Math.random() * 15)) + 1);
+		p.setRightFootAbility(((int) (Math.random() * 15)) + 1);
+		if(((int) (Math.random() * 3)) == 0){
+			p.setLeftFootAbility(20);
+		}
+		else{
+			p.setRightFootAbility(20);
+		}
+		int positionDeterminant = (int) (Math.random() * 100);
+		p.setGoalkeepingAbility(1);
+		p.setRightFullbackAbility(1);
+		p.setLeftFullbackAbility(1);
+		p.setCentrebackAbility(1);
+		p.setRightMidfieldAbility(1);
+		p.setLeftMidfieldAbility(1);
+		p.setCentreMidfieldAbility(1);
+		p.setStrikerAbility(1);
+		if(positionDeterminant < 34){
+			if(positionDeterminant < 11){
+				p.setRightFullbackAbility(20);
+			}
+			else if(positionDeterminant < 22){
+				p.setLeftFullbackAbility(20);
+			}
+			else{
+				p.setCentrebackAbility(20);
+			}
+		}
+		else if(positionDeterminant < 78){
+			if(positionDeterminant < 49){
+				p.setRightMidfieldAbility(20);
+			}
+			else if(positionDeterminant < 63){
+				p.setLeftMidfieldAbility(20);
+			}
+			else{
+				p.setCentreMidfieldAbility(20);
+			}
+		}
+		else{
+			p.setStrikerAbility(20);
+		}
+		p.setHandling(((int) (Math.random() * 5)) + 1);
+		p.setReflexes(((int) (Math.random() * 5)) + 1);
+		p.setCommandOfArea(((int) (Math.random() * 5)) + 1);
+		p.setDecisions(((int) (Math.random() * 12)) + 6);
+		p.setFinishing(((int) (Math.random() * 10)) + 3);
+		p.setHeading(((int) (Math.random() * 8)) + 5);
+		p.setMarking(((int) (Math.random() * 6)) + 1);
+		p.setPassing(((int) (Math.random() * 12)) + 6);
+		p.setCrossing(((int) (Math.random() * 10)) + 4);
+		p.setDribbling(((int) (Math.random() * 10)) + 4);
+		p.setTackling(((int) (Math.random() * 8)) + 4);
+		p.setLongShots(((int) (Math.random() * 11)) + 2);
+		p.setPenaltyTaking(((int) (Math.random() * 16)) + 5);
+		p.setInfluence(((int) (Math.random() * 16)) + 5);
+		p.setPace(((int) (Math.random() * 10)) + 9);
+		p.setStrength(((int) (Math.random() * 10)) + 9);
+		p.setStamina(((int) (Math.random() * 10)) + 10);
+		p.setLoyalty(((int) (Math.random() * 17)) + 4);
+		p.setAmbition(((int) (Math.random() * 17)) + 4);
+		if(p.getStrikerAbility() == 20){
+			p.setFinishing(((int) (Math.random() * 6)) + 12);
+			p.setHeading(((int) (Math.random() * 6)) + 12);
+			p.setDribbling(((int) (Math.random() * 10)) + 7);
+			p.setLongShots(((int) (Math.random() * 11)) + 6);
+		}
+		else if(p.getLeftMidfieldAbility() == 20 || p.getRightMidfieldAbility() == 20){
+			p.setCrossing(((int) (Math.random() * 10)) + 4);
+			p.setDribbling(((int) (Math.random() * 10)) + 4);
+		}
+		else if(p.getCentreMidfieldAbility() == 20){
+			p.setTackling(((int) (Math.random() * 8)) + 9);
+			p.setLongShots(((int) (Math.random() * 10)) + 9);
+		}
+		else if(p.getLeftFullbackAbility() == 20 || p.getRightFullbackAbility() == 20){
+			p.setHeading(((int) (Math.random() * 8)) + 10);
+			p.setMarking(((int) (Math.random() * 6)) + 12);
+			p.setCrossing(((int) (Math.random() * 8)) + 10);
+			p.setDribbling(((int) (Math.random() * 8)) + 8);
+			p.setTackling(((int) (Math.random() * 7)) + 11);
+		}
+		else{
+			p.setHeading(((int) (Math.random() * 6)) + 12);
+			p.setMarking(((int) (Math.random() * 6)) + 12);
+			p.setTackling(((int) (Math.random() * 6)) + 12);
+		}
+		p.setPosition();
+		p.setCurrentAbility();
+		if(p.getCurrentAbility() > p.getPotentialAbility()){
+			p.setPotentialAbility(p.getCurrentAbility());
+		}
+		p.setMatchCondition(70);
+		p.setMorale(8000);
+		p.setFitness(1500);
+		p.setHappinessAtClub(7500);
+		p.setFatigue(1500);
+		p.setAge(this.date);
+		return p;
+	}
+	
+	public Player generateGoalkeeper(Club c){
+		Player p = new Player();
+		p.setId(getLastPersonIdUsed() + 1);
+		int year = ((int) (Math.random() * 6)) + 1978;
+		int month = (int) (Math.random() * 12);
+		int numberOfDays = 31;
+		if(month == 1){
+			numberOfDays = 28;
+		}
+		else if(month == 3 || month == 5 || month == 8 || month == 10){
+			numberOfDays = 30;
+		}
+		int date = ((int) (Math.random() * numberOfDays)) + 1;
+		p.setDob(new GregorianCalendar(year, month, date));
+		p.setCurrentClub(c);
+		p.setContractExpiry(new GregorianCalendar((((int) (Math.random() * 3)) + 2010), 5, 30));
+		p.setNationality(c.getNationality());
+		String[] firstNames = {"Aaron", "Adam", "Adrian", "Aiden", "Alan", "Alastair", "Albert", "Alexander", "Alfie", "Andrew", "Angus", "Anthony", "Arnold"};
+		p.setFirstName(firstNames[(int) (Math.random() * firstNames.length)]);
+		String[] surnames = {"Smith", "Jones", "Taylor", "Brown", "Williams", "Wilson", "Johnson", "Davies", "Robinson", "Wright", "Thompson", "Evans", "Walker", "White", "Roberts", "Green", "Hall", "Wood", "Jackson", "Clarke"};
+		p.setLastName(surnames[(int) (Math.random() * surnames.length)]);
+		p.setReputation(c.getReputation() / 50);
+		p.setWages(p.getReputation() * 50.0);
+		p.setPotentialAbility(p.getReputation() + 30);
+		p.setLeftFootAbility(((int) (Math.random() * 15)) + 1);
+		p.setRightFootAbility(((int) (Math.random() * 15)) + 1);
+		if(((int) (Math.random() * 3)) == 0){
+			p.setLeftFootAbility(20);
+		}
+		else{
+			p.setRightFootAbility(20);
+		}
+		p.setGoalkeepingAbility(20);
+		p.setRightFullbackAbility(1);
+		p.setLeftFullbackAbility(1);
+		p.setCentrebackAbility(1);
+		p.setRightMidfieldAbility(1);
+		p.setLeftMidfieldAbility(1);
+		p.setCentreMidfieldAbility(1);
+		p.setStrikerAbility(1);
+		p.setHandling(((int) (Math.random() * 6)) + 12);
+		p.setReflexes(((int) (Math.random() * 6)) + 13);
+		p.setCommandOfArea(((int) (Math.random() * 6)) + 11);
+		p.setDecisions(((int) (Math.random() * 6)) + 11);
+		p.setFinishing(((int) (Math.random() * 6)) + 1);
+		p.setHeading(((int) (Math.random() * 6)) + 1);
+		p.setMarking(((int) (Math.random() * 6)) + 1);
+		p.setPassing(((int) (Math.random() * 6)) + 1);
+		p.setCrossing(((int) (Math.random() * 6)) + 1);
+		p.setDribbling(((int) (Math.random() * 6)) + 1);
+		p.setTackling(((int) (Math.random() * 6)) + 1);
+		p.setLongShots(((int) (Math.random() * 6)) + 1);
+		p.setPenaltyTaking(((int) (Math.random() * 6)) + 1);
+		p.setInfluence(((int) (Math.random() * 16)) + 5);
+		p.setPace(((int) (Math.random() * 10)) + 6);
+		p.setStrength(((int) (Math.random() * 8)) + 9);
+		p.setStamina(((int) (Math.random() * 8)) + 8);
+		p.setLoyalty(((int) (Math.random() * 17)) + 4);
+		p.setAmbition(((int) (Math.random() * 17)) + 4);
+		p.setPosition();
+		p.setCurrentAbility();
+		p.setMatchCondition(70);
+		p.setMorale(8000);
+		p.setFitness(1500);
+		p.setHappinessAtClub(7500);
+		p.setFatigue(1500);
+		p.setAge(this.date);
+		return p;
+	}
+	
+	private void initialiseManagerShortlists(){
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person p = iPerson.next();
+			if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null){
+				List<Player> potentialSignings = new ArrayList<Player>();
+				int goalkeepers = getNumberOfGoalkeepers(p.getCurrentClub());
+				if(goalkeepers < 1){
+					// search for goalkeepers with min ca required and sale value <= transfer budget and player rep <= club rep
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(0, minAbility, p.getCurrentClub()));
+				}
+				else if(goalkeepers < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(0, minAbility, p.getCurrentClub()));
+				}
+				else if(goalkeepers < 3){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (2 * 15);
+					potentialSignings.addAll(getPotentialSignings(0, minAbility, p.getCurrentClub()));
+				}
+				((NonPlayer) p).getShortlist().addAll(potentialSignings);
+				System.out.println(p.getFirstName() + " " + p.getLastName() + "'s Shortlist");
+				Iterator<Player> it = ((NonPlayer) p).getShortlist().iterator();
+				while(it.hasNext()){
+					Player player = it.next();
+					System.out.println(player.getFirstName() + " " + player.getLastName());
+				}
+			}
+		}
+	}
+	
+	private int getNumberOfGoalkeepers(Club club){
+		int goalkeepers = 0;
+		Iterator<Player> iSquad = club.getSquad().iterator();
+		while(iSquad.hasNext()){
+			if(iSquad.next().getGoalkeepingAbility() == 20){
+				goalkeepers++;
+			}
+		}
+		return goalkeepers;
+	}
+	
+	public List<Player> getPotentialSignings(int position, int minAbility, Club club){
+		int positionalAbility = 1;
+		List<Player> potentialSignings = new ArrayList<Player>();
+		iPerson = personList.iterator();
+		while(iPerson.hasNext()){
+			Person person = iPerson.next();
+			if(person instanceof Player){
+				Player player = (Player) iPerson.next();
+				switch(position){
+				case 0: positionalAbility = player.getGoalkeepingAbility();
+						break;
+				default: System.out.println("Error");
+				}
+				if((positionalAbility == 20) && (player.getCurrentAbility() >= minAbility) && (player.getSaleValue() <= club.getTransferBudget()) && (player.getReputation() <= (club.getReputation() / 50)) && (player.getCurrentClub().getId() != club.getId())){
+					potentialSignings.add(player);
+					player.getInterested().add(club);
+				}
+			}
+		}
+		return potentialSignings;
 	}
 }

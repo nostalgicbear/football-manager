@@ -193,7 +193,7 @@ public class Club implements Serializable {
 	public void setStatusOfPlayers() {
 		List<Player> list = new ArrayList<Player>(this.getSquad());
 		//Collections.copy(list, this.getSquad());
-		if (list.size() > 0) {
+		if (list.size() >= 16) {
 			Iterator<Player> i = list.iterator();
 			while (i.hasNext()) {
 				i.next().setStatus(5);
@@ -214,6 +214,7 @@ public class Club implements Serializable {
 			int maxAbility = Collections.max(firstTeamAbilities).intValue();
 			firstTeamAbilities.remove(new Integer(maxAbility));
 			maxAbility = Collections.max(firstTeamAbilities).intValue();
+			//System.out.println(maxAbility);
 			firstTeamAbilities.remove(new Integer(maxAbility));
 			maxAbility = Collections.max(firstTeamAbilities).intValue();
 			i = this.getSelectedTeam().iterator();
@@ -256,6 +257,13 @@ public class Club implements Serializable {
 						p.setStatus(2);
 					}
 				}
+			}
+		}
+		
+		else if(list.size() > 0){
+			Iterator<Player> i = list.iterator();
+			while (i.hasNext()) {
+				i.next().setStatus(1);
 			}
 		}
 		

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 
 public class Player extends Person implements Serializable {
@@ -54,6 +55,7 @@ public class Player extends Person implements Serializable {
 	private int ambition;
 	private int leagueAppearances = 0;
 	private int leagueGoals = 0;
+	private List<Club> interested = new ArrayList<Club>();
 	
 	public Player(){
 		super();
@@ -484,6 +486,17 @@ public class Player extends Person implements Serializable {
 		else{
 			list.add("Wants to leave the club");
 		}
+		String interestedClubs = "";
+		if(this.getInterested().size() == 0){
+			interestedClubs = "None";
+		}
+		else{
+			Iterator<Club> i = this.getInterested().iterator();
+			while(i.hasNext()){
+				interestedClubs = interestedClubs + i.next().getName() + " ";
+			}
+		}
+		list.add(interestedClubs);
 		return list;
 	}
 
@@ -780,5 +793,13 @@ public class Player extends Person implements Serializable {
 
 	public int getLeagueGoals() {
 		return leagueGoals;
+	}
+
+	public void setInterested(List<Club> interested) {
+		this.interested = interested;
+	}
+
+	public List<Club> getInterested() {
+		return interested;
 	}
 }
