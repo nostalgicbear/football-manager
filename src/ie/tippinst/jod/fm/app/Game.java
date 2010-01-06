@@ -268,6 +268,32 @@ public class Game {
 				}
 			}
 		}
+		Iterator<Person> i = db.getPersonList().iterator();
+		while(i.hasNext()){
+			Person p = i.next();
+			if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null && p.getId() != 0 && ((NonPlayer) p).getShortlist().size() != 0){
+				int currentAbility = 0;
+				Player playerToBuy = null;
+				Iterator<Player> targets = ((NonPlayer) p).getShortlist().iterator();
+				while(targets.hasNext()){
+					Player player = targets.next();
+					if(currentAbility < player.getCurrentAbility() && (player.getSaleValue() * 4) <= p.getCurrentClub().getTransferBudget()){
+						currentAbility = player.getCurrentAbility();
+						playerToBuy = player;
+					}
+				}
+				if(playerToBuy == null){
+					
+				}
+				else if(playerToBuy.getCurrentClub().getId() == userClub.getId()){
+					
+				}
+				else{
+					//p.getCurrentClub().makeOffer(playerToBuy, playerToBuy.getSaleValue());
+					playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
+				}
+			}
+		}
 		db.updateAllPersonAttributes();
 		db.updateAllClubAttributes();
 		return fixtures;

@@ -74,7 +74,7 @@ public class Database {
 		initialiseNonPlayers();
 		initialiseClubs();
 		initialiseLeagues();
-		initialiseManagerShortlists();
+		setManagerShortlists();
 	}
 	
 	public Injury findInjury(int id){
@@ -479,6 +479,7 @@ public class Database {
 			}
 			//TODO: update happiness
 		}
+		this.setManagerShortlists();
 	}
 	
 	public void updateAllClubAttributes(){
@@ -749,13 +750,20 @@ public class Database {
 		return p;
 	}
 	
-	private void initialiseManagerShortlists(){
+	private void setManagerShortlists(){
 		iPerson = personList.iterator();
 		while(iPerson.hasNext()){
 			Person p = iPerson.next();
-			if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null){
+			if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null && p.getId() != 0){
 				List<Player> potentialSignings = new ArrayList<Player>();
-				int goalkeepers = getNumberOfGoalkeepers(p.getCurrentClub());
+				int goalkeepers = getNumberOfPlayers(0, p.getCurrentClub());
+				int rightBacks = getNumberOfPlayers(1, p.getCurrentClub());
+				int leftBacks = getNumberOfPlayers(2, p.getCurrentClub());
+				int centreBacks = getNumberOfPlayers(3, p.getCurrentClub());
+				int rightMidfielders = getNumberOfPlayers(4, p.getCurrentClub());
+				int leftMidfielders = getNumberOfPlayers(5, p.getCurrentClub());
+				int centreMidfielders = getNumberOfPlayers(6, p.getCurrentClub());
+				int strikers = getNumberOfPlayers(7, p.getCurrentClub());
 				if(goalkeepers < 1){
 					// search for goalkeepers with min ca required and sale value <= transfer budget and player rep <= club rep
 					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
@@ -769,6 +777,67 @@ public class Database {
 					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (2 * 15);
 					potentialSignings.addAll(getPotentialSignings(0, minAbility, p.getCurrentClub()));
 				}
+				if(rightBacks < 1){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(1, minAbility, p.getCurrentClub()));
+				}
+				else if(rightBacks < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(1, minAbility, p.getCurrentClub()));
+				}
+				if(leftBacks < 1){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(2, minAbility, p.getCurrentClub()));
+				}
+				else if(leftBacks < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(2, minAbility, p.getCurrentClub()));
+				}
+				if(centreBacks < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(3, minAbility, p.getCurrentClub()));
+				}
+				else if(centreBacks < 4){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(3, minAbility, p.getCurrentClub()));
+				}
+				if(rightMidfielders < 1){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(4, minAbility, p.getCurrentClub()));
+				}
+				else if(rightMidfielders < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(4, minAbility, p.getCurrentClub()));
+				}
+				if(leftMidfielders < 1){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(5, minAbility, p.getCurrentClub()));
+				}
+				else if(leftMidfielders < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(5, minAbility, p.getCurrentClub()));
+				}
+				if(centreMidfielders < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(6, minAbility, p.getCurrentClub()));
+				}
+				else if(centreMidfielders < 4){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(6, minAbility, p.getCurrentClub()));
+				}
+				if(strikers < 2){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (0 * 15);
+					potentialSignings.addAll(getPotentialSignings(7, minAbility, p.getCurrentClub()));
+				}
+				else if(strikers < 4){
+					int minAbility = (((p.getCurrentClub().getReputation() / 100) + (p.getCurrentClub().getLeague().getReputation() * 10)) * (18 / 30)) - (1 * 15);
+					potentialSignings.addAll(getPotentialSignings(7, minAbility, p.getCurrentClub()));
+				}
+				removeDuplicates(potentialSignings);
+				if(potentialSignings.size() == 0){
+					//TODO: as we have enough players then search for better players
+				}
+				((NonPlayer) p).getShortlist().clear();
 				((NonPlayer) p).getShortlist().addAll(potentialSignings);
 				System.out.println(p.getFirstName() + " " + p.getLastName() + "'s Shortlist");
 				Iterator<Player> it = ((NonPlayer) p).getShortlist().iterator();
@@ -780,15 +849,43 @@ public class Database {
 		}
 	}
 	
-	private int getNumberOfGoalkeepers(Club club){
-		int goalkeepers = 0;
-		Iterator<Player> iSquad = club.getSquad().iterator();
-		while(iSquad.hasNext()){
-			if(iSquad.next().getGoalkeepingAbility() == 20){
-				goalkeepers++;
+	private void removeDuplicates(List<Player> players){
+		for(int i = players.size()-1; i >= 0; i--){
+			while(players.indexOf(players.get(i)) != i){
+				players.remove(players.get(i));
 			}
 		}
-		return goalkeepers;
+	}
+	
+	private int getNumberOfPlayers(int position, Club club){
+		int players = 0;
+		int ability = 1;
+		Iterator<Player> iSquad = club.getSquad().iterator();
+		while(iSquad.hasNext()){
+			Player p = iSquad.next();
+			switch(position){
+			case 0: ability = p.getGoalkeepingAbility();
+					break;
+			case 1: ability = p.getRightFullbackAbility();
+					break;
+			case 2: ability = p.getLeftFullbackAbility();
+					break;
+			case 3: ability = p.getCentrebackAbility();
+					break;
+			case 4: ability = p.getRightMidfieldAbility();
+					break;
+			case 5: ability = p.getLeftMidfieldAbility();
+					break;
+			case 6: ability = p.getCentreMidfieldAbility();
+					break;
+			case 7: ability = p.getStrikerAbility();
+					break;
+			}
+			if(ability >= 15){
+				players++;
+			}
+		}
+		return players;
 	}
 	
 	public List<Player> getPotentialSignings(int position, int minAbility, Club club){
@@ -797,14 +894,28 @@ public class Database {
 		iPerson = personList.iterator();
 		while(iPerson.hasNext()){
 			Person person = iPerson.next();
-			if(person instanceof Player){
+			if(person instanceof Player && person.getCurrentClub().getId() != club.getId()){
 				Player player = (Player) iPerson.next();
 				switch(position){
 				case 0: positionalAbility = player.getGoalkeepingAbility();
 						break;
+				case 1: positionalAbility = player.getRightFullbackAbility();
+						break;
+				case 2: positionalAbility = player.getLeftFullbackAbility();
+						break;
+				case 3: positionalAbility = player.getCentrebackAbility();
+						break;
+				case 4: positionalAbility = player.getRightMidfieldAbility();
+						break;
+				case 5: positionalAbility = player.getLeftMidfieldAbility();
+						break;
+				case 6: positionalAbility = player.getCentreMidfieldAbility();
+						break;
+				case 7: positionalAbility = player.getStrikerAbility();
+						break;
 				default: System.out.println("Error");
 				}
-				if((positionalAbility == 20) && (player.getCurrentAbility() >= minAbility) && (player.getSaleValue() <= club.getTransferBudget()) && (player.getReputation() <= (club.getReputation() / 50)) && (player.getCurrentClub().getId() != club.getId())){
+				if((positionalAbility >= 15) && (player.getCurrentAbility() >= minAbility) && (player.getSaleValue() <= club.getTransferBudget()) && ((player.getCurrentClub().getReputation() < club.getReputation()) || (!(player.getStatusAsString().equals("INDISPENSABLE") || player.getStatusAsString().equals("IMPORTANT"))) && ((player.getCurrentClub().getReputation()/1.5) < club.getReputation())) && (player.getCurrentClub().getId() != club.getId())){
 					potentialSignings.add(player);
 					player.getInterested().add(club);
 				}

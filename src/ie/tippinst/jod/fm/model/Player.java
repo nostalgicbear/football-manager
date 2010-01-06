@@ -754,9 +754,9 @@ public class Player extends Person implements Serializable {
 		return matchCondition;
 	}
 	
-	public void transferPlayer(int value, Club club, double wages, Calendar contractExpiry, int status){
-		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() + value);
-		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() + value);
+	public void transferPlayer(double d, Club club, double wages, Calendar contractExpiry, int status){
+		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() + d);
+		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() + d);
 		List<Player> squad = this.getCurrentClub().getSquad();
 		squad.remove(this);
 		this.getCurrentClub().setSquad(squad);
@@ -767,8 +767,8 @@ public class Player extends Person implements Serializable {
 		squad = this.getCurrentClub().getSquad();
 		squad.add(this);
 		this.getCurrentClub().setSquad(squad);
-		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() - value);
-		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() - value);
+		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() - d);
+		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() - d);
 	}
 
 	public void setDaysUnavailable(int daysUnavailable) {
