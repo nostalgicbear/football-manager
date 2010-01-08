@@ -54,6 +54,10 @@ public class InboxPanel extends JPanel {
 	private JScrollPane messageListScrollPane;
 	private JButton offerContractButton;
 	private JButton withdrawOfferButton;
+	private JButton acceptOfferButton;
+	private JButton rejectOfferButton;
+	private boolean showContractButtons = true;
+	private boolean showOfferButtons = true;
 	private Game game;
 	
 	public InboxPanel() {
@@ -74,8 +78,8 @@ public class InboxPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				messageTextPane.remove(offerContractButton);
-				messageTextPane.remove(withdrawOfferButton);
+				showContractButtons = false;
+				displayMessage();
 				Document d = messageTextPane.getDocument();
 				try {
 					d.insertString(d.getLength(), "Your offer has been withdrawn!", new SimpleAttributeSet());
@@ -89,21 +93,62 @@ public class InboxPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				showContractButtons = false;
+				displayMessage();
 				Document d = messageTextPane.getDocument();
 				try {
 					d.insertString(d.getLength(), "Your have offered a contract!", new SimpleAttributeSet());
 				} catch (BadLocationException e1) {
 					e1.printStackTrace();
 				}
-				messageTextPane.remove(offerContractButton);
-				messageTextPane.remove(withdrawOfferButton);
 				offerContract(e);
+			}			
+		});
+		acceptOfferButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				showOfferButtons = false;
+				displayMessage();
+				sellPlayer(e);
+			}			
+		});
+		
+		rejectOfferButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				showOfferButtons = false;
+				displayMessage();
+				rejectOffer(e);
 			}			
 		});
 	}
 	
+	private void rejectOffer(ActionEvent e) {
+		String header = (String) messageList.getSelectedValue();
+		header = header.replace(" bid for ", "/");
+		int index = header.indexOf("/");
+		String playerName = header.substring(0, index);
+		String clubName = header.substring(index + 1);
+		game.rejectOffer(playerName, clubName);		
+	}
+
+	private void sellPlayer(ActionEvent e) {
+		String header = (String) messageList.getSelectedValue();
+		header = header.replace(" bid for ", "/");
+		int index = header.indexOf("/");
+		String clubName = header.substring(0, index);
+		String playerName = header.substring(index + 1);
+		index = playerName.indexOf("(");
+		playerName = playerName.substring(0, index - 1);
+		System.out.println(playerName);
+		System.out.println(clubName);
+		game.sellPlayer(playerName, clubName);	
+	}
+
 	private void offerContract(ActionEvent ae){
-		String header = ((String) messageList.getSelectedValue());
+		String header = (String) messageList.getSelectedValue();
 		int index;
 		for(index = 0; index < header.length(); index++){
 			if(header.charAt(index) == '('){
@@ -143,13 +188,18 @@ public class InboxPanel extends JPanel {
 			e.printStackTrace();
 		}
 		//messageTextPane.setText(header + "\n\n" + game.getMessageBody(messageList.getSelectedIndex()) + "\n\n");
-		if((messageTextPane.getText().contains("You now have permission to offer him a contract!")) 
+		if((showContractButtons) && (messageTextPane.getText().contains("You now have permission to offer him a contract!")) 
 				&& (game.getDate().get(Calendar.DAY_OF_MONTH) == game.getMessageDate(messageList.getSelectedIndex()).get(Calendar.DAY_OF_MONTH))){
 			//game.getDate().compareTo(game.getMessageDate(messageList.getSelectedIndex())) == 0
-			System.out.println(game.getDate().getTime());
-			System.out.println(game.getMessageDate(messageList.getSelectedIndex()).getTime());
+			//System.out.println(game.getDate().getTime());
+			//System.out.println(game.getMessageDate(messageList.getSelectedIndex()).getTime());
 			messageTextPane.insertComponent(offerContractButton);
 			messageTextPane.insertComponent(withdrawOfferButton);
+		}
+		else if((showOfferButtons) && (messageTextPane.getText().contains("bid to you")) 
+				&& (game.getDate().get(Calendar.DAY_OF_MONTH) == game.getMessageDate(messageList.getSelectedIndex()).get(Calendar.DAY_OF_MONTH))){
+			messageTextPane.insertComponent(acceptOfferButton);
+			messageTextPane.insertComponent(rejectOfferButton);
 		}
 	}
 	
@@ -160,6 +210,8 @@ public class InboxPanel extends JPanel {
 	private void initGUI() {
 		offerContractButton = new JButton("Offer Contract");
 		withdrawOfferButton = new JButton("Withdraw Offer");
+		acceptOfferButton = new JButton("Accept");
+		rejectOfferButton = new JButton("Reject");
 		try {
 			GroupLayout thisLayout = new GroupLayout((JComponent)this);
 			this.setLayout(thisLayout);

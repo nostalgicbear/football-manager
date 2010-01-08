@@ -1,9 +1,9 @@
 package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class League extends Competition implements Serializable {
@@ -13,6 +13,16 @@ public class League extends Competition implements Serializable {
 	private List<Club> teams;
 	private int table [][];
 	private Match[][] fixtures;
+	private Calendar[] matchDates;
+	private League promotedTo;
+	private League relegatedTo;
+	private int numberOfTeamsPromoted;
+	private int numberOfTeamsRelegated;
+	private int numberOfTeamsInPlayoff;
+	private Calendar[] playoffDrawDates;
+	private Calendar[] playoffMatchDates;
+	private List<Match> playoffMatches = new ArrayList<Match>();
+	private Cup playoffs;
 	
 	public League() {
 		super();
@@ -34,6 +44,8 @@ public class League extends Competition implements Serializable {
 
 	public void setNumberOfTeams(int numberOfTeams) {
 		this.numberOfTeams = numberOfTeams;
+		if(numberOfTeams != 0)
+			matchDates = new Calendar[(numberOfTeams - 1) * 2];
 	}
 
 	public List<Club> getTeams() {
@@ -213,127 +225,103 @@ public class League extends Competition implements Serializable {
         
         for(int i = 0; i < rounds.length; i++){
         	for(int j = 0; j < rounds[i].length; j++){
-        		Calendar c = new GregorianCalendar();
-        		 switch(i){
-                 case 0:
-                 	c.set(2009, 7, 15);
-                 	break;
-                 case 1:
-                 	c.set(2009, 7, 19);
-                 	break;
-                 case 2:
-                 	c.set(2009, 7, 22);
-                 	break;
-                 case 3:
-                 	c.set(2009, 7, 29);
-                 	break;
-                 case 4:
-                 	c.set(2009, 8, 12);
-                 	break;
-                 case 5:
-                 	c.set(2009, 8, 19);
-                 	break;
-                 case 6:
-                 	c.set(2009, 8, 26);
-                 	break;
-                 case 7:
-                 	c.set(2009, 9, 3);
-                 	break;
-                 case 8:
-                 	c.set(2009, 9, 17);
-                 	break;
-                 case 9:
-                 	c.set(2009, 9, 24);
-                 	break;
-                 case 10:
-                 	c.set(2009, 9, 31);
-                 	break;
-                 case 11:
-                 	c.set(2009, 10, 7);
-                 	break;
-                 case 12:
-                 	c.set(2009, 10, 21);
-                 	break;
-                 case 13:
-                 	c.set(2009, 10, 28);
-                 	break;
-                 case 14:
-                 	c.set(2009, 11, 5);
-                 	break;
-                 case 15:
-                 	c.set(2009, 11, 12);
-                 	break;
-                 case 16:
-                 	c.set(2009, 11, 16);
-                 	break;
-                 case 17:
-                 	c.set(2009, 11, 19);
-                 	break;
-                 case 18:
-                 	c.set(2009, 11, 26);
-                 	break;
-                 case 19:
-                  	c.set(2009, 11, 28);
-                  	break;
-                 case 20:
-                  	c.set(2010, 0, 9);
-                  	break;
-                 case 21:
-                  	c.set(2010, 0, 16);
-                  	break;
-                 case 22:
-                  	c.set(2010, 0, 27);
-                  	break;
-                 case 23:
-                  	c.set(2010, 0, 30);
-                  	break;
-                 case 24:
-                  	c.set(2010, 1, 6);
-                  	break;
-                 case 25:
-                  	c.set(2010, 1, 10);
-                  	break;
-                 case 26:
-                  	c.set(2010, 1, 20);
-                  	break;
-                 case 27:
-                  	c.set(2010, 1, 27);
-                  	break;
-                 case 28:
-                  	c.set(2010, 2, 6);
-                  	break;
-                 case 29:
-                  	c.set(2010, 2, 13);
-                  	break;
-                 case 30:
-                  	c.set(2010, 2, 20);
-                  	break;
-                 case 31:
-                  	c.set(2010, 2, 27);
-                  	break;
-                 case 32:
-                  	c.set(2010, 3, 3);
-                  	break;
-                 case 33:
-                  	c.set(2010, 3, 10);
-                  	break;
-                 case 34:
-                  	c.set(2010, 3, 17);
-                  	break;
-                 case 35:
-                  	c.set(2010, 3, 24);
-                  	break;
-                 case 36:
-                  	c.set(2010, 4, 1);
-                  	break;
-                 case 37:
-                  	c.set(2010, 4, 9);
-                  	break;
-                 default: System.out.println("ERROR");
-                 }
-        		rounds[i][j].setDate(c); 
+        		rounds[i][j].setDate(this.getMatchDates()[i]); 
         	}
         }
 		return rounds;
+	}
+
+	public void setMatchDates(Calendar[] matchDates) {
+		this.matchDates = matchDates;
+		if(playoffMatchDates != null){
+			Calendar c = (Calendar) matchDates[matchDates.length - 1].clone();
+			c.add(Calendar.DATE, 1);
+			this.getPlayoffDrawDates()[0] = c;
+		}
+	}
+
+	public Calendar[] getMatchDates() {
+		return matchDates;
+	}
+
+	public void setPromotedTo(League promotedTo) {
+		this.promotedTo = promotedTo;
+	}
+
+	public League getPromotedTo() {
+		return promotedTo;
+	}
+
+	public void setRelegatedTo(League relegatedTo) {
+		this.relegatedTo = relegatedTo;
+	}
+
+	public League getRelegatedTo() {
+		return relegatedTo;
+	}
+
+	public void setNumberOfTeamsPromoted(int numberOfTeamsPromoted) {
+		this.numberOfTeamsPromoted = numberOfTeamsPromoted;
+	}
+
+	public int getNumberOfTeamsPromoted() {
+		return numberOfTeamsPromoted;
+	}
+
+	public void setNumberOfTeamsRelegated(int numberOfTeamsRelegated) {
+		this.numberOfTeamsRelegated = numberOfTeamsRelegated;
+	}
+
+	public int getNumberOfTeamsRelegated() {
+		return numberOfTeamsRelegated;
+	}
+
+	public void setNumberOfTeamsInPlayoff(int numberOfTeamsInPlayoff) {
+		this.numberOfTeamsInPlayoff = numberOfTeamsInPlayoff;
+		if(numberOfTeamsInPlayoff != 0){
+			this.playoffDrawDates = new Calendar[this.getNumberOfTeamsInPlayoff() / 2];
+			this.playoffMatchDates = new Calendar[(this.getPlayoffDrawDates().length * 2) - 1];
+		}
+	}
+
+	public int getNumberOfTeamsInPlayoff() {
+		return numberOfTeamsInPlayoff;
+	}
+
+	public void setPlayoffDrawDates(Calendar[] playoffDrawDates) {
+		this.playoffDrawDates = playoffDrawDates;
+	}
+
+	public Calendar[] getPlayoffDrawDates() {
+		return playoffDrawDates;
+	}
+
+	public void setPlayoffMatchDates(Calendar[] playoffMatchDates) {
+		this.playoffMatchDates = playoffMatchDates;
+		if(playoffMatchDates != null){
+			Calendar c = (Calendar) playoffMatchDates[1].clone();
+			c.add(Calendar.DATE, 1);
+			this.getPlayoffDrawDates()[1] = c;
+		}
+	}
+
+	public Calendar[] getPlayoffMatchDates() {
+		return playoffMatchDates;
+	}
+
+	public void setPlayoffMatches(List<Match> playoffMatches) {
+		this.playoffMatches = playoffMatches;
+	}
+
+	public List<Match> getPlayoffMatches() {
+		return playoffMatches;
+	}
+
+	public void setPlayoffs(Cup playoffs) {
+		this.playoffs = playoffs;
+	}
+
+	public Cup getPlayoffs() {
+		return playoffs;
 	}
 }

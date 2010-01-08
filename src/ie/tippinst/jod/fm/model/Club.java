@@ -185,14 +185,19 @@ public class Club implements Serializable {
 	public boolean offerContract(Player p, int wages, Calendar c, int status) {
 		// TODO: Check if player is happy with terms and if yes return true else
 		// return false
-		if (p.getReputation() * 50 > this.getReputation())
+		// check club reputation, wages offered, if club is a rival, contract
+		// length, squad status, if player has recently moved
+		// if (p.getReputation() * 50 > this.getReputation())
+		if ((p.getStatusAsString().equalsIgnoreCase("indispensable") || p
+				.getStatusAsString().equalsIgnoreCase("important"))
+				&& ((p.getCurrentClub().getReputation() - this.getReputation()) > 200) || ((p.getCurrentClub().getReputation() - this.getReputation()) > 2000))
 			return false;
 		return true;
 	}
 
 	public void setStatusOfPlayers() {
 		List<Player> list = new ArrayList<Player>(this.getSquad());
-		//Collections.copy(list, this.getSquad());
+		// Collections.copy(list, this.getSquad());
 		if (list.size() >= 16) {
 			Iterator<Player> i = list.iterator();
 			while (i.hasNext()) {
@@ -202,19 +207,19 @@ public class Club implements Serializable {
 			List<Integer> squadAbilities = new ArrayList<Integer>();
 			this.setSelectedTeam(this.getFirstTeamPlayers());
 			i = this.getSelectedTeam().iterator();
-			//System.out.println(this.getSelectedTeam().size());
+			// System.out.println(this.getSelectedTeam().size());
 			while (i.hasNext()) {
 				Player p = i.next();
 				p.setStatus(1);
 				firstTeamAbilities.add(p.getCurrentAbility());
 				list.remove(p);
 			}
-			//System.out.println(abilities.size());
-			//System.out.println(Collections.max(abilities).intValue());
+			// System.out.println(abilities.size());
+			// System.out.println(Collections.max(abilities).intValue());
 			int maxAbility = Collections.max(firstTeamAbilities).intValue();
 			firstTeamAbilities.remove(new Integer(maxAbility));
 			maxAbility = Collections.max(firstTeamAbilities).intValue();
-			//System.out.println(maxAbility);
+			// System.out.println(maxAbility);
 			firstTeamAbilities.remove(new Integer(maxAbility));
 			maxAbility = Collections.max(firstTeamAbilities).intValue();
 			i = this.getSelectedTeam().iterator();
@@ -225,48 +230,51 @@ public class Club implements Serializable {
 			}
 			List<Player> squadPlayers = this.getBestTeam(list);
 			i = squadPlayers.iterator();
-			while(i.hasNext()){
+			while (i.hasNext()) {
 				Player p = i.next();
 				p.setStatus(2);
 				squadAbilities.add(p.getCurrentAbility());
 				list.remove(p);
 			}
-			
+
 			i = list.iterator();
-			int minPotentialFirstTeamAbility = Collections.min(firstTeamAbilities).intValue();
-			int minPotentialSquadAbility = Collections.min(squadAbilities).intValue();
+			int minPotentialFirstTeamAbility = Collections.min(
+					firstTeamAbilities).intValue();
+			int minPotentialSquadAbility = Collections.min(squadAbilities)
+					.intValue();
 			List<Integer> goalkeeperAbilities = new ArrayList<Integer>();
-			while(i.hasNext()){
+			while (i.hasNext()) {
 				Player p = i.next();
-				if(p.getGoalkeepingAbility() >= 15){
+				if (p.getGoalkeepingAbility() >= 15) {
 					goalkeeperAbilities.add(p.getCurrentAbility());
-				}
-				else if(p.getPotentialAbility() >= minPotentialFirstTeamAbility && p.getAge() < 24){
+				} else if (p.getPotentialAbility() >= minPotentialFirstTeamAbility
+						&& p.getAge() < 24) {
 					p.setStatus(3);
-				}
-				else if(p.getPotentialAbility() >= minPotentialSquadAbility && p.getAge() < 24){
+				} else if (p.getPotentialAbility() >= minPotentialSquadAbility
+						&& p.getAge() < 24) {
 					p.setStatus(4);
 				}
 			}
-			if(goalkeeperAbilities.size() > 0){
-				int maxGoalkeeperSquadAbility = Collections.max(goalkeeperAbilities).intValue();
+			if (goalkeeperAbilities.size() > 0) {
+				int maxGoalkeeperSquadAbility = Collections.max(
+						goalkeeperAbilities).intValue();
 				i = list.iterator();
-				while(i.hasNext()){
+				while (i.hasNext()) {
 					Player p = i.next();
-					if(p.getCurrentAbility() >= maxGoalkeeperSquadAbility){
+					if (p.getCurrentAbility() >= maxGoalkeeperSquadAbility) {
 						p.setStatus(2);
 					}
 				}
 			}
 		}
-		
-		else if(list.size() > 0){
+
+		else if (list.size() > 0) {
 			Iterator<Player> i = list.iterator();
 			while (i.hasNext()) {
 				i.next().setStatus(1);
 			}
 		}
-		
+
 		this.getSelectedTeam().removeAll(this.getSelectedTeam());
 
 		/*
@@ -295,25 +303,26 @@ public class Club implements Serializable {
 	public List<Player> getSelectedTeam() {
 		return selectedTeam;
 	}
-	
+
 	public List<Player> getFirstTeamPlayers() {
 		return getBestTeam(this.getSquad());
 	}
-	
-	public List<Player> getAvailablePlayers(){
+
+	public List<Player> getAvailablePlayers() {
 		List<Player> availablePlayers = new ArrayList<Player>();
 		Iterator<Player> i = this.getSquad().iterator();
-		while(i.hasNext()){
+		while (i.hasNext()) {
 			Player p = i.next();
-			if(p.getDaysUnavailable() == 0 && p.getMatchCondition() >= 90){
+			if (p.getDaysUnavailable() == 0 && p.getMatchCondition() >= 90) {
 				availablePlayers.add(p);
 			}
 		}
-		if(availablePlayers.size() < 11){
+		if (availablePlayers.size() < 11) {
 			i = this.getSquad().iterator();
-			while(i.hasNext()){
+			while (i.hasNext()) {
 				Player p = i.next();
-				if(p.getDaysUnavailable() == 0 && p.getMatchCondition() >= 70 && p.getMatchCondition() < 90){
+				if (p.getDaysUnavailable() == 0 && p.getMatchCondition() >= 70
+						&& p.getMatchCondition() < 90) {
 					availablePlayers.add(p);
 				}
 			}
@@ -330,8 +339,10 @@ public class Club implements Serializable {
 				if (team.size() <= 0) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if (team.get(0).getCurrentAbility() + (team.get(0).getGoalkeepingAbility() * 5) < p
-						.getCurrentAbility() + (p.getGoalkeepingAbility() * 5)) {
+				} else if (team.get(0).getCurrentAbility()
+						+ (team.get(0).getGoalkeepingAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getGoalkeepingAbility() * 5)) {
 					team.remove(0);
 					team.add(0, p);
 				}
@@ -346,8 +357,10 @@ public class Club implements Serializable {
 						team.add(p);
 					// System.out.println("1: " + p.getFirstName() + " " +
 					// p.getLastName());
-				} else if ((team.get(1).getCurrentAbility() + (team.get(1).getRightFullbackAbility() * 5) < p
-						.getCurrentAbility() + (p.getRightFullbackAbility() * 5))
+				} else if ((team.get(1).getCurrentAbility()
+						+ (team.get(1).getRightFullbackAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getRightFullbackAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(1);
 					team.add(1, p);
@@ -365,8 +378,10 @@ public class Club implements Serializable {
 						team.add(p);
 					// System.out.println("1: " + p.getFirstName() + " " +
 					// p.getLastName());
-				} else if ((team.get(2).getCurrentAbility() + (team.get(2).getLeftFullbackAbility() * 5) < p
-						.getCurrentAbility() + (p.getLeftFullbackAbility() * 5))
+				} else if ((team.get(2).getCurrentAbility()
+						+ (team.get(2).getLeftFullbackAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getLeftFullbackAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(2);
 					team.add(2, p);
@@ -384,8 +399,10 @@ public class Club implements Serializable {
 						team.add(p);
 					// System.out.println("1: " + p.getFirstName() + " " +
 					// p.getLastName());
-				} else if ((team.get(3).getCurrentAbility() + (team.get(3).getCentrebackAbility() * 5) < p
-						.getCurrentAbility() + (p.getCentrebackAbility() * 5))
+				} else if ((team.get(3).getCurrentAbility()
+						+ (team.get(3).getCentrebackAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getCentrebackAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(3);
 					team.add(3, p);
@@ -401,8 +418,10 @@ public class Club implements Serializable {
 				if (team.size() <= 4) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(4).getCurrentAbility() + (team.get(4).getCentrebackAbility() * 5) < p
-						.getCurrentAbility() + (p.getCentrebackAbility() * 5))
+				} else if ((team.get(4).getCurrentAbility()
+						+ (team.get(4).getCentrebackAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getCentrebackAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(4);
 					team.add(4, p);
@@ -416,8 +435,10 @@ public class Club implements Serializable {
 				if (team.size() <= 5) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(5).getCurrentAbility() + (team.get(5).getRightMidfieldAbility() * 5) < p
-						.getCurrentAbility() + (p.getRightMidfieldAbility() * 5))
+				} else if ((team.get(5).getCurrentAbility()
+						+ (team.get(5).getRightMidfieldAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getRightMidfieldAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(5);
 					team.add(5, p);
@@ -431,8 +452,10 @@ public class Club implements Serializable {
 				if (team.size() <= 6) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(6).getCurrentAbility() + (team.get(6).getLeftMidfieldAbility() * 5) < p
-						.getCurrentAbility() + (p.getLeftMidfieldAbility() * 5))
+				} else if ((team.get(6).getCurrentAbility()
+						+ (team.get(6).getLeftMidfieldAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getLeftMidfieldAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(6);
 					team.add(6, p);
@@ -446,8 +469,10 @@ public class Club implements Serializable {
 				if (team.size() <= 7) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(7).getCurrentAbility() + (team.get(7).getCentreMidfieldAbility() * 5) < p
-						.getCurrentAbility() + (p.getCentreMidfieldAbility() * 5))
+				} else if ((team.get(7).getCurrentAbility()
+						+ (team.get(7).getCentreMidfieldAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getCentreMidfieldAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(7);
 					team.add(7, p);
@@ -461,8 +486,10 @@ public class Club implements Serializable {
 				if (team.size() <= 8) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(8).getCurrentAbility() + (team.get(8).getCentreMidfieldAbility() * 5) < p
-						.getCurrentAbility() + (p.getCentreMidfieldAbility() * 5))
+				} else if ((team.get(8).getCurrentAbility()
+						+ (team.get(8).getCentreMidfieldAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getCentreMidfieldAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(8);
 					team.add(8, p);
@@ -476,8 +503,10 @@ public class Club implements Serializable {
 				if (team.size() <= 9) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(9).getCurrentAbility() + (team.get(9).getStrikerAbility() * 5) < p
-						.getCurrentAbility() + (p.getStrikerAbility() * 5))
+				} else if ((team.get(9).getCurrentAbility()
+						+ (team.get(9).getStrikerAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getStrikerAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(9);
 					team.add(9, p);
@@ -491,8 +520,10 @@ public class Club implements Serializable {
 				if (team.size() <= 10) {
 					if (!(team.contains(p)))
 						team.add(p);
-				} else if ((team.get(10).getCurrentAbility() + (team.get(10).getStrikerAbility() * 5) < p
-						.getCurrentAbility() + (p.getStrikerAbility() * 5))
+				} else if ((team.get(10).getCurrentAbility()
+						+ (team.get(10).getStrikerAbility() * 5) < p
+						.getCurrentAbility()
+						+ (p.getStrikerAbility() * 5))
 						&& (!(team.contains(p)))) {
 					team.remove(10);
 					team.add(10, p);

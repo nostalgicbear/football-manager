@@ -75,6 +75,13 @@ public class MainGameScreen extends JFrame {
     private JMenu leagueMenu;
     private JMenuItem leagueTableMenuItem; 
     private JMenuItem leagueFixturesMenuItem;
+    private JMenu worldMenu;
+    private JMenuItem englandMenuItem;
+    private JMenuItem barclaysPremierLeagueMenuItem;
+    private JMenuItem cocaColaChampionshipMenuItem;
+    private JMenuItem cocaColaLeagueOneMenuItem;
+    private JMenuItem cocaColaLeagueTwoMenuItem;
+    private JMenuItem blueSquarePremierLeagueMenuItem;
 	private JTabbedPane clubPanel;
 	private JTabbedPane playerPanel;
 	private JTabbedPane leaguePanel;
@@ -257,7 +264,7 @@ public class MainGameScreen extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				displayLeagueTable(e);
+				displayLeague(0, "Barclays Premier League");
 			}
 			
 		});
@@ -267,7 +274,52 @@ public class MainGameScreen extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				displayLeagueFixtures(e);
+				displayLeague(1, "Barclays Premier League");
+			}
+			
+		});
+        
+        barclaysPremierLeagueMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeague(0, barclaysPremierLeagueMenuItem.getText());
+			}
+			
+		});
+        
+        cocaColaChampionshipMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeague(0, cocaColaChampionshipMenuItem.getText());
+			}
+			
+		});
+        
+        cocaColaLeagueOneMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeague(0, cocaColaLeagueOneMenuItem.getText());
+			}
+			
+		});
+        
+        cocaColaLeagueTwoMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeague(0, cocaColaLeagueTwoMenuItem.getText());
+			}
+			
+		});
+        
+        blueSquarePremierLeagueMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeague(0, blueSquarePremierLeagueMenuItem.getText());
 			}
 			
 		});
@@ -412,6 +464,13 @@ public class MainGameScreen extends JFrame {
         leagueMenu = new JMenu("League");
         leagueTableMenuItem = new JMenuItem("Table");
         leagueFixturesMenuItem = new JMenuItem("Results/Fixtures");
+        worldMenu = new JMenu("World");
+        englandMenuItem = new JMenu("England");
+        barclaysPremierLeagueMenuItem = new JMenuItem("Barclays Premier League");
+        cocaColaChampionshipMenuItem = new JMenuItem("Coca-Cola Championship");
+        cocaColaLeagueOneMenuItem = new JMenuItem("Coca-Cola League One");
+        cocaColaLeagueTwoMenuItem = new JMenuItem("Coca-Cola League Two");
+        blueSquarePremierLeagueMenuItem = new JMenuItem("Blue Square Premier");
         date = new JLabel();
         mainPanel = new JPanel(new CardLayout());
         sidePanel = new JPanel(new CardLayout());
@@ -436,7 +495,8 @@ public class MainGameScreen extends JFrame {
         processFixtures = false;
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
+        //this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
+        this.setSize(1300, 650);
         
         //Display the users squad as the initial screen
         displayClub(userClub, 0);
@@ -472,6 +532,13 @@ public class MainGameScreen extends JFrame {
         leagueMenu.add(leagueTableMenuItem); 
         leagueMenu.add(leagueFixturesMenuItem);
         menuBar.add(leagueMenu);
+        englandMenuItem.add(barclaysPremierLeagueMenuItem);
+        englandMenuItem.add(cocaColaChampionshipMenuItem);
+        englandMenuItem.add(cocaColaLeagueOneMenuItem);
+        englandMenuItem.add(cocaColaLeagueTwoMenuItem);
+        englandMenuItem.add(blueSquarePremierLeagueMenuItem);
+        worldMenu.add(englandMenuItem);
+        menuBar.add(worldMenu);
         setJMenuBar(menuBar);
         
         // Layout squad side pane        
@@ -611,19 +678,15 @@ public class MainGameScreen extends JFrame {
     }
     
     private void continueGame(ActionEvent ae){
-    	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
-		String date;
 		squadPanel = new SquadPanel(this.userClub, squadPanel, this.userClub);
 		List<String> players = squadPanel.getSelectedPlayers();
 		int result = game.continueGame(processFixtures, players);
     	if(result == 1){
-    		date = format.format(game.getDate().getTime()).toUpperCase();
-    		displayLeagueFixtures(date);
+    		displayLeague(1, "Barclays Premier League");
     		processFixtures = true;
     	}
     	else if(processFixtures){
-    		date = format.format(game.getDate().getTime()).toUpperCase();
-    		displayLeagueFixtures(date);
+    		displayLeague(1, "Barclays Premier League");
     		processFixtures = false;
     	}
     	else if(result == 2){
@@ -720,40 +783,19 @@ public class MainGameScreen extends JFrame {
 		this.dispose();
     }
     
-    /*Display the league table*/
-    private void displayLeagueTable(ActionEvent ae){
-    	leagueTablePanel = new LeagueTablePanel();
+    private void displayLeague(int tab, String name){
+    	leagueTablePanel = new LeagueTablePanel(name);
     	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
-		String date = format.format(game.getDate().getTime()).toUpperCase();
-    	leagueFixturesPanel = new LeagueFixturesPanel(date);
+    	leagueFixturesPanel = new LeagueFixturesPanel(name, format.format(game.getDate().getTime()));
     	leaguePanel.removeAll();
     	leaguePanel.add("Table", leagueTablePanel);
     	leaguePanel.add("Fixtures", leagueFixturesPanel);
-    	leaguePanel.setSelectedIndex(0);
+    	leaguePanel.setSelectedIndex(tab);
     	mainPanel.add(leaguePanel, "League");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "League");
     	sidePanel.add(leagueTableSidePanel, "League Table Sidebar");
     	((CardLayout) sidePanel.getLayout()).show(sidePanel, "League Table Sidebar");
-	}
-    
-    private void displayLeagueFixtures(ActionEvent ae){
-    	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
-    	displayLeagueFixtures(format.format(game.getDate().getTime()).toUpperCase());
     }
-    
-    /*Display the league fixtures*/
-    private void displayLeagueFixtures(String date){
-    	leagueTablePanel = new LeagueTablePanel();
-    	leagueFixturesPanel = new LeagueFixturesPanel(date);
-    	leaguePanel.removeAll();
-    	leaguePanel.add("Table", leagueTablePanel);
-    	leaguePanel.add("Fixtures", leagueFixturesPanel);
-    	leaguePanel.setSelectedIndex(1);
-    	mainPanel.add(leaguePanel, "League");
-    	((CardLayout) mainPanel.getLayout()).show(mainPanel, "League");
-    	sidePanel.add(leagueTableSidePanel, "League Table Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "League Table Sidebar");
-	}
     
     /*Display player profile*/
     private void displayPlayer(String player){

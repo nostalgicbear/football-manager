@@ -4,7 +4,9 @@ import ie.tippinst.jod.fm.app.Game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
@@ -14,142 +16,81 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.LayoutStyle;
 import javax.swing.SwingConstants;
+import javax.swing.GroupLayout.ParallelGroup;
+import javax.swing.GroupLayout.SequentialGroup;
 
 public class LeagueFixturesPanel extends JPanel {
 	
 	private static final long serialVersionUID = -4770635436027700840L;
-	private JLabel match1Label;
-    private JLabel match10Label;
-    private JLabel match2Label;
-    private JLabel match3Label;
-    private JLabel match4Label;
-    private JLabel match5Label;
-    private JLabel match6Label;
-    private JLabel match7Label;
-    private JLabel match8Label;
-    private JLabel match9Label;
+	private List<JLabel> matchLabels = new ArrayList<JLabel>();
     private JComboBox dateComboBox;
     private Game game;
     private String date;
+    private String name;
 
-    public LeagueFixturesPanel(String date) {
+    public LeagueFixturesPanel(String name, String date) {
     	game = Game.getInstance();
+    	this.name = name;
     	this.date = date;
-        initComponents();
+    	dateComboBox = new JComboBox();
+        dateComboBox.setModel(new DefaultComboBoxModel(game.getMatchDates(name)));
+        dateComboBox.setSelectedItem(this.date);	
         displayFixtures((String) dateComboBox.getSelectedItem());
-        
+        initComponents();
+        this.validate();
         dateComboBox.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				displayFixtures((String) dateComboBox.getSelectedItem());
+				initComponents();
 			}
 			
 		});
     }
     
     private void displayFixtures(String date){
-    	List<String> fixtures = game.getLeagueFixtures("Premier League", date);
+    	this.removeAll();
+    	matchLabels.clear();
+    	List<String> fixtures = game.getLeagueFixtures(name, date);
         Collections.sort(fixtures);
-        match1Label.setText(fixtures.get(0));
-        match2Label.setText(fixtures.get(1));
-        match3Label.setText(fixtures.get(2));
-        match4Label.setText(fixtures.get(3));
-        match5Label.setText(fixtures.get(4));
-        match6Label.setText(fixtures.get(5));
-        match7Label.setText(fixtures.get(6));
-        match8Label.setText(fixtures.get(7));
-        match9Label.setText(fixtures.get(8));
-        match10Label.setText(fixtures.get(9));
+        Iterator<String> i = fixtures.iterator();
+        while(i.hasNext()){
+        	matchLabels.add(new JLabel(i.next()));
+        	matchLabels.get(matchLabels.size() - 1).setHorizontalAlignment(SwingConstants.CENTER);
+        }
     }
 
     private void initComponents() {
-
-        match1Label = new JLabel();
-        match2Label = new JLabel();
-        match3Label = new JLabel();
-        match4Label = new JLabel();
-        match5Label = new JLabel();
-        match6Label = new JLabel();
-        match7Label = new JLabel();
-        match8Label = new JLabel();
-        match9Label = new JLabel();
-        match10Label = new JLabel();
-        dateComboBox = new JComboBox();
-
-        match1Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match2Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match3Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match4Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match5Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match6Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match7Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match8Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match9Label.setHorizontalAlignment(SwingConstants.CENTER);
-        match10Label.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        dateComboBox.setModel(new DefaultComboBoxModel(
-        		new String[] { "15-AUG-09", "19-AUG-09", "22-AUG-09", "29-AUG-09",
-        					"12-SEP-09", "19-SEP-09", "26-SEP-09", "03-OCT-09",
-        					"17-OCT-09", "24-OCT-09", "31-OCT-09", "07-NOV-09",
-        					"21-NOV-09", "28-NOV-09", "05-DEC-09", "12-DEC-09",
-        					"16-DEC-09", "19-DEC-09", "26-DEC-09", "28-DEC-09",
-        					"09-JAN-10", "16-JAN-10", "27-JAN-10", "30-JAN-10",
-        					"06-FEB-10", "10-FEB-10", "20-FEB-10", "27-FEB-10",
-        					"06-MAR-10", "13-MAR-10", "20-MAR-10", "27-MAR-10",
-        					"03-APR-10", "10-APR-10", "17-APR-10", "24-APR-10",
-        					"01-MAY-10", "09-MAY-10" }));
-        
-        dateComboBox.setSelectedItem(date);
         
         GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
+        ParallelGroup group = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
+        Iterator<JLabel> i = matchLabels.iterator();
+        while(i.hasNext()){
+        	group.addComponent(i.next(), GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE);
+        }
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(match1Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match2Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match3Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match4Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match5Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match6Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match7Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match8Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match9Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-                    .addComponent(match10Label, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE))
+                .addGroup(group)
                 .addContainerGap())
             .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             	.addContainerGap(305, Short.MAX_VALUE)
             	.addComponent(dateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
             	.addGap(49, 49, 49))
         );
+        SequentialGroup seqGroup = layout.createSequentialGroup();
+        seqGroup.addContainerGap();
+        seqGroup.addComponent(dateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE);
+        i = matchLabels.iterator();
+        while(i.hasNext()){
+        	seqGroup.addGap(20, 20, 20);
+        	seqGroup.addComponent(i.next());
+        }
         layout.setVerticalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-            	.addContainerGap()
-                .addComponent(dateComboBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(match1Label)
-                .addGap(30, 30, 30)
-                .addComponent(match2Label)
-                .addGap(30, 30, 30)
-                .addComponent(match3Label)
-                .addGap(30, 30, 30)
-                .addComponent(match4Label)
-                .addGap(30, 30, 30)
-                .addComponent(match5Label)
-                .addGap(30, 30, 30)
-                .addComponent(match6Label)
-                .addGap(30, 30, 30)
-                .addComponent(match7Label)
-                .addGap(30, 30, 30)
-                .addComponent(match8Label)
-                .addGap(30, 30, 30)
-                .addComponent(match9Label, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(match10Label)
-                .addGap(30, 30, 30))
+            .addGroup(seqGroup)
         );
     }
 }

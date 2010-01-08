@@ -56,6 +56,7 @@ public class Player extends Person implements Serializable {
 	private int leagueAppearances = 0;
 	private int leagueGoals = 0;
 	private List<Club> interested = new ArrayList<Club>();
+	private List<Club> bids = new ArrayList<Club>();
 	
 	public Player(){
 		super();
@@ -190,6 +191,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setLeftFootAbility(int leftFootAbility) {
+		if(leftFootAbility > 20)
+			leftFootAbility = 20;
+		else if(leftFootAbility < 1)
+			leftFootAbility = 1;
 		this.leftFootAbility = leftFootAbility;
 	}
 
@@ -198,6 +203,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setRightFootAbility(int rightFootAbility) {
+		if(rightFootAbility > 20)
+			rightFootAbility = 20;
+		else if(rightFootAbility < 1)
+			rightFootAbility = 1;
 		this.rightFootAbility = rightFootAbility;
 	}
 
@@ -219,6 +228,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setHappinessAtClub(int happinessAtClub) {
+		if(happinessAtClub > 10000)
+			happinessAtClub = 10000;
+		else if(happinessAtClub < 1)
+			happinessAtClub = 1;
 		this.happinessAtClub = happinessAtClub;
 	}
 
@@ -239,6 +252,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setGoalkeepingAbility(int goalkeepingAbility) {
+		if(goalkeepingAbility > 20)
+			goalkeepingAbility = 20;
+		else if(goalkeepingAbility < 1)
+			goalkeepingAbility = 1;
 		this.goalkeepingAbility = goalkeepingAbility;
 	}
 
@@ -247,6 +264,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setLeftFullbackAbility(int leftFullbackAbility) {
+		if(leftFullbackAbility > 20)
+			leftFullbackAbility = 20;
+		else if(leftFullbackAbility < 1)
+			leftFullbackAbility = 1;
 		this.leftFullbackAbility = leftFullbackAbility;
 	}
 
@@ -255,6 +276,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setRightFullbackAbility(int rightFullbackAbility) {
+		if(rightFullbackAbility > 20)
+			rightFullbackAbility = 20;
+		else if(rightFullbackAbility < 1)
+			rightFullbackAbility = 1;
 		this.rightFullbackAbility = rightFullbackAbility;
 	}
 
@@ -263,6 +288,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setCentrebackAbility(int centrebackAbility) {
+		if(centrebackAbility > 20)
+			centrebackAbility = 20;
+		else if(centrebackAbility < 1)
+			centrebackAbility = 1;
 		this.centrebackAbility = centrebackAbility;
 	}
 
@@ -271,6 +300,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setRightMidfieldAbility(int rightMidfieldAbility) {
+		if(rightMidfieldAbility > 20)
+			rightMidfieldAbility = 20;
+		else if(rightMidfieldAbility < 1)
+			rightMidfieldAbility = 1;
 		this.rightMidfieldAbility = rightMidfieldAbility;
 	}
 
@@ -279,6 +312,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setLeftMidfieldAbility(int leftMidfieldAbility) {
+		if(leftMidfieldAbility > 20)
+			leftMidfieldAbility = 20;
+		else if(leftMidfieldAbility < 1)
+			leftMidfieldAbility = 1;
 		this.leftMidfieldAbility = leftMidfieldAbility;
 	}
 
@@ -287,6 +324,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setCentreMidfieldAbility(int centreMidfieldAbility) {
+		if(centreMidfieldAbility > 20)
+			centreMidfieldAbility = 20;
+		else if(centreMidfieldAbility < 1)
+			centreMidfieldAbility = 1;
 		this.centreMidfieldAbility = centreMidfieldAbility;
 	}
 
@@ -295,6 +336,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setStrikerAbility(int strikerAbility) {
+		if(strikerAbility > 20)
+			strikerAbility = 20;
+		else if(strikerAbility < 1)
+			strikerAbility = 1;
 		this.strikerAbility = strikerAbility;
 	}
 
@@ -552,6 +597,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setHandling(int handling) {
+		if(handling > 20)
+			handling = 20;
+		else if(handling < 1)
+			handling = 1;
 		this.handling = handling;
 	}
 
@@ -560,6 +609,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setReflexes(int reflexes) {
+		if(reflexes > 20)
+			reflexes = 20;
+		else if(reflexes < 1)
+			reflexes = 1;
 		this.reflexes = reflexes;
 	}
 
@@ -568,6 +621,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setCommandOfArea(int commandOfArea) {
+		if(commandOfArea > 20)
+			commandOfArea = 20;
+		else if(commandOfArea < 1)
+			commandOfArea = 1;
 		this.commandOfArea = commandOfArea;
 	}
 
@@ -576,6 +633,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setDecisions(int decisions) {
+		if(decisions > 20)
+			decisions = 20;
+		else if(decisions < 1)
+			decisions = 1;
 		this.decisions = decisions;
 	}
 
@@ -584,6 +645,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setFinishing(int finishing) {
+		if(finishing > 20)
+			finishing = 20;
+		else if(finishing < 1)
+			finishing = 1;
 		this.finishing = finishing;
 	}
 
@@ -592,6 +657,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setHeading(int heading) {
+		if(heading > 20)
+			heading = 20;
+		else if(heading < 1)
+			heading = 1;
 		this.heading = heading;
 	}
 
@@ -600,6 +669,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setMarking(int marking) {
+		if(marking > 20)
+			marking = 20;
+		else if(marking < 1)
+			marking = 1;
 		this.marking = marking;
 	}
 
@@ -608,6 +681,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setPassing(int passing) {
+		if(passing > 20)
+			passing = 20;
+		else if(passing < 1)
+			passing = 1;
 		this.passing = passing;
 	}
 
@@ -616,6 +693,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setCrossing(int crossing) {
+		if(crossing > 20)
+			crossing = 20;
+		else if(crossing < 1)
+			crossing = 1;
 		this.crossing = crossing;
 	}
 
@@ -624,6 +705,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setDribbling(int dribbling) {
+		if(dribbling > 20)
+			dribbling = 20;
+		else if(dribbling < 1)
+			dribbling = 1;
 		this.dribbling = dribbling;
 	}
 
@@ -632,6 +717,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setTackling(int tackling) {
+		if(tackling > 20)
+			tackling = 20;
+		else if(tackling < 1)
+			tackling = 1;
 		this.tackling = tackling;
 	}
 
@@ -640,6 +729,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setLongShots(int longShots) {
+		if(longShots > 20)
+			longShots = 20;
+		else if(longShots < 1)
+			longShots = 1;
 		this.longShots = longShots;
 	}
 
@@ -648,6 +741,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setPenaltyTaking(int penaltyTaking) {
+		if(penaltyTaking > 20)
+			penaltyTaking = 20;
+		else if(penaltyTaking < 1)
+			penaltyTaking = 1;
 		this.penaltyTaking = penaltyTaking;
 	}
 
@@ -656,6 +753,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setInfluence(int influence) {
+		if(influence > 20)
+			influence = 20;
+		else if(influence < 1)
+			influence = 1;
 		this.influence = influence;
 	}
 
@@ -664,6 +765,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setPace(int pace) {
+		if(pace > 20)
+			pace = 20;
+		else if(pace < 1)
+			pace = 1;
 		this.pace = pace;
 	}
 
@@ -672,6 +777,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setStrength(int strength) {
+		if(strength > 20)
+			strength = 20;
+		else if(strength < 1)
+			strength = 1;
 		this.strength = strength;
 	}
 
@@ -680,6 +789,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setStamina(int stamina) {
+		if(stamina > 20)
+			stamina = 20;
+		else if(stamina < 1)
+			stamina = 1;
 		this.stamina = stamina;
 	}
 
@@ -688,6 +801,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setLoyalty(int loyalty) {
+		if(loyalty > 20)
+			loyalty = 20;
+		else if(loyalty < 1)
+			loyalty = 1;
 		this.loyalty = loyalty;
 	}
 
@@ -696,6 +813,10 @@ public class Player extends Person implements Serializable {
 	}
 
 	public void setAmbition(int ambition) {
+		if(strikerAbility > 20)
+			strikerAbility = 20;
+		else if(strikerAbility < 1)
+			strikerAbility = 1;
 		this.ambition = ambition;
 	}
 	
@@ -735,7 +856,10 @@ public class Player extends Person implements Serializable {
 		}
 		int currentAbility = (int) ((goalkeepercurrentAbility + fullbackcurrentAbility + centrebackcurrentAbility + wingercurrentAbility + centremidfieldercurrentAbility + strikercurrentAbility) / positions);
 		this.setCurrentAbility(currentAbility);
-		System.out.println(this.getFirstName() + " " + this.getLastName() + " " + this.getCurrentAbility() + " " + this.getPotentialAbility());
+		if(currentAbility > this.getPotentialAbility()){
+			this.setPotentialAbility(currentAbility);
+		}
+		//System.out.println(this.getFirstName() + " " + this.getLastName() + " " + this.getCurrentAbility() + " " + this.getPotentialAbility() + " " + this.getPosition() + " " + this.getCurrentClub().getName() + " " + this.getHandling() + " " + this.getReflexes() + " " + this.getCommandOfArea() + " " + this.getDecisions());
 		//System.out.println(strikercurrentAbility);
 		//System.out.println(this.getCurrentAbility());
 	}
@@ -754,9 +878,9 @@ public class Player extends Person implements Serializable {
 		return matchCondition;
 	}
 	
-	public void transferPlayer(double d, Club club, double wages, Calendar contractExpiry, int status){
-		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() + d);
-		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() + d);
+	public void transferPlayer(double value, Club club, double wages, Calendar contractExpiry, int status){
+		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() + value);
+		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() + value);
 		List<Player> squad = this.getCurrentClub().getSquad();
 		squad.remove(this);
 		this.getCurrentClub().setSquad(squad);
@@ -767,8 +891,8 @@ public class Player extends Person implements Serializable {
 		squad = this.getCurrentClub().getSquad();
 		squad.add(this);
 		this.getCurrentClub().setSquad(squad);
-		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() - d);
-		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() - d);
+		this.getCurrentClub().setBankBalance(this.getCurrentClub().getBankBalance() - value);
+		this.getCurrentClub().setTransferBudget(this.getCurrentClub().getTransferBudget() - value);
 	}
 
 	public void setDaysUnavailable(int daysUnavailable) {
@@ -801,5 +925,13 @@ public class Player extends Person implements Serializable {
 
 	public List<Club> getInterested() {
 		return interested;
+	}
+
+	public void setBids(List<Club> bids) {
+		this.bids = bids;
+	}
+
+	public List<Club> getBids() {
+		return bids;
 	}
 }

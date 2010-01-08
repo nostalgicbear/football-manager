@@ -10,6 +10,8 @@ import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
 import ie.tippinst.jod.fm.model.Player;
+import ie.tippinst.jod.fm.model.Round;
+import ie.tippinst.jod.fm.model.Stadium;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -218,85 +220,204 @@ public class Game {
 			db.getDate().add(Calendar.DATE, 1);
 		}
 		Match[][] leagueFixtures = null;
+		Calendar[] playoffDrawDates = null;
 		Iterator<Competition> iterator = db.getCompetitionList().iterator();
 		while(iterator.hasNext()){
 			Competition c = iterator.next();
-			leagueFixtures = ((League) c).getFixtures();
-			for(int i = 0; i < leagueFixtures.length; i++){
-				for(int j = 0; j < leagueFixtures[i].length; j++){
-					if((leagueFixtures[i][j].getDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH)) && (leagueFixtures[i][j].getDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))){
-						if(!(processFixtures)){
-							if(leagueFixtures[i][j].getHomeTeam().getId() == this.userClub.getId() || leagueFixtures[i][j].getAwayTeam().getId() == this.userClub.getId()){
-								List<Player> selectedTeam = new ArrayList<Player>();
-								Iterator<String> iteratorPlayers = players.iterator();
-								while(iteratorPlayers.hasNext()){
-									Player p = (Player) db.findPerson(iteratorPlayers.next());
-									if(!(p.isInjured()))
-										selectedTeam.add(p);
-								}
-								if(selectedTeam.size() < 11){
-									db.getDate().add(Calendar.DATE, -1);
-									return 2;
-								}
-								this.userClub.setSelectedTeam(selectedTeam);
-								/*Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
-								while(temp.hasNext()){
-									System.out.println(temp.next().getLastName());
-								}*/
+			if (c.getId() != 0 && c instanceof League) {
+				if(((League) c).getPlayoffs() != null){
+					Iterator<Round> i = ((League) c).getPlayoffs().getRounds().iterator();
+					while(i.hasNext()){
+						Round r = i.next();
+						if((r.getDrawDate().get(
+								Calendar.DAY_OF_MONTH) == db.getDate().get(
+										Calendar.DAY_OF_MONTH))
+										&& (r.getDrawDate().get(
+												Calendar.MONTH) == db.getDate().get(
+												Calendar.MONTH))
+										&& (r.getDrawDate().get(
+												Calendar.YEAR) == db.getDate().get(
+												Calendar.YEAR))){
+							if(r.getRoundNumber() == 1){
+								r.getTeams().add(db.findClub("Watford"));
+								r.getTeams().add(db.findClub("Reading"));
+								r.getTeams().add(db.findClub("Middlesbrough"));
+								r.getTeams().add(db.findClub("Cardiff City"));
+								r.getMatches().add(new Match((Calendar) r.getRoundDate().clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround()));
+								r.getMatches().add(new Match((Calendar) r.getRoundDate().clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround()));
+								System.out.println(r.getMatches().get(0));
+								System.out.println(r.getMatches().get(1));
 							}
-							fixtures = 1;
 						}
-						if(fixtures != 1){
-							if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
-								leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
-							/*Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
-							while(it.hasNext()){
-								Player p = it.next();
-								System.out.println(p.getFirstName() + " " + p.getLastName());
+					}
+				}
+				/*if (((League) c).getNumberOfTeamsInPlayoff() > 0) {
+					playoffDrawDates = ((League) c).getPlayoffDrawDates();
+					if (playoffDrawDates[0].compareTo(db.getDate()) == 0) {
+						// make draw for semi-finals
+						Calendar date = ((League) c).getPlayoffMatchDates()[0];
+						Club homeTeam = db
+								.findClub(((League) c).getTable()[6][1]);
+						Club awayTeam = db
+								.findClub(((League) c).getTable()[3][1]);
+						homeTeam = db.findClub("Luton Town");
+						awayTeam = db.findClub("Barrow");
+						Stadium ground = homeTeam.getHomeGround();
+						((League) c).getPlayoffMatches().add(
+								new Match(date, homeTeam, awayTeam, -1, -1, c,
+										ground));
+						date = ((League) c).getPlayoffMatchDates()[1];
+						ground = awayTeam.getHomeGround();
+						((League) c).getPlayoffMatches().add(
+								new Match(date, awayTeam, homeTeam, -1, -1, c,
+										ground));
+
+						date = ((League) c).getPlayoffMatchDates()[0];
+						homeTeam = db.findClub(((League) c).getTable()[5][1]);
+						awayTeam = db.findClub(((League) c).getTable()[4][1]);
+						homeTeam = db.findClub("Wrexham");
+						awayTeam = db.findClub("AFC Wimbledon");
+						ground = homeTeam.getHomeGround();
+						((League) c).getPlayoffMatches().add(
+								new Match(date, homeTeam, awayTeam, -1, -1, c,
+										ground));
+						date = ((League) c).getPlayoffMatchDates()[1];
+						ground = awayTeam.getHomeGround();
+						((League) c).getPlayoffMatches().add(
+								new Match(date, awayTeam, homeTeam, -1, -1, c,
+										ground));
+					} else if (playoffDrawDates[1].compareTo(db.getDate()) == 0) {
+						// make draw for final
+					}
+				}*/
+				leagueFixtures = ((League) c).getFixtures();
+				for (int i = 0; i < leagueFixtures.length; i++) {
+					for (int j = 0; j < leagueFixtures[i].length; j++) {
+						if ((leagueFixtures[i][j].getDate().get(
+								Calendar.DAY_OF_MONTH) == db.getDate().get(
+								Calendar.DAY_OF_MONTH))
+								&& (leagueFixtures[i][j].getDate().get(
+										Calendar.MONTH) == db.getDate().get(
+										Calendar.MONTH))
+								&& (leagueFixtures[i][j].getDate().get(
+										Calendar.YEAR) == db.getDate().get(
+										Calendar.YEAR))) {
+							if ((!(processFixtures))
+									&& (c.getId() == userClub.getLeague()
+											.getId())) {
+								if (leagueFixtures[i][j].getHomeTeam().getId() == this.userClub
+										.getId()
+										|| leagueFixtures[i][j].getAwayTeam()
+												.getId() == this.userClub
+												.getId()) {
+									List<Player> selectedTeam = new ArrayList<Player>();
+									Iterator<String> iteratorPlayers = players
+											.iterator();
+									while (iteratorPlayers.hasNext()) {
+										Player p = (Player) db
+												.findPerson(iteratorPlayers
+														.next());
+										if (!(p.isInjured()))
+											selectedTeam.add(p);
+									}
+									/*if(selectedTeam.size() < 11){
+										db.getDate().add(Calendar.DATE, -1);
+										System.out.println(selectedTeam.size());
+										return 2;
+									}*/
+									this.userClub.setSelectedTeam(selectedTeam);
+									/*Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
+									while(temp.hasNext()){
+										System.out.println(temp.next().getLastName());
+									}*/
+								}
+								fixtures = 1;
 							}
-							System.out.println();*/
-							if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
-								leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().getBestTeam(leagueFixtures[i][j].getAwayTeam().getAvailablePlayers()));
-							/*it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
-							while(it.hasNext()){
-								Player p = it.next();
-								System.out.println(p.getFirstName() + " " + p.getLastName());
-							}*/
-							leagueFixtures[i][j].generateResult();
+							if (fixtures != 1) {
+								//if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
+								leagueFixtures[i][j]
+										.getHomeTeam()
+										.setSelectedTeam(
+												leagueFixtures[i][j]
+														.getHomeTeam()
+														.getBestTeam(
+																leagueFixtures[i][j]
+																		.getHomeTeam()
+																		.getAvailablePlayers()));
+								/*Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
+								while(it.hasNext()){
+									Player p = it.next();
+									System.out.println(p.getFirstName() + " " + p.getLastName());
+								}
+								System.out.println();*/
+								//if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
+								leagueFixtures[i][j]
+										.getAwayTeam()
+										.setSelectedTeam(
+												leagueFixtures[i][j]
+														.getAwayTeam()
+														.getBestTeam(
+																leagueFixtures[i][j]
+																		.getAwayTeam()
+																		.getAvailablePlayers()));
+								/*it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
+								while(it.hasNext()){
+									Player p = it.next();
+									System.out.println(p.getFirstName() + " " + p.getLastName());
+								}*/
+								leagueFixtures[i][j].generateResult();
+							}
 						}
 					}
 				}
 			}
 		}
-		Iterator<Person> i = db.getPersonList().iterator();
+		/*Iterator<Person> i = db.getPersonList().iterator();
+		DecimalFormat format = new DecimalFormat("000,000");
 		while(i.hasNext()){
 			Person p = i.next();
 			if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null && p.getId() != 0 && ((NonPlayer) p).getShortlist().size() != 0){
-				int currentAbility = 0;
 				Player playerToBuy = null;
-				Iterator<Player> targets = ((NonPlayer) p).getShortlist().iterator();
-				while(targets.hasNext()){
-					Player player = targets.next();
-					if(currentAbility < player.getCurrentAbility() && (player.getSaleValue() * 4) <= p.getCurrentClub().getTransferBudget()){
-						currentAbility = player.getCurrentAbility();
-						playerToBuy = player;
+				int num = 4;
+				while(playerToBuy == null){
+					playerToBuy = getPlayerToBuy(p, num);
+					num--;
+					if(num == 0){
+						break;
 					}
 				}
 				if(playerToBuy == null){
-					
+					// do nothing
 				}
-				else if(playerToBuy.getCurrentClub().getId() == userClub.getId()){
-					
+				else if(playerToBuy.getCurrentClub().getId() == userClub.getId() && (!(playerToBuy.getBids().contains(p.getCurrentClub())))){
+					db.getMessages().add(new Message((Calendar) db.getDate().clone(), p.getCurrentClub().getName() + " bid for " + playerToBuy.getFirstName() + (playerToBuy.getLastName().equals("") ? "" : " " + playerToBuy.getLastName()), p.getCurrentClub().getName() + " have made a €" + format.format(playerToBuy.getSaleValue()) + " bid to you for " + playerToBuy.getFirstName() + (playerToBuy.getLastName().equals("") ? "" : " " + playerToBuy.getLastName()) + "!"));
+					playerToBuy.getBids().add(p.getCurrentClub());
 				}
 				else{
 					//p.getCurrentClub().makeOffer(playerToBuy, playerToBuy.getSaleValue());
-					playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
+					//TODO: make offer first
+					if(p.getCurrentClub().offerContract(playerToBuy, 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0))
+						playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
 				}
 			}
-		}
+		}*/
 		db.updateAllPersonAttributes();
 		db.updateAllClubAttributes();
 		return fixtures;
+	}
+	
+	private Player getPlayerToBuy(Person p, int num){
+		Player playerToBuy = null;
+		int currentAbility = 0;
+		Iterator<Player> targets = ((NonPlayer) p).getShortlist().iterator();
+		while(targets.hasNext()){
+			Player player = targets.next();
+			if(currentAbility < player.getCurrentAbility() && (player.getSaleValue() * num) <= p.getCurrentClub().getTransferBudget()){
+				currentAbility = player.getCurrentAbility();
+				playerToBuy = player;
+			}
+		}
+		return playerToBuy;
 	}
 	
 	public String getMessageBody(int index){
@@ -396,5 +517,29 @@ public class Game {
 		list.add("€" + format.format(club.getBankBalance()));
 		list.add("€" + format.format(club.getTransferBudget()));
 		return list;
+	}
+	
+	public void sellPlayer(String playerName, String clubName){
+		DecimalFormat format = new DecimalFormat("000,000");
+		//TODO: make offer first
+		Player player = (Player) db.findPerson(playerName);
+		db.getMessages().add(new Message((Calendar) db.getDate().clone(), playerName + " moves to " + clubName, playerName + " has moved to " + clubName + " for €" + format.format(player.getSaleValue()) + "!"));
+		if(db.findClub(clubName).offerContract(player, 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0))
+			player.transferPlayer(player.getSaleValue(), db.findClub(clubName), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
+	}
+	
+	public void rejectOffer(String playerName, String clubName){
+		((Player) db.findPerson(playerName)).getBids().remove(db.findClub(clubName));
+	}
+	
+	public String[] getMatchDates(String leagueName){
+		League league = (League) db.findCompetition(leagueName);
+		Calendar[] matchDates = league.getMatchDates();
+		String[] matchDatesAsStrings = new String[matchDates.length];
+		DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yy");
+		for(int i = 0; i < matchDates.length; i++){
+			matchDatesAsStrings[i] = dateFormat.format(matchDates[i].getTime());
+		}
+		return matchDatesAsStrings;
 	}
 }

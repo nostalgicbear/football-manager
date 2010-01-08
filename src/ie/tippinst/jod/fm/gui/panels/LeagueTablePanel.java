@@ -22,9 +22,11 @@ public class LeagueTablePanel extends JPanel {
     private JTableHeader leagueTableHeader;
     private Game game;
     private TableColumn leagueTableColumn;
+    private String leagueName;
     
-    public LeagueTablePanel() {
+    public LeagueTablePanel(String leagueName) {
     	game = Game.getInstance();
+    	this.leagueName = leagueName;
     	initComponents();
     }
     
@@ -33,7 +35,7 @@ public class LeagueTablePanel extends JPanel {
         leagueTable = new JTable();
         leagueTableHeader = leagueTable.getTableHeader();
         
-    	String [][] data = game.getLeagueTable("Premier League");
+    	String [][] data = game.getLeagueTable(leagueName);
     	String headings [] = {"P", "Name", "Pld", "W", "D", "L", "GF", "GA", "GD", "Pts"};
 
         leagueTable.setModel(new DefaultTableModel(data, headings));
@@ -70,7 +72,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

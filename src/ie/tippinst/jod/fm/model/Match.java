@@ -21,6 +21,20 @@ public class Match {
 		super();
 	}
 	
+	public Match(Calendar date, Club homeTeam, Club awayTeam, int homeScore,
+			int awayScore, Competition competition, Stadium stadium) {
+		super();
+		this.date = date;
+		this.homeTeam = homeTeam;
+		this.awayTeam = awayTeam;
+		this.homeScore = homeScore;
+		this.awayScore = awayScore;
+		this.homeScorers = new ArrayList<Player>();
+		this.awayScorers = new ArrayList<Player>();
+		this.competition = competition;
+		this.stadium = stadium;
+	}
+	
 	public Match(Club homeTeam, Club awayTeam, int homeScore,
 			int awayScore, Competition competition, Stadium stadium) {
 		super();
