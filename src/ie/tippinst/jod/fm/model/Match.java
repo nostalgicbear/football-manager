@@ -16,9 +16,28 @@ public class Match {
 	private Competition competition;
 	private Stadium stadium;
 	private int attendance;
+	private boolean penalties = false;
+	private Club winner;
+	private int homeFirstLegScore = -1;
+	private int awayFirstLegScore = -1;
 	
 	public Match() {
 		super();
+	}
+	
+	public Match(Calendar date, Club homeTeam, Club awayTeam, int homeScore,
+			int awayScore, Competition competition, Stadium stadium, boolean penalties) {
+		super();
+		this.date = date;
+		this.homeTeam = homeTeam;
+		this.awayTeam = awayTeam;
+		this.homeScore = homeScore;
+		this.awayScore = awayScore;
+		this.homeScorers = new ArrayList<Player>();
+		this.awayScorers = new ArrayList<Player>();
+		this.competition = competition;
+		this.stadium = stadium;
+		this.penalties = penalties;
 	}
 	
 	public Match(Calendar date, Club homeTeam, Club awayTeam, int homeScore,
@@ -466,6 +485,32 @@ public class Match {
 								.getLeagueGoals() + 1);
 			}
 		}
+		if (this.getHomeFirstLegScore() == -1) {
+			if (this.getHomeScore() > this.getAwayScore()) {
+				this.setWinner(this.getHomeTeam());
+			} else if (this.getAwayScore() > this.getHomeScore()) {
+				this.setWinner(this.getAwayTeam());
+			} else if (this.hasPenalties()) {
+				if (((int) (Math.random() * 2)) == 0) {
+					this.setWinner(this.getHomeTeam());
+				} else {
+					this.setWinner(this.getAwayTeam());
+				}
+			}
+		}
+		else{
+			if (this.getHomeScore() + this.getAwayFirstLegScore() > this.getAwayScore() + this.getHomeFirstLegScore()) {
+				this.setWinner(this.getHomeTeam());
+			} else if (this.getAwayScore() + this.getHomeFirstLegScore() > this.getHomeScore() + this.getAwayFirstLegScore()) {
+				this.setWinner(this.getAwayTeam());
+			} else if (this.hasPenalties()) {
+				if (((int) (Math.random() * 2)) == 0) {
+					this.setWinner(this.getHomeTeam());
+				} else {
+					this.setWinner(this.getAwayTeam());
+				}
+			}
+		}
 		Iterator<Player> i = this.getHomeTeam().getSelectedTeam().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
@@ -504,7 +549,8 @@ public class Match {
 			tickets = 0;
 		this.getHomeTeam().setBankBalance(this.getHomeTeam().getBankBalance() + tickets * this.getHomeTeam().getTicketPrice());
 		this.getAwayTeam().setBankBalance(this.getAwayTeam().getBankBalance() + awayAttendance * this.getHomeTeam().getTicketPrice());
-		((League) this.getCompetition()).updateTable(this);
+		if(this.getCompetition() instanceof League)
+			((League) this.getCompetition()).updateTable(this);
 	}
 
 	public void setAttendance(int attendance) {
@@ -529,5 +575,37 @@ public class Match {
 
 	public List<Player> getAwayScorers() {
 		return awayScorers;
+	}
+
+	public void setPenalties(boolean penalties) {
+		this.penalties = penalties;
+	}
+
+	public boolean hasPenalties() {
+		return penalties;
+	}
+
+	public void setWinner(Club winner) {
+		this.winner = winner;
+	}
+
+	public Club getWinner() {
+		return winner;
+	}
+
+	public void setHomeFirstLegScore(int homeFirstLegScore) {
+		this.homeFirstLegScore = homeFirstLegScore;
+	}
+
+	public int getHomeFirstLegScore() {
+		return homeFirstLegScore;
+	}
+
+	public void setAwayFirstLegScore(int awayFirstLegScore) {
+		this.awayFirstLegScore = awayFirstLegScore;
+	}
+
+	public int getAwayFirstLegScore() {
+		return awayFirstLegScore;
 	}
 }

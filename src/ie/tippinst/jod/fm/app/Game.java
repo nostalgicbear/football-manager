@@ -220,12 +220,12 @@ public class Game {
 			db.getDate().add(Calendar.DATE, 1);
 		}
 		Match[][] leagueFixtures = null;
-		Calendar[] playoffDrawDates = null;
+		List<Round> playoffRounds = null;
 		Iterator<Competition> iterator = db.getCompetitionList().iterator();
 		while(iterator.hasNext()){
 			Competition c = iterator.next();
 			if (c.getId() != 0 && c instanceof League) {
-				if(((League) c).getPlayoffs() != null){
+				if(((League) c).getPlayoffs() != null && (! processFixtures)){
 					Iterator<Round> i = ((League) c).getPlayoffs().getRounds().iterator();
 					while(i.hasNext()){
 						Round r = i.next();
@@ -239,58 +239,52 @@ public class Game {
 												Calendar.YEAR) == db.getDate().get(
 												Calendar.YEAR))){
 							if(r.getRoundNumber() == 1){
-								r.getTeams().add(db.findClub("Watford"));
-								r.getTeams().add(db.findClub("Reading"));
-								r.getTeams().add(db.findClub("Middlesbrough"));
-								r.getTeams().add(db.findClub("Cardiff City"));
-								r.getMatches().add(new Match((Calendar) r.getRoundDate().clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround()));
-								r.getMatches().add(new Match((Calendar) r.getRoundDate().clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround()));
+								String[][] table = this.getLeagueTable(c.getName());
+								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted()][1]));
+								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted() + 1][1]));
+								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted() + 2][1]));
+								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted() + 3][1]));
+								Club club = db.findClub(table[((League) c).getNumberOfTeamsPromoted()][1]);
+								System.out.println(club.getName());
+								if(r.hasTwoLegs()){
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround()));
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround()));
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(1).clone(), r.getTeams().get(0), r.getTeams().get(3), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(0).getHomeGround(), true));
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(1).clone(), r.getTeams().get(1), r.getTeams().get(2), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(1).getHomeGround(), true));
+								}
+								else{
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround(), true));
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround(), true));
+								}
 								System.out.println(r.getMatches().get(0));
 								System.out.println(r.getMatches().get(1));
+								System.out.println(r.getMatches().get(2));
+								System.out.println(r.getMatches().get(3));
+							}
+							else if(r.getRoundNumber() == 2){
+								Round round = ((League) c).getPlayoffs().getRounds().get(0);
+								r.getTeams().addAll(round.getWinners());
+								if(r.hasTwoLegs()){
+									
+								}
+								else{
+									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(0), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(0).getHomeGround(), true));
+								}
+								System.out.println(r.getMatches().get(0));
 							}
 						}
 					}
 				}
-				/*if (((League) c).getNumberOfTeamsInPlayoff() > 0) {
-					playoffDrawDates = ((League) c).getPlayoffDrawDates();
-					if (playoffDrawDates[0].compareTo(db.getDate()) == 0) {
-						// make draw for semi-finals
-						Calendar date = ((League) c).getPlayoffMatchDates()[0];
-						Club homeTeam = db
-								.findClub(((League) c).getTable()[6][1]);
-						Club awayTeam = db
-								.findClub(((League) c).getTable()[3][1]);
-						homeTeam = db.findClub("Luton Town");
-						awayTeam = db.findClub("Barrow");
-						Stadium ground = homeTeam.getHomeGround();
-						((League) c).getPlayoffMatches().add(
-								new Match(date, homeTeam, awayTeam, -1, -1, c,
-										ground));
-						date = ((League) c).getPlayoffMatchDates()[1];
-						ground = awayTeam.getHomeGround();
-						((League) c).getPlayoffMatches().add(
-								new Match(date, awayTeam, homeTeam, -1, -1, c,
-										ground));
-
-						date = ((League) c).getPlayoffMatchDates()[0];
-						homeTeam = db.findClub(((League) c).getTable()[5][1]);
-						awayTeam = db.findClub(((League) c).getTable()[4][1]);
-						homeTeam = db.findClub("Wrexham");
-						awayTeam = db.findClub("AFC Wimbledon");
-						ground = homeTeam.getHomeGround();
-						((League) c).getPlayoffMatches().add(
-								new Match(date, homeTeam, awayTeam, -1, -1, c,
-										ground));
-						date = ((League) c).getPlayoffMatchDates()[1];
-						ground = awayTeam.getHomeGround();
-						((League) c).getPlayoffMatches().add(
-								new Match(date, awayTeam, homeTeam, -1, -1, c,
-										ground));
-					} else if (playoffDrawDates[1].compareTo(db.getDate()) == 0) {
-						// make draw for final
-					}
-				}*/
 				leagueFixtures = ((League) c).getFixtures();
+				if (((League) c).getPlayoffs() != null && (! processFixtures)) {
+					playoffRounds = ((League) c).getPlayoffs().getRounds();
+					Iterator<Round> iRounds = playoffRounds.iterator();
+					while (iRounds.hasNext()) {
+						//System.out.println("test");
+						Round r = iRounds.next();
+						r.playMatches(db.getDate());
+					}
+				}
 				for (int i = 0; i < leagueFixtures.length; i++) {
 					for (int j = 0; j < leagueFixtures[i].length; j++) {
 						if ((leagueFixtures[i][j].getDate().get(

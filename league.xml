@@ -1365,6 +1365,13 @@
 	  </void> 
 	 </array>
   </void>
+  <void property="playoffs">
+   <object class="ie.tippinst.jod.fm.model.Cup">
+	 <void property="id"> 
+	 <int>7</int> 
+	 </void> 
+   </object>
+  </void>
  </object>
  <object class="ie.tippinst.jod.fm.model.League"> 
   <void property="id"> 
@@ -1851,6 +1858,13 @@
 	  </void> 
 	 </array>
   </void>
+  <void property="playoffs">
+   <object class="ie.tippinst.jod.fm.model.Cup">
+	 <void property="id"> 
+	 <int>8</int> 
+	 </void> 
+   </object>
+  </void>
  </object>
  <object class="ie.tippinst.jod.fm.model.League"> 
   <void property="id"> 
@@ -2336,6 +2350,13 @@
 	   </object> 
 	  </void> 
 	 </array>
+  </void>
+  <void property="playoffs">
+   <object class="ie.tippinst.jod.fm.model.Cup">
+	 <void property="id"> 
+	 <int>9</int> 
+	 </void> 
+   </object>
   </void>
  </object>
 </java> 

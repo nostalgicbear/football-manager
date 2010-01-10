@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_17" class="java.beans.XMLDecoder"> 
+ <object class="ie.tippinst.jod.fm.model.Cup"> 
+  <void property="id"> 
+   <int>6</int> 
+  </void> 
+  <void property="name"> 
+   <string>Coca-Cola Championship Playoffs</string> 
+  </void> 
+  <void property="numberOfRounds"> 
+   <int>2</int> 
+  </void> 
+  <void property="reputation"> 
+   <int>13</int> 
+  </void> 
+  <void property="rounds"> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>4</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273273200000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273532400000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>1</int> 
+     </void> 
+	 <void property="twoLegs">
+	   <boolean>true</boolean>
+	 </void>
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>2</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1274482800000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>2</int> 
+     </void> 
+	 <void property="twoLegs">
+	  <boolean>false</boolean>
+	 </void>
+    </object> 
+   </void> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Cup"> 
+  <void property="id"> 
+   <int>7</int> 
+  </void> 
+  <void property="name"> 
+   <string>Coca-Cola League One Playoffs</string> 
+  </void> 
+  <void property="numberOfRounds"> 
+   <int>2</int> 
+  </void> 
+  <void property="reputation"> 
+   <int>10</int> 
+  </void> 
+  <void property="rounds"> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>4</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273878000000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1274137200000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>1</int> 
+     </void>
+	 <void property="twoLegs">
+	  <boolean>true</boolean>
+	 </void>	 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>2</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1274569200000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>2</int> 
+     </void>
+	 <void property="twoLegs">
+	  <boolean>false</boolean>
+	 </void>	 
+    </object> 
+   </void> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Cup"> 
+  <void property="id"> 
+   <int>8</int> 
+  </void> 
+  <void property="name"> 
+   <string>Coca-Cola League Two Playoffs</string> 
+  </void> 
+  <void property="numberOfRounds"> 
+   <int>2</int> 
+  </void> 
+  <void property="reputation"> 
+   <int>9</int> 
+  </void> 
+  <void property="rounds"> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>4</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273878000000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1274137200000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>1</int> 
+     </void>
+	 <void property="twoLegs">
+	  <boolean>true</boolean>
+	 </void>	 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>2</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1274482800000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>2</int> 
+     </void>
+	 <void property="twoLegs">
+	  <boolean>false</boolean>
+	 </void>	 
+    </object> 
+   </void> 
+  </void> 
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Cup"> 
+  <void property="id"> 
+   <int>9</int> 
+  </void> 
+  <void property="name"> 
+   <string>Blue Square Premier Playoffs</string> 
+  </void> 
+  <void property="numberOfRounds"> 
+   <int>2</int> 
+  </void> 
+  <void property="reputation"> 
+   <int>7</int> 
+  </void> 
+  <void property="rounds"> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>4</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273100400000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273446000000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>1</int> 
+     </void>
+	 <void property="twoLegs">
+	  <boolean>true</boolean>
+	 </void>
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>2</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273964400000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>2</int> 
+     </void>
+	 <void property="twoLegs">
+	  <boolean>false</boolean>
+	 </void>	 
+    </object> 
+   </void> 
+  </void> 
+ </object>
+</java> 

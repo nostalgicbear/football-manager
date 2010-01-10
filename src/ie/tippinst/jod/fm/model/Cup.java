@@ -30,8 +30,15 @@ public class Cup extends Competition implements Serializable {
 		this.numberOfRounds = numberOfRounds;
 	}
 	
-	public void createRound(int numberOfTeams, int roundNumber, Calendar roundDate){
+	public void createRound(int numberOfTeams, int roundNumber, List<Calendar> roundDate){
 		Round round = new Round();
+		System.out.println(roundDate.size());
+		if(roundDate.size() == 2){
+			round.setTwoLegs(true);
+		}
+		else{
+			round.setTwoLegs(false);
+		}
 		round.setNumberOfTeams(numberOfTeams);
 		round.setRoundNumber(roundNumber);
 		round.setRoundDate(roundDate);

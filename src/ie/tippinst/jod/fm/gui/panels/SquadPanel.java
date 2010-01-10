@@ -183,8 +183,12 @@ public class SquadPanel extends JPanel {
 	public List<String> getSelectedPlayers(){
 		List<String> players = new ArrayList<String>();
 		for(int i = 0; i < this.getSquadTable().getRowCount(); i++){
-			if(!(this.getSquadTable().getValueAt(i, 0).equals(""))){
-				players.add((String) this.getSquadTable().getValueAt(i, 1)); 
+			try {
+				if (!(this.getSquadTable().getValueAt(i, 0).equals(""))) {
+					players.add((String) this.getSquadTable().getValueAt(i, 1));
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
 		}
 		return players;

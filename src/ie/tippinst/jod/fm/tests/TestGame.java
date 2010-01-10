@@ -13,8 +13,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 public class TestGame {
 
@@ -22,12 +24,19 @@ public class TestGame {
 		//PersonXMLFileHandler p = new PersonXMLFileHandler();
 		//Calendar c = new GregorianCalendar();
 		Cup cup = new Cup();
-		cup.setId(6);
-		cup.setName("Coca-Cola Championship Playoffs");
-		cup.setReputation(13);
+		cup.setId(9);
+		cup.setName("Blue Square Premier Playoffs");
+		cup.setReputation(7);
 		cup.setNumberOfRounds(2);
-		cup.createRound(4, 1, new GregorianCalendar(2010, 4, 8));
-		cup.createRound(2, 2, new GregorianCalendar(2010, 4, 22));
+		List<Calendar> list = new ArrayList<Calendar>();
+		list.add(new GregorianCalendar(2010, 4, 6));
+		list.add(new GregorianCalendar(2010, 4, 10));
+		cup.createRound(4, 1, list);
+		List<Calendar> list2 = new ArrayList<Calendar>();
+		list2.add(new GregorianCalendar(2010, 4, 16));
+		cup.createRound(2, 2, list2);
+		
+		boolean[] test = {true};
 		/*for(int i = 0; i < matchDates.length; i++){
 			Calendar c = new GregorianCalendar();
     		switch(i){

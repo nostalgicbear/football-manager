@@ -253,7 +253,7 @@ public class InboxPanel extends JPanel {
 			.addContainerGap(5, 5)
 			.addComponent(messageListScrollPane, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
 			.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-			.addComponent(messageTextPane, GroupLayout.PREFERRED_SIZE, 400, GroupLayout.PREFERRED_SIZE));
+			.addComponent(messageTextPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

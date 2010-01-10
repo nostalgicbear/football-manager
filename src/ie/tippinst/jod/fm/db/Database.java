@@ -374,17 +374,20 @@ public class Database {
 					((League) c).setPlayoffs((Cup) comp);
 					Calendar cal = (Calendar) ((League) c).getMatchDates()[((League) c).getMatchDates().length - 1].clone();
 					cal.add(Calendar.DATE, 1);
+					System.out.println(cal.getTime());
 					((League) c).getPlayoffs().getRounds().get(0).setDrawDate(cal);
 					Iterator<Round> iterator = ((League) c).getPlayoffs().getRounds().iterator();
 					while(iterator.hasNext()){
-						iterator.next();
 						Round r = iterator.next();
-						int index = ((League) c).getPlayoffs().getRounds().indexOf(r);
-						cal = (Calendar) ((League) c).getPlayoffs().getRounds().get(index).getRoundDate().clone();
-						cal.add(Calendar.DATE, 1);
-						r.setDrawDate(cal);
+						if (r.getDrawDate() == null) {
+							int index = ((League) c).getPlayoffs().getRounds().indexOf(r);
+							cal = (Calendar) ((League) c).getPlayoffs().getRounds().get(index - 1).getRoundDate().get(((League) c).getPlayoffs().getRounds().get(index - 1).getRoundDate().size() - 1).clone();
+							cal.add(Calendar.DATE, 1);
+							System.out.println(cal.getTime());
+							r.setDrawDate(cal);
+						}
 					}
-					break;
+					//break;
 				}
 			}
 			iClub = this.clubList.iterator();
