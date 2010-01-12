@@ -3780,7 +3780,7 @@
    <int>1950</int> 
   </void>  
  </object>
-   <object class="ie.tippinst.jod.fm.model.Club"> 
+ <object class="ie.tippinst.jod.fm.model.Club"> 
   <void property="bankBalance"> 
    <double>35000</double> 
   </void>
@@ -4058,6 +4058,286 @@
   </void>
   <void property="reputation"> 
    <int>1650</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>10000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>117</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>117</int> 
+  </void> 
+  <void property="name"> 
+   <string>Woking</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>150000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>118</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>118</int> 
+  </void> 
+  <void property="name"> 
+   <string>Dover</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>39000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>119</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>119</int> 
+  </void> 
+  <void property="name"> 
+   <string>Newport County</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1750</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>10500</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>120</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>120</int> 
+  </void> 
+  <void property="name"> 
+   <string>Eastleigh</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1650</int> 
+  </void>  
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>800000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>121</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>121</int> 
+  </void> 
+  <void property="name"> 
+   <string>Chelmsford</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1650</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>75000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>122</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>122</int> 
+  </void> 
+  <void property="name"> 
+   <string>Fleetwood</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1550</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>5000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>123</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>123</int> 
+  </void> 
+  <void property="name"> 
+   <string>Northwich Victoria</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1550</int> 
+  </void>  
+ </object>
+   <object class="ie.tippinst.jod.fm.model.Club"> 
+  <void property="bankBalance"> 
+   <double>75000</double> 
+  </void>
+  <void property="league"> 
+   <object class="ie.tippinst.jod.fm.model.League"> 
+    <void property="id"> 
+     <int>0</int> 
+    </void>
+   </object>	
+  </void>  
+  <void property="homeGround"> 
+   <object class="ie.tippinst.jod.fm.model.Stadium"> 
+    <void property="id"> 
+     <int>124</int> 
+    </void>
+   </object>	
+  </void> 
+  <void property="id"> 
+   <int>124</int> 
+  </void> 
+  <void property="name"> 
+   <string>AFC Telford</string> 
+  </void> 
+  <void property="nationality"> 
+   <object class="ie.tippinst.jod.fm.model.Nation"> 
+    <void property="id"> 
+     <int>9</int> 
+    </void>
+   </object>
+  </void>
+  <void property="reputation"> 
+   <int>1500</int> 
   </void>  
  </object>
 </java> 

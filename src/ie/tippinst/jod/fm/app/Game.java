@@ -3,6 +3,7 @@ package ie.tippinst.jod.fm.app;
 import ie.tippinst.jod.fm.db.Database;
 import ie.tippinst.jod.fm.model.Club;
 import ie.tippinst.jod.fm.model.Competition;
+import ie.tippinst.jod.fm.model.Cup;
 import ie.tippinst.jod.fm.model.League;
 import ie.tippinst.jod.fm.model.Match;
 import ie.tippinst.jod.fm.model.Message;
@@ -216,6 +217,43 @@ public class Game {
 	
 	public int continueGame(boolean processFixtures, List<String> players){
 		int fixtures = 0;
+		if((db.getDate().get(Calendar.DAY_OF_MONTH) == 20) && (db.getDate().get(Calendar.MONTH) == 5)){
+			Iterator<Competition> iCompetition = db.getCompetitionList().iterator();
+			while(iCompetition.hasNext()){
+				Competition c = iCompetition.next();
+				if(c.getId() != 0){
+					//set match schedule
+					c.setMatchSchedule();
+					//move teams to correct divisions
+					if(c instanceof League){
+						League league = (League) c;
+						String[][] table = this.getLeagueTable(league.getName());
+						int numberOfTeamsRelegated = league.getNumberOfTeamsRelegated();
+						if(league.getRelegatedTo().getId() == 0){
+							for(int i = table.length - 1; i > (table.length - 1) - numberOfTeamsRelegated; i--){
+								int teamToPromote = (int) (Math.random() * league.getRelegatedTo().getTeams().size());
+								league.getRelegatedTo().getTeams().get(teamToPromote).setLeague(league);
+								league.getRelegatedTo().getTeams().remove(teamToPromote);
+							}
+						}
+						for(int i = table.length - 1; i > (table.length - 1) - numberOfTeamsRelegated; i--){
+							db.findClub(table[i][1]).setLeague(league.getRelegatedTo());
+						}
+						int numberOfTeamsPromoted = league.getNumberOfTeamsPromoted();
+						for(int i = 0; i < numberOfTeamsPromoted; i++){
+							db.findClub(table[i][1]).setLeague(league.getPromotedTo());
+						}
+						if(league.getPlayoffs() != null){
+							league.getPlayoffs().getRounds().get(league.getPlayoffs().getRounds().size() - 1).getWinners().get(0).setLeague(league.getPromotedTo());
+						}
+					}
+				}
+			}
+			//set draw schedule
+			//create league table
+			//generate fixtures
+			db.initialiseLeagues();
+		}
 		if(!(processFixtures)){
 			db.getDate().add(Calendar.DATE, 1);
 		}
@@ -244,8 +282,6 @@ public class Game {
 								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted() + 1][1]));
 								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted() + 2][1]));
 								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted() + 3][1]));
-								Club club = db.findClub(table[((League) c).getNumberOfTeamsPromoted()][1]);
-								System.out.println(club.getName());
 								if(r.hasTwoLegs()){
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround()));
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround()));
@@ -256,10 +292,10 @@ public class Game {
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround(), true));
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround(), true));
 								}
-								System.out.println(r.getMatches().get(0));
-								System.out.println(r.getMatches().get(1));
-								System.out.println(r.getMatches().get(2));
-								System.out.println(r.getMatches().get(3));
+								//System.out.println(r.getMatches().get(0));
+								//System.out.println(r.getMatches().get(1));
+								//System.out.println(r.getMatches().get(2));
+								//System.out.println(r.getMatches().get(3));
 							}
 							else if(r.getRoundNumber() == 2){
 								Round round = ((League) c).getPlayoffs().getRounds().get(0);
@@ -270,7 +306,7 @@ public class Game {
 								else{
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(0), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(0).getHomeGround(), true));
 								}
-								System.out.println(r.getMatches().get(0));
+								//System.out.println(r.getMatches().get(0));
 							}
 						}
 					}
@@ -362,6 +398,71 @@ public class Game {
 								leagueFixtures[i][j].generateResult();
 							}
 						}
+					}
+				}
+			}
+			else if(c instanceof Cup && c.getId() == 10){
+				if(! processFixtures){
+					Iterator<Round> i = ((Cup) c).getRounds().iterator();
+					while(i.hasNext()){
+						Round r = i.next();
+						if((r.getDrawDate().get(
+								Calendar.DAY_OF_MONTH) == db.getDate().get(
+										Calendar.DAY_OF_MONTH))
+										&& (r.getDrawDate().get(
+												Calendar.MONTH) == db.getDate().get(
+												Calendar.MONTH))
+										&& (r.getDrawDate().get(
+												Calendar.YEAR) == db.getDate().get(
+												Calendar.YEAR))){
+							List<Club> teams = new ArrayList<Club>();
+							if(r.getRoundNumber() > 1){
+								r.getTeams().addAll(((Cup) c).getRounds().get(r.getRoundNumber() - 2).getWinners());
+							}
+							teams.addAll(r.getTeams());
+							while(teams.size() > 0){
+								int teamToDraw = (int) (Math.random() * teams.size());
+								Match m = new Match();
+								m.setDate((Calendar) r.getRoundDate().get(0).clone());
+								m.setHomeTeam(teams.get(teamToDraw));
+								teams.remove(teamToDraw);
+								teamToDraw = (int) (Math.random() * teams.size());
+								m.setAwayTeam(teams.get(teamToDraw));
+								teams.remove(teamToDraw);
+								m.setHomeScore(-1);
+								m.setAwayScore(-1);
+								m.setCompetition(c);
+								m.setStadium(m.getHomeTeam().getHomeGround());
+								m.setPenalties(true);
+								r.getMatches().add(m);
+								/*Iterator<Match> iMatch = m.getHomeTeam().getFixtures().iterator();
+								while(iMatch.hasNext()){
+									Match match = iMatch.next();
+									if(match.getDate().get(Calendar.DAY_OF_YEAR) - m.getDate().get(Calendar.DAY_OF_YEAR) <= 2){
+										//postpone original match
+										if(match.getDate().get(Calendar.DAY_OF_WEEK) == 7){
+											match.getDate().add(Calendar.DATE, 4);
+										}
+										else if(match.getDate().get(Calendar.DAY_OF_WEEK) == 1){
+											match.getDate().add(Calendar.DATE, 3);
+										}
+										else if(match.getDate().get(Calendar.DAY_OF_WEEK) == 3){
+											match.getDate().add(Calendar.DATE, 8);
+										}
+										else if(match.getDate().get(Calendar.DAY_OF_WEEK) == 4){
+											match.getDate().add(Calendar.DATE, 7);
+										}
+									}
+								}*/
+							}
+						}
+					}
+				}
+				if (! processFixtures) {
+					Iterator<Round> iRounds = ((Cup) c).getRounds().iterator();
+					while (iRounds.hasNext()) {
+						Round r = iRounds.next();
+						r.playMatches(db.getDate());
 					}
 				}
 			}

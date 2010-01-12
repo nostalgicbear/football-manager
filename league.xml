@@ -423,37 +423,6 @@
   <void property="numberOfTeamsInPlayoff"> 
    <int>4</int> 
   </void>
-  <void property="playoffMatchDates"> 
-	 <array class="java.util.Calendar" length="3"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273326064271</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273585264271</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1274708464271</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array> 
-  </void>
   <void property="matchDates">
 	 <array class="java.util.Calendar" length="46"> 
 	  <void index="0"> 
@@ -915,37 +884,6 @@
   </void>
   <void property="numberOfTeamsInPlayoff"> 
    <int>4</int> 
-  </void>
-  <void property="playoffMatchDates"> 
-	 <array class="java.util.Calendar" length="3"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273931123560</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1274190323560</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1274622323560</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array>
   </void>
   <void property="matchDates">
 	 <array class="java.util.Calendar" length="46"> 
@@ -1409,37 +1347,6 @@
   <void property="numberOfTeamsInPlayoff"> 
    <int>4</int> 
   </void>
-  <void property="playoffMatchDates"> 
-	 <array class="java.util.Calendar" length="3"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273931172357</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1274190372357</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1274535972357</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array> 
-  </void>
   <void property="matchDates">
 	 <array class="java.util.Calendar" length="46"> 
 	  <void index="0"> 
@@ -1901,37 +1808,6 @@
   </void>
   <void property="numberOfTeamsInPlayoff"> 
    <int>4</int> 
-  </void>
-  <void property="playoffMatchDates"> 
-	 <array class="java.util.Calendar" length="3"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273153631762</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273499231762</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1274017631762</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array> 
   </void>
   <void property="matchDates">
 	   <array class="java.util.Calendar" length="46"> 

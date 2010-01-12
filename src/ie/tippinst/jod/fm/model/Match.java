@@ -5,14 +5,14 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
-public class Match {
+public class Match implements Comparable<Match> {
 	private Calendar date;
 	private Club homeTeam;
 	private Club awayTeam;
 	private int homeScore;
 	private int awayScore;
-	private List<Player> homeScorers;
-	private List<Player> awayScorers;
+	private List<Player> homeScorers = new ArrayList<Player>();
+	private List<Player> awayScorers = new ArrayList<Player>();
 	private Competition competition;
 	private Stadium stadium;
 	private int attendance;
@@ -33,8 +33,6 @@ public class Match {
 		this.awayTeam = awayTeam;
 		this.homeScore = homeScore;
 		this.awayScore = awayScore;
-		this.homeScorers = new ArrayList<Player>();
-		this.awayScorers = new ArrayList<Player>();
 		this.competition = competition;
 		this.stadium = stadium;
 		this.penalties = penalties;
@@ -48,8 +46,6 @@ public class Match {
 		this.awayTeam = awayTeam;
 		this.homeScore = homeScore;
 		this.awayScore = awayScore;
-		this.homeScorers = new ArrayList<Player>();
-		this.awayScorers = new ArrayList<Player>();
 		this.competition = competition;
 		this.stadium = stadium;
 	}
@@ -61,8 +57,6 @@ public class Match {
 		this.awayTeam = awayTeam;
 		this.homeScore = homeScore;
 		this.awayScore = awayScore;
-		this.homeScorers = new ArrayList<Player>();
-		this.awayScorers = new ArrayList<Player>();
 		this.competition = competition;
 		this.stadium = stadium;
 	}
@@ -607,5 +601,11 @@ public class Match {
 
 	public int getAwayFirstLegScore() {
 		return awayFirstLegScore;
+	}
+
+	@Override
+	public int compareTo(Match m) {
+		int compare = this.getDate().compareTo(m.getDate());
+        return compare;
 	}
 }

@@ -714,6 +714,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display Shortlist Screen*/
     private void displayShortlist(ActionEvent ae){
+    	mainPanel.removeAll();
     	shortlistPanel = new ShortlistPanel(user);
         mainPanel.add(shortlistPanel, "Shortlist");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Shortlist");
@@ -723,6 +724,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display Player Search Screen*/
     private void displayPlayers(ActionEvent ae){
+    	mainPanel.removeAll();
     	playerSearchPanel = new PlayerSearchPanel();
         mainPanel.add(playerSearchPanel, "Player Search");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Player Search");
@@ -732,6 +734,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display Staff Search Screen*/
     private void displayAllStaff(ActionEvent ae){
+    	mainPanel.removeAll();
     	staffSearchPanel = new StaffSearchPanel();
         mainPanel.add(staffSearchPanel, "Staff Search");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Staff Search");
@@ -764,6 +767,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display staff member*/
     private void displayStaffProfile(String staffMember){
+    	mainPanel.removeAll();
     	staffProfilePanel = new StaffProfilePanel(staffMember);
     	mainPanel.add(staffProfilePanel, "Staff Profile");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "Staff Profile");
@@ -784,6 +788,7 @@ public class MainGameScreen extends JFrame {
     }
     
     private void displayLeague(int tab, String name){
+    	mainPanel.removeAll();
     	leagueTablePanel = new LeagueTablePanel(name);
     	DateFormat format = new SimpleDateFormat("dd-MMM-yy");
     	leagueFixturesPanel = new LeagueFixturesPanel(name, format.format(game.getDate().getTime()));
@@ -799,6 +804,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display player profile*/
     private void displayPlayer(String player){
+    	mainPanel.removeAll();
     	playerProfilePanel = new PlayerProfilePanel(player);
     	playerAttributesPanel = new PlayerAttributesPanel(player);
     	playerContractPanel = new PlayerContractPanel(player);
@@ -827,6 +833,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display particular club*/
     private void displayClub(String club, int defaultTab){
+    	mainPanel.removeAll();
     	squadPanel = new SquadPanel(club, squadPanel, this.userClub);
     	fixturesPanel = new FixturesPanel(club);
     	staffPanel = new StaffPanel(club);

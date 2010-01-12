@@ -44,5 +44,5 @@ public abstract class Competition implements Serializable {
 		this.reputation = reputation;
 	}
 	
-	
+	public abstract void setMatchSchedule();
 }

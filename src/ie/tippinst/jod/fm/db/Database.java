@@ -80,6 +80,7 @@ public class Database {
 		initialiseNonPlayers();
 		initialiseClubs();
 		initialiseLeagues();
+		initialiseCups();
 		setManagerShortlists();
 	}
 
@@ -101,6 +102,18 @@ public class Database {
 		while (iCompetition.hasNext()) {
 			c = iCompetition.next();
 			if (c.getName().equals(name)) {
+				break;
+			}
+		}
+		return c;
+	}
+	
+	public Competition findCompetition(int id) {
+		Competition c = null;
+		iCompetition = competitionList.iterator();
+		while (iCompetition.hasNext()) {
+			c = iCompetition.next();
+			if (c.getId() == id) {
 				break;
 			}
 		}
@@ -266,7 +279,7 @@ public class Database {
 		}
 	}
 
-	private void setLeagueFixtures() {
+	private void setClubFixtures() {
 		iClub = clubList.iterator();
 		while (iClub.hasNext()) {
 			Club c = iClub.next();
@@ -304,7 +317,21 @@ public class Database {
 						}
 					}
 				}
+				else if(comp instanceof Cup && comp.getId() == 10){
+					Iterator<Round> i = ((Cup) comp).getRounds().iterator();
+					while (i.hasNext()) {
+						Round r = i.next();
+						Iterator<Match> iMatch = r.getMatches().iterator();
+						while (iMatch.hasNext()) {
+							Match m = iMatch.next();
+							if (m.getHomeTeam().getId() == c.getId() || m.getAwayTeam().getId() == c.getId()) {
+								clubFixtures.add(m);
+							}
+						}
+					}
+				}
 			}
+			Collections.sort(clubFixtures);
 			c.setFixtures(clubFixtures);
 		}
 	}
@@ -345,8 +372,38 @@ public class Database {
 		}
 		setSquadAndStaff();
 	}
+	
+	public void initialiseCups() {
+		iCompetition = competitionList.iterator();
+		while (iCompetition.hasNext()) {
+			Competition c = iCompetition.next();
+			if(c instanceof Cup){
+				Cup cup = (Cup) c;
+				if(cup.getId() == 10){
+					Calendar cal = null;
+					Iterator<Round> iterator = cup.getRounds().iterator();
+					while(iterator.hasNext()){
+						Round r = iterator.next();
+						r.getMatches().clear();
+						r.getTeams().clear();
+						r.getWinners().clear();
+						int index = cup.getRounds().indexOf(r);
+						cal = (Calendar) cup.getRounds().get(index).getRoundDate().get(cup.getRounds().get(index).getRoundDate().size() - 1).clone();
+						cal.add(Calendar.DATE, -3);
+						r.setDrawDate(cal);
+					}
+					cup.getRounds().get(0).getTeams().addAll(((League) this.findCompetition(3)).getTeams());
+					cup.getRounds().get(0).getTeams().addAll(((League) this.findCompetition(4)).getTeams());
+					cup.getRounds().get(0).getTeams().addAll(((League) this.findCompetition(5)).getTeams());
+					cup.getRounds().get(0).getTeams().addAll(((League) this.findCompetition(0)).getTeams());
+					cup.getRounds().get(2).getTeams().addAll(((League) this.findCompetition(1)).getTeams());
+					cup.getRounds().get(2).getTeams().addAll(((League) this.findCompetition(2)).getTeams());
+				}
+			}
+		}
+	}
 
-	private void initialiseLeagues() {
+	public void initialiseLeagues() {
 		// Assign all leagues with a list of their clubs
 		iCompetition = competitionList.iterator();
 		while (iCompetition.hasNext()) {
@@ -374,16 +431,19 @@ public class Database {
 					((League) c).setPlayoffs((Cup) comp);
 					Calendar cal = (Calendar) ((League) c).getMatchDates()[((League) c).getMatchDates().length - 1].clone();
 					cal.add(Calendar.DATE, 1);
-					System.out.println(cal.getTime());
+					//System.out.println(cal.getTime());
 					((League) c).getPlayoffs().getRounds().get(0).setDrawDate(cal);
 					Iterator<Round> iterator = ((League) c).getPlayoffs().getRounds().iterator();
 					while(iterator.hasNext()){
 						Round r = iterator.next();
-						if (r.getDrawDate() == null) {
+						r.getMatches().clear();
+						r.getTeams().clear();
+						r.getWinners().clear();
+						if (r.getRoundNumber() > 1) {
 							int index = ((League) c).getPlayoffs().getRounds().indexOf(r);
 							cal = (Calendar) ((League) c).getPlayoffs().getRounds().get(index - 1).getRoundDate().get(((League) c).getPlayoffs().getRounds().get(index - 1).getRoundDate().size() - 1).clone();
 							cal.add(Calendar.DATE, 1);
-							System.out.println(cal.getTime());
+							//System.out.println(cal.getTime());
 							r.setDrawDate(cal);
 						}
 					}
@@ -411,7 +471,7 @@ public class Database {
 				((League) c).setFixtures(((League) c).generateFixtures());
 			}
 		}
-		setLeagueFixtures();
+		setClubFixtures();
 	}
 
 	private void loadStadia() throws FileNotFoundException {
@@ -648,7 +708,7 @@ public class Database {
 				c.setStatusOfPlayers();
 			}
 		}
-		this.setLeagueFixtures();
+		this.setClubFixtures();
 	}
 
 	/* This method returns the current ingame date */

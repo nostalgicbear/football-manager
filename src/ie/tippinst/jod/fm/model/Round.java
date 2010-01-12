@@ -2,11 +2,13 @@ package ie.tippinst.jod.fm.model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 public class Round {
 	private List<Calendar> roundDate = new ArrayList<Calendar>();
+	private List<Calendar> earliestRoundDate = new ArrayList<Calendar>();
 	private int roundNumber;
 	private Calendar drawDate;
 	private List<Club> teams = new ArrayList<Club>();
@@ -115,5 +117,13 @@ public class Round {
 
 	public boolean hasTwoLegs() {
 		return twoLegs;
+	}
+
+	public void setEarliestRoundDate(List<Calendar> earliestRoundDate) {
+		this.earliestRoundDate = earliestRoundDate;
+	}
+
+	public List<Calendar> getEarliestRoundDate() {
+		return earliestRoundDate;
 	}
 }

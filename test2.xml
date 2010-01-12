@@ -2,38 +2,29 @@
 <java version="1.6.0_17" class="java.beans.XMLDecoder"> 
  <object class="ie.tippinst.jod.fm.model.Cup"> 
   <void property="id"> 
-   <int>9</int> 
+   <int>10</int> 
   </void> 
   <void property="name"> 
-   <string>Blue Square Premier Playoffs</string> 
+   <string>FA Cup</string> 
   </void> 
   <void property="numberOfRounds"> 
-   <int>2</int> 
+   <int>8</int> 
   </void> 
   <void property="reputation"> 
-   <int>7</int> 
+   <int>16</int> 
   </void> 
   <void property="rounds"> 
    <void method="add"> 
     <object class="ie.tippinst.jod.fm.model.Round"> 
      <void property="numberOfTeams"> 
-      <int>4</int> 
+      <int>80</int> 
      </void> 
      <void property="roundDate"> 
       <void method="add"> 
        <object class="java.util.GregorianCalendar"> 
         <void property="time"> 
          <object class="java.util.Date"> 
-          <long>1273100400000</long> 
-         </object> 
-        </void> 
-       </object> 
-      </void> 
-      <void method="add"> 
-       <object class="java.util.GregorianCalendar"> 
-        <void property="time"> 
-         <object class="java.util.Date"> 
-          <long>1273446000000</long> 
+          <long>1257552000000</long> 
          </object> 
         </void> 
        </object> 
@@ -47,14 +38,14 @@
    <void method="add"> 
     <object class="ie.tippinst.jod.fm.model.Round"> 
      <void property="numberOfTeams"> 
-      <int>2</int> 
+      <int>40</int> 
      </void> 
      <void property="roundDate"> 
       <void method="add"> 
        <object class="java.util.GregorianCalendar"> 
         <void property="time"> 
          <object class="java.util.Date"> 
-          <long>1273964400000</long> 
+          <long>1259366400000</long> 
          </object> 
         </void> 
        </object> 
@@ -62,6 +53,132 @@
      </void> 
      <void property="roundNumber"> 
       <int>2</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>64</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1262390400000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>3</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>32</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1264204800000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>4</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>16</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1266019200000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>5</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>8</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1267833600000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>6</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>4</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1270854000000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>7</int> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object class="ie.tippinst.jod.fm.model.Round"> 
+     <void property="numberOfTeams"> 
+      <int>2</int> 
+     </void> 
+     <void property="roundDate"> 
+      <void method="add"> 
+       <object class="java.util.GregorianCalendar"> 
+        <void property="time"> 
+         <object class="java.util.Date"> 
+          <long>1273878000000</long> 
+         </object> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="roundNumber"> 
+      <int>8</int> 
      </void> 
     </object> 
    </void> 

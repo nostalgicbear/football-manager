@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class League extends Competition implements Serializable {
@@ -14,14 +15,13 @@ public class League extends Competition implements Serializable {
 	private int table [][];
 	private Match[][] fixtures;
 	private Calendar[] matchDates;
+	private Calendar earliestStartDate;
+	//private Calendar[] earliestMatchDates;
 	private League promotedTo;
 	private League relegatedTo;
 	private int numberOfTeamsPromoted;
 	private int numberOfTeamsRelegated;
 	private int numberOfTeamsInPlayoff;
-	private Calendar[] playoffDrawDates;
-	private Calendar[] playoffMatchDates;
-	private List<Match> playoffMatches = new ArrayList<Match>();
 	private Cup playoffs;
 	
 	public League() {
@@ -233,11 +233,20 @@ public class League extends Competition implements Serializable {
 
 	public void setMatchDates(Calendar[] matchDates) {
 		this.matchDates = matchDates;
-		if(playoffMatchDates != null){
-			Calendar c = (Calendar) matchDates[matchDates.length - 1].clone();
-			c.add(Calendar.DATE, 1);
-			this.getPlayoffDrawDates()[0] = c;
+		if(matchDates[0].get(Calendar.YEAR) == 2009){
+			Calendar cal = (Calendar) matchDates[0].clone();
+			cal.add(Calendar.DATE, -2);
+			this.setEarliestStartDate(cal);
 		}
+		/*this.setEarliestMatchDates(new Calendar[this.getMatchDates().length]);
+		if(this.getMatchDates()[0].get(Calendar.YEAR) == 2009){
+			System.arraycopy(this.getMatchDates(), 0, this.getEarliestMatchDates(), 0, this.getMatchDates().length);
+		}
+		else{
+			for(int i = 0; i < this.getEarliestMatchDates().length; i++){
+				this.getEarliestMatchDates()[i].add(Calendar.YEAR, 1);
+			}
+		}*/
 	}
 
 	public Calendar[] getMatchDates() {
@@ -278,43 +287,10 @@ public class League extends Competition implements Serializable {
 
 	public void setNumberOfTeamsInPlayoff(int numberOfTeamsInPlayoff) {
 		this.numberOfTeamsInPlayoff = numberOfTeamsInPlayoff;
-		if(numberOfTeamsInPlayoff != 0){
-			this.playoffDrawDates = new Calendar[this.getNumberOfTeamsInPlayoff() / 2];
-			this.playoffMatchDates = new Calendar[(this.getPlayoffDrawDates().length * 2) - 1];
-		}
 	}
 
 	public int getNumberOfTeamsInPlayoff() {
 		return numberOfTeamsInPlayoff;
-	}
-
-	public void setPlayoffDrawDates(Calendar[] playoffDrawDates) {
-		this.playoffDrawDates = playoffDrawDates;
-	}
-
-	public Calendar[] getPlayoffDrawDates() {
-		return playoffDrawDates;
-	}
-
-	public void setPlayoffMatchDates(Calendar[] playoffMatchDates) {
-		this.playoffMatchDates = playoffMatchDates;
-		if(playoffMatchDates != null){
-			Calendar c = (Calendar) playoffMatchDates[1].clone();
-			c.add(Calendar.DATE, 1);
-			this.getPlayoffDrawDates()[1] = c;
-		}
-	}
-
-	public Calendar[] getPlayoffMatchDates() {
-		return playoffMatchDates;
-	}
-
-	public void setPlayoffMatches(List<Match> playoffMatches) {
-		this.playoffMatches = playoffMatches;
-	}
-
-	public List<Match> getPlayoffMatches() {
-		return playoffMatches;
 	}
 
 	public void setPlayoffs(Cup playoffs) {
@@ -324,4 +300,67 @@ public class League extends Competition implements Serializable {
 	public Cup getPlayoffs() {
 		return playoffs;
 	}
+	
+	@Override
+	public void setMatchSchedule(){
+		//System.out.println(this.getName());
+		int daysToAddOn = 0;
+		Calendar[] currentMatchDates = this.getMatchDates();
+		currentMatchDates[0].add(Calendar.YEAR, 1);
+		if((currentMatchDates[0].get(Calendar.YEAR) % 4 == 0 && (currentMatchDates[0].get(Calendar.MONTH) > 1 || (currentMatchDates[0].get(Calendar.MONTH) == 1 && currentMatchDates[0].get(Calendar.DATE) == 29))) || ((currentMatchDates[0].get(Calendar.YEAR) - 1) % 4 == 0 && currentMatchDates[0].get(Calendar.MONTH) <= 1)){
+			currentMatchDates[0].add(Calendar.DATE, -2);
+		}
+		else{
+			currentMatchDates[0].add(Calendar.DATE, -1);
+		}
+		if(currentMatchDates[0].get(Calendar.DATE) < this.getEarliestStartDate().get(Calendar.DATE)){
+			currentMatchDates[0].add(Calendar.DATE, 7);
+			daysToAddOn = 7;
+		}
+		for(int i = 1; i < currentMatchDates.length; i++){
+			currentMatchDates[i].add(Calendar.YEAR, 1);
+			if((currentMatchDates[i].get(Calendar.DATE) == 26 && currentMatchDates[i].get(Calendar.MONTH) == 11)){
+				// do nothing
+			}
+			else if(currentMatchDates[i].get(Calendar.DATE) >= 28  && currentMatchDates[i].get(Calendar.MONTH) == 11){
+				currentMatchDates[i].set(Calendar.DATE, 28);
+				if(currentMatchDates[i].get(Calendar.DAY_OF_WEEK) == 4){
+					currentMatchDates[i].add(Calendar.DATE, 3);
+				}
+				else if(currentMatchDates[i].get(Calendar.DAY_OF_WEEK) == 5){
+					currentMatchDates[i].add(Calendar.DATE, 2);
+				}
+				else if(currentMatchDates[i].get(Calendar.DAY_OF_WEEK) == 6){
+					currentMatchDates[i].add(Calendar.DATE, 1);
+				}
+				else{
+					// do nothing
+				}
+			}
+			else{
+				if((currentMatchDates[i].get(Calendar.YEAR) % 4 == 0 && (currentMatchDates[i].get(Calendar.MONTH) > 1 || (currentMatchDates[i].get(Calendar.MONTH) == 1 && currentMatchDates[i].get(Calendar.DATE) == 29))) || ((currentMatchDates[i].get(Calendar.YEAR) - 1) % 4 == 0 && currentMatchDates[i].get(Calendar.MONTH) <= 1)){
+					currentMatchDates[i].add(Calendar.DATE, (daysToAddOn - 2));
+				}
+				else{
+					currentMatchDates[i].add(Calendar.DATE, (daysToAddOn - 1));
+				}
+			}
+		}
+	}
+
+	public void setEarliestStartDate(Calendar earliestStartDate) {
+		this.earliestStartDate = earliestStartDate;
+	}
+
+	public Calendar getEarliestStartDate() {
+		return earliestStartDate;
+	}
+
+	/*public void setEarliestMatchDates(Calendar[] earliestMatchDates) {
+		this.earliestMatchDates = earliestMatchDates;
+	}
+
+	public Calendar[] getEarliestMatchDates() {
+		return earliestMatchDates;
+	}*/
 }

@@ -1276,4 +1276,92 @@
    <int>6500</int> 
   </void>   
  </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>117</int> 
+  </void> 
+  <void property="name"> 
+   <string>Kingfield Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>6036</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>118</int> 
+  </void> 
+  <void property="name"> 
+   <string>Crabble Athletic Ground</string> 
+  </void>
+  <void property="capacity"> 
+   <int>6500</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>119</int> 
+  </void> 
+  <void property="name"> 
+   <string>Newport Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>4300</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>120</int> 
+  </void> 
+  <void property="name"> 
+   <string>Silverlake Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>2300</int> 
+  </void>   
+ </object> 
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>121</int> 
+  </void> 
+  <void property="name"> 
+   <string>Chelmsford Sport and Athletics Centre</string> 
+  </void>
+  <void property="capacity"> 
+   <int>3000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>122</int> 
+  </void> 
+  <void property="name"> 
+   <string>Highbury Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>5000</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>123</int> 
+  </void> 
+  <void property="name"> 
+   <string>Victoria Stadium</string> 
+  </void>
+  <void property="capacity"> 
+   <int>5046</int> 
+  </void>   
+ </object>
+ <object class="ie.tippinst.jod.fm.model.Stadium"> 
+  <void property="id"> 
+   <int>124</int> 
+  </void> 
+  <void property="name"> 
+   <string>New Bucks Head</string> 
+  </void>
+  <void property="capacity"> 
+   <int>6300</int> 
+  </void>   
+ </object>
 </java> 
