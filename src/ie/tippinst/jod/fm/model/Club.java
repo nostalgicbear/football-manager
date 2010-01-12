@@ -598,4 +598,18 @@ public class Club implements Serializable {
 	public double getTicketPrice() {
 		return ticketPrice;
 	}
+	
+	public boolean checkForFixture(Calendar c){
+		boolean fixture = false;
+		for(int i = 0; i < this.getFixtures().size(); i++){
+			Match m = this.getFixtures().get(i);
+			//System.out.println(m.getDate().get(Calendar.DAY_OF_YEAR));
+			//System.out.println(c.get(Calendar.DAY_OF_YEAR));
+			if((Math.abs(m.getDate().get(Calendar.DAY_OF_YEAR) - c.get(Calendar.DAY_OF_YEAR))) <= 2){
+				fixture = true;
+				break;
+			}
+		}
+		return fixture;
+	}
 }

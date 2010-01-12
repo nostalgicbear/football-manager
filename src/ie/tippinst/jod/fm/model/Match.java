@@ -20,6 +20,8 @@ public class Match implements Comparable<Match> {
 	private Club winner;
 	private int homeFirstLegScore = -1;
 	private int awayFirstLegScore = -1;
+	private boolean postponed = false;
+	private boolean rescheduled = false;
 	
 	public Match() {
 		super();
@@ -131,8 +133,11 @@ public class Match implements Comparable<Match> {
 			Player p = i.next();
 			awayGoalscorers = awayGoalscorers + ", " + p.getFirstName() + " " + p.getLastName() + " " + (((int)(Math.random() * 90)) + 1) + "'"; 
 		}
-		return homeTeam.getName() + " " + (homeScore == -1 ? "" : homeScore) + "-" + (awayScore == -1 ? "" : awayScore) + " " + awayTeam.getName()
+		String match = homeTeam.getName() + " " + (this.isPostponed() ? "P" : "") + (homeScore == -1 ? "" : homeScore) + "-" + (this.isPostponed() ? "P" : "") + (awayScore == -1 ? "" : awayScore) + " " + awayTeam.getName()
 		+ (homeScore >= 100 ? "\n" + homeTeam.getName() + " Goalscorers: " + homeGoalscorers : "") + (awayScore >= 100 ? "\n" + awayTeam.getName() + " Goalscorers: " + awayGoalscorers : "");
+		//System.out.println(match);
+		//System.out.println(this.isPostponed());
+		return match;
 	}
 	
 	public double getTeamRating(boolean home){
@@ -178,7 +183,6 @@ public class Match implements Comparable<Match> {
 	}
 	
 	public void generateResult(){
-		
 		double homeTeamRating = getTeamRating(true);
 		double awayTeamRating = getTeamRating(false);
 		double difference = homeTeamRating - awayTeamRating;
@@ -607,5 +611,21 @@ public class Match implements Comparable<Match> {
 	public int compareTo(Match m) {
 		int compare = this.getDate().compareTo(m.getDate());
         return compare;
+	}
+
+	public void setPostponed(boolean postponed) {
+		this.postponed = postponed;
+	}
+
+	public boolean isPostponed() {
+		return postponed;
+	}
+
+	public void setRescheduled(boolean rescheduled) {
+		this.rescheduled = rescheduled;
+	}
+
+	public boolean isRescheduled() {
+		return rescheduled;
 	}
 }

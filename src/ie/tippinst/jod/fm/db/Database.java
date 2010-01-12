@@ -316,6 +316,14 @@ public class Database {
 							}
 						}
 					}
+					Iterator<Match> iMatch = ((League) comp).getRescheduledMatches().iterator();
+					while(iMatch.hasNext()){
+						Match m = iMatch.next();
+						if (m.getHomeTeam().getId() == c.getId()
+								|| m.getAwayTeam().getId() == c.getId()) {
+							clubFixtures.add(m);
+						}
+					}
 				}
 				else if(comp instanceof Cup && comp.getId() == 10){
 					Iterator<Round> i = ((Cup) comp).getRounds().iterator();
@@ -429,7 +437,7 @@ public class Database {
 				Competition comp = i.next();
 				if (c instanceof League && ((League) c).getPlayoffs() != null && ((League) c).getPlayoffs().getId() == comp.getId()) {
 					((League) c).setPlayoffs((Cup) comp);
-					Calendar cal = (Calendar) ((League) c).getMatchDates()[((League) c).getMatchDates().length - 1].clone();
+					Calendar cal = (Calendar) ((League) c).getMatchDates().get(((League) c).getMatchDates().size() - 1).clone();
 					cal.add(Calendar.DATE, 1);
 					//System.out.println(cal.getTime());
 					((League) c).getPlayoffs().getRounds().get(0).setDrawDate(cal);

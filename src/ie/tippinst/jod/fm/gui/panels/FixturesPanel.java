@@ -52,7 +52,7 @@ public class FixturesPanel extends JPanel {
         	data[i][0] =  day + ", " + list.get(i).getDate().get(Calendar.DAY_OF_MONTH) + "/" + (list.get(i).getDate().get(Calendar.MONTH) + 1) + "/" + list.get(i).getDate().get(Calendar.YEAR);
             data[i][1] = (list.get(i).getHomeTeam().getName().equals(this.club) ? list.get(i).getAwayTeam().getName() : list.get(i).getHomeTeam().getName());
             data[i][2] = (list.get(i).getHomeTeam().getName().equals(this.club) ? "H" : "A");
-            data[i][3] = (list.get(i).getHomeTeam().getName().equals(this.club) ? ((list.get(i).getHomeScore() == -1) ? "" : list.get(i).getHomeScore()) : ((list.get(i).getAwayScore() == -1) ? "" : list.get(i).getAwayScore())) + " - " +     		(list.get(i).getAwayTeam().getName().equals(this.club) ? ((list.get(i).getHomeScore() == -1) ? "" : list.get(i).getHomeScore()) : ((list.get(i).getAwayScore() == -1) ? "" : list.get(i).getAwayScore()));
+            data[i][3] = (list.get(i).getHomeTeam().getName().equals(this.club) ? ((list.get(i).getHomeScore() == -1) ? "" : list.get(i).getHomeScore()) : ((list.get(i).getAwayScore() == -1) ? "" : list.get(i).getAwayScore())) + (list.get(i).isPostponed() ? "P" : "") + " - " + (list.get(i).isPostponed() ? "P" : "") + (list.get(i).getAwayTeam().getName().equals(this.club) ? ((list.get(i).getHomeScore() == -1) ? "" : list.get(i).getHomeScore()) : ((list.get(i).getAwayScore() == -1) ? "" : list.get(i).getAwayScore()));
             data[i][4] = list.get(i).getCompetition().getName();        	
         }
         

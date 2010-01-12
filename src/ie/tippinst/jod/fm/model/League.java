@@ -2,8 +2,10 @@ package ie.tippinst.jod.fm.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -14,7 +16,9 @@ public class League extends Competition implements Serializable {
 	private List<Club> teams;
 	private int table [][];
 	private Match[][] fixtures;
-	private Calendar[] matchDates;
+	private List<Match> rescheduledMatches = new ArrayList<Match>();
+	private List<Calendar> matchDates;
+	private List<Calendar> extraMatchDates = new ArrayList<Calendar>();
 	private Calendar earliestStartDate;
 	//private Calendar[] earliestMatchDates;
 	private League promotedTo;
@@ -44,8 +48,6 @@ public class League extends Competition implements Serializable {
 
 	public void setNumberOfTeams(int numberOfTeams) {
 		this.numberOfTeams = numberOfTeams;
-		if(numberOfTeams != 0)
-			matchDates = new Calendar[(numberOfTeams - 1) * 2];
 	}
 
 	public List<Club> getTeams() {
@@ -225,16 +227,16 @@ public class League extends Competition implements Serializable {
         
         for(int i = 0; i < rounds.length; i++){
         	for(int j = 0; j < rounds[i].length; j++){
-        		rounds[i][j].setDate(this.getMatchDates()[i]); 
+        		rounds[i][j].setDate(this.getMatchDates().get(i)); 
         	}
         }
 		return rounds;
 	}
 
 	public void setMatchDates(Calendar[] matchDates) {
-		this.matchDates = matchDates;
-		if(matchDates[0].get(Calendar.YEAR) == 2009){
-			Calendar cal = (Calendar) matchDates[0].clone();
+		this.matchDates = Arrays.asList(matchDates);
+		if(this.matchDates.get(0).get(Calendar.YEAR) == 2009){
+			Calendar cal = (Calendar) this.matchDates.get(0).clone();
 			cal.add(Calendar.DATE, -2);
 			this.setEarliestStartDate(cal);
 		}
@@ -249,7 +251,7 @@ public class League extends Competition implements Serializable {
 		}*/
 	}
 
-	public Calendar[] getMatchDates() {
+	public List<Calendar> getMatchDates() {
 		return matchDates;
 	}
 
@@ -305,44 +307,44 @@ public class League extends Competition implements Serializable {
 	public void setMatchSchedule(){
 		//System.out.println(this.getName());
 		int daysToAddOn = 0;
-		Calendar[] currentMatchDates = this.getMatchDates();
-		currentMatchDates[0].add(Calendar.YEAR, 1);
-		if((currentMatchDates[0].get(Calendar.YEAR) % 4 == 0 && (currentMatchDates[0].get(Calendar.MONTH) > 1 || (currentMatchDates[0].get(Calendar.MONTH) == 1 && currentMatchDates[0].get(Calendar.DATE) == 29))) || ((currentMatchDates[0].get(Calendar.YEAR) - 1) % 4 == 0 && currentMatchDates[0].get(Calendar.MONTH) <= 1)){
-			currentMatchDates[0].add(Calendar.DATE, -2);
+		List<Calendar> currentMatchDates = this.getMatchDates();
+		currentMatchDates.get(0).add(Calendar.YEAR, 1);
+		if((currentMatchDates.get(0).get(Calendar.YEAR) % 4 == 0 && (currentMatchDates.get(0).get(Calendar.MONTH) > 1 || (currentMatchDates.get(0).get(Calendar.MONTH) == 1 && currentMatchDates.get(0).get(Calendar.DATE) == 29))) || ((currentMatchDates.get(0).get(Calendar.YEAR) - 1) % 4 == 0 && currentMatchDates.get(0).get(Calendar.MONTH) <= 1)){
+			currentMatchDates.get(0).add(Calendar.DATE, -2);
 		}
 		else{
-			currentMatchDates[0].add(Calendar.DATE, -1);
+			currentMatchDates.get(0).add(Calendar.DATE, -1);
 		}
-		if(currentMatchDates[0].get(Calendar.DATE) < this.getEarliestStartDate().get(Calendar.DATE)){
-			currentMatchDates[0].add(Calendar.DATE, 7);
+		if(currentMatchDates.get(0).get(Calendar.DATE) < this.getEarliestStartDate().get(Calendar.DATE)){
+			currentMatchDates.get(0).add(Calendar.DATE, 7);
 			daysToAddOn = 7;
 		}
-		for(int i = 1; i < currentMatchDates.length; i++){
-			currentMatchDates[i].add(Calendar.YEAR, 1);
-			if((currentMatchDates[i].get(Calendar.DATE) == 26 && currentMatchDates[i].get(Calendar.MONTH) == 11)){
+		for(int i = 1; i < currentMatchDates.size(); i++){
+			currentMatchDates.get(i).add(Calendar.YEAR, 1);
+			if((currentMatchDates.get(i).get(Calendar.DATE) == 26 && currentMatchDates.get(i).get(Calendar.MONTH) == 11)){
 				// do nothing
 			}
-			else if(currentMatchDates[i].get(Calendar.DATE) >= 28  && currentMatchDates[i].get(Calendar.MONTH) == 11){
-				currentMatchDates[i].set(Calendar.DATE, 28);
-				if(currentMatchDates[i].get(Calendar.DAY_OF_WEEK) == 4){
-					currentMatchDates[i].add(Calendar.DATE, 3);
+			else if(currentMatchDates.get(i).get(Calendar.DATE) >= 28  && currentMatchDates.get(i).get(Calendar.MONTH) == 11){
+				currentMatchDates.get(i).set(Calendar.DATE, 28);
+				if(currentMatchDates.get(i).get(Calendar.DAY_OF_WEEK) == 4){
+					currentMatchDates.get(i).add(Calendar.DATE, 3);
 				}
-				else if(currentMatchDates[i].get(Calendar.DAY_OF_WEEK) == 5){
-					currentMatchDates[i].add(Calendar.DATE, 2);
+				else if(currentMatchDates.get(i).get(Calendar.DAY_OF_WEEK) == 5){
+					currentMatchDates.get(i).add(Calendar.DATE, 2);
 				}
-				else if(currentMatchDates[i].get(Calendar.DAY_OF_WEEK) == 6){
-					currentMatchDates[i].add(Calendar.DATE, 1);
+				else if(currentMatchDates.get(i).get(Calendar.DAY_OF_WEEK) == 6){
+					currentMatchDates.get(i).add(Calendar.DATE, 1);
 				}
 				else{
 					// do nothing
 				}
 			}
 			else{
-				if((currentMatchDates[i].get(Calendar.YEAR) % 4 == 0 && (currentMatchDates[i].get(Calendar.MONTH) > 1 || (currentMatchDates[i].get(Calendar.MONTH) == 1 && currentMatchDates[i].get(Calendar.DATE) == 29))) || ((currentMatchDates[i].get(Calendar.YEAR) - 1) % 4 == 0 && currentMatchDates[i].get(Calendar.MONTH) <= 1)){
-					currentMatchDates[i].add(Calendar.DATE, (daysToAddOn - 2));
+				if((currentMatchDates.get(i).get(Calendar.YEAR) % 4 == 0 && (currentMatchDates.get(i).get(Calendar.MONTH) > 1 || (currentMatchDates.get(i).get(Calendar.MONTH) == 1 && currentMatchDates.get(i).get(Calendar.DATE) == 29))) || ((currentMatchDates.get(i).get(Calendar.YEAR) - 1) % 4 == 0 && currentMatchDates.get(i).get(Calendar.MONTH) <= 1)){
+					currentMatchDates.get(i).add(Calendar.DATE, (daysToAddOn - 2));
 				}
 				else{
-					currentMatchDates[i].add(Calendar.DATE, (daysToAddOn - 1));
+					currentMatchDates.get(i).add(Calendar.DATE, (daysToAddOn - 1));
 				}
 			}
 		}
@@ -354,6 +356,22 @@ public class League extends Competition implements Serializable {
 
 	public Calendar getEarliestStartDate() {
 		return earliestStartDate;
+	}
+
+	public void setExtraMatchDates(List<Calendar> extraMatchDates) {
+		this.extraMatchDates = extraMatchDates;
+	}
+
+	public List<Calendar> getExtraMatchDates() {
+		return extraMatchDates;
+	}
+
+	public void setRescheduledMatches(List<Match> rescheduledMatches) {
+		this.rescheduledMatches = rescheduledMatches;
+	}
+
+	public List<Match> getRescheduledMatches() {
+		return rescheduledMatches;
 	}
 
 	/*public void setEarliestMatchDates(Calendar[] earliestMatchDates) {

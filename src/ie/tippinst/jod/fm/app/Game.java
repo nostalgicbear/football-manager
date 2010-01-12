@@ -331,7 +331,7 @@ public class Game {
 										Calendar.MONTH))
 								&& (leagueFixtures[i][j].getDate().get(
 										Calendar.YEAR) == db.getDate().get(
-										Calendar.YEAR))) {
+										Calendar.YEAR)) && (! leagueFixtures[i][j].isPostponed())) {
 							if ((!(processFixtures))
 									&& (c.getId() == userClub.getLeague()
 											.getId())) {
@@ -400,6 +400,31 @@ public class Game {
 						}
 					}
 				}
+				Iterator<Match> i = ((League) c).getRescheduledMatches().iterator();
+				while(i.hasNext()){
+					Match m = i.next();
+					if((m.getDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH))
+							&& (m.getDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH))
+							&& (m.getDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))
+							&& (! m.isPostponed())){
+						//if(m.getHomeTeam().getId() != this.userClub.getId())
+						m.getHomeTeam().setSelectedTeam(m.getHomeTeam().getBestTeam(m.getHomeTeam().getAvailablePlayers()));
+						/*Iterator<Player> it = m.getHomeTeam().getSelectedTeam().iterator();
+						while(it.hasNext()){
+							Player p = it.next();
+							System.out.println(p.getFirstName() + " " + p.getLastName());
+						}
+						System.out.println();*/
+						//if(m.getAwayTeam().getId() != this.userClub.getId())
+						m.getAwayTeam().setSelectedTeam(m.getAwayTeam().getBestTeam(m.getAwayTeam().getAvailablePlayers()));
+						/*it = m.getAwayTeam().getSelectedTeam().iterator();
+						while(it.hasNext()){
+							Player p = it.next();
+							System.out.println(p.getFirstName() + " " + p.getLastName());
+						}*/
+						m.generateResult();
+					}
+				}
 			}
 			else if(c instanceof Cup && c.getId() == 10){
 				if(! processFixtures){
@@ -435,25 +460,95 @@ public class Game {
 								m.setStadium(m.getHomeTeam().getHomeGround());
 								m.setPenalties(true);
 								r.getMatches().add(m);
-								/*Iterator<Match> iMatch = m.getHomeTeam().getFixtures().iterator();
+								Iterator<Match> iMatch = m.getHomeTeam().getFixtures().iterator();
 								while(iMatch.hasNext()){
 									Match match = iMatch.next();
-									if(match.getDate().get(Calendar.DAY_OF_YEAR) - m.getDate().get(Calendar.DAY_OF_YEAR) <= 2){
+									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
+										//System.out.println(match.getDate().get(Calendar.DAY_OF_YEAR));
+										//System.out.println(m.getDate().get(Calendar.DAY_OF_YEAR));
+										//System.out.println(match);
 										//postpone original match
-										if(match.getDate().get(Calendar.DAY_OF_WEEK) == 7){
-											match.getDate().add(Calendar.DATE, 4);
+										match.setPostponed(true);
+										match.setRescheduled(true);
+										Calendar cal = (Calendar) match.getDate().clone();
+										//cal.add(Calendar.DATE, 4);
+										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
+											//System.out.println(cal.get(Calendar.DAY_OF_WEEK));
+											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
+												cal.add(Calendar.DATE, 4);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 1){
+												cal.add(Calendar.DATE, 3);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 3){
+												cal.add(Calendar.DATE, 8);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 4){
+												cal.add(Calendar.DATE, 7);
+												//System.out.println("test");
+												
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 6){
+												cal.add(Calendar.DATE, 5);
+												//System.out.println("test");
+											}
 										}
-										else if(match.getDate().get(Calendar.DAY_OF_WEEK) == 1){
-											match.getDate().add(Calendar.DATE, 3);
-										}
-										else if(match.getDate().get(Calendar.DAY_OF_WEEK) == 3){
-											match.getDate().add(Calendar.DATE, 8);
-										}
-										else if(match.getDate().get(Calendar.DAY_OF_WEEK) == 4){
-											match.getDate().add(Calendar.DATE, 7);
-										}
+										Match newMatch = new Match(cal, match.getHomeTeam(), match.getAwayTeam(), match.getHomeScore(), match.getAwayScore(), match.getCompetition(), match.getStadium(), match.hasPenalties());
+										((League) match.getCompetition()).getExtraMatchDates().add(cal);
+										((League) match.getCompetition()).getRescheduledMatches().add(newMatch);
+										System.out.println(match);
+										System.out.println(match.getDate().getTime());
+										System.out.println(match.isPostponed());
+										break;
 									}
-								}*/
+								}
+								iMatch = m.getAwayTeam().getFixtures().iterator();
+								while(iMatch.hasNext()){
+									Match match = iMatch.next();
+									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
+										//System.out.println(match.getDate().get(Calendar.DAY_OF_YEAR));
+										//System.out.println(m.getDate().get(Calendar.DAY_OF_YEAR));
+										//System.out.println(match);
+										//postpone original match
+										match.setPostponed(true);
+										match.setRescheduled(true);
+										Calendar cal = (Calendar) match.getDate().clone();
+										//cal.add(Calendar.DATE, 4);
+										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
+											//System.out.println(cal.get(Calendar.DAY_OF_WEEK));
+											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
+												cal.add(Calendar.DATE, 4);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 1){
+												cal.add(Calendar.DATE, 3);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 3){
+												cal.add(Calendar.DATE, 8);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 4){
+												cal.add(Calendar.DATE, 7);
+												//System.out.println("test");
+											}
+											else if(cal.get(Calendar.DAY_OF_WEEK) == 6){
+												cal.add(Calendar.DATE, 5);
+												//System.out.println("test");
+											}
+										}
+										Match newMatch = new Match(cal, match.getHomeTeam(), match.getAwayTeam(), match.getHomeScore(), match.getAwayScore(), match.getCompetition(), match.getStadium(), match.hasPenalties());
+										((League) match.getCompetition()).getExtraMatchDates().add(cal);
+										((League) match.getCompetition()).getRescheduledMatches().add(newMatch);
+										System.out.println(match);
+										System.out.println(match.getDate().getTime());
+										System.out.println(match.isPostponed());
+										break;
+									}
+								}
 							}
 						}
 					}
@@ -629,11 +724,11 @@ public class Game {
 	
 	public String[] getMatchDates(String leagueName){
 		League league = (League) db.findCompetition(leagueName);
-		Calendar[] matchDates = league.getMatchDates();
-		String[] matchDatesAsStrings = new String[matchDates.length];
+		List<Calendar> matchDates = league.getMatchDates();
+		String[] matchDatesAsStrings = new String[matchDates.size()];
 		DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yy");
-		for(int i = 0; i < matchDates.length; i++){
-			matchDatesAsStrings[i] = dateFormat.format(matchDates[i].getTime());
+		for(int i = 0; i < matchDates.size(); i++){
+			matchDatesAsStrings[i] = dateFormat.format(matchDates.get(i).getTime());
 		}
 		return matchDatesAsStrings;
 	}
