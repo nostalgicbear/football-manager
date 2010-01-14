@@ -3,7 +3,7 @@ package ie.tippinst.jod.fm.model;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class Person implements Serializable {
+public abstract class Person implements Serializable {
 	
 	private static final long serialVersionUID = -4798728817236898432L;
 	private int id;

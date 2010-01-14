@@ -12,7 +12,6 @@ import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
 import ie.tippinst.jod.fm.model.Player;
 import ie.tippinst.jod.fm.model.Round;
-import ie.tippinst.jod.fm.model.Stadium;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -30,7 +29,6 @@ public class Game {
 	
 	private static Game game = null;
 	private Database db;
-	//private List<Message> messages = new ArrayList<Message>();
 	private Club userClub;
 
 	/* This constructs a new game object with the initial date set at 2 July 2009*/
@@ -217,6 +215,7 @@ public class Game {
 	
 	public int continueGame(boolean processFixtures, List<String> players){
 		int fixtures = 0;
+		//if it is the end of the season move to next season
 		if((db.getDate().get(Calendar.DAY_OF_MONTH) == 20) && (db.getDate().get(Calendar.MONTH) == 5)){
 			Iterator<Competition> iCompetition = db.getCompetitionList().iterator();
 			while(iCompetition.hasNext()){
@@ -254,9 +253,12 @@ public class Game {
 			//generate fixtures
 			db.initialiseLeagues();
 		}
+		//if there are no matches to be played move on to next day
 		if(!(processFixtures)){
 			db.getDate().add(Calendar.DATE, 1);
 		}
+		
+		//check for any playoff that needs to be drawn and make the draw if necessary
 		Match[][] leagueFixtures = null;
 		List<Round> playoffRounds = null;
 		Iterator<Competition> iterator = db.getCompetitionList().iterator();
@@ -267,15 +269,9 @@ public class Game {
 					Iterator<Round> i = ((League) c).getPlayoffs().getRounds().iterator();
 					while(i.hasNext()){
 						Round r = i.next();
-						if((r.getDrawDate().get(
-								Calendar.DAY_OF_MONTH) == db.getDate().get(
-										Calendar.DAY_OF_MONTH))
-										&& (r.getDrawDate().get(
-												Calendar.MONTH) == db.getDate().get(
-												Calendar.MONTH))
-										&& (r.getDrawDate().get(
-												Calendar.YEAR) == db.getDate().get(
-												Calendar.YEAR))){
+						if((r.getDrawDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH))
+										&& (r.getDrawDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH))
+										&& (r.getDrawDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))){
 							if(r.getRoundNumber() == 1){
 								String[][] table = this.getLeagueTable(c.getName());
 								r.getTeams().add(db.findClub(table[((League) c).getNumberOfTeamsPromoted()][1]));
@@ -292,10 +288,6 @@ public class Game {
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(3), r.getTeams().get(0), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(3).getHomeGround(), true));
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(2), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(2).getHomeGround(), true));
 								}
-								//System.out.println(r.getMatches().get(0));
-								//System.out.println(r.getMatches().get(1));
-								//System.out.println(r.getMatches().get(2));
-								//System.out.println(r.getMatches().get(3));
 							}
 							else if(r.getRoundNumber() == 2){
 								Round round = ((League) c).getPlayoffs().getRounds().get(0);
@@ -306,100 +298,62 @@ public class Game {
 								else{
 									r.getMatches().add(new Match((Calendar) r.getRoundDate().get(0).clone(), r.getTeams().get(0), r.getTeams().get(1), -1, -1, ((League) c).getPlayoffs(), r.getTeams().get(0).getHomeGround(), true));
 								}
-								//System.out.println(r.getMatches().get(0));
 							}
 						}
 					}
 				}
+				
+				//if there are playoff matches to be played then play the matches
 				leagueFixtures = ((League) c).getFixtures();
 				if (((League) c).getPlayoffs() != null && (! processFixtures)) {
 					playoffRounds = ((League) c).getPlayoffs().getRounds();
 					Iterator<Round> iRounds = playoffRounds.iterator();
 					while (iRounds.hasNext()) {
-						//System.out.println("test");
 						Round r = iRounds.next();
 						r.playMatches(db.getDate());
 					}
 				}
+				
+				//if there are league matches to be played then user's team is involved, make sure they have selected a valid team of 11 players
 				for (int i = 0; i < leagueFixtures.length; i++) {
 					for (int j = 0; j < leagueFixtures[i].length; j++) {
-						if ((leagueFixtures[i][j].getDate().get(
-								Calendar.DAY_OF_MONTH) == db.getDate().get(
-								Calendar.DAY_OF_MONTH))
-								&& (leagueFixtures[i][j].getDate().get(
-										Calendar.MONTH) == db.getDate().get(
-										Calendar.MONTH))
-								&& (leagueFixtures[i][j].getDate().get(
-										Calendar.YEAR) == db.getDate().get(
-										Calendar.YEAR)) && (! leagueFixtures[i][j].isPostponed())) {
-							if ((!(processFixtures))
-									&& (c.getId() == userClub.getLeague()
-											.getId())) {
-								if (leagueFixtures[i][j].getHomeTeam().getId() == this.userClub
-										.getId()
-										|| leagueFixtures[i][j].getAwayTeam()
-												.getId() == this.userClub
-												.getId()) {
+						if ((leagueFixtures[i][j].getDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH))
+								&& (leagueFixtures[i][j].getDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH))
+								&& (leagueFixtures[i][j].getDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))
+								&& (! leagueFixtures[i][j].isPostponed())) {
+							if ((!(processFixtures)) && (c.getId() == userClub.getLeague().getId())) {
+								if (leagueFixtures[i][j].getHomeTeam().getId() == this.userClub.getId()
+										|| leagueFixtures[i][j].getAwayTeam().getId() == this.userClub.getId()) {
 									List<Player> selectedTeam = new ArrayList<Player>();
-									Iterator<String> iteratorPlayers = players
-											.iterator();
+									Iterator<String> iteratorPlayers = players.iterator();
 									while (iteratorPlayers.hasNext()) {
-										Player p = (Player) db
-												.findPerson(iteratorPlayers
-														.next());
+										Player p = (Player) db.findPerson(iteratorPlayers.next());
 										if (!(p.isInjured()))
 											selectedTeam.add(p);
 									}
-									/*if(selectedTeam.size() < 11){
+									if(selectedTeam.size() < 11){
 										db.getDate().add(Calendar.DATE, -1);
 										System.out.println(selectedTeam.size());
 										return 2;
-									}*/
+									}
 									this.userClub.setSelectedTeam(selectedTeam);
-									/*Iterator<Player> temp = this.userClub.getSelectedTeam().iterator();
-									while(temp.hasNext()){
-										System.out.println(temp.next().getLastName());
-									}*/
 								}
 								fixtures = 1;
 							}
+							
+							//play the league matches
 							if (fixtures != 1) {
-								//if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
-								leagueFixtures[i][j]
-										.getHomeTeam()
-										.setSelectedTeam(
-												leagueFixtures[i][j]
-														.getHomeTeam()
-														.getBestTeam(
-																leagueFixtures[i][j]
-																		.getHomeTeam()
-																		.getAvailablePlayers()));
-								/*Iterator<Player> it = leagueFixtures[i][j].getHomeTeam().getSelectedTeam().iterator();
-								while(it.hasNext()){
-									Player p = it.next();
-									System.out.println(p.getFirstName() + " " + p.getLastName());
-								}
-								System.out.println();*/
-								//if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
-								leagueFixtures[i][j]
-										.getAwayTeam()
-										.setSelectedTeam(
-												leagueFixtures[i][j]
-														.getAwayTeam()
-														.getBestTeam(
-																leagueFixtures[i][j]
-																		.getAwayTeam()
-																		.getAvailablePlayers()));
-								/*it = leagueFixtures[i][j].getAwayTeam().getSelectedTeam().iterator();
-								while(it.hasNext()){
-									Player p = it.next();
-									System.out.println(p.getFirstName() + " " + p.getLastName());
-								}*/
+								if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
+									leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
+								if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
+									leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().getBestTeam(leagueFixtures[i][j].getAwayTeam().getAvailablePlayers()));
 								leagueFixtures[i][j].generateResult();
 							}
 						}
 					}
 				}
+				
+				//if there are rescheduled league matches to be played then play them
 				Iterator<Match> i = ((League) c).getRescheduledMatches().iterator();
 				while(i.hasNext()){
 					Match m = i.next();
@@ -407,39 +361,24 @@ public class Game {
 							&& (m.getDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH))
 							&& (m.getDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))
 							&& (! m.isPostponed())){
-						//if(m.getHomeTeam().getId() != this.userClub.getId())
-						m.getHomeTeam().setSelectedTeam(m.getHomeTeam().getBestTeam(m.getHomeTeam().getAvailablePlayers()));
-						/*Iterator<Player> it = m.getHomeTeam().getSelectedTeam().iterator();
-						while(it.hasNext()){
-							Player p = it.next();
-							System.out.println(p.getFirstName() + " " + p.getLastName());
-						}
-						System.out.println();*/
-						//if(m.getAwayTeam().getId() != this.userClub.getId())
-						m.getAwayTeam().setSelectedTeam(m.getAwayTeam().getBestTeam(m.getAwayTeam().getAvailablePlayers()));
-						/*it = m.getAwayTeam().getSelectedTeam().iterator();
-						while(it.hasNext()){
-							Player p = it.next();
-							System.out.println(p.getFirstName() + " " + p.getLastName());
-						}*/
+						if(m.getHomeTeam().getId() != this.userClub.getId())
+							m.getHomeTeam().setSelectedTeam(m.getHomeTeam().getBestTeam(m.getHomeTeam().getAvailablePlayers()));
+						if(m.getAwayTeam().getId() != this.userClub.getId())
+							m.getAwayTeam().setSelectedTeam(m.getAwayTeam().getBestTeam(m.getAwayTeam().getAvailablePlayers()));
 						m.generateResult();
 					}
 				}
 			}
+			
+			//check if any cup draws need to be made and if so make them
 			else if(c instanceof Cup && c.getId() == 10){
 				if(! processFixtures){
 					Iterator<Round> i = ((Cup) c).getRounds().iterator();
 					while(i.hasNext()){
 						Round r = i.next();
-						if((r.getDrawDate().get(
-								Calendar.DAY_OF_MONTH) == db.getDate().get(
-										Calendar.DAY_OF_MONTH))
-										&& (r.getDrawDate().get(
-												Calendar.MONTH) == db.getDate().get(
-												Calendar.MONTH))
-										&& (r.getDrawDate().get(
-												Calendar.YEAR) == db.getDate().get(
-												Calendar.YEAR))){
+						if((r.getDrawDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH))
+										&& (r.getDrawDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH))
+										&& (r.getDrawDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))){
 							List<Club> teams = new ArrayList<Club>();
 							if(r.getRoundNumber() > 1){
 								r.getTeams().addAll(((Cup) c).getRounds().get(r.getRoundNumber() - 2).getWinners());
@@ -460,48 +399,36 @@ public class Game {
 								m.setStadium(m.getHomeTeam().getHomeGround());
 								m.setPenalties(true);
 								r.getMatches().add(m);
+								//check if clubs alread have matches on these dates and if so postpone them
 								Iterator<Match> iMatch = m.getHomeTeam().getFixtures().iterator();
 								while(iMatch.hasNext()){
 									Match match = iMatch.next();
 									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
-										//System.out.println(match.getDate().get(Calendar.DAY_OF_YEAR));
-										//System.out.println(m.getDate().get(Calendar.DAY_OF_YEAR));
-										//System.out.println(match);
 										//postpone original match
 										match.setPostponed(true);
 										match.setRescheduled(true);
 										Calendar cal = (Calendar) match.getDate().clone();
-										//cal.add(Calendar.DATE, 4);
 										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
-											//System.out.println(cal.get(Calendar.DAY_OF_WEEK));
 											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
 												cal.add(Calendar.DATE, 4);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 1){
 												cal.add(Calendar.DATE, 3);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 3){
 												cal.add(Calendar.DATE, 8);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 4){
 												cal.add(Calendar.DATE, 7);
-												//System.out.println("test");
 												
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 6){
 												cal.add(Calendar.DATE, 5);
-												//System.out.println("test");
 											}
 										}
 										Match newMatch = new Match(cal, match.getHomeTeam(), match.getAwayTeam(), match.getHomeScore(), match.getAwayScore(), match.getCompetition(), match.getStadium(), match.hasPenalties());
 										((League) match.getCompetition()).getExtraMatchDates().add(cal);
 										((League) match.getCompetition()).getRescheduledMatches().add(newMatch);
-										System.out.println(match);
-										System.out.println(match.getDate().getTime());
-										System.out.println(match.isPostponed());
 										break;
 									}
 								}
@@ -509,43 +436,30 @@ public class Game {
 								while(iMatch.hasNext()){
 									Match match = iMatch.next();
 									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
-										//System.out.println(match.getDate().get(Calendar.DAY_OF_YEAR));
-										//System.out.println(m.getDate().get(Calendar.DAY_OF_YEAR));
-										//System.out.println(match);
 										//postpone original match
 										match.setPostponed(true);
 										match.setRescheduled(true);
 										Calendar cal = (Calendar) match.getDate().clone();
-										//cal.add(Calendar.DATE, 4);
 										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
-											//System.out.println(cal.get(Calendar.DAY_OF_WEEK));
 											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
 												cal.add(Calendar.DATE, 4);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 1){
 												cal.add(Calendar.DATE, 3);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 3){
 												cal.add(Calendar.DATE, 8);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 4){
 												cal.add(Calendar.DATE, 7);
-												//System.out.println("test");
 											}
 											else if(cal.get(Calendar.DAY_OF_WEEK) == 6){
 												cal.add(Calendar.DATE, 5);
-												//System.out.println("test");
 											}
 										}
 										Match newMatch = new Match(cal, match.getHomeTeam(), match.getAwayTeam(), match.getHomeScore(), match.getAwayScore(), match.getCompetition(), match.getStadium(), match.hasPenalties());
 										((League) match.getCompetition()).getExtraMatchDates().add(cal);
 										((League) match.getCompetition()).getRescheduledMatches().add(newMatch);
-										System.out.println(match);
-										System.out.println(match.getDate().getTime());
-										System.out.println(match.isPostponed());
 										break;
 									}
 								}
@@ -553,6 +467,7 @@ public class Game {
 						}
 					}
 				}
+				//play any cup matches
 				if (! processFixtures) {
 					Iterator<Round> iRounds = ((Cup) c).getRounds().iterator();
 					while (iRounds.hasNext()) {
@@ -562,7 +477,9 @@ public class Game {
 				}
 			}
 		}
-		/*Iterator<Person> i = db.getPersonList().iterator();
+		
+		//check if there are plays for user clubs to buy and if so make offer for player
+		Iterator<Person> i = db.getPersonList().iterator();
 		DecimalFormat format = new DecimalFormat("000,000");
 		while(i.hasNext()){
 			Person p = i.next();
@@ -590,7 +507,7 @@ public class Game {
 						playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
 				}
 			}
-		}*/
+		}
 		db.updateAllPersonAttributes();
 		db.updateAllClubAttributes();
 		return fixtures;
@@ -611,16 +528,6 @@ public class Game {
 	}
 	
 	public String getMessageBody(int index){
-		/*String message = null;
-		Iterator<Message> i = db.getMessages().iterator();
-		while(i.hasNext()){
-			Message m = i.next();
-			if(m.getId() == index){
-				message = m.getBody();
-				break;
-			}
-		}
-		return message;*/
 		return getMessages().get(index).getBody();
 	}
 	
