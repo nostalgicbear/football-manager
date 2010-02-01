@@ -27793,7 +27793,7 @@
    <int>165</int> 
   </void>   
  </object>
- <object class="ie.tippinst.jod.fm.model.Player"> 
+ <!-- <object class="ie.tippinst.jod.fm.model.Player"> 
   <void property="id"> 
    <int>201</int> 
   </void>
@@ -35576,5 +35576,5 @@
   <void property="potentialAbility"> 
    <int>160</int> 
   </void>   
- </object>
+ </object> -->
 </java> 

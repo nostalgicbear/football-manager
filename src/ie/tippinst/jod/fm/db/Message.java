@@ -1,4 +1,4 @@
-package ie.tippinst.jod.fm.model;
+package ie.tippinst.jod.fm.db;
 
 import java.util.Calendar;
 

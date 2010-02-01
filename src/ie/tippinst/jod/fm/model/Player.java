@@ -57,6 +57,7 @@ public class Player extends Person implements Serializable {
 	private int leagueGoals = 0;
 	private List<Club> interested = new ArrayList<Club>();
 	private List<Club> bids = new ArrayList<Club>();
+	private int yellowCards;
 	
 	public Player(){
 		super();
@@ -933,5 +934,13 @@ public class Player extends Person implements Serializable {
 
 	public List<Club> getBids() {
 		return bids;
+	}
+
+	public void setYellowCards(int yellowCards) {
+		this.yellowCards = yellowCards;
+	}
+
+	public int getYellowCards() {
+		return yellowCards;
 	}
 }

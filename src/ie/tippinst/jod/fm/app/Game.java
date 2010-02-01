@@ -1,12 +1,12 @@
 package ie.tippinst.jod.fm.app;
 
 import ie.tippinst.jod.fm.db.Database;
+import ie.tippinst.jod.fm.db.Message;
 import ie.tippinst.jod.fm.model.Club;
 import ie.tippinst.jod.fm.model.Competition;
 import ie.tippinst.jod.fm.model.Cup;
 import ie.tippinst.jod.fm.model.League;
 import ie.tippinst.jod.fm.model.Match;
-import ie.tippinst.jod.fm.model.Message;
 import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
@@ -252,6 +252,7 @@ public class Game {
 			//create league table
 			//generate fixtures
 			db.initialiseLeagues();
+			db.initialiseCups();
 		}
 		//if there are no matches to be played move on to next day
 		if(!(processFixtures)){
@@ -331,11 +332,11 @@ public class Game {
 										if (!(p.isInjured()))
 											selectedTeam.add(p);
 									}
-									if(selectedTeam.size() < 11){
+									/*if(selectedTeam.size() < 11){
 										db.getDate().add(Calendar.DATE, -1);
 										System.out.println(selectedTeam.size());
 										return 2;
-									}
+									}*/
 									this.userClub.setSelectedTeam(selectedTeam);
 								}
 								fixtures = 1;
@@ -343,9 +344,9 @@ public class Game {
 							
 							//play the league matches
 							if (fixtures != 1) {
-								if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
+								//if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
 									leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
-								if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
+								//if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
 									leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().getBestTeam(leagueFixtures[i][j].getAwayTeam().getAvailablePlayers()));
 								leagueFixtures[i][j].generateResult();
 							}
@@ -387,6 +388,7 @@ public class Game {
 							while(teams.size() > 0){
 								int teamToDraw = (int) (Math.random() * teams.size());
 								Match m = new Match();
+								m.setReplay(true);
 								m.setDate((Calendar) r.getRoundDate().get(0).clone());
 								m.setHomeTeam(teams.get(teamToDraw));
 								teams.remove(teamToDraw);
@@ -397,16 +399,15 @@ public class Game {
 								m.setAwayScore(-1);
 								m.setCompetition(c);
 								m.setStadium(m.getHomeTeam().getHomeGround());
-								m.setPenalties(true);
 								r.getMatches().add(m);
-								//check if clubs alread have matches on these dates and if so postpone them
+								//check if clubs already have matches on these dates and if so postpone them
 								Iterator<Match> iMatch = m.getHomeTeam().getFixtures().iterator();
 								while(iMatch.hasNext()){
 									Match match = iMatch.next();
 									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
 										//postpone original match
 										match.setPostponed(true);
-										match.setRescheduled(true);
+										//match.setRescheduled(true);
 										Calendar cal = (Calendar) match.getDate().clone();
 										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
 											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
@@ -438,7 +439,7 @@ public class Game {
 									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
 										//postpone original match
 										match.setPostponed(true);
-										match.setRescheduled(true);
+										//match.setRescheduled(true);
 										Calendar cal = (Calendar) match.getDate().clone();
 										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
 											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
@@ -626,6 +627,7 @@ public class Game {
 	}
 	
 	public void rejectOffer(String playerName, String clubName){
+		//System.out.println(clubName);
 		((Player) db.findPerson(playerName)).getBids().remove(db.findClub(clubName));
 	}
 	
@@ -638,5 +640,21 @@ public class Game {
 			matchDatesAsStrings[i] = dateFormat.format(matchDates.get(i).getTime());
 		}
 		return matchDatesAsStrings;
+	}
+	
+	public Match getUserMatch(){
+		Club c = this.userClub;
+		List<Match> fixtures = this.getFixtures(c.getName());
+		Iterator<Match> i = fixtures.iterator();
+		while(i.hasNext()){
+			Match m = i.next();
+			if((m.getDate().get(Calendar.DAY_OF_MONTH) == db.getDate().get(Calendar.DAY_OF_MONTH))
+							&& (m.getDate().get(Calendar.MONTH) == db.getDate().get(Calendar.MONTH))
+							&& (m.getDate().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR))
+							&& (! m.isPostponed())){
+				return m;
+			}
+		}
+		return null;
 	}
 }

@@ -275,25 +275,7 @@ public class Club implements Serializable {
 			}
 		}
 
-		this.getSelectedTeam().removeAll(this.getSelectedTeam());
-
-		/*
-		 * double[] abilityThresholds = new double[3]; abilityThresholds[0] =
-		 * ((195 / 20) * this.getLeague().getReputation()) - ((10000 -
-		 * this.getReputation()) / 100.0); abilityThresholds[1] = ((178 / 20) *
-		 * this.getLeague().getReputation()) - ((10000 - this.getReputation()) /
-		 * 100.0); abilityThresholds[2] = ((155 / 20) *
-		 * this.getLeague().getReputation()) - ((10000 - this.getReputation()) /
-		 * 100.0); while(i.hasNext()){ Player p = i.next();
-		 * if(p.getCurrentAbility() >= abilityThresholds[0]){ p.setStatus(0); }
-		 * else if(p.getCurrentAbility() >= abilityThresholds[1]){
-		 * p.setStatus(1); } else if(p.getCurrentAbility() >=
-		 * abilityThresholds[2]){ p.setStatus(2); } else
-		 * if(p.getPotentialAbility() >= abilityThresholds[1] && p.getAge() <=
-		 * 23){ p.setStatus(3); } else if(p.getPotentialAbility() >=
-		 * abilityThresholds[2] && p.getAge() <= 23){ p.setStatus(4); } else{
-		 * p.setStatus(5); } }
-		 */
+		//this.getSelectedTeam().removeAll(this.getSelectedTeam());
 	}
 
 	public void setSelectedTeam(List<Player> selectedTeam) {

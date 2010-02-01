@@ -6,7 +6,6 @@ import ie.tippinst.jod.fm.model.Cup;
 import ie.tippinst.jod.fm.model.Injury;
 import ie.tippinst.jod.fm.model.League;
 import ie.tippinst.jod.fm.model.Match;
-import ie.tippinst.jod.fm.model.Message;
 import ie.tippinst.jod.fm.model.Nation;
 import ie.tippinst.jod.fm.model.NonPlayer;
 import ie.tippinst.jod.fm.model.Person;
@@ -339,6 +338,13 @@ public class Database {
 								clubFixtures.add(m);
 							}
 						}
+						iMatch = r.getReplays().iterator();
+						while (iMatch.hasNext()) {
+							Match m = iMatch.next();
+							if (m.getHomeTeam().getId() == c.getId() || m.getAwayTeam().getId() == c.getId()) {
+								clubFixtures.add(m);
+							}
+						}
 					}
 				}
 			}
@@ -362,6 +368,7 @@ public class Database {
 				}
 			}
 			while (iNation.hasNext()) {
+			
 				Nation n = iNation.next();
 				if (c.getNationality().getId() == n.getId()) {
 					c.setNationality(n);
@@ -466,8 +473,10 @@ public class Database {
 					clubList.add(club);
 				}
 			}
-			if(c instanceof League)
+			if(c instanceof League){
 				((League) c).setTeams(clubList);
+				((League) c).getRescheduledMatches().clear();
+			}
 		}
 		
 		// Assign the initial table for all leagues in the game

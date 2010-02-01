@@ -18,6 +18,7 @@ import ie.tippinst.jod.fm.gui.panels.SquadPanel;
 import ie.tippinst.jod.fm.gui.panels.StaffPanel;
 import ie.tippinst.jod.fm.gui.panels.StaffProfilePanel;
 import ie.tippinst.jod.fm.gui.panels.StaffSearchPanel;
+import ie.tippinst.jod.fm.model.Match;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
@@ -686,7 +687,15 @@ public class MainGameScreen extends JFrame {
     		processFixtures = true;
     	}
     	else if(processFixtures){
-    		displayLeague(1, "Barclays Premier League");
+    		Match m = game.getUserMatch();
+    		if(m != null){
+    			this.setEnabled(false);
+    			MatchScreen ms = new MatchScreen(m);
+    			ms.setVisible(true);
+    		}
+    		else{
+    			displayLeague(1, "Barclays Premier League");
+    		}
     		processFixtures = false;
     	}
     	else if(result == 2){
@@ -787,7 +796,7 @@ public class MainGameScreen extends JFrame {
 		this.dispose();
     }
     
-    private void displayLeague(int tab, String name){
+    public void displayLeague(int tab, String name){
     	mainPanel.removeAll();
     	leagueTablePanel = new LeagueTablePanel(name);
     	DateFormat format = new SimpleDateFormat("dd-MMM-yy");

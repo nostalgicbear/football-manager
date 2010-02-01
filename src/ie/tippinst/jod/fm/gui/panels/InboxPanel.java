@@ -1,8 +1,8 @@
 package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
+import ie.tippinst.jod.fm.db.Message;
 import ie.tippinst.jod.fm.gui.dialogs.ContractOffer;
-import ie.tippinst.jod.fm.model.Message;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -129,8 +129,10 @@ public class InboxPanel extends JPanel {
 		String header = (String) messageList.getSelectedValue();
 		header = header.replace(" bid for ", "/");
 		int index = header.indexOf("/");
-		String playerName = header.substring(0, index);
-		String clubName = header.substring(index + 1);
+		String clubName = header.substring(0, index);
+		String playerName = header.substring(index + 1);
+		index = playerName.indexOf("(");
+		playerName = playerName.substring(0, index - 1);
 		game.rejectOffer(playerName, clubName);		
 	}
 
@@ -142,8 +144,8 @@ public class InboxPanel extends JPanel {
 		String playerName = header.substring(index + 1);
 		index = playerName.indexOf("(");
 		playerName = playerName.substring(0, index - 1);
-		System.out.println(playerName);
-		System.out.println(clubName);
+		//System.out.println(playerName);
+		//System.out.println(clubName);
 		game.sellPlayer(playerName, clubName);	
 	}
 

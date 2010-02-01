@@ -13,6 +13,7 @@ public class Round {
 	private Calendar drawDate;
 	private List<Club> teams = new ArrayList<Club>();
 	private List<Match> matches = new ArrayList<Match>();
+	private List<Match> replays = new ArrayList<Match>();
 	private int numberOfTeams;
 	private List<Club> winners = new ArrayList<Club>();
 	private boolean twoLegs;
@@ -80,6 +81,8 @@ public class Round {
 		Iterator<Calendar> iterator = this.getRoundDate().iterator();
 		while(iterator.hasNext()){
 			Calendar c = iterator.next();
+			Calendar cal = (Calendar) c.clone();
+			cal.add(Calendar.DATE, 10);
 			if((c.get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH))
 					&& (c.get(Calendar.MONTH) == date.get(Calendar.MONTH))
 					&& (c.get(Calendar.YEAR) == date.get(Calendar.YEAR))){
@@ -103,11 +106,43 @@ public class Round {
 						}
 						else{
 							m.generateResult();
-							this.getWinners().add(m.getWinner());
+							if(m.hasReplay() && m.getHomeScore() == m.getAwayScore()){
+								//generate replay
+								Match match = new Match();
+								match.setPenalties(true);
+								match.setAwayScore(-1);
+								match.setHomeScore(-1);
+								match.setCompetition(m.getCompetition());
+								match.setHomeTeam(m.getAwayTeam());
+								match.setAwayTeam(m.getHomeTeam());
+								match.setStadium(match.getHomeTeam().getHomeGround());
+								match.setDate((Calendar) m.getDate().clone());
+								match.getDate().add(Calendar.DATE, 10);
+								this.getReplays().add(match);
+							}
+							else{
+								this.getWinners().add(m.getWinner());
+							}
 						}
 					}
 				}
-			}			
+			}
+			else if((cal.get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH))
+					&& (cal.get(Calendar.MONTH) == date.get(Calendar.MONTH))
+					&& (cal.get(Calendar.YEAR) == date.get(Calendar.YEAR))){
+				Iterator<Match> i = this.getReplays().iterator();
+				while(i.hasNext()){
+					Match m = i.next();
+					if((m.getDate().get(Calendar.DAY_OF_MONTH) == date.get(Calendar.DAY_OF_MONTH))
+							&& (m.getDate().get(Calendar.MONTH) == date.get(Calendar.MONTH))
+							&& (m.getDate().get(Calendar.YEAR) == date.get(Calendar.YEAR))){
+								m.getHomeTeam().setSelectedTeam(m.getHomeTeam().getBestTeam(m.getHomeTeam().getAvailablePlayers()));
+								m.getAwayTeam().setSelectedTeam(m.getAwayTeam().getBestTeam(m.getAwayTeam().getAvailablePlayers()));
+								m.generateResult();
+								this.getWinners().add(m.getWinner());
+					}
+				}
+			}
 		}
 	}
 
@@ -125,5 +160,13 @@ public class Round {
 
 	public List<Calendar> getEarliestRoundDate() {
 		return earliestRoundDate;
+	}
+
+	public void setReplays(List<Match> replays) {
+		this.replays = replays;
+	}
+
+	public List<Match> getReplays() {
+		return replays;
 	}
 }
