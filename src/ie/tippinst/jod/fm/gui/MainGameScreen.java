@@ -687,7 +687,8 @@ public class MainGameScreen extends JFrame {
     		processFixtures = true;
     	}
     	else if(processFixtures){
-    		Match m = game.getUserMatch();
+    		//Match m = game.getUserMatch();
+    		Match m = null;
     		if(m != null){
     			this.setEnabled(false);
     			MatchScreen ms = new MatchScreen(m);

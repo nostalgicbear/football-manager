@@ -253,6 +253,7 @@ public class Game {
 			//generate fixtures
 			db.initialiseLeagues();
 			db.initialiseCups();
+			db.updatePlayers();
 		}
 		//if there are no matches to be played move on to next day
 		if(!(processFixtures)){

@@ -27,6 +27,7 @@ public class League extends Competition implements Serializable {
 	private int numberOfTeamsRelegated;
 	private int numberOfTeamsInPlayoff;
 	private Cup playoffs;
+	private double[] prizeMoney;
 	
 	public League() {
 		super();
@@ -372,6 +373,14 @@ public class League extends Competition implements Serializable {
 
 	public List<Match> getRescheduledMatches() {
 		return rescheduledMatches;
+	}
+
+	public void setPrizeMoney(double[] prizeMoney) {
+		this.prizeMoney = prizeMoney;
+	}
+
+	public double[] getPrizeMoney() {
+		return prizeMoney;
 	}
 
 	/*public void setEarliestMatchDates(Calendar[] earliestMatchDates) {

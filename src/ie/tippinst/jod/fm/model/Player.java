@@ -943,4 +943,25 @@ public class Player extends Person implements Serializable {
 	public int getYellowCards() {
 		return yellowCards;
 	}
+	
+	public boolean retire(){
+		boolean retire = false;
+		int peakAge = 0;
+		if(this.getGoalkeepingAbility() >= 15){
+			peakAge = 32;
+		}
+		else if((this.getRightFullbackAbility() >= 15)||(this.getLeftFullbackAbility() >= 15)||(this.getCentrebackAbility() >= 15)){
+			peakAge = 30;
+		}
+		else if((this.getRightMidfieldAbility() >= 15)||(this.getLeftMidfieldAbility() >= 15)||(this.getCentreMidfieldAbility() >= 15)){
+			peakAge = 28;
+		}
+		else{
+			peakAge = 26;
+		}
+		if((this.getAge() - peakAge) >= (6 + ((int)(Math.random() * 5)))){
+			retire = true;
+		}
+		return retire;
+	}
 }

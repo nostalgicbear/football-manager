@@ -54,7 +54,7 @@ public class Database {
 	public Database() {
 		super();
 		date = new GregorianCalendar();
-		date.set(2009, 6, 2);
+		date.set(2009, 7, 2);
 
 		// Lists used to store all objects
 		personList = new ArrayList<Person>();
@@ -197,14 +197,14 @@ public class Database {
 			}
 			while (goalkeepers.size() < 2) {
 				// generate goalkeeper
-				Player player = generateGoalkeeper(c);
+				Player player = generateGoalkeeper(c, false);
 				goalkeepers.add(player);
 				playerList.add(player);
 				personList.add(player);
 			}
 			while (playerList.size() < 16) {
 				// generate new outfield player
-				Player player = generateOutfieldPlayer(c);
+				Player player = generateOutfieldPlayer(c, false);
 				playerList.add(player);
 				personList.add(player);
 			}
@@ -754,14 +754,16 @@ public class Database {
 		return id;
 	}
 	
-	public Player generatePlayer(Club c){
+	public Player generatePlayer(Club c, boolean youth){
 		Player p = new Player();
 		
 		//set id as biggest current id plus one
 		p.setId(getLastPersonIdUsed() + 1);
 		
-		// generate random dob between 1/1/1978 and 31/12/1983
+		// generate random dob
 		int year = ((int) (Math.random() * 6)) + 1978;
+		if(youth)
+			year = ((int) (Math.random() * 4)) + 1989;
 		int month = (int) (Math.random() * 12);
 		int numberOfDays = 31;
 		if (month == 1) {
@@ -821,8 +823,8 @@ public class Database {
 		return p;
 	}
 
-	public Player generateOutfieldPlayer(Club c) {
-		Player p = this.generatePlayer(c);
+	public Player generateOutfieldPlayer(Club c, boolean youth) {
+		Player p = this.generatePlayer(c, youth);
 		
 		//set potential ability based on reputation
 		p.setPotentialAbility(p.getReputation() + 30);
@@ -952,8 +954,8 @@ public class Database {
 		return p;
 	}
 
-	public Player generateGoalkeeper(Club c) {
-		Player p = this.generatePlayer(c);
+	public Player generateGoalkeeper(Club c, boolean youth) {
+		Player p = this.generatePlayer(c, youth);
 		
 		//set potential ability based on reputation
 		p.setPotentialAbility(p.getReputation() + 30);
@@ -1303,5 +1305,44 @@ public class Database {
 			}
 		}
 		return potentialSignings;
+	}
+	
+	public void updatePlayers(){
+		//retire old players
+		List<Player> playersToRetire = new ArrayList<Player>();
+		iPerson = this.getPersonList().iterator();
+		while(iPerson.hasNext()){
+			Person person = iPerson.next();
+			if(person instanceof Player){
+				Player p = (Player) person;
+				if(p.retire()){
+					playersToRetire.add(p);
+					p.getCurrentClub().getSquad().remove(p);
+					System.out.println(p.getFirstName() + " " + p.getLastName());
+				}
+			}
+		}
+		this.getPersonList().removeAll(playersToRetire);
+		
+		//create new players
+		iClub = this.getClubList().iterator();
+		while(iClub.hasNext()){
+			Club c = iClub.next();
+			int numberOfPlayers = (int) (Math.random() * 5) + 2;
+			for(int i = 0; i < numberOfPlayers; i++){
+				//create new player
+				int num = (int) (Math.random() * 10);
+				Player p = null;
+				if(num == 0){
+					p = this.generateGoalkeeper(c, true);
+				}
+				else{
+					p = this.generateOutfieldPlayer(c, true);
+				}
+				p.setStatus(4);
+				this.getPersonList().add(p);
+				c.getSquad().add(p);
+			}
+		}
 	}
 }

@@ -17,6 +17,8 @@ public class Round {
 	private int numberOfTeams;
 	private List<Club> winners = new ArrayList<Club>();
 	private boolean twoLegs;
+	private double winnerPrizeMoney;
+	private double loserPrizeMoney;
 
 	public Round() {
 	}
@@ -140,6 +142,13 @@ public class Round {
 								m.getAwayTeam().setSelectedTeam(m.getAwayTeam().getBestTeam(m.getAwayTeam().getAvailablePlayers()));
 								m.generateResult();
 								this.getWinners().add(m.getWinner());
+								m.getWinner().setBankBalance(m.getWinner().getBankBalance() + this.getWinnerPrizeMoney());
+								if(m.getHomeTeam().getId() == m.getWinner().getId()){
+									m.getAwayTeam().setBankBalance(m.getAwayTeam().getBankBalance() + this.getLoserPrizeMoney());
+								}
+								else{
+									m.getHomeTeam().setBankBalance(m.getHomeTeam().getBankBalance() + this.getLoserPrizeMoney());
+								}
 					}
 				}
 			}
@@ -168,5 +177,21 @@ public class Round {
 
 	public List<Match> getReplays() {
 		return replays;
+	}
+
+	public void setWinnerPrizeMoney(double winnerPrizeMoney) {
+		this.winnerPrizeMoney = winnerPrizeMoney;
+	}
+
+	public double getWinnerPrizeMoney() {
+		return winnerPrizeMoney;
+	}
+
+	public void setLoserPrizeMoney(double loserPrizeMoney) {
+		this.loserPrizeMoney = loserPrizeMoney;
+	}
+
+	public double getLoserPrizeMoney() {
+		return loserPrizeMoney;
 	}
 }

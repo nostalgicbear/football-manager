@@ -60,13 +60,15 @@ public class Cup extends Competition implements Serializable {
 		}
 	}
 	
-	public void createRound(int numberOfTeams, int roundNumber, List<Calendar> roundDate, boolean twoLegs){
+	public void createRound(int numberOfTeams, int roundNumber, List<Calendar> roundDate, boolean twoLegs, double winnerPrizeMoney, double loserPrizeMoney){
 		Round round = new Round();
 		//System.out.println(roundDate.size());
 		round.setNumberOfTeams(numberOfTeams);
 		round.setRoundNumber(roundNumber);
 		round.setRoundDate(roundDate);
 		round.setTwoLegs(twoLegs);
+		round.setWinnerPrizeMoney(winnerPrizeMoney);
+		round.setLoserPrizeMoney(loserPrizeMoney);
 		this.getRounds().add(round);
 	}
 }

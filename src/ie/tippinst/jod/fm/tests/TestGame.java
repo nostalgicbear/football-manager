@@ -30,28 +30,28 @@ public class TestGame {
 		cup.setNumberOfRounds(8);
 		List<Calendar> list = new ArrayList<Calendar>();
 		list.add(new GregorianCalendar(2009, 10, 7));
-		cup.createRound(80, 1, list, false);
+		cup.createRound(80, 1, list, false, 18000, 0);
 		List<Calendar> list2 = new ArrayList<Calendar>();
 		list2.add(new GregorianCalendar(2009, 10, 28));
-		cup.createRound(40, 2, list2, false);
+		cup.createRound(40, 2, list2, false, 27000, 0);
 		List<Calendar> list3 = new ArrayList<Calendar>();
 		list3.add(new GregorianCalendar(2010, 0, 2));
-		cup.createRound(64, 3, list3, false);
+		cup.createRound(64, 3, list3, false, 67500, 0);
 		List<Calendar> list4 = new ArrayList<Calendar>();
 		list4.add(new GregorianCalendar(2010, 0, 23));
-		cup.createRound(32, 4, list4, false);
+		cup.createRound(32, 4, list4, false, 90000, 0);
 		List<Calendar> list5 = new ArrayList<Calendar>();
 		list5.add(new GregorianCalendar(2010, 1, 13));
-		cup.createRound(16, 5, list5, false);
+		cup.createRound(16, 5, list5, false, 180000, 0);
 		List<Calendar> list6 = new ArrayList<Calendar>();
 		list6.add(new GregorianCalendar(2010, 2, 6));
-		cup.createRound(8, 6, list6, false);
+		cup.createRound(8, 6, list6, false, 360000, 0);
 		List<Calendar> list7 = new ArrayList<Calendar>();
 		list7.add(new GregorianCalendar(2010, 3, 10));
-		cup.createRound(4, 7, list7, false);
+		cup.createRound(4, 7, list7, false, 900000, 450000);
 		List<Calendar> list8 = new ArrayList<Calendar>();
 		list8.add(new GregorianCalendar(2010, 4, 15));
-		cup.createRound(2, 8, list8, false);
+		cup.createRound(2, 8, list8, false, 1800000, 900000);
 		
 		boolean[] test = {true};
 		/*for(int i = 0; i < matchDates.length; i++){
