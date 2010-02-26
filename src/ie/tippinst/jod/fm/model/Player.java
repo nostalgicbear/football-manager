@@ -57,6 +57,7 @@ public class Player extends Person implements Serializable {
 	private int leagueGoals = 0;
 	private List<Club> interested = new ArrayList<Club>();
 	private List<Club> bids = new ArrayList<Club>();
+	private List<Club> rejectedBids = new ArrayList<Club>();
 	private int yellowCards;
 	
 	public Player(){
@@ -579,6 +580,10 @@ public class Player extends Person implements Serializable {
 	public SquadStatus getStatus() {
 		return status;
 	}
+	
+	public int getStatusOrdinal() {
+		return status.ordinal();
+	}
 
 	public void setFatigue(int fatigue) {
 		if(fatigue <= 10000 && fatigue >= 1)
@@ -963,5 +968,13 @@ public class Player extends Person implements Serializable {
 			retire = true;
 		}
 		return retire;
+	}
+
+	public void setRejectedBids(List<Club> rejectedBids) {
+		this.rejectedBids = rejectedBids;
+	}
+
+	public List<Club> getRejectedBids() {
+		return rejectedBids;
 	}
 }

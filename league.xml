@@ -1,2238 +1,2621 @@
-﻿<?xml version="1.0" encoding="UTF-8"?> 
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <java version="1.6.0_16" class="java.beans.XMLDecoder">
- <object class="ie.tippinst.jod.fm.model.League"> 
-  <void property="id"> 
-   <int>0</int> 
-  </void> 
-  <void property="name"> 
-   <string>Lower Leagues</string> 
-  </void>   
-  <void property="reputation"> 
-   <int>1</int> 
-  </void>
- </object>
- <object class="ie.tippinst.jod.fm.model.League"> 
-  <void property="id"> 
-   <int>1</int> 
-  </void> 
-  <void property="name"> 
-   <string>Barclays Premier League</string> 
-  </void>   
-  <void property="reputation"> 
-   <int>19</int> 
-  </void>
-  <void property="numberOfTeams"> 
-   <int>20</int> 
-  </void>
-  <void property="relegatedTo"> 
-   	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>2</int> 
-	  </void>
-	</object> 
-  </void>
-  <void property="numberOfTeamsPromoted"> 
-   <int>0</int> 
-  </void>
-  <void property="numberOfTeamsRelegated"> 
-   <int>3</int> 
-  </void>
-  <void property="numberOfTeamsInPlayoff"> 
-   <int>0</int> 
-  </void> 
-  <void property="matchDates">
-   <array class="java.util.Calendar" length="38"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250372048642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250717648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250976848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="3"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1251581648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="4"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252791248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="5"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253396048642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="6"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254000848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="7"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254605648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="8"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255815248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="9"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1256420048642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="10"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257028448642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="11"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257633248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="12"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258842848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="13"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259447648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="14"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260052448642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="15"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260657248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="16"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261002848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="17"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261262048642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="18"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261866848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="19"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262039648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="20"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263076448642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="21"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263681248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="22"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264631648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="23"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264890848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="24"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265495648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="25"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265841248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="26"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266705248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="27"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267310048642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="28"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267914848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="29"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268519648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="30"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269124448642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="31"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269729248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="32"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270330448642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="33"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270935248642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="34"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271540048642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="35"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272144848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="36"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272749648642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="37"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273440848642</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array>
-  </void>
- </object>
- <object class="ie.tippinst.jod.fm.model.League"> 
-  <void property="id"> 
-   <int>2</int> 
-  </void> 
-  <void property="name"> 
-   <string>Coca-Cola Championship</string> 
-  </void>
-  <void property="reputation"> 
-   <int>15</int> 
-  </void>
-  <void property="numberOfTeams"> 
-   <int>24</int> 
-  </void>
-  <void property="promotedTo"> 
-	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>1</int> 
-	  </void>
-	</object>  
-  </void>
-  <void property="relegatedTo"> 
-   	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>3</int> 
-	  </void>
-	</object> 
-  </void>
-  <void property="numberOfTeamsPromoted"> 
-   <int>2</int> 
-  </void>
-  <void property="numberOfTeamsRelegated"> 
-   <int>3</int> 
-  </void>
-  <void property="numberOfTeamsInPlayoff"> 
-   <int>4</int> 
-  </void>
-  <void property="matchDates">
-	 <array class="java.util.Calendar" length="46"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1249768209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250373009722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250632209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="3"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250977809722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="4"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1251582609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="5"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252792209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="6"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253051409722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="7"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253397009722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="8"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254001809722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="9"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254261009722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="10"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254606609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="11"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255816209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="12"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1256075409722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="13"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1256421009722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="14"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257029409722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="15"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257634209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="16"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258843809722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="17"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259448609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="18"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260053409722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="19"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260312609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="20"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260658209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="21"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261263009722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="22"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261867809722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="23"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262040609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="24"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263077409722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="25"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263682209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="26"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264546209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="27"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264891809722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="28"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265496609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="29"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265755809722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="30"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266101409722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="31"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266360609722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="32"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266706209722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="33"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267311009722</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="34"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267915809737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="35"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268520609737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="36"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268779809737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="37"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269125409737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="38"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269384609737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="39"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269730209737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="40"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270331409737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="41"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270504209737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="42"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270936209737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="43"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271541009737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="44"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272145809737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="45"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272837009737</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array>
-  </void>
-  <void property="playoffs">
-   <object class="ie.tippinst.jod.fm.model.Cup">
-	 <void property="id"> 
-	 <int>6</int> 
-	 </void> 
-   </object>
-  </void>
- </object>
- <object class="ie.tippinst.jod.fm.model.League"> 
-  <void property="id"> 
-   <int>3</int> 
-  </void> 
-  <void property="name"> 
-   <string>Coca-Cola League One</string> 
-  </void>   
-  <void property="reputation"> 
-   <int>12</int> 
-  </void>
-  <void property="numberOfTeams"> 
-   <int>24</int> 
-  </void>
-  <void property="promotedTo"> 
-	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>2</int> 
-	  </void>
-	</object>  
-  </void>
-  <void property="relegatedTo"> 
-   	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>4</int> 
-	  </void>
-	</object> 
-  </void>
-  <void property="numberOfTeamsPromoted"> 
-   <int>2</int> 
-  </void>
-  <void property="numberOfTeamsRelegated"> 
-   <int>4</int> 
-  </void>
-  <void property="numberOfTeamsInPlayoff"> 
-   <int>4</int> 
-  </void>
-  <void property="matchDates">
-	 <array class="java.util.Calendar" length="46"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1249769258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250374058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250633258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="3"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250978858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="4"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1251583658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="5"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252188458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="6"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252793258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="7"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253398058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="8"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254002858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="9"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254262058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="10"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254607658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="11"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255212458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="12"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255817258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="13"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1256422058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="14"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257030458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="15"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258240058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="16"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258844858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="17"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259104058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="18"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259708858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="19"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260054458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="20"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260659258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="21"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261264058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="22"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261868858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="23"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262041658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="24"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262473658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="25"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263078458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="26"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263683258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="27"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264288058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="28"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264892858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="29"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265497658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="30"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266102458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="31"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266707258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="32"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266966458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="33"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267312058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="34"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267916858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="35"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268521658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="36"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269126458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="37"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269731258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="38"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270332458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="39"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270505258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="40"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270937258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="41"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271196458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="42"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271542058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="43"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272146858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="44"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272751658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="45"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273356458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array>
-  </void>
-  <void property="playoffs">
-   <object class="ie.tippinst.jod.fm.model.Cup">
-	 <void property="id"> 
-	 <int>7</int> 
-	 </void> 
-   </object>
-  </void>
- </object>
- <object class="ie.tippinst.jod.fm.model.League"> 
-  <void property="id"> 
-   <int>4</int> 
-  </void> 
-  <void property="name"> 
-   <string>Coca-Cola League Two</string> 
-  </void>   
-  <void property="reputation"> 
-   <int>11</int> 
-  </void>
-  <void property="numberOfTeams"> 
-   <int>24</int> 
-  </void>
-  <void property="promotedTo"> 
-	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>3</int> 
-	  </void>
-	</object>  
-  </void>
-  <void property="relegatedTo"> 
-   	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>5</int> 
-	  </void>
-	</object> 
-  </void>
-  <void property="numberOfTeamsPromoted"> 
-   <int>3</int> 
-  </void>
-  <void property="numberOfTeamsRelegated"> 
-   <int>2</int> 
-  </void>
-  <void property="numberOfTeamsInPlayoff"> 
-   <int>4</int> 
-  </void>
-  <void property="matchDates">
-	 <array class="java.util.Calendar" length="46"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1249769258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250374058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250633258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="3"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250978858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="4"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1251583658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="5"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252188458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="6"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252793258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="7"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253398058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="8"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254002858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="9"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254262058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="10"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254607658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="11"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255212458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="12"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255817258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="13"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1256422058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="14"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257030458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="15"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258240058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="16"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258844858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="17"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259104058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="18"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259708858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="19"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260054458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="20"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260659258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="21"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261264058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="22"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261868858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="23"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262041658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="24"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262473658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="25"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263078458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="26"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263683258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="27"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264288058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="28"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264892858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="29"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265497658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="30"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266102458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="31"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266707258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="32"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266966458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="33"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267312058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="34"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267916858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="35"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268521658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="36"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269126458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="37"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269731258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="38"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270332458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="39"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270505258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="40"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270937258824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="41"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271196458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="42"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271542058824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="43"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272146858824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="44"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272751658824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="45"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1273356458824</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array>
-  </void>
-  <void property="playoffs">
-   <object class="ie.tippinst.jod.fm.model.Cup">
-	 <void property="id"> 
-	 <int>8</int> 
-	 </void> 
-   </object>
-  </void>
- </object>
- <object class="ie.tippinst.jod.fm.model.League"> 
-  <void property="id"> 
-   <int>5</int> 
-  </void> 
-  <void property="name"> 
-   <string>Blue Square Premier Division</string> 
-  </void>   
-  <void property="reputation"> 
-   <int>10</int> 
-  </void>
-  <void property="numberOfTeams"> 
-   <int>24</int> 
-  </void>
-  <void property="promotedTo"> 
-	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>4</int> 
-	  </void>
-	</object>  
-  </void>
-  <void property="relegatedTo"> 
-   	<object class="ie.tippinst.jod.fm.model.League"> 
-	  <void property="id"> 
-	   <int>0</int> 
-	  </void>
-	</object> 
-  </void>
-  <void property="numberOfTeamsPromoted"> 
-   <int>1</int> 
-  </void>
-  <void property="numberOfTeamsRelegated"> 
-   <int>4</int> 
-  </void>
-  <void property="numberOfTeamsInPlayoff"> 
-   <int>4</int> 
-  </void>
-  <void property="matchDates">
-	   <array class="java.util.Calendar" length="46"> 
-	  <void index="0"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1249770515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="1"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250029715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="2"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250375315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="3"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250634515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="4"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1250980115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="5"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1251584915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="6"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1251757715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="7"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252189715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="8"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252448915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="9"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1252794515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="10"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253399315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="11"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1253658515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="12"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254004115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="13"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254263315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="14"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1254608915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="15"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255213715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="16"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1255818515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="17"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1257031715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="18"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258241315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="19"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1258846115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="20"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259105315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="21"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259450915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="22"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1259710115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="23"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1260055715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="24"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1261870115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="25"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262042915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="26"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1262388515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="27"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1263684515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="28"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264289315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="29"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264548515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="30"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1264894115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="31"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265498915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="32"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1265758115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="33"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266103715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="34"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1266708515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="35"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267313315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="36"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1267918115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="37"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268177315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="38"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1268522915761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="39"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269127715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="40"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1269732515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="41"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270333715761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="42"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270506515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="43"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1270938515761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="44"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1271543315761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	  <void index="45"> 
-	   <object class="java.util.GregorianCalendar"> 
-		<void property="time"> 
-		 <object class="java.util.Date"> 
-		  <long>1272148115761</long> 
-		 </object> 
-		</void> 
-	   </object> 
-	  </void> 
-	 </array>
-  </void>
-  <void property="playoffs">
-   <object class="ie.tippinst.jod.fm.model.Cup">
-	 <void property="id"> 
-	 <int>9</int> 
-	 </void> 
-   </object>
-  </void>
- </object>
+	<object class="ie.tippinst.jod.fm.model.League">
+		<void property="id">
+			<int>0</int>
+		</void>
+		<void property="name">
+			<string>Lower Leagues</string>
+		</void>
+		<void property="reputation">
+			<int>1</int>
+		</void>
+	</object>
+	<object class="ie.tippinst.jod.fm.model.League">
+		<void property="id">
+			<int>1</int>
+		</void>
+		<void property="name">
+			<string>Barclays Premier League</string>
+		</void>
+		<void property="reputation">
+			<int>19</int>
+		</void>
+		<void property="numberOfTeams">
+			<int>20</int>
+		</void>
+		<void property="relegatedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>2</int>
+				</void>
+			</object>
+		</void>
+		<void property="numberOfTeamsPromoted">
+			<int>0</int>
+		</void>
+		<void property="numberOfTeamsRelegated">
+			<int>3</int>
+		</void>
+		<void property="numberOfTeamsInPlayoff">
+			<int>0</int>
+		</void>
+		<void property="matchDates">
+			<array class="java.util.Calendar" length="38">
+				<void index="0">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250372048642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250717648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250976848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1251581648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252791248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253396048642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254000848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="7">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254605648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="8">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255815248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="9">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1256420048642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="10">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257028448642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="11">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257633248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="12">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258842848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="13">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259447648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="14">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260052448642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="15">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260657248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="16">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261002848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="17">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261262048642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="18">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261866848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="19">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262039648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="20">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263076448642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="21">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263681248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="22">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264631648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="23">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264890848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="24">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265495648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="25">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265841248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="26">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266705248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="27">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267310048642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="28">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267914848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="29">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268519648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="30">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269124448642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="31">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269729248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="32">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270330448642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="33">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270935248642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="34">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271540048642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="35">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272144848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="36">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272749648642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="37">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1273440848642</long>
+							</object>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+		<void property="prizeMoney">
+			<array class="double" length="20">
+				<void index="0">
+					<double>12000000.0</double>
+				</void>
+				<void index="1">
+					<double>11500000.0</double>
+				</void>
+				<void index="2">
+					<double>11000000.0</double>
+				</void>
+				<void index="3">
+					<double>10500000.0</double>
+				</void>
+				<void index="4">
+					<double>10000000.0</double>
+				</void>
+				<void index="5">
+					<double>9500000.0</double>
+				</void>
+				<void index="6">
+					<double>9000000.0</double>
+				</void>
+				<void index="7">
+					<double>8500000.0</double>
+				</void>
+				<void index="8">
+					<double>8000000.0</double>
+				</void>
+				<void index="9">
+					<double>7500000.0</double>
+				</void>
+				<void index="10">
+					<double>7000000.0</double>
+				</void>
+				<void index="11">
+					<double>6500000.0</double>
+				</void>
+				<void index="12">
+					<double>6000000.0</double>
+				</void>
+				<void index="13">
+					<double>5500000.0</double>
+				</void>
+				<void index="14">
+					<double>5000000.0</double>
+				</void>
+				<void index="15">
+					<double>4500000.0</double>
+				</void>
+				<void index="16">
+					<double>4000000.0</double>
+				</void>
+				<void index="17">
+					<double>3500000.0</double>
+				</void>
+				<void index="18">
+					<double>3000000.0</double>
+				</void>
+				<void index="19">
+					<double>2500000.0</double>
+				</void>
+			</array>
+		</void>
+		<void property="tvRevenue">
+			<double>30000000.0</double>
+		</void>
+	</object>
+	<object class="ie.tippinst.jod.fm.model.League">
+		<void property="id">
+			<int>2</int>
+		</void>
+		<void property="name">
+			<string>Coca-Cola Championship</string>
+		</void>
+		<void property="reputation">
+			<int>15</int>
+		</void>
+		<void property="numberOfTeams">
+			<int>24</int>
+		</void>
+		<void property="promotedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>1</int>
+				</void>
+			</object>
+		</void>
+		<void property="relegatedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>3</int>
+				</void>
+			</object>
+		</void>
+		<void property="numberOfTeamsPromoted">
+			<int>2</int>
+		</void>
+		<void property="numberOfTeamsRelegated">
+			<int>3</int>
+		</void>
+		<void property="numberOfTeamsInPlayoff">
+			<int>4</int>
+		</void>
+		<void property="matchDates">
+			<array class="java.util.Calendar" length="46">
+				<void index="0">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1249768209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250373009722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250632209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250977809722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1251582609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252792209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253051409722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="7">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253397009722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="8">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254001809722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="9">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254261009722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="10">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254606609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="11">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255816209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="12">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1256075409722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="13">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1256421009722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="14">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257029409722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="15">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257634209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="16">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258843809722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="17">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259448609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="18">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260053409722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="19">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260312609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="20">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260658209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="21">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261263009722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="22">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261867809722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="23">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262040609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="24">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263077409722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="25">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263682209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="26">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264546209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="27">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264891809722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="28">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265496609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="29">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265755809722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="30">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266101409722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="31">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266360609722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="32">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266706209722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="33">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267311009722</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="34">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267915809737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="35">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268520609737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="36">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268779809737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="37">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269125409737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="38">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269384609737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="39">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269730209737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="40">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270331409737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="41">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270504209737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="42">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270936209737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="43">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271541009737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="44">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272145809737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="45">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272837009737</long>
+							</object>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+		<void property="playoffs">
+			<object class="ie.tippinst.jod.fm.model.Cup">
+				<void property="id">
+					<int>6</int>
+				</void>
+			</object>
+		</void>
+		<void property="prizeMoney">
+			<array class="double" length="24">
+				<void index="0">
+					<double>0.0</double>
+				</void>
+				<void index="1">
+					<double>0.0</double>
+				</void>
+				<void index="2">
+					<double>0.0</double>
+				</void>
+				<void index="3">
+					<double>0.0</double>
+				</void>
+				<void index="4">
+					<double>0.0</double>
+				</void>
+				<void index="5">
+					<double>0.0</double>
+				</void>
+				<void index="6">
+					<double>2000000.0</double>
+				</void>
+				<void index="7">
+					<double>1900000.0</double>
+				</void>
+				<void index="8">
+					<double>1800000.0</double>
+				</void>
+				<void index="9">
+					<double>1700000.0</double>
+				</void>
+				<void index="10">
+					<double>1600000.0</double>
+				</void>
+				<void index="11">
+					<double>1500000.0</double>
+				</void>
+				<void index="12">
+					<double>1400000.0</double>
+				</void>
+				<void index="13">
+					<double>1300000.0</double>
+				</void>
+				<void index="14">
+					<double>1200000.0</double>
+				</void>
+				<void index="15">
+					<double>1100000.0</double>
+				</void>
+				<void index="16">
+					<double>1000000.0</double>
+				</void>
+				<void index="17">
+					<double>900000.0</double>
+				</void>
+				<void index="18">
+					<double>800000.0</double>
+				</void>
+				<void index="19">
+					<double>700000.0</double>
+				</void>
+				<void index="20">
+					<double>600000.0</double>
+				</void>
+				<void index="21">
+					<double>500000.0</double>
+				</void>
+				<void index="22">
+					<double>400000.0</double>
+				</void>
+				<void index="23">
+					<double>300000.0</double>
+				</void>
+			</array>
+		</void>
+		<void property="tvRevenue">
+			<double>10000000.0</double>
+		</void>
+	</object>
+	<object class="ie.tippinst.jod.fm.model.League">
+		<void property="id">
+			<int>3</int>
+		</void>
+		<void property="name">
+			<string>Coca-Cola League One</string>
+		</void>
+		<void property="reputation">
+			<int>12</int>
+		</void>
+		<void property="numberOfTeams">
+			<int>24</int>
+		</void>
+		<void property="promotedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>2</int>
+				</void>
+			</object>
+		</void>
+		<void property="relegatedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>4</int>
+				</void>
+			</object>
+		</void>
+		<void property="numberOfTeamsPromoted">
+			<int>2</int>
+		</void>
+		<void property="numberOfTeamsRelegated">
+			<int>4</int>
+		</void>
+		<void property="numberOfTeamsInPlayoff">
+			<int>4</int>
+		</void>
+		<void property="matchDates">
+			<array class="java.util.Calendar" length="46">
+				<void index="0">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1249769258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250374058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250633258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250978858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1251583658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252188458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252793258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="7">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253398058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="8">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254002858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="9">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254262058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="10">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254607658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="11">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255212458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="12">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255817258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="13">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1256422058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="14">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257030458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="15">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258240058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="16">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258844858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="17">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259104058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="18">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259708858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="19">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260054458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="20">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260659258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="21">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261264058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="22">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261868858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="23">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262041658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="24">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262473658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="25">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263078458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="26">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263683258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="27">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264288058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="28">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264892858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="29">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265497658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="30">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266102458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="31">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266707258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="32">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266966458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="33">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267312058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="34">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267916858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="35">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268521658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="36">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269126458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="37">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269731258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="38">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270332458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="39">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270505258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="40">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270937258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="41">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271196458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="42">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271542058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="43">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272146858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="44">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272751658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="45">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1273356458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+		<void property="playoffs">
+			<object class="ie.tippinst.jod.fm.model.Cup">
+				<void property="id">
+					<int>7</int>
+				</void>
+			</object>
+		</void>
+		<void property="prizeMoney">
+			<array class="double" length="24">
+				<void index="0">
+					<double>0.0</double>
+				</void>
+				<void index="1">
+					<double>0.0</double>
+				</void>
+				<void index="2">
+					<double>0.0</double>
+				</void>
+				<void index="3">
+					<double>0.0</double>
+				</void>
+				<void index="4">
+					<double>0.0</double>
+				</void>
+				<void index="5">
+					<double>0.0</double>
+				</void>
+				<void index="6">
+					<double>1000000.0</double>
+				</void>
+				<void index="7">
+					<double>950000.0</double>
+				</void>
+				<void index="8">
+					<double>900000.0</double>
+				</void>
+				<void index="9">
+					<double>850000.0</double>
+				</void>
+				<void index="10">
+					<double>800000.0</double>
+				</void>
+				<void index="11">
+					<double>750000.0</double>
+				</void>
+				<void index="12">
+					<double>700000.0</double>
+				</void>
+				<void index="13">
+					<double>650000.0</double>
+				</void>
+				<void index="14">
+					<double>600000.0</double>
+				</void>
+				<void index="15">
+					<double>550000.0</double>
+				</void>
+				<void index="16">
+					<double>500000.0</double>
+				</void>
+				<void index="17">
+					<double>450000.0</double>
+				</void>
+				<void index="18">
+					<double>400000.0</double>
+				</void>
+				<void index="19">
+					<double>350000.0</double>
+				</void>
+				<void index="20">
+					<double>300000.0</double>
+				</void>
+				<void index="21">
+					<double>250000.0</double>
+				</void>
+				<void index="22">
+					<double>200000.0</double>
+				</void>
+				<void index="23">
+					<double>150000.0</double>
+				</void>
+			</array>
+		</void>
+		<void property="tvRevenue">
+			<double>2000000.0</double>
+		</void>
+	</object>
+	<object class="ie.tippinst.jod.fm.model.League">
+		<void property="id">
+			<int>4</int>
+		</void>
+		<void property="name">
+			<string>Coca-Cola League Two</string>
+		</void>
+		<void property="reputation">
+			<int>11</int>
+		</void>
+		<void property="numberOfTeams">
+			<int>24</int>
+		</void>
+		<void property="promotedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>3</int>
+				</void>
+			</object>
+		</void>
+		<void property="relegatedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>5</int>
+				</void>
+			</object>
+		</void>
+		<void property="numberOfTeamsPromoted">
+			<int>3</int>
+		</void>
+		<void property="numberOfTeamsRelegated">
+			<int>2</int>
+		</void>
+		<void property="numberOfTeamsInPlayoff">
+			<int>4</int>
+		</void>
+		<void property="matchDates">
+			<array class="java.util.Calendar" length="46">
+				<void index="0">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1249769258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250374058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250633258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250978858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1251583658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252188458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252793258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="7">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253398058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="8">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254002858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="9">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254262058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="10">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254607658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="11">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255212458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="12">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255817258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="13">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1256422058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="14">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257030458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="15">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258240058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="16">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258844858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="17">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259104058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="18">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259708858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="19">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260054458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="20">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260659258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="21">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261264058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="22">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261868858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="23">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262041658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="24">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262473658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="25">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263078458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="26">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263683258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="27">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264288058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="28">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264892858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="29">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265497658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="30">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266102458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="31">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266707258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="32">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266966458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="33">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267312058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="34">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267916858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="35">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268521658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="36">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269126458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="37">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269731258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="38">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270332458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="39">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270505258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="40">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270937258824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="41">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271196458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="42">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271542058824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="43">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272146858824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="44">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272751658824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="45">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1273356458824</long>
+							</object>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+		<void property="playoffs">
+			<object class="ie.tippinst.jod.fm.model.Cup">
+				<void property="id">
+					<int>8</int>
+				</void>
+			</object>
+		</void>
+		<void property="prizeMoney">
+			<array class="double" length="24">
+				<void index="0">
+					<double>1000000.0</double>
+				</void>
+				<void index="1">
+					<double>1000000.0</double>
+				</void>
+				<void index="2">
+					<double>1000000.0</double>
+				</void>
+				<void index="3">
+					<double>1000000.0</double>
+				</void>
+				<void index="4">
+					<double>1000000.0</double>
+				</void>
+				<void index="5">
+					<double>1000000.0</double>
+				</void>
+				<void index="6">
+					<double>1000000.0</double>
+				</void>
+				<void index="7">
+					<double>950000.0</double>
+				</void>
+				<void index="8">
+					<double>900000.0</double>
+				</void>
+				<void index="9">
+					<double>850000.0</double>
+				</void>
+				<void index="10">
+					<double>800000.0</double>
+				</void>
+				<void index="11">
+					<double>750000.0</double>
+				</void>
+				<void index="12">
+					<double>700000.0</double>
+				</void>
+				<void index="13">
+					<double>650000.0</double>
+				</void>
+				<void index="14">
+					<double>600000.0</double>
+				</void>
+				<void index="15">
+					<double>550000.0</double>
+				</void>
+				<void index="16">
+					<double>500000.0</double>
+				</void>
+				<void index="17">
+					<double>450000.0</double>
+				</void>
+				<void index="18">
+					<double>400000.0</double>
+				</void>
+				<void index="19">
+					<double>350000.0</double>
+				</void>
+				<void index="20">
+					<double>300000.0</double>
+				</void>
+				<void index="21">
+					<double>250000.0</double>
+				</void>
+				<void index="22">
+					<double>200000.0</double>
+				</void>
+				<void index="23">
+					<double>150000.0</double>
+				</void>
+			</array>
+		</void>
+		<void property="tvRevenue">
+			<double>2000000.0</double>
+		</void>
+	</object>
+	<object class="ie.tippinst.jod.fm.model.League">
+		<void property="id">
+			<int>5</int>
+		</void>
+		<void property="name">
+			<string>Blue Square Premier Division</string>
+		</void>
+		<void property="reputation">
+			<int>10</int>
+		</void>
+		<void property="numberOfTeams">
+			<int>24</int>
+		</void>
+		<void property="promotedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>4</int>
+				</void>
+			</object>
+		</void>
+		<void property="relegatedTo">
+			<object class="ie.tippinst.jod.fm.model.League">
+				<void property="id">
+					<int>0</int>
+				</void>
+			</object>
+		</void>
+		<void property="numberOfTeamsPromoted">
+			<int>1</int>
+		</void>
+		<void property="numberOfTeamsRelegated">
+			<int>4</int>
+		</void>
+		<void property="numberOfTeamsInPlayoff">
+			<int>4</int>
+		</void>
+		<void property="matchDates">
+			<array class="java.util.Calendar" length="46">
+				<void index="0">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1249770515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="1">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250029715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="2">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250375315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="3">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250634515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="4">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1250980115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="5">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1251584915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="6">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1251757715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="7">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252189715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="8">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252448915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="9">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1252794515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="10">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253399315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="11">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1253658515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="12">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254004115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="13">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254263315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="14">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1254608915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="15">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255213715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="16">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1255818515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="17">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1257031715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="18">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258241315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="19">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1258846115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="20">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259105315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="21">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259450915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="22">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1259710115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="23">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1260055715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="24">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1261870115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="25">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262042915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="26">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1262388515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="27">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1263684515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="28">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264289315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="29">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264548515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="30">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1264894115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="31">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265498915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="32">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1265758115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="33">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266103715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="34">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1266708515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="35">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267313315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="36">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1267918115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="37">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268177315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="38">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1268522915761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="39">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269127715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="40">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1269732515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="41">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270333715761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="42">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270506515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="43">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1270938515761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="44">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1271543315761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+				<void index="45">
+					<object class="java.util.GregorianCalendar">
+						<void property="time">
+							<object class="java.util.Date">
+								<long>1272148115761</long>
+							</object>
+						</void>
+					</object>
+				</void>
+			</array>
+		</void>
+		<void property="playoffs">
+			<object class="ie.tippinst.jod.fm.model.Cup">
+				<void property="id">
+					<int>9</int>
+				</void>
+			</object>
+		</void>
+		<void property="prizeMoney">
+			<array class="double" length="24">
+				<void index="0">
+					<double>500000.0</double>
+				</void>
+				<void index="1">
+					<double>480000.0</double>
+				</void>
+				<void index="2">
+					<double>460000.0</double>
+				</void>
+				<void index="3">
+					<double>440000.0</double>
+				</void>
+				<void index="4">
+					<double>420000.0</double>
+				</void>
+				<void index="5">
+					<double>400000.0</double>
+				</void>
+				<void index="6">
+					<double>380000.0</double>
+				</void>
+				<void index="7">
+					<double>360000.0</double>
+				</void>
+				<void index="8">
+					<double>340000.0</double>
+				</void>
+				<void index="9">
+					<double>320000.0</double>
+				</void>
+				<void index="10">
+					<double>300000.0</double>
+				</void>
+				<void index="11">
+					<double>280000.0</double>
+				</void>
+				<void index="12">
+					<double>260000.0</double>
+				</void>
+				<void index="13">
+					<double>240000.0</double>
+				</void>
+				<void index="14">
+					<double>220000.0</double>
+				</void>
+				<void index="15">
+					<double>200000.0</double>
+				</void>
+				<void index="16">
+					<double>180000.0</double>
+				</void>
+				<void index="17">
+					<double>160000.0</double>
+				</void>
+				<void index="18">
+					<double>140000.0</double>
+				</void>
+				<void index="19">
+					<double>120000.0</double>
+				</void>
+				<void index="20">
+					<double>100000.0</double>
+				</void>
+				<void index="21">
+					<double>80000.0</double>
+				</void>
+				<void index="22">
+					<double>60000.0</double>
+				</void>
+				<void index="23">
+					<double>40000.0</double>
+				</void>
+			</array>
+		</void>
+		<void property="tvRevenue">
+			<double>500000.0</double>
+		</void>
+	</object>
 </java> 

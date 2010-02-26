@@ -216,17 +216,20 @@ public class Game {
 	public int continueGame(boolean processFixtures, List<String> players){
 		int fixtures = 0;
 		//if it is the end of the season move to next season
-		if((db.getDate().get(Calendar.DAY_OF_MONTH) == 20) && (db.getDate().get(Calendar.MONTH) == 5)){
+		if((db.getDate().get(Calendar.DAY_OF_MONTH) == 30) && (db.getDate().get(Calendar.MONTH) == 5)){
 			Iterator<Competition> iCompetition = db.getCompetitionList().iterator();
 			while(iCompetition.hasNext()){
 				Competition c = iCompetition.next();
 				if(c.getId() != 0){
 					//set match schedule
-					c.setMatchSchedule();
-					//move teams to correct divisions
+					c.setMatchSchedule();					
+					//move teams to correct divisions and give prize money to clubs
 					if(c instanceof League){
 						League league = (League) c;
 						String[][] table = this.getLeagueTable(league.getName());
+						for(int i = 0; i < league.getNumberOfTeams(); i++){
+							db.findClub(table[i][1]).setBankBalance(db.findClub(table[i][1]).getBankBalance() + league.getPrizeMoney()[i]);
+						}
 						int numberOfTeamsRelegated = league.getNumberOfTeamsRelegated();
 						if(league.getRelegatedTo().getId() == 0){
 							for(int i = table.length - 1; i > (table.length - 1) - numberOfTeamsRelegated; i--){
@@ -254,6 +257,47 @@ public class Game {
 			db.initialiseLeagues();
 			db.initialiseCups();
 			db.updatePlayers();
+			//give clubs tv revenue money
+			iCompetition = db.getCompetitionList().iterator();
+			while(iCompetition.hasNext()){
+				Competition c = iCompetition.next();
+				if(c.getId() != 0){
+					if(c instanceof League){
+						League league = (League) c;
+						Iterator<Club> iClub = league.getTeams().iterator();
+						while(iClub.hasNext()){
+							Club club = iClub.next();
+							club.setBankBalance(club.getBankBalance() + league.getTvRevenue());
+						}
+					}
+				}
+			}
+			//clear all rejected bids
+			Iterator<Person> iPerson = db.getPersonList().iterator();
+			while(iPerson.hasNext()){
+				Person person = iPerson.next();
+				//if person's contract is up make them leave the club
+				if(person.getContractExpiry().get(Calendar.YEAR) == db.getDate().get(Calendar.YEAR)){
+					person.setCurrentClub(null);
+				}
+				if(person instanceof Player){
+					Player p = (Player) person;
+					p.getRejectedBids().clear();
+				}
+			}
+			
+			Iterator<Club> iClub = db.getClubList().iterator();
+			while(iClub.hasNext()){
+				//offer contract to important players
+				Club c = iClub.next();
+				Iterator<Player> iPlayer = c.getSquad().iterator();
+				while(iPlayer.hasNext()){
+					Player p = iPlayer.next();
+					if(p.getContractExpiry().get(Calendar.YEAR) - db.getDate().get(Calendar.YEAR) < 2 && p.getStatusOrdinal() != 5){
+						c.offerContract(p, p.getWages(), new GregorianCalendar(db.getDate().get(Calendar.YEAR) + 3, 5, 30), p.getStatusOrdinal());
+					}
+				}
+			}
 		}
 		//if there are no matches to be played move on to next day
 		if(!(processFixtures)){
@@ -479,34 +523,35 @@ public class Game {
 				}
 			}
 		}
-		
-		//check if there are plays for user clubs to buy and if so make offer for player
-		Iterator<Person> i = db.getPersonList().iterator();
-		DecimalFormat format = new DecimalFormat("000,000");
-		while(i.hasNext()){
-			Person p = i.next();
-			if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null && p.getId() != 0 && ((NonPlayer) p).getShortlist().size() != 0){
-				Player playerToBuy = null;
-				int num = 4;
-				while(playerToBuy == null){
-					playerToBuy = getPlayerToBuy(p, num);
-					num--;
-					if(num == 0){
-						break;
+		if(db.getDate().get(Calendar.MONTH) == 0 || db.getDate().get(Calendar.MONTH) == 6 || db.getDate().get(Calendar.MONTH) == 7){
+			//check if there are plays for user clubs to buy and if so make offer for player
+			Iterator<Person> i = db.getPersonList().iterator();
+			DecimalFormat format = new DecimalFormat("000,000");
+			while(i.hasNext()){
+				Person p = i.next();
+				if(p instanceof NonPlayer && ((NonPlayer) p).getManagerRole() == 20 && p.getCurrentClub() != null && p.getId() != 0 && ((NonPlayer) p).getShortlist().size() != 0){
+					Player playerToBuy = null;
+					int num = 4;
+					while(playerToBuy == null){
+						playerToBuy = getPlayerToBuy(p, num);
+						num--;
+						if(num == 0){
+							break;
+						}
 					}
-				}
-				if(playerToBuy == null){
-					// do nothing
-				}
-				else if(playerToBuy.getCurrentClub().getId() == userClub.getId() && (!(playerToBuy.getBids().contains(p.getCurrentClub())))){
-					db.getMessages().add(new Message((Calendar) db.getDate().clone(), p.getCurrentClub().getName() + " bid for " + playerToBuy.getFirstName() + (playerToBuy.getLastName().equals("") ? "" : " " + playerToBuy.getLastName()), p.getCurrentClub().getName() + " have made a €" + format.format(playerToBuy.getSaleValue()) + " bid to you for " + playerToBuy.getFirstName() + (playerToBuy.getLastName().equals("") ? "" : " " + playerToBuy.getLastName()) + "!"));
-					playerToBuy.getBids().add(p.getCurrentClub());
-				}
-				else{
-					//p.getCurrentClub().makeOffer(playerToBuy, playerToBuy.getSaleValue());
-					//TODO: make offer first
-					if(p.getCurrentClub().offerContract(playerToBuy, 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0))
-						playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
+					if(playerToBuy == null){
+						// do nothing
+					}
+					else if(playerToBuy.getCurrentClub().getId() == userClub.getId() && (!(playerToBuy.getBids().contains(p.getCurrentClub()))) && (!(playerToBuy.getRejectedBids().contains(p.getCurrentClub())))){
+						db.getMessages().add(new Message((Calendar) db.getDate().clone(), p.getCurrentClub().getName() + " bid for " + playerToBuy.getFirstName() + (playerToBuy.getLastName().equals("") ? "" : " " + playerToBuy.getLastName()), p.getCurrentClub().getName() + " have made a €" + format.format(playerToBuy.getSaleValue()) + " bid to you for " + playerToBuy.getFirstName() + (playerToBuy.getLastName().equals("") ? "" : " " + playerToBuy.getLastName()) + "!"));
+						playerToBuy.getBids().add(p.getCurrentClub());
+					}
+					else{
+						//p.getCurrentClub().makeOffer(playerToBuy, playerToBuy.getSaleValue());
+						//TODO: make offer first
+						if(p.getCurrentClub().offerContract(playerToBuy, 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0))
+							playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
+					}
 				}
 			}
 		}
@@ -630,6 +675,7 @@ public class Game {
 	public void rejectOffer(String playerName, String clubName){
 		//System.out.println(clubName);
 		((Player) db.findPerson(playerName)).getBids().remove(db.findClub(clubName));
+		((Player) db.findPerson(playerName)).getRejectedBids().add(db.findClub(clubName));
 	}
 	
 	public String[] getMatchDates(String leagueName){

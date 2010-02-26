@@ -55,7 +55,7 @@ public class ContractOffer extends javax.swing.JDialog {
 		game = Game.getInstance();
 		
 		initGUI();
-		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
 		offerContractButton.addActionListener(new ActionListener(){

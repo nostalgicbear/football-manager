@@ -45,6 +45,9 @@
 	 <void property="twoLegs">
 	   <boolean>true</boolean>
 	 </void>
+	 <void property="loserPrizeMoney"> 
+      <double>2000000.0</double> 
+     </void>
     </object> 
    </void> 
    <void method="add"> 
@@ -69,6 +72,9 @@
 	 <void property="twoLegs">
 	  <boolean>false</boolean>
 	 </void>
+	 <void property="loserPrizeMoney"> 
+      <double>2000000.0</double> 
+     </void>
     </object> 
    </void> 
   </void> 
@@ -117,7 +123,10 @@
      </void>
 	 <void property="twoLegs">
 	  <boolean>true</boolean>
-	 </void>	 
+	 </void>
+	 <void property="loserPrizeMoney"> 
+      <double>1000000.0</double> 
+     </void>	 
     </object> 
    </void> 
    <void method="add"> 
@@ -141,7 +150,10 @@
      </void>
 	 <void property="twoLegs">
 	  <boolean>false</boolean>
-	 </void>	 
+	 </void>
+	 <void property="loserPrizeMoney"> 
+      <double>1000000.0</double> 
+     </void>	 
     </object> 
    </void> 
   </void> 

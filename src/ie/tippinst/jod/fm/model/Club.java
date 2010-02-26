@@ -182,7 +182,7 @@ public class Club implements Serializable {
 		return true;
 	}
 
-	public boolean offerContract(Player p, int wages, Calendar c, int status) {
+	public boolean offerContract(Player p, double wages, Calendar c, int status) {
 		// TODO: Check if player is happy with terms and if yes return true else
 		// return false
 		// check club reputation, wages offered, if club is a rival, contract

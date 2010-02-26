@@ -2,6 +2,7 @@ package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,15 +46,15 @@ public class MainScreen extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		loadGame = new JButton("Load Game");
 		loadGame.setFont(new java.awt.Font("Verdana",1,12));
-		loadGame.setBackground(new java.awt.Color(64,0,64));
-		loadGame.setForeground(new java.awt.Color(0,159,0));
-		loadGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+		loadGame.setBackground(Color.LIGHT_GRAY);
+		loadGame.setForeground(Color.BLACK);
+		//loadGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		loadGame.setToolTipText("Load a previously saved game");
 		quitGame = new JButton("Quit Game");
 		quitGame.setFont(new java.awt.Font("Verdana",1,12));
-		quitGame.setBackground(new java.awt.Color(64,0,64));
-		quitGame.setForeground(new java.awt.Color(0,159,0));
-		quitGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+		quitGame.setBackground(Color.LIGHT_GRAY);
+		quitGame.setForeground(Color.BLACK);
+		//quitGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		quitGame.setToolTipText("Exit the game");
 		{
 			image = new JLabel(new ImageIcon("football_manager_logo.gif"));
@@ -64,9 +65,9 @@ public class MainScreen extends JFrame {
 		{
 			newGame = new JButton("Start New Game");
 			newGame.setFont(new java.awt.Font("Verdana",1,12));
-			newGame.setBackground(new java.awt.Color(64,0,64));
-			newGame.setForeground(new java.awt.Color(0,159,0));
-			newGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+			newGame.setBackground(Color.LIGHT_GRAY);
+			newGame.setForeground(Color.BLACK);
+			//newGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 			newGame.setToolTipText("Create a new game");
 			newGame.addActionListener(new ActionListener() {
 				
@@ -99,7 +100,6 @@ public class MainScreen extends JFrame {
 				.addContainerGap());
 		this.pack();
 		this.setLocationRelativeTo(null);
-		getContentPane().setBackground(new java.awt.Color(255,255,255));
 		this.setResizable(false);
 		this.setVisible(true);
 

@@ -21,6 +21,7 @@ import ie.tippinst.jod.fm.gui.panels.StaffSearchPanel;
 import ie.tippinst.jod.fm.model.Match;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
@@ -29,6 +30,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,6 +41,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JToolBar;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
@@ -91,6 +94,18 @@ public class MainGameScreen extends JFrame {
     private JPanel sidePanel;
     private JLabel date;
     
+    private JToolBar toolbar;
+    private JButton newButton;
+    private JButton saveButton;
+    private JButton loadButton;
+    private JButton inboxButton;
+    private JButton playerSearchButton;
+    private JButton shortlistButton;
+    private JButton squadButton;
+    private JButton fixturesButton;
+    private JButton financesButton;
+    private JButton leagueButton;
+
     // Other panels for main panel
     private LeagueTablePanel leagueTablePanel;
     private LeagueFixturesPanel leagueFixturesPanel;
@@ -123,6 +138,8 @@ public class MainGameScreen extends JFrame {
     private JButton offerNewContractButton;
     private JPanel playerSearchSidePanel;
     private JButton viewSelectedPlayerForPlayerSearchButton;
+    private JPanel nonPlayerSidePanel;
+    private JPanel inboxSidePanel;
     
     private Game game;
     private String userClub;
@@ -405,6 +422,76 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+        // Event listener for make offer button
+        inboxButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayInbox(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        playerSearchButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayPlayers(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        shortlistButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayShortlist(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        squadButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserSquad(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        financesButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayClubFinances(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        fixturesButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayUserSquadFixtures(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        leagueButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				displayLeague(0, "Barclays Premier League");
+			}
+			
+		});
+        
         // Centre window on screen
         this.setLocationRelativeTo(null);
     }
@@ -493,11 +580,82 @@ public class MainGameScreen extends JFrame {
         continueButton = new JButton("Continue");
         playerSearchSidePanel = new JPanel();
         viewSelectedPlayerForPlayerSearchButton = new JButton("View Player");
+        nonPlayerSidePanel = new JPanel();
+        inboxSidePanel = new JPanel();
         processFixtures = false;
+        toolbar = new JToolBar();
+        newButton = new JButton(new ImageIcon("football-icon.png"));
+        loadButton = new JButton(new ImageIcon("My-Games-icon.png"));
+        saveButton = new JButton(new ImageIcon("Floppy disk-32.png"));
+        inboxButton = new JButton(new ImageIcon("mail_black-32.png"));
+        playerSearchButton = new JButton(new ImageIcon("Magnifying-Glass-icon.png"));
+        shortlistButton = new JButton(new ImageIcon("Task-List-icon.png"));
+        squadButton = new JButton(new ImageIcon("soccer_5_32.png"));
+        fixturesButton = new JButton(new ImageIcon("Soccer-Stadium-32.png"));
+        financesButton = new JButton(new ImageIcon("Money-32.png"));
+        leagueButton = new JButton(new ImageIcon("Soccer-Trophy-48.png"));
+        newButton.setToolTipText("Create a New Game");
+        loadButton.setToolTipText("Load a Previously Saved Game");
+        saveButton.setToolTipText("Save Current Game");
+        inboxButton.setToolTipText("Check your Mail");
+        playerSearchButton.setToolTipText("Search for Players");
+        shortlistButton.setToolTipText("View your Shortlist");
+        squadButton.setToolTipText("View your Squad");
+        fixturesButton.setToolTipText("View your Fixtures");
+        financesButton.setToolTipText("View your Finances");
+        leagueButton.setToolTipText("View League Table");
+        
+        toolbar.setFloatable(false);
+        toolbar.setRollover(true);
+        toolbar.addSeparator();
+        toolbar.add(newButton);
+        toolbar.add(loadButton);
+        toolbar.add(saveButton);
+        toolbar.addSeparator();
+        toolbar.add(inboxButton);
+        toolbar.add(playerSearchButton);
+        toolbar.add(shortlistButton);
+        toolbar.addSeparator();
+        toolbar.add(squadButton);
+        toolbar.add(fixturesButton);
+        toolbar.add(financesButton);
+        toolbar.addSeparator();
+        toolbar.add(leagueButton);
+        
+        continueButton.setFont(new java.awt.Font("Verdana",1,12));
+        continueButton.setBackground(Color.LIGHT_GRAY);
+        continueButton.setForeground(Color.BLACK);
+        date.setFont(new java.awt.Font("Verdana",1,12));
+        date.setBackground(Color.LIGHT_GRAY);
+        date.setForeground(Color.BLACK);
+        viewSelectedClubButton.setFont(new java.awt.Font("Verdana",1,12));
+        viewSelectedClubButton.setBackground(Color.LIGHT_GRAY);
+        viewSelectedClubButton.setForeground(Color.BLACK);
+        viewSelectedPlayerButton.setFont(new java.awt.Font("Verdana",1,12));
+        viewSelectedPlayerButton.setBackground(Color.LIGHT_GRAY);
+        viewSelectedPlayerButton.setForeground(Color.BLACK);
+        viewStaffProfileButton.setFont(new java.awt.Font("Verdana",1,12));
+        viewStaffProfileButton.setBackground(Color.LIGHT_GRAY);
+        viewStaffProfileButton.setForeground(Color.BLACK);
+        makeOfferForPlayerButton.setFont(new java.awt.Font("Verdana",1,12));
+        makeOfferForPlayerButton.setBackground(Color.LIGHT_GRAY);
+        makeOfferForPlayerButton.setForeground(Color.BLACK);
+        addToShortlistButton.setFont(new java.awt.Font("Verdana",1,12));
+        addToShortlistButton.setBackground(Color.LIGHT_GRAY);
+        addToShortlistButton.setForeground(Color.BLACK);
+        scoutPlayerButton.setFont(new java.awt.Font("Verdana",1,12));
+        scoutPlayerButton.setBackground(Color.LIGHT_GRAY);
+        scoutPlayerButton.setForeground(Color.BLACK);
+        setTransferStatusButton.setFont(new java.awt.Font("Verdana",1,12));
+        setTransferStatusButton.setBackground(Color.LIGHT_GRAY);
+        setTransferStatusButton.setForeground(Color.BLACK);
+        offerNewContractButton.setFont(new java.awt.Font("Verdana",1,12));
+        offerNewContractButton.setBackground(Color.LIGHT_GRAY);
+        offerNewContractButton.setForeground(Color.BLACK);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
-        this.setSize(1300, 650);
+        this.setSize(1000, 750);
         
         //Display the users squad as the initial screen
         displayClub(userClub, 0);
@@ -654,6 +812,7 @@ public class MainGameScreen extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addComponent(toolbar, GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(date)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
@@ -666,7 +825,10 @@ public class MainGameScreen extends JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            		.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            		.addGroup(layout.createSequentialGroup()
+                            .addComponent(toolbar, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                            .addContainerGap(10, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addComponent(sidePanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(mainPanel, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -713,8 +875,8 @@ public class MainGameScreen extends JFrame {
     	inboxPanel = new InboxPanel();
         mainPanel.add(inboxPanel, "Inbox");
         ((CardLayout) mainPanel.getLayout()).show(mainPanel, "Inbox");
-        sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
+        sidePanel.add(inboxSidePanel, "Inbox Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Inbox Sidebar");
     }
     
     /*Display Inbox Screen*/
@@ -771,8 +933,10 @@ public class MainGameScreen extends JFrame {
     
     /*Get Player to Display*/
     private void displayPlayer(ActionEvent ae){
-		player = (String) (squadPanel.getSquadTable().getValueAt(squadPanel.getSquadTable().getSelectedRow(), 1));
-    	displayPlayer(player);
+    	try{
+    		player = (String) (squadPanel.getSquadTable().getValueAt(squadPanel.getSquadTable().getSelectedRow(), 1));
+    		displayPlayer(player);
+    	}catch(ArrayIndexOutOfBoundsException e){}
 	}
     
     /*Display staff member*/
@@ -781,13 +945,15 @@ public class MainGameScreen extends JFrame {
     	staffProfilePanel = new StaffProfilePanel(staffMember);
     	mainPanel.add(staffProfilePanel, "Staff Profile");
     	((CardLayout) mainPanel.getLayout()).show(mainPanel, "Staff Profile");
-    	sidePanel.add(squadSidePanel, "Squad Sidebar");
-    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Squad Sidebar");
+    	sidePanel.add(nonPlayerSidePanel, "Non-Player Sidebar");
+    	((CardLayout) sidePanel.getLayout()).show(sidePanel, "Non-Player Sidebar");
     }
     
     /*Get staff profile to display*/
     private void displayStaffProfile(ActionEvent ae){
-		displayStaffProfile((String) (staffPanel.getStaffTable().getValueAt(staffPanel.getStaffTable().getSelectedRow(), 0)));
+    	try{
+    		displayStaffProfile((String) (staffPanel.getStaffTable().getValueAt(staffPanel.getStaffTable().getSelectedRow(), 0)));
+    	}catch(ArrayIndexOutOfBoundsException e){}
 	}
     
     /*Creates a new game*/
@@ -814,7 +980,7 @@ public class MainGameScreen extends JFrame {
     
     /*Display player profile*/
     private void displayPlayer(String player){
-    	mainPanel.removeAll();
+		mainPanel.removeAll();
     	playerProfilePanel = new PlayerProfilePanel(player);
     	playerAttributesPanel = new PlayerAttributesPanel(player);
     	playerContractPanel = new PlayerContractPanel(player);

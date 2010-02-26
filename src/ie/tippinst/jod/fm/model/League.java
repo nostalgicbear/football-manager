@@ -28,6 +28,7 @@ public class League extends Competition implements Serializable {
 	private int numberOfTeamsInPlayoff;
 	private Cup playoffs;
 	private double[] prizeMoney;
+	private double tvRevenue = 0;
 	
 	public League() {
 		super();
@@ -381,6 +382,14 @@ public class League extends Competition implements Serializable {
 
 	public double[] getPrizeMoney() {
 		return prizeMoney;
+	}
+
+	public void setTvRevenue(double tvRevenue) {
+		this.tvRevenue = tvRevenue;
+	}
+
+	public double getTvRevenue() {
+		return tvRevenue;
 	}
 
 	/*public void setEarliestMatchDates(Calendar[] earliestMatchDates) {

@@ -1,6 +1,8 @@
 package ie.tippinst.jod.fm.gui;
 
 import ie.tippinst.jod.fm.app.Game;
+
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -78,9 +80,9 @@ public class NewUserScreen extends JFrame {
 		nationalityLbl.setFont(new java.awt.Font("Verdana",1,12));
 		clubLbl.setFont(new java.awt.Font("Verdana",1,12));
 		addUser.setFont(new java.awt.Font("Verdana",1,12));
-		addUser.setBackground(new java.awt.Color(64,0,64));
-		addUser.setForeground(new java.awt.Color(0,159,0));
-		addUser.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+		addUser.setBackground(Color.LIGHT_GRAY);
+		addUser.setForeground(Color.BLACK);
+		//addUser.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		firstNameTxt.setFont(new java.awt.Font("Verdana",0,12));
 		surnameTxt.setFont(new java.awt.Font("Verdana",0,12));
 		dobDayCbo.setFont(new java.awt.Font("Verdana",0,12));
@@ -92,7 +94,7 @@ public class NewUserScreen extends JFrame {
 		pack();
 
 		this.setLocationRelativeTo(null);
-		getContentPane().setBackground(new java.awt.Color(255,255,255));
+		//getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setResizable(false);
 		
 		addUser.addActionListener(new ActionListener() {

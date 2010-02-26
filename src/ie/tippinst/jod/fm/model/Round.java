@@ -17,8 +17,8 @@ public class Round {
 	private int numberOfTeams;
 	private List<Club> winners = new ArrayList<Club>();
 	private boolean twoLegs;
-	private double winnerPrizeMoney;
-	private double loserPrizeMoney;
+	private double winnerPrizeMoney = 0;
+	private double loserPrizeMoney = 0;
 
 	public Round() {
 	}

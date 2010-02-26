@@ -53,7 +53,7 @@ public class TestGame {
 		list8.add(new GregorianCalendar(2010, 4, 15));
 		cup.createRound(2, 8, list8, false, 1800000, 900000);
 		
-		boolean[] test = {true};
+		double[] test = {1, 2, 3};
 		/*for(int i = 0; i < matchDates.length; i++){
 			Calendar c = new GregorianCalendar();
     		switch(i){
@@ -201,7 +201,7 @@ public class TestGame {
 		}*/
 		try {
 			XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(new File("test2.xml"))));
-			encoder.writeObject(cup);
+			encoder.writeObject(test);
 			encoder.flush();
 			encoder.close();
 		} catch (FileNotFoundException e) {
