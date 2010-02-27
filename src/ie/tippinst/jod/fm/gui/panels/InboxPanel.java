@@ -35,19 +35,6 @@ import javax.swing.text.Document;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
-
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
 public class InboxPanel extends JPanel {
 	private JList messageList;
 	private JTextPane messageTextPane;
@@ -245,17 +232,18 @@ public class InboxPanel extends JPanel {
 				}
 			}
 			
-				thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
-			.addContainerGap(2, 2)
-			.addGroup(thisLayout.createParallelGroup()
-			    .addComponent(messageListScrollPane, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
-			    .addComponent(messageTextPane, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE))
-			.addContainerGap(1, 1));
-				thisLayout.setVerticalGroup(thisLayout.createSequentialGroup()
-			.addContainerGap(5, 5)
-			.addComponent(messageListScrollPane, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-			.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-			.addComponent(messageTextPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE));
+			thisLayout.setHorizontalGroup(thisLayout.createSequentialGroup()
+					.addContainerGap(2, 2)
+					.addGroup(thisLayout.createParallelGroup()
+							.addComponent(messageListScrollPane, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 750, GroupLayout.PREFERRED_SIZE)
+							.addComponent(messageTextPane, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 750, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(1, 1));
+				
+			thisLayout.setVerticalGroup(thisLayout.createSequentialGroup()
+					.addContainerGap(5, 5)
+					.addComponent(messageListScrollPane, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addComponent(messageTextPane, GroupLayout.PREFERRED_SIZE, 250, GroupLayout.PREFERRED_SIZE));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

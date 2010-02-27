@@ -449,7 +449,7 @@ public class Game {
 								Iterator<Match> iMatch = m.getHomeTeam().getFixtures().iterator();
 								while(iMatch.hasNext()){
 									Match match = iMatch.next();
-									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
+									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! (match.isPostponed()))){
 										//postpone original match
 										match.setPostponed(true);
 										//match.setRescheduled(true);
@@ -481,7 +481,7 @@ public class Game {
 								iMatch = m.getAwayTeam().getFixtures().iterator();
 								while(iMatch.hasNext()){
 									Match match = iMatch.next();
-									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! match.isPostponed())){
+									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! (match.isPostponed()))){
 										//postpone original match
 										match.setPostponed(true);
 										//match.setRescheduled(true);
@@ -524,7 +524,7 @@ public class Game {
 			}
 		}
 		if(db.getDate().get(Calendar.MONTH) == 0 || db.getDate().get(Calendar.MONTH) == 6 || db.getDate().get(Calendar.MONTH) == 7){
-			//check if there are plays for user clubs to buy and if so make offer for player
+			//check if there are players for user clubs to buy and if so make offer for player
 			Iterator<Person> i = db.getPersonList().iterator();
 			DecimalFormat format = new DecimalFormat("000,000");
 			while(i.hasNext()){

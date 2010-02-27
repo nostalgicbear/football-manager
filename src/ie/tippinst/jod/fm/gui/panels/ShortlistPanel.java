@@ -48,9 +48,9 @@ public class ShortlistPanel extends JPanel {
                 "Name", "Position"
             }
         ));
-        shortlistTable.setGridColor(new Color(255, 255, 255));
-        shortlistTableHeader.setForeground(Color.white);
-        shortlistTableHeader.setBackground(Color.red);
+        //shortlistTable.setGridColor(new Color(255, 255, 255));
+        //shortlistTableHeader.setForeground(Color.white);
+        //shortlistTableHeader.setBackground(Color.red);
         shortlistTableScrollPane.setViewportView(shortlistTable);
         
         GroupLayout layout = new GroupLayout(this);
@@ -61,7 +61,7 @@ public class ShortlistPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(shortlistTableScrollPane, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shortlistTableScrollPane, GroupLayout.PREFERRED_SIZE, 675, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -70,7 +70,7 @@ public class ShortlistPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(shortlistTableScrollPane, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shortlistTableScrollPane, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

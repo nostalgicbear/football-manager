@@ -53,9 +53,9 @@ public class PlayerSearchPanel extends JPanel {
                 "Name", "Position", "Club", "Age", "Nationality", "Value"
             }
         ));
-        playerSearchTable.setGridColor(new Color(255, 255, 255));
-        playerSearchTableHeader.setForeground(Color.white);
-        playerSearchTableHeader.setBackground(Color.red);
+        //playerSearchTable.setGridColor(new Color(255, 255, 255));
+        //playerSearchTableHeader.setForeground(Color.white);
+        //playerSearchTableHeader.setBackground(Color.red);
         playerSearchTable.setAutoCreateRowSorter(true);
         playerSearchTableScrollPane.setViewportView(playerSearchTable);
         
@@ -67,7 +67,7 @@ public class PlayerSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(playerSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playerSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 675, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -76,7 +76,7 @@ public class PlayerSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(playerSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playerSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

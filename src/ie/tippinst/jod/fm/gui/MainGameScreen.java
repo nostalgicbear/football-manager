@@ -493,6 +493,7 @@ public class MainGameScreen extends JFrame {
 		});
         
         // Centre window on screen
+        this.setResizable(false);
         this.setLocationRelativeTo(null);
     }
 
@@ -622,7 +623,7 @@ public class MainGameScreen extends JFrame {
         toolbar.addSeparator();
         toolbar.add(leagueButton);
         
-        continueButton.setFont(new java.awt.Font("Verdana",1,12));
+        continueButton.setFont(new java.awt.Font("Verdana",1,16));
         continueButton.setBackground(Color.LIGHT_GRAY);
         continueButton.setForeground(Color.BLACK);
         date.setFont(new java.awt.Font("Verdana",1,12));
@@ -655,14 +656,13 @@ public class MainGameScreen extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
-        this.setSize(1000, 750);
+        this.setSize(900, 630);
         
         //Display the users squad as the initial screen
         displayClub(userClub, 0);
         
         //Display the date
-        Calendar c = game.getDate();        
-        date.setText(c.get(Calendar.DATE) + "/" + (c.get(Calendar.MONTH) + 1) + "/" + c.get(Calendar.YEAR));
+        setDate(game.getDate());
 
         // Add menus to menubar and menu items to menus
         fileMenu.add(newMenuItem);
@@ -816,7 +816,7 @@ public class MainGameScreen extends JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(date)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addComponent(continueButton, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE))
+                .addComponent(continueButton, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -868,7 +868,7 @@ public class MainGameScreen extends JFrame {
     	else{
     		displayInbox();
     	}
-		this.date.setText((game.getDate().get(Calendar.DATE) + "/" + (game.getDate().get(Calendar.MONTH) + 1) + "/" + game.getDate().get(Calendar.YEAR)));
+    	setDate(game.getDate());
     }
     
     private void displayInbox(){
@@ -1065,5 +1065,58 @@ public class MainGameScreen extends JFrame {
 
 	public JButton getAddToShortlistButton() {
 		return addToShortlistButton;
+	}
+	
+	private void setDate(Calendar c){
+		String text = "";
+        int day = c.get(Calendar.DAY_OF_WEEK);
+        switch(day){
+        	case 1: text = text + "Sun";
+        			break;
+        	case 2: text = text + "Mon";
+					break;
+        	case 3: text = text + "Tue";
+					break;
+        	case 4: text = text + "Wed";
+					break;
+        	case 5: text = text + "Thu";
+					break;
+        	case 6: text = text + "Fri";
+					break;
+        	case 7: text = text + "Sat";
+					break;
+			default:System.out.println("ERROR");
+        }
+        text = text + " " + c.get(Calendar.DATE);
+        int month = c.get(Calendar.MONTH);
+        switch(month){
+        	case 0: text = text + " Jan";
+        			break;
+        	case 1: text = text + " Feb";
+					break;
+        	case 2: text = text + " Mar";
+					break;
+        	case 3: text = text + " Apr";
+					break;
+        	case 4: text = text + " May";
+					break;
+        	case 5: text = text + " Jun";
+					break;
+        	case 6: text = text + " Jul";
+					break;
+        	case 7: text = text + " Aug";
+					break;
+			case 8: text = text + " Sept";
+					break;
+			case 9: text = text + " Oct";
+					break;
+			case 10:text = text + " Nov";
+					break;
+			case 11:text = text + " Dec";
+					break;
+			default:System.out.println("ERROR");
+        }
+        text = text + " " + c.get(Calendar.YEAR);
+        date.setText(text);
 	}
 }

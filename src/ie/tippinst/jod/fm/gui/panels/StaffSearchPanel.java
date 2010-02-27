@@ -46,9 +46,9 @@ public class StaffSearchPanel extends JPanel {
                 "Name", "Role"
             }
         ));
-        staffSearchTable.setGridColor(new Color(255, 255, 255));
-        staffSearchTableHeader.setForeground(Color.white);
-        staffSearchTableHeader.setBackground(Color.red);
+        //staffSearchTable.setGridColor(new Color(255, 255, 255));
+        //staffSearchTableHeader.setForeground(Color.white);
+        //staffSearchTableHeader.setBackground(Color.red);
         staffSearchTableScrollPane.setViewportView(staffSearchTable);
         
         GroupLayout layout = new GroupLayout(this);
@@ -59,7 +59,7 @@ public class StaffSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(staffSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 675, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -68,7 +68,7 @@ public class StaffSearchPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(staffSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(staffSearchTableScrollPane, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

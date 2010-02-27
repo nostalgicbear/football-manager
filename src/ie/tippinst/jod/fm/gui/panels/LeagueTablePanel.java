@@ -51,8 +51,8 @@ public class LeagueTablePanel extends JPanel {
         }
         
         //leagueTable.setGridColor(new Color(255, 255, 255));
-		leagueTableHeader.setForeground(Color.white);
-        leagueTableHeader.setBackground(Color.red);
+		//leagueTableHeader.setForeground(Color.white);
+        //leagueTableHeader.setBackground(Color.red);
         leagueTableScrollPane.setViewportView(leagueTable);
         
         GroupLayout layout = new GroupLayout(this);
@@ -63,7 +63,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 675, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -72,7 +72,7 @@ public class LeagueTablePanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 500, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(leagueTableScrollPane, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

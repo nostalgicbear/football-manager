@@ -81,7 +81,7 @@ public class FixturesPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 12, Short.MAX_VALUE)
-                    .addComponent(fixturesScrollPane, GroupLayout.PREFERRED_SIZE, 800, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fixturesScrollPane, GroupLayout.PREFERRED_SIZE, 675, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 13, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -90,7 +90,7 @@ public class FixturesPanel extends JPanel {
             .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(fixturesScrollPane, GroupLayout.PREFERRED_SIZE, 600, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fixturesScrollPane, GroupLayout.PREFERRED_SIZE, 450, GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }

@@ -68,7 +68,7 @@ public class LeagueFixturesPanel extends JPanel {
         ParallelGroup group = layout.createParallelGroup(GroupLayout.Alignment.LEADING);
         Iterator<JLabel> i = matchLabels.iterator();
         while(i.hasNext()){
-        	group.addComponent(i.next(), GroupLayout.PREFERRED_SIZE, 1000, GroupLayout.PREFERRED_SIZE);
+        	group.addComponent(i.next(), GroupLayout.PREFERRED_SIZE, 675, GroupLayout.PREFERRED_SIZE);
         }
         layout.setHorizontalGroup(
             layout.createParallelGroup(GroupLayout.Alignment.LEADING)
