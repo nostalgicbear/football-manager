@@ -1,8 +1,9 @@
 package ie.tippinst.jod.fm.db;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Message implements Comparable<Message>{
+public class Message implements Comparable<Message>, Serializable{
 	
 	private int id;
 	private Calendar date;
@@ -61,5 +62,8 @@ public class Message implements Comparable<Message>{
 	}
 	public boolean isRead() {
 		return read;
+	}
+	public static void setCount(int count) {
+		Message.count = count;
 	}
 }

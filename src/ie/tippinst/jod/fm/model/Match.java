@@ -1,11 +1,12 @@
 package ie.tippinst.jod.fm.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
-public class Match implements Comparable<Match> {
+public class Match implements Comparable<Match>, Serializable {
 	private Calendar date;
 	private Club homeTeam;
 	private Club awayTeam;

@@ -6,12 +6,14 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
@@ -19,19 +21,8 @@ import javax.swing.LayoutStyle;
 import javax.swing.ProgressMonitor;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
+import javax.swing.filechooser.FileFilter;
 
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
 public class MainScreen extends JFrame {
 	
 	private static final long serialVersionUID = -3630689263806675808L;
@@ -39,11 +30,33 @@ public class MainScreen extends JFrame {
 	private JButton loadGame;
 	private JButton quitGame;
 	private JLabel image;
+	private JFileChooser fc;
 	//private Game game;
 	
 	public MainScreen(){
 		super("Football Manager");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		fc = new JFileChooser("H:\\usb\\College\\Year 3\\Project\\FootballManager\\FootballManager\\games");
+		fc.setAcceptAllFileFilterUsed(false);
+		fc.setFileFilter(new FileFilter(){
+
+			@Override
+			public boolean accept(File file) {
+				if(file.isDirectory()){
+					return true;
+				}
+				else if(file.getName().endsWith(".fm")){
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public String getDescription() {
+				return "Games (*.fm)";
+			}
+			
+		});
 		loadGame = new JButton("Load Game");
 		loadGame.setFont(new java.awt.Font("Verdana",1,12));
 		loadGame.setBackground(Color.LIGHT_GRAY);
@@ -102,15 +115,6 @@ public class MainScreen extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setVisible(true);
-
-		loadGame.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//TODO: Load Game Behaviour
-			}
-			
-		});
 		
 		loadGame.addActionListener(new ActionListener() {
 
@@ -139,26 +143,15 @@ public class MainScreen extends JFrame {
 	}
 	
 	private void loadGame(ActionEvent ae){
-	    String message = "Description of Task";
-	    String note = "subtask";
-	    String title = "Task Title";
-	    UIManager.put("ProgressMonitor.progressText", title);
-
-	    int min = 0;
-	    int max = 1000000000;
-	    JFrame component = this;
-	    ProgressMonitor pm = new ProgressMonitor(component, message, note, min, max);
-	    pm.setMillisToDecideToPopup(1);
-	    pm.setMillisToPopup(1);
-	    System.out.println("Stop task");
-
-	    boolean cancelled = pm.isCanceled();
-	    if (cancelled) {
-	      System.out.println("Stop task");
-	    } else {
-	      pm.setProgress(100);
-	      pm.setNote("New Note");
-	    }
+		File file = null;
+		int returnVal = fc.showOpenDialog(this);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+            file = fc.getSelectedFile();
+            this.setCursor(new Cursor(Cursor.WAIT_CURSOR));	    
+            MainGameScreen mg = new MainGameScreen(file.getAbsolutePath());
+            mg.setVisible(true);
+            this.setVisible(false);
+		}
 	}
 	
 	public static void main(String[] args) {

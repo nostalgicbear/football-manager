@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -28,24 +29,20 @@ import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
-public class Database {
+public class Database implements Serializable{
 
+	private static final long serialVersionUID = 5581849171769557500L;
 	private List<Person> personList;
 	private List<Nation> nationList;
 	private List<Club> clubList;
 	private List<Stadium> stadiumList;
 	private List<Injury> injuryList;
 	private List<Competition> competitionList;
-	private Iterator<Person> iPerson;
-	private Iterator<Nation> iNation;
-	private Iterator<Club> iClub;
-	private Iterator<Stadium> iStadium;
-	private Iterator<Injury> iInjury;
-	private Iterator<Competition> iCompetition;
 	private Calendar date;
 	private List<Message> messages = new ArrayList<Message>();;
 	private Club userClub;
-	private XMLDecoder decoder = null;
+	private boolean saved = false;
+	private String fileName;
 
 	/*
 	 * This constructs a new game object with the initial date set at 2 July
@@ -88,7 +85,7 @@ public class Database {
 
 	public Injury findInjury(int id) {
 		Injury i = null;
-		iInjury = injuryList.iterator();
+		Iterator<Injury> iInjury = injuryList.iterator();
 		while (iInjury.hasNext()) {
 			i = iInjury.next();
 			if (i.getId() == id) {
@@ -100,7 +97,7 @@ public class Database {
 
 	public Competition findCompetition(String name) {
 		Competition c = null;
-		iCompetition = competitionList.iterator();
+		Iterator<Competition> iCompetition = competitionList.iterator();
 		while (iCompetition.hasNext()) {
 			c = iCompetition.next();
 			if (c.getName().equals(name)) {
@@ -112,7 +109,7 @@ public class Database {
 	
 	public Competition findCompetition(int id) {
 		Competition c = null;
-		iCompetition = competitionList.iterator();
+		Iterator<Competition> iCompetition = competitionList.iterator();
 		while (iCompetition.hasNext()) {
 			c = iCompetition.next();
 			if (c.getId() == id) {
@@ -124,7 +121,7 @@ public class Database {
 	
 	public Club findClub(int id) {
 		Club c = null;
-		iClub = clubList.iterator();
+		Iterator<Club> iClub = clubList.iterator();
 		while (iClub.hasNext()) {
 			c = iClub.next();
 			if (c.getId() == id) {
@@ -136,7 +133,7 @@ public class Database {
 
 	public Club findClub(String name) {
 		Club c = null;
-		iClub = clubList.iterator();
+		Iterator<Club> iClub = clubList.iterator();
 		while (iClub.hasNext()) {
 			c = iClub.next();
 			if (c.getName().equals(name)) {
@@ -148,7 +145,7 @@ public class Database {
 
 	public Person findPerson(String name) {
 		Person p = null;
-		iPerson = personList.iterator();
+		Iterator<Person> iPerson = personList.iterator();
 		while (iPerson.hasNext()) {
 			p = iPerson.next();
 			if ((p.getFirstName() + " " + p.getLastName()).equals(name)) {
@@ -160,7 +157,7 @@ public class Database {
 
 	public Nation findNation(String name) {
 		Nation n = null;
-		iNation = nationList.iterator();
+		Iterator<Nation> iNation = nationList.iterator();
 		while (iNation.hasNext()) {
 			n = iNation.next();
 			if (n.getName().equals(name)) {
@@ -172,9 +169,9 @@ public class Database {
 
 	private void setSquadAndStaff() {
 		// Set the squads and staff for all clubs in the game
-		iClub = clubList.iterator();
+		Iterator<Club> iClub = clubList.iterator();
 		while (iClub.hasNext()) {
-			iPerson = personList.iterator();
+			Iterator<Person> iPerson = personList.iterator();
 			Club c = iClub.next();
 			List<Player> playerList = new ArrayList<Player>();
 			List<NonPlayer> staffList = new ArrayList<NonPlayer>();
@@ -221,12 +218,12 @@ public class Database {
 	}
 
 	private void initialiseNonPlayers() {
-		iPerson = personList.iterator();
+		Iterator<Person> iPerson = personList.iterator();
 		while (iPerson.hasNext()) {
 			Person p = iPerson.next();
 			if (p instanceof NonPlayer) {
-				iNation = nationList.iterator();
-				iClub = clubList.iterator();
+				Iterator<Nation> iNation = nationList.iterator();
+				Iterator<Club> iClub = clubList.iterator();
 				while (iClub.hasNext()) {
 					Club c = iClub.next();
 					if (p.getCurrentClub().getId() == c.getId()) {
@@ -247,12 +244,12 @@ public class Database {
 	}
 
 	private void initialisePlayers() {
-		iPerson = personList.iterator();
+		Iterator<Person> iPerson = personList.iterator();
 		while (iPerson.hasNext()) {
 			Person p = iPerson.next();
 			if (p instanceof Player) {
-				iNation = nationList.iterator();
-				iClub = clubList.iterator();
+				Iterator<Nation> iNation = nationList.iterator();
+				Iterator<Club> iClub = clubList.iterator();
 				while (iClub.hasNext()) {
 					Club c = iClub.next();
 					if (p.getCurrentClub().getId() == c.getId()) {
@@ -280,12 +277,12 @@ public class Database {
 	}
 
 	private void setClubFixtures() {
-		iClub = clubList.iterator();
+		Iterator<Club> iClub = clubList.iterator();
 		while (iClub.hasNext()) {
 			Club c = iClub.next();
 			Match[][] fixtures = null;
 			List<Match> clubFixtures = new ArrayList<Match>();
-			iCompetition = competitionList.iterator();
+			Iterator<Competition> iCompetition = competitionList.iterator();
 			while (iCompetition.hasNext()) {
 				Competition comp = iCompetition.next();
 				if (comp instanceof League && ((League) comp).getTeams().contains(c) && comp.getId() != 0) {
@@ -354,12 +351,12 @@ public class Database {
 	}
 
 	private void initialiseClubs() {
-		iClub = clubList.iterator();
+		Iterator<Club> iClub = clubList.iterator();
 		while (iClub.hasNext()) {
 			Club c = iClub.next();
-			iNation = nationList.iterator();
-			iStadium = stadiumList.iterator();
-			iCompetition = competitionList.iterator();
+			Iterator<Nation> iNation = nationList.iterator();
+			Iterator<Stadium> iStadium = stadiumList.iterator();
+			Iterator<Competition> iCompetition = competitionList.iterator();
 			while (iStadium.hasNext()) {
 				Stadium s = iStadium.next();
 				if (c.getHomeGround().getId() == s.getId()) {
@@ -392,7 +389,7 @@ public class Database {
 	}
 	
 	public void initialiseCups() {
-		iCompetition = competitionList.iterator();
+		Iterator<Competition> iCompetition = competitionList.iterator();
 		while (iCompetition.hasNext()) {
 			Competition c = iCompetition.next();
 			if(c instanceof Cup){
@@ -422,7 +419,7 @@ public class Database {
 	}
 
 	public void initialiseLeagues() {
-		iCompetition = competitionList.iterator();
+		Iterator<Competition> iCompetition = competitionList.iterator();
 		while (iCompetition.hasNext()) {
 			Competition c = iCompetition.next();
 			Iterator<Competition> i = competitionList.iterator();
@@ -465,7 +462,7 @@ public class Database {
 					}
 				}
 			}
-			iClub = this.clubList.iterator();
+			Iterator<Club> iClub = this.clubList.iterator();
 			List<Club> clubList = new ArrayList<Club>();
 			while (iClub.hasNext()) {
 				Club club = iClub.next();
@@ -492,7 +489,7 @@ public class Database {
 	}
 
 	private void loadStadia() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("stadium.xml"))));
 		while (true) {
 			try {
@@ -504,7 +501,7 @@ public class Database {
 	}
 
 	private void loadInjuries() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("injury.xml"))));
 		while (true) {
 			try {
@@ -516,7 +513,7 @@ public class Database {
 	}
 
 	private void loadNations() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("nation.xml"))));
 		while (true) {
 			try {
@@ -528,7 +525,7 @@ public class Database {
 	}
 
 	private void loadLeagues() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("league.xml"))));
 		while (true) {
 			try {
@@ -540,7 +537,7 @@ public class Database {
 	}
 	
 	private void loadCups() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("cups.xml"))));
 		while (true) {
 			try {
@@ -552,7 +549,7 @@ public class Database {
 	}
 
 	private void loadClubs() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("club.xml"))));
 		while (true) {
 			try {
@@ -564,7 +561,7 @@ public class Database {
 	}
 
 	private void loadPlayers() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("player.xml"))));
 		while (true) {
 			try {
@@ -576,7 +573,7 @@ public class Database {
 	}
 
 	private void loadNonPlayers() throws FileNotFoundException {
-		decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
+		XMLDecoder decoder = new XMLDecoder(new BufferedInputStream(new FileInputStream(
 				new File("nonplayer.xml"))));
 		while (true) {
 			try {
@@ -588,7 +585,7 @@ public class Database {
 	}
 
 	public void updateAllPersonAttributes() {
-		iPerson = this.getPersonList().iterator();
+		Iterator<Person> iPerson = this.getPersonList().iterator();
 		while (iPerson.hasNext()) {
 			Person p = iPerson.next();
 			//update age
@@ -675,7 +672,7 @@ public class Database {
 	}
 
 	public void updateAllClubAttributes() {
-		iClub = clubList.iterator();
+		Iterator<Club> iClub = clubList.iterator();
 		while (iClub.hasNext()) {
 			Club c = iClub.next();
 			
@@ -745,7 +742,7 @@ public class Database {
 
 	public int getLastPersonIdUsed() {
 		int id = 0;
-		iPerson = personList.iterator();
+		Iterator<Person> iPerson = personList.iterator();
 		while (iPerson.hasNext()) {
 			Person p = iPerson.next();
 			if (p.getId() > id)
@@ -1021,7 +1018,7 @@ public class Database {
 	}
 
 	private void setManagerShortlists() {
-		iPerson = personList.iterator();
+		Iterator<Person> iPerson = personList.iterator();
 		while (iPerson.hasNext()) {
 			Person p = iPerson.next();
 			if (p instanceof NonPlayer
@@ -1310,7 +1307,7 @@ public class Database {
 	public void updatePlayers(){
 		//retire old players
 		List<Player> playersToRetire = new ArrayList<Player>();
-		iPerson = this.getPersonList().iterator();
+		Iterator<Person> iPerson = this.getPersonList().iterator();
 		while(iPerson.hasNext()){
 			Person person = iPerson.next();
 			if(person instanceof Player){
@@ -1325,7 +1322,7 @@ public class Database {
 		this.getPersonList().removeAll(playersToRetire);
 		
 		//create new players
-		iClub = this.getClubList().iterator();
+		Iterator<Club> iClub = this.getClubList().iterator();
 		while(iClub.hasNext()){
 			Club c = iClub.next();
 			int numberOfPlayers = (int) (Math.random() * 5) + 2;
@@ -1344,5 +1341,45 @@ public class Database {
 				c.getSquad().add(p);
 			}
 		}
+	}
+	
+	public void setNationList(List<Nation> nationList) {
+		this.nationList = nationList;
+	}
+
+	public void setClubList(List<Club> clubList) {
+		this.clubList = clubList;
+	}
+
+	public void setStadiumList(List<Stadium> stadiumList) {
+		this.stadiumList = stadiumList;
+	}
+
+	public void setInjuryList(List<Injury> injuryList) {
+		this.injuryList = injuryList;
+	}
+
+	public void setCompetitionList(List<Competition> competitionList) {
+		this.competitionList = competitionList;
+	}
+
+	public void setDate(Calendar date) {
+		this.date = date;
+	}
+
+	public void setSaved(boolean saved) {
+		this.saved = saved;
+	}
+
+	public boolean isSaved() {
+		return saved;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getFileName() {
+		return fileName;
 	}
 }

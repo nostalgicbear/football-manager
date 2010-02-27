@@ -1,12 +1,13 @@
 package ie.tippinst.jod.fm.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Round {
+public class Round implements Serializable{
 	private List<Calendar> roundDate = new ArrayList<Calendar>();
 	private List<Calendar> earliestRoundDate = new ArrayList<Calendar>();
 	private int roundNumber;

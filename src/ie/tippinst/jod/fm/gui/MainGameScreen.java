@@ -22,8 +22,12 @@ import ie.tippinst.jod.fm.model.Match;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +36,7 @@ import java.util.List;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -44,6 +49,7 @@ import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 
 public class MainGameScreen extends JFrame {
@@ -147,13 +153,40 @@ public class MainGameScreen extends JFrame {
     private String player;
     private String user;
     private boolean processFixtures;
-
+    private JFileChooser fc;
+    
     /*Creates new MainGameScreen */
-    public MainGameScreen(String userClub, String user) {
+    public MainGameScreen(String file) {
     	super("Football Manager");
-    	game = Game.getInstance();
-    	this.userClub = this.club = userClub;
-    	this.user = user;
+    	fc = new JFileChooser("H:\\usb\\College\\Year 3\\Project\\FootballManager\\FootballManager\\games");
+		fc.setAcceptAllFileFilterUsed(false);
+		fc.setFileFilter(new FileFilter(){
+
+			@Override
+			public boolean accept(File file) {
+				if(file.isDirectory()){
+					return true;
+				}
+				else if(file.getName().endsWith(".fm")){
+					return true;
+				}
+				return false;
+			}
+
+			@Override
+			public String getDescription() {
+				return "Games (*.fm)";
+			}
+			
+		});
+    	if(file == null){
+    		game = Game.getInstance();
+    	}
+    	else{
+    		game = Game.getInstance(file);
+    	}
+    	this.userClub = this.club = game.getUserClubName();
+    	this.user = game.getUserName();
         initComponents();
         mg = this;
         
@@ -167,12 +200,42 @@ public class MainGameScreen extends JFrame {
 			
 		});
         
+     // Event listener for File -> Load Menu Item
+        loadMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				loadGame(e);
+			}
+			
+		});
+        
+        // Event listener for File -> Save as Menu Item
+        saveAsMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveGameAs();
+			}
+			
+		});
+        
+        // Event listener for File -> Save Menu Item
+        saveMenuItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveGame();
+			}
+			
+		});
+        
      // Event listener for File -> Exit Menu Item
         exitMenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				exitGame();
 			}
 			
 		});
@@ -423,6 +486,36 @@ public class MainGameScreen extends JFrame {
 		});
         
         // Event listener for make offer button
+        newButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				newGame(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        loadButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				loadGame(e);
+			}
+			
+		});
+        
+        // Event listener for make offer button
+        saveButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				saveGame();
+			}
+			
+		});
+        
+        // Event listener for make offer button
         inboxButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -497,7 +590,56 @@ public class MainGameScreen extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
-	protected void displayClubFinances(ActionEvent e) {
+	private void exitGame() {
+		int result = JOptionPane.showConfirmDialog(this, "You will lose any unsaved changes to your current game.  Do you want to save before continuing?");
+		if(result <= 1){
+    		if(result == 0)
+    			saveGame();
+    		System.exit(0);
+		}
+	}
+
+	private void loadGame(ActionEvent ae){
+		int result = JOptionPane.showConfirmDialog(this, "You will lose any unsaved changes to your current game.  Do you want to save before continuing?");
+		if(result <= 1){
+    		if(result == 0)
+    			saveGame();
+    		File file = null;
+    		int returnVal = fc.showOpenDialog(this);
+    		if (returnVal == JFileChooser.APPROVE_OPTION) {
+    			file = fc.getSelectedFile();
+    			this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
+    			Game.destroyInstance();
+    			MainGameScreen mg = new MainGameScreen(file.getAbsolutePath());
+    			mg.setVisible(true);
+    			this.dispose();
+    		}
+		}
+	}
+
+	private void saveGameAs() {
+		File file = null;
+		int returnVal = fc.showSaveDialog(this);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+            file = fc.getSelectedFile();
+            String fileName = file.getAbsolutePath();
+            if(!(fileName.endsWith(".fm"))){
+            	fileName = fileName + ".fm";
+            }
+            game.save(fileName);
+		}
+	}
+
+	private void saveGame() {
+		if(game.isSaved()){
+			game.save(game.getFileName());
+		}
+		else{
+			saveGameAs();
+		}
+	}
+
+	private void displayClubFinances(ActionEvent e) {
 		displayClub(userClub, 4);	
 	}
 
@@ -654,7 +796,45 @@ public class MainGameScreen extends JFrame {
         offerNewContractButton.setBackground(Color.LIGHT_GRAY);
         offerNewContractButton.setForeground(Color.BLACK);
 
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowListener(){
+
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				exitGame();
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowIconified(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				
+			}
+        	
+        });
         //this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
         this.setSize(900, 630);
         
@@ -839,8 +1019,8 @@ public class MainGameScreen extends JFrame {
 
         //pack();
     }
-    
-    private void continueGame(ActionEvent ae){
+
+	private void continueGame(ActionEvent ae){
 		squadPanel = new SquadPanel(this.userClub, squadPanel, this.userClub);
 		List<String> players = squadPanel.getSelectedPlayers();
 		int result = game.continueGame(processFixtures, players);
@@ -958,9 +1138,15 @@ public class MainGameScreen extends JFrame {
     
     /*Creates a new game*/
     private void newGame(ActionEvent ae){
-		NewUserScreen ns = new NewUserScreen();
-		ns.setVisible(true);
-		this.dispose();
+    	int result = JOptionPane.showConfirmDialog(this, "You will lose any unsaved changes to your current game.  Do you want to save before continuing?");
+    	if(result <= 1){
+    		if(result == 0)
+    			saveGame();
+    		Game.destroyInstance();
+    		NewUserScreen ns = new NewUserScreen();
+    		ns.setVisible(true);
+    		this.dispose();
+    	}
     }
     
     public void displayLeague(int tab, String name){

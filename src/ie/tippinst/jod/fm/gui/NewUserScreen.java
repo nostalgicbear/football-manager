@@ -21,19 +21,6 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.border.BevelBorder;
 
-
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
 public class NewUserScreen extends JFrame {
 	private static final long serialVersionUID = -4736216712349129748L;
 	private JLabel firstNameLbl;
@@ -175,7 +162,7 @@ public class NewUserScreen extends JFrame {
 			Calendar c = new GregorianCalendar();
 			c.set((2009 - dobYearCbo.getSelectedIndex()), dobMonthCbo.getSelectedIndex(), (dobDayCbo.getSelectedIndex()+1));
 			game.createNewUser(firstNameTxt.getText(), surnameTxt.getText(), c, (String) nationalityCbo.getSelectedItem(), (String) clubCbo.getSelectedItem());
-			MainGameScreen mg = new MainGameScreen((String)clubCbo.getSelectedItem(), firstNameTxt.getText() + " " + surnameTxt.getText());
+			MainGameScreen mg = new MainGameScreen(null);
 			mg.setVisible(true);
 			this.setVisible(false);
 		}

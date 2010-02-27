@@ -13,6 +13,13 @@ import ie.tippinst.jod.fm.model.Person;
 import ie.tippinst.jod.fm.model.Player;
 import ie.tippinst.jod.fm.model.Round;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -35,12 +42,27 @@ public class Game {
 	private Game(){
 		super();
 		db = new Database();
+		userClub = db.getUserClub();
+	}
+	
+	private Game(String file){
+		super();
+		db = (Database) load(file);
+		userClub = db.getUserClub();
+		db.setSaved(true);
 	}
 	
 	/* As this is class is a singleton a new game object is returned only if no previous one has been instantiated*/
 	public static Game getInstance(){
 		if(game == null)
 			game = new Game();
+		return game;
+	}
+	
+	/* As this is class is a singleton a new game object is returned only if no previous one has been instantiated*/
+	public static Game getInstance(String file){
+		if(game == null)
+			game = new Game(file);
 		return game;
 	}
 	
@@ -703,5 +725,63 @@ public class Game {
 			}
 		}
 		return null;
+	}
+	
+	public void save(String fileName){
+		try {
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(fileName)));
+			oos.writeObject(db);
+			oos.flush();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		db.setSaved(true);
+		db.setFileName(fileName);
+	}
+	
+	public Object load(String file){
+		Object object = null;
+		try {
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(file)));
+			object = ois.readObject();
+			ois.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return object;
+	}
+	
+	public String getUserClubName(){
+		return userClub.getName();
+	}
+	
+	public String getUserName(){
+		Iterator<NonPlayer> i = userClub.getStaff().iterator();
+		NonPlayer np = null;
+		while(i.hasNext()){
+			np = i.next();
+			if(np.getManagerRole() == 20){
+				break;
+			}
+		}
+		return np.getFirstName() + " " + np.getLastName();
+	}
+	public boolean isSaved(){
+		return db.isSaved();
+	}
+	
+	public String getFileName(){
+		return db.getFileName();
+	}
+	
+	public static void destroyInstance(){
+		game = null;
 	}
 }
