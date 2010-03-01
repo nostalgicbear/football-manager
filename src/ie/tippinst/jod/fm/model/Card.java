@@ -1,6 +1,10 @@
 package ie.tippinst.jod.fm.model;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable{
+	
+	private static final long serialVersionUID = 3858707336758865936L;
 	private Player player;
 	private int colour;
 	private int minute;
