@@ -23,7 +23,10 @@
   </void> 
   <void property="name"> 
    <string>Manchester United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Man United</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -58,7 +61,10 @@
   </void> 
   <void property="name"> 
    <string>Chelsea</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Chelsea</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -93,7 +99,10 @@
   </void> 
   <void property="name"> 
    <string>Liverpool</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Liverpool</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -128,7 +137,10 @@
   </void> 
   <void property="name"> 
    <string>Arsenal</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Arsenal</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -163,7 +175,10 @@
   </void> 
   <void property="name"> 
    <string>Manchester City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Man City</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -198,7 +213,10 @@
   </void> 
   <void property="name"> 
    <string>Tottenham Hotspur</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Tottenham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -233,7 +251,10 @@
   </void> 
   <void property="name"> 
    <string>Everton</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Everton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -268,7 +289,10 @@
   </void> 
   <void property="name"> 
    <string>Aston Villa</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Aston Villa</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -303,7 +327,10 @@
   </void> 
   <void property="name"> 
    <string>West Ham United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>West Ham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -338,7 +365,10 @@
   </void> 
   <void property="name"> 
    <string>Portsmouth</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Portsmouth</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -373,7 +403,10 @@
   </void> 
   <void property="name"> 
    <string>Blackburn Rovers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Blackburn</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -408,7 +441,10 @@
   </void> 
   <void property="name"> 
    <string>Sunderland</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Sunderland</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -443,7 +479,10 @@
   </void> 
   <void property="name"> 
    <string>Fulham</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Fulham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -478,7 +517,10 @@
   </void> 
   <void property="name"> 
    <string>Bolton Wanderers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Bolton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -513,7 +555,10 @@
   </void> 
   <void property="name"> 
    <string>Wigan Athletic</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Wigan</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -548,7 +593,10 @@
   </void> 
   <void property="name"> 
    <string>Birmingham City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Birmingham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -583,7 +631,10 @@
   </void> 
   <void property="name"> 
    <string>Wolverhampton Wanderers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Wolves</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -618,7 +669,10 @@
   </void> 
   <void property="name"> 
    <string>Stoke City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Stoke</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -653,7 +707,10 @@
   </void> 
   <void property="name"> 
    <string>Hull City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Hull</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -688,7 +745,10 @@
   </void> 
   <void property="name"> 
    <string>Burnley</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Burnley</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -723,7 +783,10 @@
   </void> 
   <void property="name"> 
    <string>Newcastle United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Newcastle</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -758,7 +821,10 @@
   </void> 
   <void property="name"> 
    <string>Middlesbrough</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Middlesbrough</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -793,7 +859,10 @@
   </void> 
   <void property="name"> 
    <string>West Bromwich Albion</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>West Brom</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -828,7 +897,10 @@
   </void> 
   <void property="name"> 
    <string>Sheffield United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Sheff United</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -863,7 +935,10 @@
   </void> 
   <void property="name"> 
    <string>Cardiff City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Cardiff</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -898,7 +973,10 @@
   </void> 
   <void property="name"> 
    <string>Reading</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Reading</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -933,7 +1011,10 @@
   </void> 
   <void property="name"> 
    <string>Queen's Park Rangers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>QPR</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -968,7 +1049,10 @@
   </void> 
   <void property="name"> 
    <string>Ipswich Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Ipswich</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1003,7 +1087,10 @@
   </void> 
   <void property="name"> 
    <string>Derby County</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Derby</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1038,7 +1125,10 @@
   </void> 
   <void property="name"> 
    <string>Crystal Palace</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Crystal Palace</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1073,7 +1163,10 @@
   </void> 
   <void property="name"> 
    <string>Watford</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Watford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1108,7 +1201,10 @@
   </void> 
   <void property="name"> 
    <string>Sheffield Wednesday</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Sheff Wed</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1143,7 +1239,10 @@
   </void> 
   <void property="name"> 
    <string>Leicester City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Leicester</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1178,7 +1277,10 @@
   </void> 
   <void property="name"> 
    <string>Swansea City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Swansea</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1213,7 +1315,10 @@
   </void> 
   <void property="name"> 
    <string>Preston North End</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Preston</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1248,7 +1353,10 @@
   </void> 
   <void property="name"> 
    <string>Nottingham Forest</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Nottm Forest</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1283,7 +1391,10 @@
   </void> 
   <void property="name"> 
    <string>Bristol City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Bristol City</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1318,7 +1429,10 @@
   </void> 
   <void property="name"> 
    <string>Coventry City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Coventry</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1353,7 +1467,10 @@
   </void> 
   <void property="name"> 
    <string>Plymouth Argyle</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Plymouth</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1388,7 +1505,10 @@
   </void> 
   <void property="name"> 
    <string>Doncaster Rovers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Doncaster</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1423,7 +1543,10 @@
   </void> 
   <void property="name"> 
    <string>Barnsley</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Barnsley</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1458,7 +1581,10 @@
   </void> 
   <void property="name"> 
    <string>Blackpool</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Blackpool</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1493,7 +1619,10 @@
   </void> 
   <void property="name"> 
    <string>Scunthorpe</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Scunthorpe</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1528,7 +1657,10 @@
   </void> 
   <void property="name"> 
    <string>Peterborough</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Peterborough</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1563,7 +1695,10 @@
   </void> 
   <void property="name"> 
    <string>Leeds United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Leeds</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1598,7 +1733,10 @@
   </void> 
   <void property="name"> 
    <string>Charlton Athletic</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Charlton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1633,7 +1771,10 @@
   </void> 
   <void property="name"> 
    <string>Norwich City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Norwich</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1668,7 +1809,10 @@
   </void> 
   <void property="name"> 
    <string>Southampton</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Southampton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1703,7 +1847,10 @@
   </void> 
   <void property="name"> 
    <string>Millwall</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Millwall</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1738,7 +1885,10 @@
   </void> 
   <void property="name"> 
    <string>Huddersfield</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Huddersfield</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1773,7 +1923,10 @@
   </void> 
   <void property="name"> 
    <string>Tranmere Rovers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Tranmere</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1808,7 +1961,10 @@
   </void> 
   <void property="name"> 
    <string>Colchester United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Colchester</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1843,7 +1999,10 @@
   </void> 
   <void property="name"> 
    <string>Milton Keynes Dons</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>MK Dons</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1878,7 +2037,10 @@
   </void> 
   <void property="name"> 
    <string>Brighton and Hove Albion</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Brighton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1913,7 +2075,10 @@
   </void> 
   <void property="name"> 
    <string>Southend United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Southend</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1948,7 +2113,10 @@
   </void> 
   <void property="name"> 
    <string>Oldham Athletic</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Oldham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -1983,7 +2151,10 @@
   </void> 
   <void property="name"> 
    <string>Carlisle United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Carlisle</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2018,7 +2189,10 @@
   </void> 
   <void property="name"> 
    <string>Swindon Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Swindon</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2053,7 +2227,10 @@
   </void> 
   <void property="name"> 
    <string>Gillingham</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Gillingham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2088,7 +2265,10 @@
   </void> 
   <void property="name"> 
    <string>Wycombe Athletic</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Wycombe</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2123,7 +2303,10 @@
   </void> 
   <void property="name"> 
    <string>Bristol Rovers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Bristol Rovers</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2158,7 +2341,10 @@
   </void> 
   <void property="name"> 
    <string>Yeovil Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Yeovil</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2193,7 +2379,10 @@
   </void> 
   <void property="name"> 
    <string>Walsall</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Walsall</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2228,7 +2417,10 @@
   </void> 
   <void property="name"> 
    <string>Leyton Orient</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Leyton Orient</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2263,7 +2455,10 @@
   </void> 
   <void property="name"> 
    <string>Hartlepool United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Hartlepool</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2298,7 +2493,10 @@
   </void> 
   <void property="name"> 
    <string>Brentford</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Brentford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2333,7 +2531,10 @@
   </void> 
   <void property="name"> 
    <string>Stockport County</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Stockport</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2368,7 +2569,10 @@
   </void> 
   <void property="name"> 
    <string>Exeter City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Exeter</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2403,7 +2607,10 @@
   </void> 
   <void property="name"> 
    <string>Notts County</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Notts County</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2438,7 +2645,10 @@
   </void> 
   <void property="name"> 
    <string>Bradford City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Bradford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2473,7 +2683,10 @@
   </void> 
   <void property="name"> 
    <string>Rotherham United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Rotherham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2508,7 +2721,10 @@
   </void> 
   <void property="name"> 
    <string>Port Vale</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Port Vale</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2543,7 +2759,10 @@
   </void> 
   <void property="name"> 
    <string>Crewe Alexandra</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Crewe</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2578,7 +2797,10 @@
   </void> 
   <void property="name"> 
    <string>Bournemouth</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Bournemouth</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2613,7 +2835,10 @@
   </void> 
   <void property="name"> 
    <string>Northampton Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Northampton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2648,7 +2873,10 @@
   </void> 
   <void property="name"> 
    <string>Chesterfield</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Chesterfield</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2683,7 +2911,10 @@
   </void> 
   <void property="name"> 
    <string>Shrewsbury Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Shrewsbury</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2718,7 +2949,10 @@
   </void> 
   <void property="name"> 
    <string>Bury</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Bury</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2753,7 +2987,10 @@
   </void> 
   <void property="name"> 
    <string>Rochdale</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Rochdale</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2788,7 +3025,10 @@
   </void> 
   <void property="name"> 
    <string>Cheltenham Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Cheltenham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2823,7 +3063,10 @@
   </void> 
   <void property="name"> 
    <string>Lincoln City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Lincoln</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2858,7 +3101,10 @@
   </void> 
   <void property="name"> 
    <string>Darlington</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Darlington</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2893,7 +3139,10 @@
   </void> 
   <void property="name"> 
    <string>Grimsby Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Grimsby</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2928,7 +3177,10 @@
   </void> 
   <void property="name"> 
    <string>Dagenham and Redbridge</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Dagenham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2963,7 +3215,10 @@
   </void> 
   <void property="name"> 
    <string>Torquay United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Torquay</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -2998,7 +3253,10 @@
   </void> 
   <void property="name"> 
    <string>Hereford Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Hereford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3033,7 +3291,10 @@
   </void> 
   <void property="name"> 
    <string>Morecambe</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Morecambe</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3068,7 +3329,10 @@
   </void> 
   <void property="name"> 
    <string>Macclesfield Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Macclesfield</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3103,7 +3367,10 @@
   </void> 
   <void property="name"> 
    <string>Barnet</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Barnet</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3138,7 +3405,10 @@
   </void> 
   <void property="name"> 
    <string>Accrington Stanley</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Accrington</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3173,7 +3443,10 @@
   </void> 
   <void property="name"> 
    <string>Burton Albion</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Burton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3208,7 +3481,10 @@
   </void> 
   <void property="name"> 
    <string>Aldershot Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Aldershot</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3243,7 +3519,10 @@
   </void> 
   <void property="name"> 
    <string>Luton Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Luton</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3278,7 +3557,10 @@
   </void> 
   <void property="name"> 
    <string>Oxford United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Oxford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3313,7 +3595,10 @@
   </void> 
   <void property="name"> 
    <string>Wrexham</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Wrexham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3348,7 +3633,10 @@
   </void> 
   <void property="name"> 
    <string>Cambridge United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Cambridge</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3383,7 +3671,10 @@
   </void> 
   <void property="name"> 
    <string>Mansfield Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Mansfield</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3418,7 +3709,10 @@
   </void> 
   <void property="name"> 
    <string>Stevenage Borough</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Stevenage</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3453,7 +3747,10 @@
   </void> 
   <void property="name"> 
    <string>Chester City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Chester</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3488,7 +3785,10 @@
   </void> 
   <void property="name"> 
    <string>York City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>York</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3523,7 +3823,10 @@
   </void> 
   <void property="name"> 
    <string>AFC Wimbledon</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Wimbledon</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3558,7 +3861,10 @@
   </void> 
   <void property="name"> 
    <string>Rushden and Diamonds</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Rushden</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3593,7 +3899,10 @@
   </void> 
   <void property="name"> 
    <string>Kidderminster Harriers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Kidderminster</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3628,7 +3937,10 @@
   </void> 
   <void property="name"> 
    <string>Histon</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Histon</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3663,7 +3975,10 @@
   </void> 
   <void property="name"> 
    <string>Ebbsfleet United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Ebbsfleet</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3698,7 +4013,10 @@
   </void> 
   <void property="name"> 
    <string>Forest Green Rovers</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Forest Green</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3733,7 +4051,10 @@
   </void> 
   <void property="name"> 
    <string>Kettering Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Kettering</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3768,7 +4089,10 @@
   </void> 
   <void property="name"> 
    <string>Grays Athletic</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Grays</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3803,7 +4127,10 @@
   </void> 
   <void property="name"> 
    <string>Crawley Town</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Crawley</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3838,7 +4165,10 @@
   </void> 
   <void property="name"> 
    <string>Barrow</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Barrow</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3873,7 +4203,10 @@
   </void> 
   <void property="name"> 
    <string>Salisbury City</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Salisbury</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3908,7 +4241,10 @@
   </void> 
   <void property="name"> 
    <string>Altrincham</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Altrincham</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3943,7 +4279,10 @@
   </void> 
   <void property="name"> 
    <string>Eastbourne Borough</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Eastbourne</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -3978,7 +4317,10 @@
   </void> 
   <void property="name"> 
    <string>Tamworth</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Tamworth</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4013,7 +4355,10 @@
   </void> 
   <void property="name"> 
    <string>Gateshead</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Gateshead</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4048,7 +4393,10 @@
   </void> 
   <void property="name"> 
    <string>Hayes and Yeading United</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Hayes</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4083,7 +4431,10 @@
   </void> 
   <void property="name"> 
    <string>Woking</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Woking</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4118,7 +4469,10 @@
   </void> 
   <void property="name"> 
    <string>Dover</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Dover</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4153,7 +4507,10 @@
   </void> 
   <void property="name"> 
    <string>Newport County</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Newport</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4188,7 +4545,10 @@
   </void> 
   <void property="name"> 
    <string>Eastleigh</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Eastleigh</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4223,7 +4583,10 @@
   </void> 
   <void property="name"> 
    <string>Chelmsford</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Chelmsford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4258,7 +4621,10 @@
   </void> 
   <void property="name"> 
    <string>Fleetwood</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Fleetwood</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4293,7 +4659,10 @@
   </void> 
   <void property="name"> 
    <string>Northwich Victoria</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Northwich</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 
@@ -4328,7 +4697,10 @@
   </void> 
   <void property="name"> 
    <string>AFC Telford</string> 
-  </void> 
+  </void>
+  <void property="shortName"> 
+   <string>Telford</string> 
+  </void>  
   <void property="nationality"> 
    <object class="ie.tippinst.jod.fm.model.Nation"> 
     <void property="id"> 

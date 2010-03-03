@@ -12,6 +12,7 @@ public class Club implements Serializable {
 	private static final long serialVersionUID = 8870087600952858149L;
 	private int id;
 	private String name;
+	private String shortName;
 	private List<Player> squad = new ArrayList<Player>();
 	private List<NonPlayer> staff;
 	private int reputation;
@@ -32,11 +33,12 @@ public class Club implements Serializable {
 		super();
 	}
 
-	public Club(int id, String name, int reputation, double bankBalance,
+	public Club(int id, String name, String shortName, int reputation, double bankBalance,
 			Stadium homeGround, Nation nationality, League league) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.shortName = shortName;
 		this.reputation = reputation;
 		this.bankBalance = bankBalance;
 		this.homeGround = homeGround;
@@ -593,5 +595,13 @@ public class Club implements Serializable {
 			}
 		}
 		return fixture;
+	}
+
+	public void setShortName(String shortName) {
+		this.shortName = shortName;
+	}
+
+	public String getShortName() {
+		return shortName;
 	}
 }

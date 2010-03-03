@@ -399,21 +399,21 @@ public class Game {
 										if (!(p.isInjured()))
 											selectedTeam.add(p);
 									}
-									if(selectedTeam.size() < 11){
+									/*if(selectedTeam.size() < 11){
 										db.getDate().add(Calendar.DATE, -1);
 										System.out.println(selectedTeam.size());
 										return 2;
 									}
-									this.userClub.setSelectedTeam(selectedTeam);
+									this.userClub.setSelectedTeam(selectedTeam);*/
 								}
 								fixtures = 1;
 							}
 							
 							//play the league matches
 							if (fixtures != 1) {
-								if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
+								//if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
 									leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
-								if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
+								//if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
 									leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().getBestTeam(leagueFixtures[i][j].getAwayTeam().getAvailablePlayers()));
 								leagueFixtures[i][j].generateResult();
 							}
