@@ -185,11 +185,6 @@ public class Club implements Serializable {
 	}
 
 	public boolean offerContract(Player p, double wages, Calendar c, int status) {
-		// TODO: Check if player is happy with terms and if yes return true else
-		// return false
-		// check club reputation, wages offered, if club is a rival, contract
-		// length, squad status, if player has recently moved
-		// if (p.getReputation() * 50 > this.getReputation())
 		if ((p.getStatusAsString().equalsIgnoreCase("indispensable") || p
 				.getStatusAsString().equalsIgnoreCase("important"))
 				&& ((p.getCurrentClub().getReputation() - this.getReputation()) > 200) || ((p.getCurrentClub().getReputation() - this.getReputation()) > 2000))
@@ -199,7 +194,6 @@ public class Club implements Serializable {
 
 	public void setStatusOfPlayers() {
 		List<Player> list = new ArrayList<Player>(this.getSquad());
-		// Collections.copy(list, this.getSquad());
 		if (list.size() >= 16) {
 			Iterator<Player> i = list.iterator();
 			while (i.hasNext()) {
@@ -209,19 +203,15 @@ public class Club implements Serializable {
 			List<Integer> squadAbilities = new ArrayList<Integer>();
 			this.setSelectedTeam(this.getFirstTeamPlayers());
 			i = this.getSelectedTeam().iterator();
-			// System.out.println(this.getSelectedTeam().size());
 			while (i.hasNext()) {
 				Player p = i.next();
 				p.setStatus(1);
 				firstTeamAbilities.add(p.getCurrentAbility());
 				list.remove(p);
 			}
-			// System.out.println(abilities.size());
-			// System.out.println(Collections.max(abilities).intValue());
 			int maxAbility = Collections.max(firstTeamAbilities).intValue();
 			firstTeamAbilities.remove(new Integer(maxAbility));
 			maxAbility = Collections.max(firstTeamAbilities).intValue();
-			// System.out.println(maxAbility);
 			firstTeamAbilities.remove(new Integer(maxAbility));
 			maxAbility = Collections.max(firstTeamAbilities).intValue();
 			i = this.getSelectedTeam().iterator();
@@ -276,8 +266,6 @@ public class Club implements Serializable {
 				i.next().setStatus(1);
 			}
 		}
-
-		//this.getSelectedTeam().removeAll(this.getSelectedTeam());
 	}
 
 	public void setSelectedTeam(List<Player> selectedTeam) {
@@ -339,8 +327,6 @@ public class Club implements Serializable {
 				if (team.size() <= 1) {
 					if (!(team.contains(p)))
 						team.add(p);
-					// System.out.println("1: " + p.getFirstName() + " " +
-					// p.getLastName());
 				} else if ((team.get(1).getCurrentAbility()
 						+ (team.get(1).getRightFullbackAbility() * 5) < p
 						.getCurrentAbility()
@@ -348,8 +334,6 @@ public class Club implements Serializable {
 						&& (!(team.contains(p)))) {
 					team.remove(1);
 					team.add(1, p);
-					// System.out.println("2: " + p.getFirstName() + " " +
-					// p.getLastName());
 				}
 			}
 		}
@@ -360,8 +344,6 @@ public class Club implements Serializable {
 				if (team.size() <= 2) {
 					if (!(team.contains(p)))
 						team.add(p);
-					// System.out.println("1: " + p.getFirstName() + " " +
-					// p.getLastName());
 				} else if ((team.get(2).getCurrentAbility()
 						+ (team.get(2).getLeftFullbackAbility() * 5) < p
 						.getCurrentAbility()
@@ -369,8 +351,6 @@ public class Club implements Serializable {
 						&& (!(team.contains(p)))) {
 					team.remove(2);
 					team.add(2, p);
-					// System.out.println("2: " + p.getFirstName() + " " +
-					// p.getLastName());
 				}
 			}
 		}
@@ -381,8 +361,6 @@ public class Club implements Serializable {
 				if (team.size() <= 3) {
 					if (!(team.contains(p)))
 						team.add(p);
-					// System.out.println("1: " + p.getFirstName() + " " +
-					// p.getLastName());
 				} else if ((team.get(3).getCurrentAbility()
 						+ (team.get(3).getCentrebackAbility() * 5) < p
 						.getCurrentAbility()
@@ -390,8 +368,6 @@ public class Club implements Serializable {
 						&& (!(team.contains(p)))) {
 					team.remove(3);
 					team.add(3, p);
-					// System.out.println("2: " + p.getFirstName() + " " +
-					// p.getLastName());
 				}
 			}
 		}
@@ -587,8 +563,6 @@ public class Club implements Serializable {
 		boolean fixture = false;
 		for(int i = 0; i < this.getFixtures().size(); i++){
 			Match m = this.getFixtures().get(i);
-			//System.out.println(m.getDate().get(Calendar.DAY_OF_YEAR));
-			//System.out.println(c.get(Calendar.DAY_OF_YEAR));
 			if((Math.abs(m.getDate().get(Calendar.DAY_OF_YEAR) - c.get(Calendar.DAY_OF_YEAR))) <= 2){
 				fixture = true;
 				break;

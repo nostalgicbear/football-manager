@@ -399,21 +399,21 @@ public class Game {
 										if (!(p.isInjured()))
 											selectedTeam.add(p);
 									}
-									/*if(selectedTeam.size() < 11){
+									if(selectedTeam.size() != 11){
 										db.getDate().add(Calendar.DATE, -1);
-										System.out.println(selectedTeam.size());
 										return 2;
 									}
-									this.userClub.setSelectedTeam(selectedTeam);*/
+									Collections.sort(selectedTeam);
+									this.userClub.setSelectedTeam(selectedTeam);
 								}
 								fixtures = 1;
 							}
 							
 							//play the league matches
 							if (fixtures != 1) {
-								//if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
+								if(leagueFixtures[i][j].getHomeTeam().getId() != this.userClub.getId())
 									leagueFixtures[i][j].getHomeTeam().setSelectedTeam(leagueFixtures[i][j].getHomeTeam().getBestTeam(leagueFixtures[i][j].getHomeTeam().getAvailablePlayers()));
-								//if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
+								if(leagueFixtures[i][j].getAwayTeam().getId() != this.userClub.getId())
 									leagueFixtures[i][j].getAwayTeam().setSelectedTeam(leagueFixtures[i][j].getAwayTeam().getBestTeam(leagueFixtures[i][j].getAwayTeam().getAvailablePlayers()));
 								leagueFixtures[i][j].generateResult();
 							}
@@ -474,7 +474,6 @@ public class Game {
 									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! (match.isPostponed()))){
 										//postpone original match
 										match.setPostponed(true);
-										//match.setRescheduled(true);
 										Calendar cal = (Calendar) match.getDate().clone();
 										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
 											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
@@ -506,7 +505,6 @@ public class Game {
 									if(match.getDate().get(Calendar.DAY_OF_YEAR) == m.getDate().get(Calendar.DAY_OF_YEAR) && (! (match.isPostponed()))){
 										//postpone original match
 										match.setPostponed(true);
-										//match.setRescheduled(true);
 										Calendar cal = (Calendar) match.getDate().clone();
 										while(match.getHomeTeam().checkForFixture(cal) || match.getAwayTeam().checkForFixture(cal)){
 											if(cal.get(Calendar.DAY_OF_WEEK) == 7){
@@ -570,7 +568,6 @@ public class Game {
 					}
 					else{
 						//p.getCurrentClub().makeOffer(playerToBuy, playerToBuy.getSaleValue());
-						//TODO: make offer first
 						if(p.getCurrentClub().offerContract(playerToBuy, 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0))
 							playerToBuy.transferPlayer(playerToBuy.getSaleValue(), p.getCurrentClub(), 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0);
 					}
@@ -687,7 +684,6 @@ public class Game {
 	
 	public void sellPlayer(String playerName, String clubName){
 		DecimalFormat format = new DecimalFormat("000,000");
-		//TODO: make offer first
 		Player player = (Player) db.findPerson(playerName);
 		db.getMessages().add(new Message((Calendar) db.getDate().clone(), playerName + " moves to " + clubName, playerName + " has moved to " + clubName + " for €" + format.format(player.getSaleValue()) + "!"));
 		if(db.findClub(clubName).offerContract(player, 50000, new GregorianCalendar((db.getDate().get(Calendar.YEAR) + 3), 5, 30), 0))
@@ -727,14 +723,12 @@ public class Game {
 		return null;
 	}
 	
-	public void save(String fileName){
+	public void save(String fileName) throws FileNotFoundException{
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(new File(fileName)));
 			oos.writeObject(db);
 			oos.flush();
 			oos.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

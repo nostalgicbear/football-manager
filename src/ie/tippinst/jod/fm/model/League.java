@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class League extends Competition implements Serializable {
@@ -20,7 +18,6 @@ public class League extends Competition implements Serializable {
 	private List<Calendar> matchDates;
 	private List<Calendar> extraMatchDates = new ArrayList<Calendar>();
 	private Calendar earliestStartDate;
-	//private Calendar[] earliestMatchDates;
 	private League promotedTo;
 	private League relegatedTo;
 	private int numberOfTeamsPromoted;
@@ -73,16 +70,10 @@ public class League extends Competition implements Serializable {
 			table[i][1] = this.getTeams().get(i).getId();
 		}
 		this.table = table;
-		//sortTable(this.table);
 	}
 
 	public void setFixtures(Match[][] fixtures) {
 		this.fixtures = fixtures;
-		/*for (int i = 0; i < fixtures.length; i++) {
-            System.out.println("Round " + (i + 1));
-            System.out.println(Arrays.asList(fixtures[i]));
-            System.out.println();
-        }*/
 	}
 
 	public Match[][] getFixtures() {
@@ -92,8 +83,6 @@ public class League extends Competition implements Serializable {
 	public void updateTable(Match match){
 		for(int i = 0; i < this.getTable().length; i++){
 			if(this.table[i][1] == match.getHomeTeam().getId()){
-				//System.out.println(this.table[i][1]);
-				//System.out.println(match.getHomeTeam().getId());
 				this.table[i][2]++;
 				if(match.getHomeScore() > match.getAwayScore()){
 					this.table[i][3]++;
@@ -126,7 +115,6 @@ public class League extends Competition implements Serializable {
 				this.table[i][9] = (this.table[i][3] * 3) + this.table[i][4];
 			}
 		}
-		//sortTable(table);
 	}
 	
 	public void sortTable(String[][] table){
@@ -191,9 +179,6 @@ public class League extends Competition implements Serializable {
                 if (match == 0) {
                     away = teams - 1;
                 }
-                // Add one so teams are number 1 to teams not 0 to teams - 1
-                // upon display.
-                //rounds[round][match] = (home + 1) + " v " + (away + 1);
                 rounds[round][match] = new Match(this.getTeams().get(home), this.getTeams().get(away), -1, -1, this, this.getTeams().get(home).getHomeGround());
             }
         }
@@ -307,7 +292,6 @@ public class League extends Competition implements Serializable {
 	
 	@Override
 	public void setMatchSchedule(){
-		//System.out.println(this.getName());
 		int daysToAddOn = 0;
 		List<Calendar> currentMatchDates = this.getMatchDates();
 		currentMatchDates.get(0).add(Calendar.YEAR, 1);

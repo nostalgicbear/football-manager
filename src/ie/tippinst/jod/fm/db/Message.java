@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 public class Message implements Comparable<Message>, Serializable{
 	
+	private static final long serialVersionUID = -7625330569109576375L;
 	private int id;
 	private Calendar date;
 	private String heading;
@@ -49,7 +50,6 @@ public class Message implements Comparable<Message>, Serializable{
     public int compareTo(Message m) {
         int compare = this.getDate().compareTo(m.getDate());
         return (compare == 0 ? this.getId() - m.getId() : compare);
-		//return this.getDate().compareTo(m.getDate());
     }
 	public void setId(int id) {
 		this.id = id;

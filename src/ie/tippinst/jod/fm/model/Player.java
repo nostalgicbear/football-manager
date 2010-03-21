@@ -7,7 +7,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
 
-public class Player extends Person implements Serializable {
+public class Player extends Person implements Serializable, Comparable<Player>{
 	
 	private static final long serialVersionUID = -2483513857459943753L;
 	private double marketValue;
@@ -130,13 +130,6 @@ public class Player extends Person implements Serializable {
 		}
 		
 		this.marketValue = this.getCurrentAbility() * constant * (getMonthsRemainingOnContract(date)/1826.0) * positionValue;
-		DecimalFormat myFormatter = new DecimalFormat("000,000");
-		@SuppressWarnings("unused")
-		String output = myFormatter.format(this.marketValue);
-		//System.out.println((this.getCurrentAbility() / 200.0));
-		//System.out.println((getMonthsRemainingOnContract(date)/1826.0));
-		//System.out.println(positionValue);
-		//System.out.println(this.getFirstName() + " " + this.getLastName() + " €" + output);
 	}
 
 	public double getSaleValue() {
@@ -467,7 +460,7 @@ public class Player extends Person implements Serializable {
 			timeOut = this.getDaysUnavailable() / 30 + " months";
 		}
 		list.add((this.getInjury() == null) ? "None" : this.getInjury().getName() + " (Out for " + timeOut + ")");
-		list.add(this.getMatchCondition() + "%");
+		list.add(Math.round(this.getMatchCondition()) + "%");
 		if(this.getFatigue() >= 9000){
 			list.add("Exhausted");
 		}
@@ -540,7 +533,7 @@ public class Player extends Person implements Serializable {
 		else{
 			Iterator<Club> i = this.getInterested().iterator();
 			while(i.hasNext()){
-				interestedClubs = interestedClubs + i.next().getName() + " ";
+				interestedClubs = interestedClubs + i.next().getShortName() + " ";
 			}
 		}
 		list.add(interestedClubs);
@@ -865,9 +858,6 @@ public class Player extends Person implements Serializable {
 		if(currentAbility > this.getPotentialAbility()){
 			this.setPotentialAbility(currentAbility);
 		}
-		//System.out.println(this.getFirstName() + " " + this.getLastName() + " " + this.getCurrentAbility() + " " + this.getPotentialAbility() + " " + this.getPosition() + " " + this.getCurrentClub().getName() + " " + this.getHandling() + " " + this.getReflexes() + " " + this.getCommandOfArea() + " " + this.getDecisions());
-		//System.out.println(strikercurrentAbility);
-		//System.out.println(this.getCurrentAbility());
 	}
 
 	public void setMatchCondition(double matchCondition) {
@@ -976,5 +966,32 @@ public class Player extends Person implements Serializable {
 
 	public List<Club> getRejectedBids() {
 		return rejectedBids;
+	}
+
+	@Override
+	public int compareTo(Player p) {
+		String position1 = this.getPosition();
+		String position2 = p.getPosition();
+		Integer positionNum1 = new Integer(getPositionNum(position1));
+		Integer positionNum2 = new Integer(getPositionNum(position2));
+		int compare = positionNum1.compareTo(positionNum2);;
+        return (compare == 0 ? this.getId() - p.getId() : compare);
+	}
+
+	private int getPositionNum(String position) {
+		int num = 0;
+		if(position.startsWith("GK")){
+			num = 1;
+		}
+		else if(position.startsWith("D")){
+			num = 2;
+		}
+		else if(position.startsWith("M")){
+			num = 3;
+		}
+		else if(position.startsWith("S")){
+			num = 4;
+		}
+		return num;
 	}
 }

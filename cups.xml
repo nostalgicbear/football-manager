@@ -304,7 +304,7 @@
    </void> 
   </void> 
  </object>
- <object class="ie.tippinst.jod.fm.model.Cup"> 
+ <!-- <object class="ie.tippinst.jod.fm.model.Cup"> 
   <void property="id"> 
    <int>10</int> 
   </void> 
@@ -559,5 +559,5 @@
     </object> 
    </void> 
   </void> 
- </object>
+ </object>-->
 </java> 

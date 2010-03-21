@@ -1,22 +1,28 @@
 package ie.tippinst.jod.fm.gui.panels;
 
-import java.util.Calendar;
-import java.util.List;
-
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Match;
 
-import javax.swing.AbstractListModel;
+import java.util.Calendar;
+import java.util.List;
+
 import javax.swing.GroupLayout;
-import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 public class FixturesPanel extends JPanel {
 
-    public FixturesPanel(String club) {
+	private static final long serialVersionUID = -1061313533884167921L;
+    private JScrollPane fixturesScrollPane;
+    private JTable fixturesTable;
+    private TableColumn fixturesTableColumn;
+    private Game game;
+    private String club;
+	
+	public FixturesPanel(String club) {
     	game = Game.getInstance();
     	this.club = club;
         initComponents();
@@ -94,13 +100,4 @@ public class FixturesPanel extends JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }
-
-    // Variables declaration - do not modify
-    private javax.swing.JScrollPane fixturesScrollPane;
-    private JTable fixturesTable;
-    private TableColumn fixturesTableColumn;
-    private Game game;
-    private String club;
-    // End of variables declaration
-
 }

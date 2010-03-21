@@ -3,7 +3,6 @@ package ie.tippinst.jod.fm.gui.panels;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Player;
 
-import java.awt.Color;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -33,7 +32,6 @@ public class ShortlistPanel extends JPanel {
     	shortlistTableScrollPane = new JScrollPane();
         shortlistTable = new JTable();
         shortlistTableHeader = shortlistTable.getTableHeader();
-        new JButton();
         
         List<Player> list = game.getShortlist(user);
     	int numberOfPlayers = list.size();
@@ -48,9 +46,6 @@ public class ShortlistPanel extends JPanel {
                 "Name", "Position"
             }
         ));
-        //shortlistTable.setGridColor(new Color(255, 255, 255));
-        //shortlistTableHeader.setForeground(Color.white);
-        //shortlistTableHeader.setBackground(Color.red);
         shortlistTableScrollPane.setViewportView(shortlistTable);
         
         GroupLayout layout = new GroupLayout(this);

@@ -7,15 +7,13 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Match implements Comparable<Match>, Serializable {
+
+	private static final long serialVersionUID = -3956461047567788491L;
 	private Calendar date;
 	private Club homeTeam;
 	private Club awayTeam;
 	private int homeScore;
 	private int awayScore;
-	/*private List<Player> homeScorers = new ArrayList<Player>();
-	private List<Player> awayScorers = new ArrayList<Player>();
-	private List<Integer> homeGoalMinutes = new ArrayList<Integer>();
-	private List<Integer> awayGoalMinutes = new ArrayList<Integer>();*/
 	private List<Goal> homeGoals = new ArrayList<Goal>();
 	private List<Goal> awayGoals = new ArrayList<Goal>();
 	private Competition competition;
@@ -131,21 +129,9 @@ public class Match implements Comparable<Match>, Serializable {
 	@Override
 	public String toString() {
 		String homeGoalscorers = "";
-		/*Iterator<Player> i = this.getHomeScorers().iterator();
-		while(i.hasNext()){
-			Player p = i.next();
-			homeGoalscorers = homeGoalscorers + ", " + p.getFirstName() + " " + p.getLastName() + " " + (((int)(Math.random() * 90)) + 1) + "'"; 
-		}*/
 		String awayGoalscorers = "";
-		/*i = this.getHomeScorers().iterator();
-		while(i.hasNext()){
-			Player p = i.next();
-			awayGoalscorers = awayGoalscorers + ", " + p.getFirstName() + " " + p.getLastName() + " " + (((int)(Math.random() * 90)) + 1) + "'"; 
-		}*/
 		String match = homeTeam.getName() + " " + (this.isPostponed() ? "P" : "") + (homeScore == -1 ? "" : homeScore) + "-" + (this.isPostponed() ? "P" : "") + (awayScore == -1 ? "" : awayScore) + " " + awayTeam.getName()
 		+ (homeScore >= 100 ? "\n" + homeTeam.getName() + " Goalscorers: " + homeGoalscorers : "") + (awayScore >= 100 ? "\n" + awayTeam.getName() + " Goalscorers: " + awayGoalscorers : "");
-		//System.out.println(match);
-		//System.out.println(this.isPostponed());
 		return match;
 	}
 	
@@ -176,17 +162,6 @@ public class Match implements Comparable<Match>, Serializable {
 		if(home)
 			teamGround = 60;
 		teamLuck = ((int)(Math.random() * 600)) + 1;
-		
-		// This is for testing only
-		if(teamAbility == 0){
-			//if(home){
-				//teamAbility = (this.getHomeTeam().getReputation() / 10000) * 3740;
-				teamAbility = 1200;
-				teamMorale = 300;
-				teamCondition = 350;
-			//}
-		}
-		//
 		
 		return (teamAbility + teamMorale + teamCondition + teamGround + teamLuck);	
 	}
@@ -432,7 +407,6 @@ public class Match implements Comparable<Match>, Serializable {
 			for (int i = 0; i < this.getHomeScore(); i++) {
 				Goal goal = new Goal();
 				goal.setMinute((int) (Math.random() * 90) + 1);
-				//this.getHomeGoalMinutes().add(new Integer((int) (Math.random() * 90) + 1));
 				int index = (int) (Math.random() * 1341);
 				if (index == 0)
 					index = 0;
@@ -456,7 +430,6 @@ public class Match implements Comparable<Match>, Serializable {
 					index = 9;
 				else if (index <= 1340)
 					index = 10;
-				//this.getHomeScorers().add(this.getHomeTeam().getSelectedTeam().get(index));
 				goal.setScorer(this.getHomeTeam().getSelectedTeam().get(index));
 				this.getHomeGoals().add(goal);
 				this.getHomeTeam().getSelectedTeam().get(index).setLeagueGoals(this.getHomeTeam().getSelectedTeam().get(index).getLeagueGoals() + 1);
@@ -469,7 +442,6 @@ public class Match implements Comparable<Match>, Serializable {
 			for (int i = 0; i < this.getAwayScore(); i++) {
 				Goal goal = new Goal();
 				goal.setMinute((int) (Math.random() * 90) + 1);
-				//this.getAwayGoalMinutes().add(new Integer((int) (Math.random() * 90) + 1));
 				int index = (int) (Math.random() * 1341);
 				if (index == 0)
 					index = 0;
@@ -493,7 +465,6 @@ public class Match implements Comparable<Match>, Serializable {
 					index = 9;
 				else if (index <= 1340)
 					index = 10;
-				//this.getAwayScorers().add(this.getAwayTeam().getSelectedTeam().get(index));
 				goal.setScorer(this.getAwayTeam().getSelectedTeam().get(index));
 				this.getAwayGoals().add(goal);
 				this.getAwayTeam().getSelectedTeam().get(index).setLeagueGoals(this.getAwayTeam().getSelectedTeam().get(index).getLeagueGoals() + 1);
@@ -534,7 +505,6 @@ public class Match implements Comparable<Match>, Serializable {
 		Iterator<Player> i = this.getHomeTeam().getSelectedTeam().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
-			//TODO: update each player's current ability after match
 			//update each player's fitness, fatigue and condition after match
 			p.setFitness(p.getFitness() + 250);
 			p.setFatigue(p.getFatigue() + 250);
@@ -542,15 +512,11 @@ public class Match implements Comparable<Match>, Serializable {
 			p.setMatchCondition(p.getMatchCondition() - decrease);
 			p.setLeagueAppearances(p.getLeagueAppearances() + 1);
 			p.setMorale(p.getMorale() + (200 * (this.getHomeScore() - this.getAwayScore())));
-			//TODO: update each player's reputation after every match
-			//TODO: update each player's happiness after every match
-			//TODO: update each club's reputation after every match
 		}
 		
 		i = this.getAwayTeam().getSelectedTeam().iterator();
 		while(i.hasNext()){
 			Player p = i.next();
-			//TODO: update each player's current ability after match
 			//update each player's fitness, fatigue and condition after match
 			p.setFitness(p.getFitness() + 250);
 			p.setFatigue(p.getFatigue() + 250);
@@ -559,9 +525,6 @@ public class Match implements Comparable<Match>, Serializable {
 			p.setLeagueAppearances(p.getLeagueAppearances() + 1);
 			//update each player's morale after every match
 			p.setMorale(p.getMorale() + (200 * (this.getAwayScore() - this.getHomeScore())));
-			//TODO: update each player's reputation after every match
-			//TODO: update each player's happiness after every match
-			//TODO: update each club's reputation after every match
 		}
 		int tickets = homeAttendance - this.getHomeTeam().getNumberOfSeasonTicketHolders();
 		if(tickets < 0)
@@ -683,6 +646,7 @@ public class Match implements Comparable<Match>, Serializable {
 	}
 	
 	private void getYellowCards(boolean home){
+		boolean invalid = true;
 		Club c = this.getAwayTeam();
 		List<Card> teamYellowCards = this.getAwayYellowCards();
 		if(home){
@@ -693,14 +657,25 @@ public class Match implements Comparable<Match>, Serializable {
 			int numberOfYellowCards = getNumberOfYellowCards();
 			for (int i = 0; i < numberOfYellowCards; i++) {
 				int index = (int) (Math.random() * 11);
-				while(teamYellowCards.contains(c.getSelectedTeam().get(index)))
-					index = (int) (Math.random() * 11);
+				while(invalid){
+					invalid = false;
+					Iterator<Card> iCard = teamYellowCards.iterator();
+					while(iCard.hasNext()){
+						Card card = iCard.next();
+						if(card.getPlayer().getId() == c.getSelectedTeam().get(index).getId()){
+							index = (int) (Math.random() * 11);
+							invalid = true;
+							break;
+						}
+					}
+				}
 				teamYellowCards.add(new Card(c.getSelectedTeam().get(index), ((int) (Math.random() * 90) + 1), 0));
 			}
 		}
 	}
 	
 	private void getRedCards(boolean home){
+		boolean invalid = true;
 		Club c = this.getAwayTeam();
 		List<Card> teamRedCards = this.getAwayRedCards();
 		if(home){
@@ -711,8 +686,18 @@ public class Match implements Comparable<Match>, Serializable {
 			int numberOfRedCards = getNumberOfRedCards();
 			for (int i = 0; i < numberOfRedCards; i++) {
 				int index = (int) (Math.random() * 11);
-				while(teamRedCards.contains(c.getSelectedTeam().get(index)))
-					index = (int) (Math.random() * 11);
+				while(invalid){
+					invalid = false;
+					Iterator<Card> iCard = teamRedCards.iterator();
+					while(iCard.hasNext()){
+						Card card = iCard.next();
+						if(card.getPlayer().getId() == c.getSelectedTeam().get(index).getId()){
+							index = (int) (Math.random() * 11);
+							invalid = true;
+							break;
+						}
+					}
+				}
 				teamRedCards.add(new Card(c.getSelectedTeam().get(index), ((int) (Math.random() * 90) + 1), 1));
 			}
 		}
@@ -722,19 +707,15 @@ public class Match implements Comparable<Match>, Serializable {
 		int redCardDeterminant = (int) (Math.random() * 1000) + 1;
 		int redCards = -1;
 		if(redCardDeterminant > 100){
-			//0
 			redCards = 0;
 		}
 		else if(redCardDeterminant > 10){
-			//1
 			redCards = 1;
 		}
 		else if(redCardDeterminant > 1){
-			//2
 			redCards = 2;
 		}
 		else{
-			//3
 			redCards = 3;
 		}
 		return redCards;
@@ -744,47 +725,36 @@ public class Match implements Comparable<Match>, Serializable {
 		int yellowCardDeterminant = (int) (Math.random() * 1000) + 1;
 		int yellowCards = -1;
 		if(yellowCardDeterminant > 850){
-			//0
 			yellowCards = 0;
 		}
 		else if(yellowCardDeterminant > 650){
-			//1
 			yellowCards = 1;
 		}
 		else if(yellowCardDeterminant > 400){
-			//2
 			yellowCards = 2;
 		}
 		else if(yellowCardDeterminant > 220){
-			//3
 			yellowCards = 3;
 		}
 		else if(yellowCardDeterminant > 120){
-			//4
 			yellowCards = 4;
 		}
 		else if(yellowCardDeterminant > 60){
-			//5
 			yellowCards = 5;
 		}
 		else if(yellowCardDeterminant > 20){
-			//6
 			yellowCards = 6;
 		}
 		else if(yellowCardDeterminant > 8){
-			//7
 			yellowCards = 7;
 		}
 		else if(yellowCardDeterminant > 3){
-			//8
 			yellowCards = 8;
 		}
 		else if(yellowCardDeterminant > 1){
-			//9
 			yellowCards = 9;
 		}
 		else{
-			//10
 			yellowCards = 10;
 		}
 		return yellowCards;

@@ -39,6 +39,9 @@ public class PlayerContractPanel extends JPanel {
     	wagesValueLabel.setText(list.get(33));
     	happinessValueLabel.setText(list.get(34));
     	interestedValueLabel.setText(list.get(35));
+    	if(interestedValueLabel.getText().length() > 30){
+    		interestedValueLabel.setText("more than 5 clubs");
+    	}
     }
 
     private void initComponents() {

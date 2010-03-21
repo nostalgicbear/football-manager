@@ -1,8 +1,11 @@
 package ie.tippinst.jod.fm.gui.dialogs;
+
 import ie.tippinst.jod.fm.app.Game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.text.DecimalFormat;
 
 import javax.swing.GroupLayout;
@@ -11,26 +14,16 @@ import javax.swing.JComponent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 
 import ie.tippinst.jod.fm.gui.MainGameScreen;
 
-
-/**
-* This code was edited or generated using CloudGarden's Jigloo
-* SWT/Swing GUI Builder, which is free for non-commercial
-* use. If Jigloo is being used commercially (ie, by a corporation,
-* company or business for any purpose whatever) then you
-* should purchase a license for each developer using Jigloo.
-* Please visit www.cloudgarden.com for details.
-* Use of Jigloo implies acceptance of these licensing terms.
-* A COMMERCIAL LICENSE HAS NOT BEEN PURCHASED FOR
-* THIS MACHINE, SO JIGLOO OR THIS CODE CANNOT BE USED
-* LEGALLY FOR ANY CORPORATE OR COMMERCIAL PURPOSE.
-*/
 public class TransferOffer extends javax.swing.JDialog {
+
+	private static final long serialVersionUID = 3124200645085934550L;
 	private JLabel feeLabel;
 	private JTextField feeTextField;
 	private JLabel euroSymbolLabel2;
@@ -51,13 +44,51 @@ public class TransferOffer extends javax.swing.JDialog {
 		this.transferBudget = transferBudget;
 		frame.setEnabled(false);
 		initGUI();
-		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+        this.addWindowListener(new WindowListener(){
+
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				cancelAction();				
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowIconified(WindowEvent arg0) {
+				
+			}
+
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+				
+			}
+        	
+        });
 		
 		cancelButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cancelAction(e);
+				cancelAction();
 			}
 			
 		});
@@ -80,13 +111,12 @@ public class TransferOffer extends javax.swing.JDialog {
 		this.getParent().validate();
 		this.dispose();
 		if(!(game.makeOfferForPlayer(user, player, Integer.parseInt(feeTextField.getText())))){
-			//TODO: Dialogue box to inform user that they do not have enough transfer budget to make that bid
-			System.out.println("Transfer budget too low");
+			JOptionPane.showMessageDialog(this, "You do not have enough to make that offer!");
 		}
 			
 	}
 	
-	private void cancelAction(ActionEvent ae){
+	private void cancelAction(){
 		this.getParent().setEnabled(true);
 		this.dispose();
 	}

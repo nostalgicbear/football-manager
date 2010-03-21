@@ -3,7 +3,6 @@ package ie.tippinst.jod.fm.gui.panels;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.NonPlayer;
 
-import java.awt.Color;
 import java.util.List;
 
 import javax.swing.GroupLayout;
@@ -46,9 +45,6 @@ public class StaffPanel extends JPanel {
                 "Name", "Role"
             }
         ));
-        //staffTable.setGridColor(new Color(255, 255, 255));
-        //staffTableHeader.setForeground(Color.white);
-        //staffTableHeader.setBackground(Color.red);
         staffTableScrollPane.setViewportView(staffTable);
         
         GroupLayout layout = new GroupLayout(this);

@@ -45,8 +45,7 @@ public class Database implements Serializable{
 	private String fileName;
 
 	/*
-	 * This constructs a new game object with the initial date set at 2 July
-	 * 2009
+	 * This constructs a new game object with the initial date set at 2 August 2009
 	 */
 	public Database() {
 		super();
@@ -592,17 +591,6 @@ public class Database implements Serializable{
 			p.setAge(this.getDate());
 			if (p instanceof Player) {
 				Player player = (Player) p;
-				 //update current ability
-				/*int peakAge = 33; if(player.getRightFullbackAbility() == 20
-				 || player.getLeftFullbackAbility() == 20 ||
-				 player.getCentrebackAbility() == 20) peakAge-=2; else
-				 if(player.getRightMidfieldAbility() == 20 ||
-				 player.getLeftMidfieldAbility() == 20 ||
-				 player.getCentreMidfieldAbility() == 20) peakAge-=4; else
-				 if(player.getStrikerAbility() == 20) peakAge-=6;
-				 if(player.getAge() > peakAge){ //reduce current ability }
-				 else if(player.getCurrentAbility() <
-				 player.getPotentialAbility()){ //increase current ability }*/
 				
 				//update market value
 				player.setMarketValue(this.getDate());
@@ -665,7 +653,6 @@ public class Database implements Serializable{
 					}
 				}
 			}
-			// TODO: update happiness
 		}
 		//update manager shortlists
 		this.setManagerShortlists();

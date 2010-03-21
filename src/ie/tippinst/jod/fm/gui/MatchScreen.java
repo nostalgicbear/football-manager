@@ -1,4 +1,10 @@
 package ie.tippinst.jod.fm.gui;
+
+import ie.tippinst.jod.fm.model.Card;
+import ie.tippinst.jod.fm.model.Goal;
+import ie.tippinst.jod.fm.model.Match;
+import ie.tippinst.jod.fm.model.Player;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -11,30 +17,22 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ie.tippinst.jod.fm.model.Card;
-import ie.tippinst.jod.fm.model.Goal;
-import ie.tippinst.jod.fm.model.Match;
-import ie.tippinst.jod.fm.model.Player;
-
 import javax.swing.DefaultComboBoxModel;
-
 import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.LayoutStyle;
 import javax.swing.ListModel;
-
 import javax.swing.WindowConstants;
-import javax.swing.SwingUtilities;
 
 
-public class MatchScreen extends javax.swing.JFrame {
+public class MatchScreen extends JFrame {
+
+	private static final long serialVersionUID = 7516174674476294455L;
 	private JLabel homeTeamNameLabel;
 	private JLabel homeTeamScoreLabel;
 	private JButton leaveMatchButton;
@@ -58,9 +56,10 @@ public class MatchScreen extends javax.swing.JFrame {
 		super();
 		
 		this.match = match;
-		//this.setUndecorated(true);
 		initGUI();
 		this.setSize(850, 420);
+		this.setResizable(false);
+		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 
 		timer = new Timer();
@@ -143,6 +142,9 @@ public class MatchScreen extends javax.swing.JFrame {
 	private void initGUI() {
 		icon = new ImageIcon("football_stadium.jpg");
         panel = new JPanel(){
+
+			private static final long serialVersionUID = -2893292897263506673L;
+
 			protected void paintComponent(Graphics g){
 				Dimension d = getSize();
 				g.drawImage(icon.getImage(), 0, 0, d.width, d.height, null);
@@ -312,7 +314,6 @@ public class MatchScreen extends javax.swing.JFrame {
             .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        //pack();
 	}
 
 }

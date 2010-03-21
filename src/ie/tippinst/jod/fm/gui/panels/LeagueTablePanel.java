@@ -2,16 +2,12 @@ package ie.tippinst.jod.fm.gui.panels;
 
 import ie.tippinst.jod.fm.app.Game;
 
-import java.awt.Color;
-import java.awt.Component;
-
 import javax.swing.GroupLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
 
 public class LeagueTablePanel extends JPanel {
@@ -49,10 +45,7 @@ public class LeagueTablePanel extends JPanel {
                 leagueTableColumn.setPreferredWidth(30);
             }
         }
-        
-        //leagueTable.setGridColor(new Color(255, 255, 255));
-		//leagueTableHeader.setForeground(Color.white);
-        //leagueTableHeader.setBackground(Color.red);
+
         leagueTableScrollPane.setViewportView(leagueTable);
         
         GroupLayout layout = new GroupLayout(this);

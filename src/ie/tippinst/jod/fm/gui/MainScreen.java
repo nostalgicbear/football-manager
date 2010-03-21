@@ -1,7 +1,5 @@
 package ie.tippinst.jod.fm.gui;
 
-import ie.tippinst.jod.fm.app.Game;
-
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -16,9 +14,7 @@ import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JProgressBar;
 import javax.swing.LayoutStyle;
-import javax.swing.ProgressMonitor;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
 import javax.swing.filechooser.FileFilter;
@@ -31,12 +27,11 @@ public class MainScreen extends JFrame {
 	private JButton quitGame;
 	private JLabel image;
 	private JFileChooser fc;
-	//private Game game;
 	
 	public MainScreen(){
 		super("Football Manager");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		fc = new JFileChooser("H:\\usb\\College\\Year 3\\Project\\FootballManager\\FootballManager\\games");
+		fc = new JFileChooser("games");
 		fc.setAcceptAllFileFilterUsed(false);
 		fc.setFileFilter(new FileFilter(){
 
@@ -61,13 +56,11 @@ public class MainScreen extends JFrame {
 		loadGame.setFont(new java.awt.Font("Verdana",1,12));
 		loadGame.setBackground(Color.LIGHT_GRAY);
 		loadGame.setForeground(Color.BLACK);
-		//loadGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		loadGame.setToolTipText("Load a previously saved game");
 		quitGame = new JButton("Quit Game");
 		quitGame.setFont(new java.awt.Font("Verdana",1,12));
 		quitGame.setBackground(Color.LIGHT_GRAY);
 		quitGame.setForeground(Color.BLACK);
-		//quitGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		quitGame.setToolTipText("Exit the game");
 		{
 			image = new JLabel(new ImageIcon("football_manager_logo.gif"));
@@ -80,7 +73,6 @@ public class MainScreen extends JFrame {
 			newGame.setFont(new java.awt.Font("Verdana",1,12));
 			newGame.setBackground(Color.LIGHT_GRAY);
 			newGame.setForeground(Color.BLACK);
-			//newGame.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 			newGame.setToolTipText("Create a new game");
 			newGame.addActionListener(new ActionListener() {
 				
@@ -136,7 +128,6 @@ public class MainScreen extends JFrame {
 	
 	private void startNewGame(ActionEvent ae){
 		this.setCursor(new Cursor(Cursor.WAIT_CURSOR));	    
-		//game = Game.getInstance();
 	    NewUserScreen ns = new NewUserScreen();	    
 	    ns.setVisible(true);
 	    this.setVisible(false);
@@ -147,7 +138,7 @@ public class MainScreen extends JFrame {
 		int returnVal = fc.showOpenDialog(this);
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
             file = fc.getSelectedFile();
-            this.setCursor(new Cursor(Cursor.WAIT_CURSOR));	    
+            this.setCursor(new Cursor(Cursor.WAIT_CURSOR));
             MainGameScreen mg = new MainGameScreen(file.getAbsolutePath());
             mg.setVisible(true);
             this.setVisible(false);

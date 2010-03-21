@@ -3,8 +3,6 @@ package ie.tippinst.jod.fm.gui.panels;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Player;
 
-import java.awt.Color;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +27,8 @@ public class SquadPanel extends JPanel {
     private String userClub;
     private TableColumn squadTableColumn;
     private JComboBox selectionComboBox;
-    private SquadPanel oldPanel;
     private int unEditableColumn;
+    private SquadPanel oldPanel;
     
     public SquadPanel(String club, SquadPanel oldPanel, String userClub) {
     	game = Game.getInstance();
@@ -40,29 +38,35 @@ public class SquadPanel extends JPanel {
     		unEditableColumn = 0;
     	else
     		unEditableColumn = -1;
-    	this.oldPanel = oldPanel;
+    	this.oldPanel = oldPanel; 
     	initComponents();
     }   
     
     private void initComponents(){
     	squadTableScrollPane = new JScrollPane();
-        squadTable = new JTable(){    
+        squadTable = new JTable(){
+
+			private static final long serialVersionUID = -7714925275080473440L;
+
+			@Override
         	public boolean isCellEditable(int row, int col) {   
             int column = getColumnModel().getColumn(col).getModelIndex();   
             return (column == unEditableColumn);
-        }};
+        	}
+        };
+        squadTable.setAutoCreateRowSorter(true);
         squadTableHeader = squadTable.getTableHeader();
         
         List<Player> list = game.getSquad(club);
     	int squadSize = list.size();
     	String[][] data = new String[squadSize][9];
     	for (int i = 0; i < squadSize; i++){
-    		if(this.oldPanel == null)
-    			data[i][0] = "";
-    		else if(oldPanel.getClub().equals(this.getClub()) && i < oldPanel.getSquadTable().getRowCount())
-    			data[i][0] = (String) oldPanel.getSquadTable().getValueAt(i, 0);
-    		else if(oldPanel.getClub().equals(this.getClub()))
-    			data[i][0] = "";
+    		if(this.oldPanel == null) 
+                data[i][0] = ""; 
+    		else if(oldPanel.getClub().equals(this.getClub()) && i < oldPanel.getSquadTable().getRowCount()) 
+                data[i][0] = (String) oldPanel.getSquadTable().getValueAt(i, 0); 
+    		else if(oldPanel.getClub().equals(this.getClub())) 
+                data[i][0] = "";  
     		data[i][1] = list.get(i).getFirstName() + " " + list.get(i).getLastName();
     		data[i][2] = list.get(i).getPosition();
     		if(list.get(i).getMorale() >= 8000){
@@ -109,19 +113,15 @@ public class SquadPanel extends JPanel {
         selectionComboBox.addItem("GK");
         selectionComboBox.addItem("DR");
         selectionComboBox.addItem("DL");
-        selectionComboBox.addItem("CB");
-        selectionComboBox.addItem("CB");
+        selectionComboBox.addItem("CB1");
+        selectionComboBox.addItem("CB2");
         selectionComboBox.addItem("MR");
         selectionComboBox.addItem("ML");
-        selectionComboBox.addItem("CM");
-        selectionComboBox.addItem("CM");
-        selectionComboBox.addItem("S");
-        selectionComboBox.addItem("S");
+        selectionComboBox.addItem("CM1");
+        selectionComboBox.addItem("CM2");
+        selectionComboBox.addItem("S1");
+        selectionComboBox.addItem("S2");
         selectionColumn.setCellEditor(new DefaultCellEditor(selectionComboBox));
-
-        //squadTable.setGridColor(new Color(255, 255, 255));
-        //squadTableHeader.setForeground(Color.white);
-        //squadTableHeader.setBackground(Color.red);
         
         for (int i = 0; i < 7; i++) {
             squadTableColumn = squadTable.getColumnModel().getColumn(i);
@@ -187,9 +187,7 @@ public class SquadPanel extends JPanel {
 				if (!(this.getSquadTable().getValueAt(i, 0).equals(""))) {
 					players.add((String) this.getSquadTable().getValueAt(i, 1));
 				}
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
+			} catch (Exception e) {}
 		}
 		return players;
 	}

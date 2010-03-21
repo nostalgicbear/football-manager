@@ -4,29 +4,21 @@ import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.db.Message;
 import ie.tippinst.jod.fm.gui.dialogs.ContractOffer;
 
-import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListCellRenderer;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.LayoutStyle;
-import javax.swing.ListCellRenderer;
 import javax.swing.ListModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -36,6 +28,8 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
 public class InboxPanel extends JPanel {
+
+	private static final long serialVersionUID = 6590827433576376494L;
 	private JList messageList;
 	private JTextPane messageTextPane;
 	private JScrollPane messageListScrollPane;
@@ -131,8 +125,6 @@ public class InboxPanel extends JPanel {
 		String playerName = header.substring(index + 1);
 		index = playerName.indexOf("(");
 		playerName = playerName.substring(0, index - 1);
-		//System.out.println(playerName);
-		//System.out.println(clubName);
 		game.sellPlayer(playerName, clubName);	
 	}
 
@@ -176,12 +168,8 @@ public class InboxPanel extends JPanel {
 		} catch (BadLocationException e) {
 			e.printStackTrace();
 		}
-		//messageTextPane.setText(header + "\n\n" + game.getMessageBody(messageList.getSelectedIndex()) + "\n\n");
 		if((showContractButtons) && (messageTextPane.getText().contains("You now have permission to offer him a contract!")) 
 				&& (game.getDate().get(Calendar.DAY_OF_MONTH) == game.getMessageDate(messageList.getSelectedIndex()).get(Calendar.DAY_OF_MONTH))){
-			//game.getDate().compareTo(game.getMessageDate(messageList.getSelectedIndex())) == 0
-			//System.out.println(game.getDate().getTime());
-			//System.out.println(game.getMessageDate(messageList.getSelectedIndex()).getTime());
 			messageTextPane.insertComponent(offerContractButton);
 			messageTextPane.insertComponent(withdrawOfferButton);
 		}
@@ -211,20 +199,15 @@ public class InboxPanel extends JPanel {
 				for(int i = 0; i < data.length; i++){
 					data[i] = list.get(i).getHeading() + " (" + list.get(i).getDate().get(Calendar.DAY_OF_MONTH) + "/"+ (list.get(i).getDate().get(Calendar.MONTH) + 1) + "/" + list.get(i).getDate().get(Calendar.YEAR) + ")";
 				}
-				/*Iterator<Message> i = list.iterator();
-				while(i.hasNext()){
-					System.out.println(i.next().getBody());
-				}*/
+
 				ListModel messageListModel = new DefaultComboBoxModel(data);
 				messageList = new JList();
 				messageList.setModel(messageListModel);
 				messageListScrollPane = new JScrollPane(messageList);
-				//messageList.setPreferredSize(new java.awt.Dimension(396, 92));
 			}
 			{
 				messageTextPane = new JTextPane();
 				messageTextPane.setText("No message selected");
-				//messageTextPane.setPreferredSize(new java.awt.Dimension(397, 198));
 				messageTextPane.setEditable(false);
 				if(messageList.getModel().getSize() > 0){
 					messageList.setSelectedIndex(0);

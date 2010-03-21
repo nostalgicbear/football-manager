@@ -3,12 +3,10 @@ package ie.tippinst.jod.fm.gui.panels;
 import ie.tippinst.jod.fm.app.Game;
 import ie.tippinst.jod.fm.model.Player;
 
-import java.awt.Color;
 import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.swing.GroupLayout;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -30,9 +28,17 @@ public class PlayerSearchPanel extends JPanel {
     
     private void initComponents(){
     	playerSearchTableScrollPane = new JScrollPane();
-        playerSearchTable = new JTable();
+        playerSearchTable = new JTable(){
+        	
+			private static final long serialVersionUID = -1183658066718019385L;
+
+			@Override
+        	public boolean isCellEditable(int row, int col) {   
+            int column = getColumnModel().getColumn(col).getModelIndex();   
+            return false;
+        	}
+        };
         playerSearchTableHeader = playerSearchTable.getTableHeader();
-        new JButton();
         
         List<Player> list = game.getPlayers();
     	int numberOfPlayers = list.size();
@@ -53,9 +59,6 @@ public class PlayerSearchPanel extends JPanel {
                 "Name", "Position", "Club", "Age", "Nationality", "Value"
             }
         ));
-        //playerSearchTable.setGridColor(new Color(255, 255, 255));
-        //playerSearchTableHeader.setForeground(Color.white);
-        //playerSearchTableHeader.setBackground(Color.red);
         playerSearchTable.setAutoCreateRowSorter(true);
         playerSearchTableScrollPane.setViewportView(playerSearchTable);
         

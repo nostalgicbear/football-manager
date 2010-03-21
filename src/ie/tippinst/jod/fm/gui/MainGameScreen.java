@@ -28,6 +28,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -45,12 +46,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.LayoutStyle;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.table.DefaultTableModel;
 
 public class MainGameScreen extends JFrame {
 	
@@ -138,9 +137,7 @@ public class MainGameScreen extends JFrame {
     private JPanel playerSidePanel;
     private JButton makeOfferForPlayerButton;
     private JButton addToShortlistButton;
-    private JButton scoutPlayerButton;
     private JPanel userPlayerSidePanel;
-    private JButton setTransferStatusButton;
     private JButton offerNewContractButton;
     private JPanel playerSearchSidePanel;
     private JButton viewSelectedPlayerForPlayerSearchButton;
@@ -158,7 +155,7 @@ public class MainGameScreen extends JFrame {
     /*Creates new MainGameScreen */
     public MainGameScreen(String file) {
     	super("Football Manager");
-    	fc = new JFileChooser("H:\\usb\\College\\Year 3\\Project\\FootballManager\\FootballManager\\games");
+    	fc = new JFileChooser("games");
 		fc.setAcceptAllFileFilterUsed(false);
 		fc.setFileFilter(new FileFilter(){
 
@@ -626,13 +623,21 @@ public class MainGameScreen extends JFrame {
             if(!(fileName.endsWith(".fm"))){
             	fileName = fileName + ".fm";
             }
-            game.save(fileName);
+            try {
+				game.save(fileName);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	private void saveGame() {
 		if(game.isSaved()){
-			game.save(game.getFileName());
+			try {
+				game.save(game.getFileName());
+			} catch (FileNotFoundException e) {
+				saveGameAs();
+			}
 		}
 		else{
 			saveGameAs();
@@ -713,9 +718,7 @@ public class MainGameScreen extends JFrame {
         playerSidePanel = new JPanel();
         makeOfferForPlayerButton = new JButton("Make Offer");
         addToShortlistButton = new JButton("Add to Shortlist");
-        scoutPlayerButton = new JButton("Get Scout Report");
         userPlayerSidePanel = new JPanel();
-        setTransferStatusButton = new JButton("Set Transfer Status");
         offerNewContractButton = new JButton("Offer New Contract");
         clubPanel = new JTabbedPane();
         playerPanel = new JTabbedPane();
@@ -786,15 +789,13 @@ public class MainGameScreen extends JFrame {
         addToShortlistButton.setFont(new java.awt.Font("Verdana",1,12));
         addToShortlistButton.setBackground(Color.LIGHT_GRAY);
         addToShortlistButton.setForeground(Color.BLACK);
-        scoutPlayerButton.setFont(new java.awt.Font("Verdana",1,12));
-        scoutPlayerButton.setBackground(Color.LIGHT_GRAY);
-        scoutPlayerButton.setForeground(Color.BLACK);
-        setTransferStatusButton.setFont(new java.awt.Font("Verdana",1,12));
-        setTransferStatusButton.setBackground(Color.LIGHT_GRAY);
-        setTransferStatusButton.setForeground(Color.BLACK);
         offerNewContractButton.setFont(new java.awt.Font("Verdana",1,12));
         offerNewContractButton.setBackground(Color.LIGHT_GRAY);
         offerNewContractButton.setForeground(Color.BLACK);
+        viewSelectedPlayerForPlayerSearchButton.setFont(new java.awt.Font("Verdana",1,12));
+        viewSelectedPlayerForPlayerSearchButton.setBackground(Color.LIGHT_GRAY);
+        viewSelectedPlayerForPlayerSearchButton.setForeground(Color.BLACK);
+        
 
         this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.addWindowListener(new WindowListener(){
@@ -835,7 +836,6 @@ public class MainGameScreen extends JFrame {
 			}
         	
         });
-        //this.setExtendedState(this.getExtendedState()|JFrame.MAXIMIZED_BOTH);
         this.setSize(900, 630);
         
         //Display the users squad as the initial screen
@@ -948,7 +948,6 @@ public class MainGameScreen extends JFrame {
             .addGroup(playerSidePaneLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(playerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(scoutPlayerButton)
                 	.addComponent(addToShortlistButton)
                 	.addComponent(makeOfferForPlayerButton))
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -961,7 +960,6 @@ public class MainGameScreen extends JFrame {
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addToShortlistButton)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(scoutPlayerButton)
                 .addContainerGap(224, Short.MAX_VALUE))
         );
         
@@ -973,15 +971,13 @@ public class MainGameScreen extends JFrame {
             .addGroup(userPlayerSidePaneLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(userPlayerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(offerNewContractButton)
-                	.addComponent(setTransferStatusButton))
+                    .addComponent(offerNewContractButton))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         userPlayerSidePaneLayout.setVerticalGroup(
         		userPlayerSidePaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(userPlayerSidePaneLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(setTransferStatusButton)
                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(offerNewContractButton)
                 .addContainerGap(224, Short.MAX_VALUE))
@@ -1016,8 +1012,6 @@ public class MainGameScreen extends JFrame {
                     .addComponent(continueButton, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
                     .addComponent(date)))
         );
-
-        //pack();
     }
 
 	private void continueGame(ActionEvent ae){
@@ -1030,7 +1024,6 @@ public class MainGameScreen extends JFrame {
     	}
     	else if(processFixtures){
     		Match m = game.getUserMatch();
-    		//Match m = null;
     		if(m != null){
     			this.setEnabled(false);
     			MatchScreen ms = new MatchScreen(m);

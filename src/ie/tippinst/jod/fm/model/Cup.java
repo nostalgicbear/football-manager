@@ -3,7 +3,6 @@ package ie.tippinst.jod.fm.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -62,7 +61,6 @@ public class Cup extends Competition implements Serializable {
 	
 	public void createRound(int numberOfTeams, int roundNumber, List<Calendar> roundDate, boolean twoLegs, double winnerPrizeMoney, double loserPrizeMoney){
 		Round round = new Round();
-		//System.out.println(roundDate.size());
 		round.setNumberOfTeams(numberOfTeams);
 		round.setRoundNumber(roundNumber);
 		round.setRoundDate(roundDate);

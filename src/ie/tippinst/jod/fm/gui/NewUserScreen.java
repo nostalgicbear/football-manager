@@ -3,13 +3,11 @@ package ie.tippinst.jod.fm.gui;
 import ie.tippinst.jod.fm.app.Game;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -18,8 +16,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle;
-import javax.swing.border.BevelBorder;
 
 public class NewUserScreen extends JFrame {
 	private static final long serialVersionUID = -4736216712349129748L;
@@ -69,7 +65,6 @@ public class NewUserScreen extends JFrame {
 		addUser.setFont(new java.awt.Font("Verdana",1,12));
 		addUser.setBackground(Color.LIGHT_GRAY);
 		addUser.setForeground(Color.BLACK);
-		//addUser.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
 		firstNameTxt.setFont(new java.awt.Font("Verdana",0,12));
 		surnameTxt.setFont(new java.awt.Font("Verdana",0,12));
 		dobDayCbo.setFont(new java.awt.Font("Verdana",0,12));
@@ -81,7 +76,6 @@ public class NewUserScreen extends JFrame {
 		pack();
 
 		this.setLocationRelativeTo(null);
-		//getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setResizable(false);
 		
 		addUser.addActionListener(new ActionListener() {
