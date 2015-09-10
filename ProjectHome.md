@@ -1,0 +1,1 @@
+This is a football manager PC game developed in Java.  It is my 3rd Year Project in my Software Development Degree course.
